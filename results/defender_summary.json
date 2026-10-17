@@ -1,0 +1,58 @@
+{
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "converged": {
+    "0": true,
+    "1": true,
+    "2": true,
+    "3": true,
+    "4": true,
+    "5": true,
+    "6": true,
+    "7": true,
+    "8": true,
+    "9": true
+  },
+  "val_loss": {
+    "mean": 0.7744933209780493,
+    "half_width": 0.0077310054795023155,
+    "n": 10
+  },
+  "val_severity_weighted_error": {
+    "mean": 0.2474372419658573,
+    "half_width": 0.002555936520735431,
+    "n": 10
+  },
+  "val_acc_per_head": {
+    "S": {
+      "mean": 0.9401553094387054,
+      "half_width": 0.00020384850519587829,
+      "n": 10
+    },
+    "B": {
+      "mean": 0.9685863971710205,
+      "half_width": 0.0002103625143150271,
+      "n": 10
+    },
+    "L": {
+      "mean": 0.7989562451839447,
+      "half_width": 0.002997631810541874,
+      "n": 10
+    }
+  },
+  "gate": {
+    "metric": "all seeds converged",
+    "pass": true,
+    "n_seeds": 10
+  }
+}

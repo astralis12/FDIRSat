@@ -1,0 +1,143 @@
+{
+  "modes": {
+    "sw_dagger": {
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "fidelity_closed_loop_pp": {
+        "mean": 94.80751276016235,
+        "half_width": 0.7139145924398941,
+        "n": 10
+      },
+      "fidelity_uniform_pp": {
+        "mean": 78.89535963535309,
+        "half_width": 3.778733513874279,
+        "n": 10
+      },
+      "sev_weighted_disagreement": {
+        "mean": 0.04928936883807182,
+        "half_width": 0.006530460654001912,
+        "n": 10
+      },
+      "hazard_rate": {
+        "mean": 0.1146820068359375,
+        "half_width": 0.0031954747789403846,
+        "n": 10
+      },
+      "leaves": {
+        "mean": 2820.6,
+        "half_width": 189.11152820719792,
+        "n": 10
+      },
+      "adversary_failures_found": 216206,
+      "fuzzing_failures_found": 44976
+    },
+    "dagger": {
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "fidelity_closed_loop_pp": {
+        "mean": 94.09804463386536,
+        "half_width": 1.9564178204436087,
+        "n": 5
+      },
+      "fidelity_uniform_pp": {
+        "mean": 78.12036037445068,
+        "half_width": 6.720435925580507,
+        "n": 5
+      },
+      "sev_weighted_disagreement": {
+        "mean": 0.05791659131646156,
+        "half_width": 0.018183471515647184,
+        "n": 5
+      },
+      "hazard_rate": {
+        "mean": 0.114190673828125,
+        "half_width": 0.005587607235495797,
+        "n": 5
+      },
+      "leaves": {
+        "mean": 2887.0,
+        "half_width": 460.9233373948342,
+        "n": 5
+      },
+      "adversary_failures_found": 0,
+      "fuzzing_failures_found": 0
+    },
+    "bc": {
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "fidelity_closed_loop_pp": {
+        "mean": 41.54912531375885,
+        "half_width": 12.698322223329793,
+        "n": 10
+      },
+      "fidelity_uniform_pp": {
+        "mean": 82.27482080459595,
+        "half_width": 3.1302518625064337,
+        "n": 10
+      },
+      "sev_weighted_disagreement": {
+        "mean": 0.555194552987814,
+        "half_width": 0.10680589970988667,
+        "n": 10
+      },
+      "hazard_rate": {
+        "mean": 0.23870849609375,
+        "half_width": 0.11004427651857483,
+        "n": 10
+      },
+      "leaves": {
+        "mean": 3159.8,
+        "half_width": 354.2150636733456,
+        "n": 10
+      },
+      "adversary_failures_found": 0,
+      "fuzzing_failures_found": 0
+    }
+  },
+  "deploy": {
+    "mode": "sw_dagger",
+    "seed": 9,
+    "rule": "lowest closed-loop severity-weighted disagreement (held-out env seeds)",
+    "selected": {
+      "fidelity_closed_loop": 0.9611675441265106,
+      "sev_weighted_disagreement": 0.0379153098911047,
+      "hazard_rate": 0.1182861328125,
+      "round": 6,
+      "n_data": 3000000,
+      "depth": 12,
+      "leaves": 2678,
+      "fidelity_uniform": 0.7671359777450562
+    }
+  },
+  "gate": {
+    "metric": "95 % CI half-width of closed-loop fidelity, sw_dagger, over seeds [pp]",
+    "threshold": 1.5,
+    "value": 0.7139145924398941,
+    "pass": true
+  }
+}

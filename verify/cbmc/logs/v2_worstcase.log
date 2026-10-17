@@ -10,22 +10,22 @@ Removal of function pointers and virtual functions
 Generic Property Instrumentation
 Running with 8 object bits, 56 offset bits (default)
 Starting Bounded Model Checking
-Runtime Symex: 0.0161461s
+Runtime Symex: 0.0169769s
 size of program expression: 347 steps
 simple slicing removed 7 assignments
 Generated 154 VCC(s), 16 remaining after simplification
-Runtime Postprocess Equation: 6.7654e-05s
+Runtime Postprocess Equation: 8.8304e-05s
 Passing problem to propositional reduction
 converting SSA
-Runtime Convert SSA: 0.00640708s
+Runtime Convert SSA: 0.00617717s
 Running propositional reduction
 Post-processing
-Runtime Post-process: 8.446e-06s
+Runtime Post-process: 8.276e-06s
 Solving with MiniSAT 2.2.1 with simplifier
 5848 variables, 8312 clauses
 SAT checker: instance is UNSATISFIABLE
-Runtime Solver: 0.0108311s
-Runtime decision procedure: 0.0203057s
+Runtime Solver: 0.0130077s
+Runtime decision procedure: 0.0226032s
 
 ** Results:
 /src/firmware/src/fdir_sgo_v2.c function apply_safe_default

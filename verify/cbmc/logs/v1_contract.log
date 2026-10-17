@@ -10,29 +10,29 @@ Removal of function pointers and virtual functions
 Generic Property Instrumentation
 Running with 8 object bits, 56 offset bits (default)
 Starting Bounded Model Checking
-Runtime Symex: 0.00891314s
+Runtime Symex: 0.0118949s
 size of program expression: 198 steps
 simple slicing removed 7 assignments
 Generated 68 VCC(s), 14 remaining after simplification
-Runtime Postprocess Equation: 5.3799e-05s
+Runtime Postprocess Equation: 6.6401e-05s
 Passing problem to propositional reduction
 converting SSA
-Runtime Convert SSA: 0.00262965s
+Runtime Convert SSA: 0.00381261s
 Running propositional reduction
 Post-processing
-Runtime Post-process: 7.275e-06s
+Runtime Post-process: 1.2123e-05s
 Solving with MiniSAT 2.2.1 with simplifier
 2419 variables, 4319 clauses
 SAT checker: instance is SATISFIABLE
-Runtime Solver: 0.00796442s
-Runtime decision procedure: 0.0139013s
+Runtime Solver: 0.00739378s
+Runtime decision procedure: 0.0149641s
 Building error trace
 Running propositional reduction
 Solving with MiniSAT 2.2.1 with simplifier
 2419 variables, 2725 clauses
 SAT checker: instance is UNSATISFIABLE
-Runtime Solver: 0.00112431s
-Runtime decision procedure: 0.00209933s
+Runtime Solver: 0.00141596s
+Runtime decision procedure: 0.00274416s
 
 ** Results:
 /src/firmware/src/fdir_sgo.c function process_fdir_with_sgo

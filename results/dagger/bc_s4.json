@@ -1,0 +1,33 @@
+{
+  "seed": 4,
+  "mode": "bc",
+  "max_depth": 12,
+  "rounds": 1,
+  "wall_s": 119.19958925247192,
+  "selected_round": 0,
+  "selected": {
+    "fidelity_closed_loop": 0.35434600710868835,
+    "sev_weighted_disagreement": 0.6116363108158112,
+    "hazard_rate": 0.433349609375,
+    "round": 0,
+    "n_data": 500000,
+    "depth": 12,
+    "leaves": 3770,
+    "fidelity_uniform": 0.7496780157089233
+  },
+  "history": [
+    {
+      "fidelity_closed_loop": 0.35434600710868835,
+      "sev_weighted_disagreement": 0.6116363108158112,
+      "hazard_rate": 0.433349609375,
+      "round": 0,
+      "n_data": 500000,
+      "depth": 12,
+      "leaves": 3770,
+      "fidelity_uniform": 0.7496780157089233
+    }
+  ],
+  "adversary_failures_found": 0,
+  "fuzzing_failures_found": 0,
+  "adversary_budget_envs": 0
+}

@@ -1,0 +1,103 @@
+{
+  "seed": 2,
+  "mode": "sw_dagger",
+  "max_depth": 12,
+  "rounds": 8,
+  "wall_s": 2719.491865634918,
+  "selected_round": 7,
+  "selected": {
+    "fidelity_closed_loop": 0.9449799060821533,
+    "sev_weighted_disagreement": 0.05156087130308151,
+    "hazard_rate": 0.11053466796875,
+    "round": 7,
+    "n_data": 3000000,
+    "depth": 12,
+    "leaves": 2907,
+    "fidelity_uniform": 0.8192960023880005
+  },
+  "history": [
+    {
+      "fidelity_closed_loop": 0.4127727150917053,
+      "sev_weighted_disagreement": 0.5324968993663788,
+      "hazard_rate": 0.11676025390625,
+      "round": 0,
+      "n_data": 500000,
+      "depth": 12,
+      "leaves": 3164,
+      "fidelity_uniform": 0.8417360186576843
+    },
+    {
+      "fidelity_closed_loop": 0.9238088130950928,
+      "sev_weighted_disagreement": 0.07087183371186256,
+      "hazard_rate": 0.1119384765625,
+      "round": 1,
+      "n_data": 2445600,
+      "depth": 12,
+      "leaves": 2972,
+      "fidelity_uniform": 0.8222619891166687
+    },
+    {
+      "fidelity_closed_loop": 0.9310824275016785,
+      "sev_weighted_disagreement": 0.06507723778486252,
+      "hazard_rate": 0.110595703125,
+      "round": 2,
+      "n_data": 3000000,
+      "depth": 12,
+      "leaves": 2728,
+      "fidelity_uniform": 0.8173139691352844
+    },
+    {
+      "fidelity_closed_loop": 0.9259008765220642,
+      "sev_weighted_disagreement": 0.06660512462258339,
+      "hazard_rate": 0.110198974609375,
+      "round": 3,
+      "n_data": 3000000,
+      "depth": 12,
+      "leaves": 2728,
+      "fidelity_uniform": 0.8172739744186401
+    },
+    {
+      "fidelity_closed_loop": 0.9343080520629883,
+      "sev_weighted_disagreement": 0.06051785685122013,
+      "hazard_rate": 0.11016845703125,
+      "round": 4,
+      "n_data": 3000000,
+      "depth": 12,
+      "leaves": 2735,
+      "fidelity_uniform": 0.8119819760322571
+    },
+    {
+      "fidelity_closed_loop": 0.9431186616420746,
+      "sev_weighted_disagreement": 0.05189002305269241,
+      "hazard_rate": 0.1116943359375,
+      "round": 5,
+      "n_data": 3000000,
+      "depth": 12,
+      "leaves": 2863,
+      "fidelity_uniform": 0.8198840022087097
+    },
+    {
+      "fidelity_closed_loop": 0.9399977624416351,
+      "sev_weighted_disagreement": 0.055192504078149796,
+      "hazard_rate": 0.1121826171875,
+      "round": 6,
+      "n_data": 3000000,
+      "depth": 12,
+      "leaves": 2879,
+      "fidelity_uniform": 0.817982017993927
+    },
+    {
+      "fidelity_closed_loop": 0.9449799060821533,
+      "sev_weighted_disagreement": 0.05156087130308151,
+      "hazard_rate": 0.11053466796875,
+      "round": 7,
+      "n_data": 3000000,
+      "depth": 12,
+      "leaves": 2907,
+      "fidelity_uniform": 0.8192960023880005
+    }
+  ],
+  "adversary_failures_found": 22155,
+  "fuzzing_failures_found": 3859,
+  "adversary_budget_envs": 28672
+}

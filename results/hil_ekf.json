@@ -1,0 +1,39 @@
+{
+  "port": "COM5",
+  "firmware": "fdir-dut 0.1 ekf",
+  "f_cpu_hz": 16000000.0,
+  "tolerance": 0.0001,
+  "seeds": {
+    "14": {
+      "samples": 54170,
+      "max_abs_dsoc": 4.67656131902805e-06,
+      "max_abs_dsigma": 2.533006661781245e-07,
+      "mismatches": 0,
+      "guard_activations": 0,
+      "cycles_max": 4039,
+      "cycles_median": 3855.0,
+      "wall_s": 864.3098623752594
+    },
+    "6": {
+      "samples": 56222,
+      "max_abs_dsoc": 1.2398469659058442e-05,
+      "max_abs_dsigma": 1.5570628433807937e-06,
+      "mismatches": 0,
+      "guard_activations": 0,
+      "cycles_max": 4040,
+      "cycles_median": 3855.0,
+      "wall_s": 897.0992670059204
+    }
+  },
+  "cycles": {
+    "max": 4040,
+    "p99": 4034.0,
+    "median": 3855.0,
+    "max_us_at_16MHz": 252.5
+  },
+  "gate": {
+    "metric": "mismatches + guard activations (on-target float)",
+    "value": 0,
+    "pass": true
+  }
+}

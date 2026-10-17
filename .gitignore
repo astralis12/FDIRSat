@@ -7,3 +7,7 @@ __pycache__/
 .venv/
 *.o
 verify/ekf_bitexact_*/
+checkpoints/
+wandb_runs/
+.pio/
+.vscode/

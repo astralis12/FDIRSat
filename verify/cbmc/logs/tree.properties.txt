@@ -1,0 +1,3 @@
+[main.assertion.1] line 25 T1a S in 0..3: SUCCESS
+[main.assertion.2] line 26 T1b B in 0..3: SUCCESS
+[main.assertion.3] line 27 T1c L in 0..3: SUCCESS

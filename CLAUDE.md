@@ -30,10 +30,10 @@ real 8S1P pack, and quantified as residual risk per orbit. NASA SBIR fit: INSITU
 - Li-ion safety: never abuse-test cells; bench tests stop at 45 °C cell temperature and 3.3 V per cell
 
 ## Current next step
-RUNBOOK step 4.4: batched GPU env (`sim/env_v2.py`): 8S per-unit plant, EKF in the loop, 6 inputs,
-fault library from `config/fmeca_xjtu_sps.json`. 4.1–4.3 done. Data rules from 4.3: train only on orbit
-files 18/34/90/94 (`xjtu_sps.load_training_orbits`); FD and AD are one validation pool (ISS-028); score
-FD/AD without absolute temperature (ISS-029); C-rate scale is assumed (ISS-030).
-Toolchain: Docker image `fdir-toolchain:24.04` (RUNBOOK step 0). Any change to `soc_ekf.c`,
-`fdir_config.h` or the generated tables → re-run `run_cbmc.sh` (~50 min) and the bit-exact test.
-GPU (RTX 3080 Laptop) is visible but the Python env has CPU-only torch; set up CUDA torch before 4.4.
+RUNBOOK 4.1–4.8 and the processor-in-the-loop cases are done (report: `report/fdirsat_results.html`).
+Open decisions for the owner: ADR-0018 (SGO v3 cell-overvoltage invariant, cell taps; ISS-041), M2 FMECA
+rates and traced thresholds (ISS-039, ISS-040). Next software step: give the tree a short input history
+(ISS-042) and re-run 4.5–4.8. Hardware: DAQ board #2 and the 8S1P pack, then the same cases as true HIL.
+Environment: `.venv` (Python 3.11, torch cu130, RTX 3080); toolchain Docker image `fdir-toolchain:24.04`;
+DUT = Black Pill STM32F411CEU6 on ST-Link + COM5 (USART1 PA9/PA10, 460800 baud).
+Any change to firmware C, `fdir_config.h` or generated tables/tree → `run_cbmc.sh` (~60 min) + bit-exact tests.

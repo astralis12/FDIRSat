@@ -271,22 +271,22 @@ Unwinding loop main.2 iteration 1 file /src/verify/cbmc/harness_ekf.c line 102 f
 Unwinding loop main.2 iteration 2 file /src/verify/cbmc/harness_ekf.c line 102 function main thread 0
 Unwinding loop main.2 iteration 3 file /src/verify/cbmc/harness_ekf.c line 102 function main thread 0
 Unwinding loop main.3 iteration 3 file /src/verify/cbmc/harness_ekf.c line 100 function main thread 0
-Runtime Symex: 0.428383s
+Runtime Symex: 0.425001s
 size of program expression: 4252 steps
 simple slicing removed 9 assignments
 Generated 3753 VCC(s), 946 remaining after simplification
-Runtime Postprocess Equation: 0.00112978s
+Runtime Postprocess Equation: 0.000771443s
 Passing problem to propositional reduction
 converting SSA
-Runtime Convert SSA: 1.15454s
+Runtime Convert SSA: 0.987065s
 Running propositional reduction
 Post-processing
-Runtime Post-process: 7.387e-06s
+Runtime Post-process: 4.82e-06s
 Solving with MiniSAT 2.2.1 with simplifier
 730514 variables, 3391449 clauses
 SAT checker: instance is UNSATISFIABLE
-Runtime Solver: 2896.05s
-Runtime decision procedure: 2897.21s
+Runtime Solver: 3331.61s
+Runtime decision procedure: 3332.61s
 
 ** Results:
 /src/firmware/src/soc_ekf.c function guard_state

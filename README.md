@@ -24,6 +24,15 @@ codegen/emit_ekf_tables.py         results JSON -> soc_ekf_tables.h
 verify/ekf_driver.c                host driver for the bit-exact test
 verify/test_ekf_bitexact.py        C vs Python EKF -> results/ekf_bitexact.json
 verify/cbmc/harness_ekf.c          CBMC properties E2-E7 (one step, any state in the guard band)
+verify/cbmc/harness_tree.c         CBMC properties T1-T3 for the generated tree (= the SGO's tree contract)
+firmware/src/fdir_tree.c           GENERATED decision tree (codegen/emit_tree.py), do not edit
+firmware/src/fdir_onboard.c        glue: 6 tree inputs -> HealthTelemetry -> SGO v2
+firmware/pio/dut/                  PlatformIO DUT project (Black Pill F411, ST-Link, USART1 PA9/PA10)
+sim/env_v2.py                      batched GPU EPS environment (4.4)
+train/                             data generation, defender, DAgger + adversary, CUDA-graph rollouts, summaries
+eval/                              residual risk per orbit, XJTU-SPS event-wise metrics (4.8)
+hil/run_case.py                    processor-in-the-loop cases C1-C3 on the DUT
+report/build_report.py             results report generator
 sim/xjtu_sps.py                    XJTU-SPS loaders, per-unit, leakage-safe split; --check -> results/xjtu_sps_ranges.json
 config/fmeca_xjtu_sps.json         FMECA label map (fault ids 0-17, work modes, artefact modes), PROPOSED
 docs/ISSUES.md                     issue log ISS-014..026
@@ -55,6 +64,13 @@ and `_run_current(..., soc0=0.85)`; a CLI flag for this is a TODO.
 | ECM fit (DFN pulses) | 9.1 mV RMSE; 10.8 mV open-loop on an unseen 3 h profile |
 | EKF, 20 % initial SoC error | < 2 % within 51 s; settled RMSE 0.28–0.79 %, max 1.6 % across 3 profiles |
 | EKF uncertainty | Overconfident; constant inflation does not transfer (ISS-018) |
+| Environment (4.4) | Smoke gate passed (`results/env_v2_smoke.json`); CUDA-graph rollouts checked equal to eager |
+| Defender (4.5) | 10 seeds, all converged (`results/defender_summary.json`) |
+| Distillation (4.6) | Severity-weighted DAgger meets the fidelity CI gate; BC and DAgger ablations (`results/dagger_summary.json`) |
+| Tree in C (4.7) | CBMC proof, 0 mismatches vs sklearn (`results/tree_bitexact.json`) and on the STM32F411 (`results/hil_fdir.json`) |
+| Coverage and risk (4.8) | `results/residual_risk.json`, `results/esa_adb_metrics.json`; overvoltage gap and ADR-0018 |
+| Processor-in-the-loop | C1–C3 on the STM32F411 (`results/hil_cases.json`) |
+| Report | `python report/build_report.py` → `report/fdirsat_results.html` |
 | XJTU-SPS loaders (4.3) | Consistency gate passed (`results/xjtu_sps_ranges.json`); leakage-safe split, temperature confound and unknown capacity logged (ISS-028 to ISS-031) |
 | EKF in C (4.2) | Bit-exact test: 0 mismatches, 0 guard activations (`results/ekf_bitexact.json`); CBMC: all EKF properties proven, no runtime-check failures (`verify/cbmc/logs/ekf.*`) |
 | N4 scheduled ECM (4.1) | Gate met on untouched test profiles; see `results/ecm_scheduled.json` (`dfn.gate`, `dfn.variants`); one calibration profile still under-covers (ISS-025) |

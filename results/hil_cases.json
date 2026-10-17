@@ -1,0 +1,277 @@
+{
+  "firmware": "fdir-dut 0.3 ekf+tree+sgo multi7",
+  "C1": {
+    "orbits": 1.5,
+    "repeat": 5,
+    "wall_s": 324.16285133361816,
+    "rows": {
+      "C1": {
+        "runs": 5,
+        "hazard_pil": 0,
+        "hazard_sil": 0,
+        "flags_pil": 0,
+        "flags_sil": 0,
+        "guard_steps": 0,
+        "cycles_max": 4738,
+        "agreement_mean": 1.0,
+        "agreement_min": 1.0
+      }
+    }
+  },
+  "C2": {
+    "orbits": 1.0,
+    "repeat": 5,
+    "wall_s": 2932.404625415802,
+    "rows": {
+      "C2_f1": {
+        "runs": 5,
+        "hazard_pil": 0,
+        "hazard_sil": 0,
+        "flags_pil": 0,
+        "flags_sil": 0,
+        "guard_steps": 0,
+        "cycles_max": 4738,
+        "agreement_mean": 1.0,
+        "agreement_min": 1.0
+      },
+      "C2_f2": {
+        "runs": 5,
+        "hazard_pil": 0,
+        "hazard_sil": 0,
+        "flags_pil": 0,
+        "flags_sil": 0,
+        "guard_steps": 0,
+        "cycles_max": 4738,
+        "agreement_mean": 1.0,
+        "agreement_min": 1.0
+      },
+      "C2_f3": {
+        "runs": 5,
+        "hazard_pil": 0,
+        "hazard_sil": 0,
+        "flags_pil": 0,
+        "flags_sil": 0,
+        "guard_steps": 0,
+        "cycles_max": 4738,
+        "agreement_mean": 1.0,
+        "agreement_min": 1.0
+      },
+      "C2_f4": {
+        "runs": 5,
+        "hazard_pil": 0,
+        "hazard_sil": 0,
+        "flags_pil": 0,
+        "flags_sil": 0,
+        "guard_steps": 0,
+        "cycles_max": 4737,
+        "agreement_mean": 1.0,
+        "agreement_min": 1.0
+      },
+      "C2_f5": {
+        "runs": 5,
+        "hazard_pil": 1,
+        "hazard_sil": 1,
+        "flags_pil": 1,
+        "flags_sil": 1,
+        "guard_steps": 0,
+        "cycles_max": 4738,
+        "agreement_mean": 1.0,
+        "agreement_min": 1.0
+      },
+      "C2_f6": {
+        "runs": 5,
+        "hazard_pil": 0,
+        "hazard_sil": 0,
+        "flags_pil": 1,
+        "flags_sil": 1,
+        "guard_steps": 0,
+        "cycles_max": 4738,
+        "agreement_mean": 1.0,
+        "agreement_min": 1.0
+      },
+      "C2_f7": {
+        "runs": 5,
+        "hazard_pil": 0,
+        "hazard_sil": 0,
+        "flags_pil": 0,
+        "flags_sil": 0,
+        "guard_steps": 0,
+        "cycles_max": 4738,
+        "agreement_mean": 1.0,
+        "agreement_min": 1.0
+      },
+      "C2_f8": {
+        "runs": 5,
+        "hazard_pil": 5,
+        "hazard_sil": 5,
+        "flags_pil": 0,
+        "flags_sil": 0,
+        "guard_steps": 0,
+        "cycles_max": 4737,
+        "agreement_mean": 1.0,
+        "agreement_min": 1.0
+      },
+      "C2_f9": {
+        "runs": 5,
+        "hazard_pil": 1,
+        "hazard_sil": 1,
+        "flags_pil": 0,
+        "flags_sil": 0,
+        "guard_steps": 0,
+        "cycles_max": 4737,
+        "agreement_mean": 1.0,
+        "agreement_min": 1.0
+      },
+      "C2_f10": {
+        "runs": 5,
+        "hazard_pil": 5,
+        "hazard_sil": 5,
+        "flags_pil": 3,
+        "flags_sil": 3,
+        "guard_steps": 0,
+        "cycles_max": 4738,
+        "agreement_mean": 1.0,
+        "agreement_min": 1.0
+      },
+      "C2_f11": {
+        "runs": 5,
+        "hazard_pil": 0,
+        "hazard_sil": 0,
+        "flags_pil": 0,
+        "flags_sil": 0,
+        "guard_steps": 0,
+        "cycles_max": 4738,
+        "agreement_mean": 1.0,
+        "agreement_min": 1.0
+      },
+      "C2_f12": {
+        "runs": 5,
+        "hazard_pil": 0,
+        "hazard_sil": 0,
+        "flags_pil": 0,
+        "flags_sil": 0,
+        "guard_steps": 0,
+        "cycles_max": 4739,
+        "agreement_mean": 1.0,
+        "agreement_min": 1.0
+      },
+      "C2_f13": {
+        "runs": 5,
+        "hazard_pil": 0,
+        "hazard_sil": 0,
+        "flags_pil": 0,
+        "flags_sil": 0,
+        "guard_steps": 0,
+        "cycles_max": 4739,
+        "agreement_mean": 1.0,
+        "agreement_min": 1.0
+      },
+      "C2_f14": {
+        "runs": 5,
+        "hazard_pil": 0,
+        "hazard_sil": 0,
+        "flags_pil": 0,
+        "flags_sil": 0,
+        "guard_steps": 0,
+        "cycles_max": 4738,
+        "agreement_mean": 1.0,
+        "agreement_min": 1.0
+      },
+      "C2_f15": {
+        "runs": 5,
+        "hazard_pil": 0,
+        "hazard_sil": 0,
+        "flags_pil": 0,
+        "flags_sil": 0,
+        "guard_steps": 0,
+        "cycles_max": 4738,
+        "agreement_mean": 1.0,
+        "agreement_min": 1.0
+      },
+      "C2_f16": {
+        "runs": 5,
+        "hazard_pil": 0,
+        "hazard_sil": 0,
+        "flags_pil": 0,
+        "flags_sil": 0,
+        "guard_steps": 0,
+        "cycles_max": 4738,
+        "agreement_mean": 1.0,
+        "agreement_min": 1.0
+      },
+      "C2_f17": {
+        "runs": 5,
+        "hazard_pil": 0,
+        "hazard_sil": 0,
+        "flags_pil": 0,
+        "flags_sil": 0,
+        "guard_steps": 0,
+        "cycles_max": 4738,
+        "agreement_mean": 1.0,
+        "agreement_min": 1.0
+      }
+    }
+  },
+  "C3": {
+    "orbits": 1.0,
+    "repeat": 5,
+    "wall_s": 878.6486067771912,
+    "rows": {
+      "C3a": {
+        "runs": 5,
+        "hazard_pil": 0,
+        "hazard_sil": 0,
+        "flags_pil": 16,
+        "flags_sil": 16,
+        "guard_steps": 300,
+        "cycles_max": 4737,
+        "agreement_mean": 1.0,
+        "agreement_min": 1.0
+      },
+      "C3b": {
+        "runs": 5,
+        "hazard_pil": 0,
+        "hazard_sil": 0,
+        "flags_pil": 16,
+        "flags_sil": 16,
+        "guard_steps": 0,
+        "cycles_max": 4738,
+        "agreement_mean": 1.0,
+        "agreement_min": 1.0
+      },
+      "C3c": {
+        "runs": 5,
+        "hazard_pil": 0,
+        "hazard_sil": 0,
+        "flags_pil": 16,
+        "flags_sil": 16,
+        "guard_steps": 10,
+        "cycles_max": 4738,
+        "agreement_mean": 1.0,
+        "agreement_min": 1.0
+      },
+      "C3d": {
+        "runs": 5,
+        "hazard_pil": 0,
+        "hazard_sil": 0,
+        "flags_pil": 16,
+        "flags_sil": 16,
+        "guard_steps": 150,
+        "cycles_max": 4738,
+        "agreement_mean": 1.0,
+        "agreement_min": 1.0
+      },
+      "C3e": {
+        "runs": 5,
+        "hazard_pil": 0,
+        "hazard_sil": 0,
+        "flags_pil": 17,
+        "flags_sil": 0,
+        "guard_steps": 5,
+        "cycles_max": 4738,
+        "agreement_mean": 0.9860350966453553,
+        "agreement_min": 0.9743859767913818
+      }
+    }
+  }
+}

@@ -1,0 +1,572 @@
+{
+  "tree": "sw_dagger_s9.pkl",
+  "response_s": 600.0,
+  "p_fault_per_orbit_ASSUMED": 0.0001,
+  "severity_weights": [
+    1.0,
+    4.0,
+    3.0,
+    2.0,
+    1.0
+  ],
+  "orbits": {
+    "xjtu": {
+      "per_fault": {
+        "0": {
+          "coverage": 0.9970703125,
+          "hazard_deployed": 0.0029296875,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.0029296875,
+          "missed_response": 0.0,
+          "false_action_rate_before_onset": 0.057606231421232224,
+          "severity": 0
+        },
+        "1": {
+          "coverage": 0.5185546875,
+          "hazard_deployed": 0.037109375,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.037109375,
+          "missed_response": 0.4677734375,
+          "false_action_rate_before_onset": 0.06059153005480766,
+          "severity": 3
+        },
+        "2": {
+          "coverage": 0.513671875,
+          "hazard_deployed": 0.021484375,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.021484375,
+          "missed_response": 0.482421875,
+          "false_action_rate_before_onset": 0.06509576737880707,
+          "severity": 3
+        },
+        "3": {
+          "coverage": 0.994140625,
+          "hazard_deployed": 0.005859375,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.005859375,
+          "missed_response": 0.0,
+          "false_action_rate_before_onset": 0.05503484234213829,
+          "severity": 3
+        },
+        "4": {
+          "coverage": 0.73046875,
+          "hazard_deployed": 0.0302734375,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.0302734375,
+          "missed_response": 0.2470703125,
+          "false_action_rate_before_onset": 0.06066783145070076,
+          "severity": 2
+        },
+        "5": {
+          "coverage": 0.0322265625,
+          "hazard_deployed": 0.4609375,
+          "hazard_expert": 0.125,
+          "hazard_no_fdir": 0.7001953125,
+          "avoidable_hazard": 0.447265625,
+          "missed_response": 0.94921875,
+          "false_action_rate_before_onset": 0.06099267303943634,
+          "severity": 1
+        },
+        "6": {
+          "coverage": 0.9951171875,
+          "hazard_deployed": 0.0029296875,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.0029296875,
+          "missed_response": 0.001953125,
+          "false_action_rate_before_onset": 0.0562128871679306,
+          "severity": 3
+        },
+        "7": {
+          "coverage": 0.494140625,
+          "hazard_deployed": 0.0126953125,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.0126953125,
+          "missed_response": 0.498046875,
+          "false_action_rate_before_onset": 0.059386152774095535,
+          "severity": 3
+        },
+        "8": {
+          "coverage": 0.9970703125,
+          "hazard_deployed": 1.0,
+          "hazard_expert": 1.0,
+          "hazard_no_fdir": 1.0,
+          "avoidable_hazard": 0.0,
+          "missed_response": 0.0029296875,
+          "false_action_rate_before_onset": 0.06005793809890747,
+          "severity": 2
+        },
+        "9": {
+          "coverage": 0.998046875,
+          "hazard_deployed": 0.001953125,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.001953125,
+          "missed_response": 0.0,
+          "false_action_rate_before_onset": 0.055666252970695496,
+          "severity": 2
+        },
+        "10": {
+          "coverage": 1.0,
+          "hazard_deployed": 1.0,
+          "hazard_expert": 1.0,
+          "hazard_no_fdir": 1.0,
+          "avoidable_hazard": 0.0,
+          "missed_response": 0.0,
+          "false_action_rate_before_onset": 0.06559852510690689,
+          "severity": 1
+        },
+        "11": {
+          "coverage": 0.794921875,
+          "hazard_deployed": 0.0107421875,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.0107421875,
+          "missed_response": 0.1943359375,
+          "false_action_rate_before_onset": 0.05663957819342613,
+          "severity": 2
+        },
+        "12": {
+          "coverage": 0.8134765625,
+          "hazard_deployed": 0.00390625,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.00390625,
+          "missed_response": 0.1845703125,
+          "false_action_rate_before_onset": 0.061216823756694794,
+          "severity": 3
+        },
+        "13": {
+          "coverage": 0.818359375,
+          "hazard_deployed": 0.005859375,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.005859375,
+          "missed_response": 0.17578125,
+          "false_action_rate_before_onset": 0.0662161186337471,
+          "severity": 3
+        },
+        "14": {
+          "coverage": 0.7939453125,
+          "hazard_deployed": 0.0087890625,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.0087890625,
+          "missed_response": 0.1982421875,
+          "false_action_rate_before_onset": 0.07188023626804352,
+          "severity": 3
+        },
+        "15": {
+          "coverage": 0.9951171875,
+          "hazard_deployed": 0.0048828125,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.0048828125,
+          "missed_response": 0.0,
+          "false_action_rate_before_onset": 0.06213124841451645,
+          "severity": 4
+        },
+        "16": {
+          "coverage": 0.9951171875,
+          "hazard_deployed": 0.0048828125,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.0048828125,
+          "missed_response": 0.0,
+          "false_action_rate_before_onset": 0.064200758934021,
+          "severity": 4
+        },
+        "17": {
+          "coverage": 0.998046875,
+          "hazard_deployed": 0.001953125,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.001953125,
+          "missed_response": 0.0,
+          "false_action_rate_before_onset": 0.05380965769290924,
+          "severity": 4
+        }
+      },
+      "residual_risk_per_orbit": 0.00094384765625,
+      "coverage_mean_faults": 0.7930836397058824
+    },
+    "o2_sso_1030": {
+      "per_fault": {
+        "0": {
+          "coverage": 0.9951171875,
+          "hazard_deployed": 0.0029296875,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.0029296875,
+          "missed_response": 0.001953125,
+          "false_action_rate_before_onset": 0.05659674480557442,
+          "severity": 0
+        },
+        "1": {
+          "coverage": 0.509765625,
+          "hazard_deployed": 0.0322265625,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.0322265625,
+          "missed_response": 0.4775390625,
+          "false_action_rate_before_onset": 0.061031464487314224,
+          "severity": 3
+        },
+        "2": {
+          "coverage": 0.5107421875,
+          "hazard_deployed": 0.025390625,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.025390625,
+          "missed_response": 0.484375,
+          "false_action_rate_before_onset": 0.06236711144447327,
+          "severity": 3
+        },
+        "3": {
+          "coverage": 0.9951171875,
+          "hazard_deployed": 0.0048828125,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.0048828125,
+          "missed_response": 0.0,
+          "false_action_rate_before_onset": 0.05535634607076645,
+          "severity": 3
+        },
+        "4": {
+          "coverage": 0.7255859375,
+          "hazard_deployed": 0.02734375,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.02734375,
+          "missed_response": 0.2529296875,
+          "false_action_rate_before_onset": 0.06035558134317398,
+          "severity": 2
+        },
+        "5": {
+          "coverage": 0.03125,
+          "hazard_deployed": 0.44921875,
+          "hazard_expert": 0.1376953125,
+          "hazard_no_fdir": 0.6875,
+          "avoidable_hazard": 0.435546875,
+          "missed_response": 0.9482421875,
+          "false_action_rate_before_onset": 0.06072017922997475,
+          "severity": 1
+        },
+        "6": {
+          "coverage": 0.9951171875,
+          "hazard_deployed": 0.0029296875,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.0029296875,
+          "missed_response": 0.001953125,
+          "false_action_rate_before_onset": 0.055976398289203644,
+          "severity": 3
+        },
+        "7": {
+          "coverage": 0.4873046875,
+          "hazard_deployed": 0.0126953125,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.0126953125,
+          "missed_response": 0.505859375,
+          "false_action_rate_before_onset": 0.06066194921731949,
+          "severity": 3
+        },
+        "8": {
+          "coverage": 0.9970703125,
+          "hazard_deployed": 1.0,
+          "hazard_expert": 1.0,
+          "hazard_no_fdir": 1.0,
+          "avoidable_hazard": 0.0,
+          "missed_response": 0.0029296875,
+          "false_action_rate_before_onset": 0.06071227043867111,
+          "severity": 2
+        },
+        "9": {
+          "coverage": 0.998046875,
+          "hazard_deployed": 0.001953125,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.001953125,
+          "missed_response": 0.0,
+          "false_action_rate_before_onset": 0.056648001074790955,
+          "severity": 2
+        },
+        "10": {
+          "coverage": 1.0,
+          "hazard_deployed": 1.0,
+          "hazard_expert": 1.0,
+          "hazard_no_fdir": 1.0,
+          "avoidable_hazard": 0.0,
+          "missed_response": 0.0,
+          "false_action_rate_before_onset": 0.06571964919567108,
+          "severity": 1
+        },
+        "11": {
+          "coverage": 0.798828125,
+          "hazard_deployed": 0.01171875,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.01171875,
+          "missed_response": 0.189453125,
+          "false_action_rate_before_onset": 0.057049963623285294,
+          "severity": 2
+        },
+        "12": {
+          "coverage": 0.8134765625,
+          "hazard_deployed": 0.00390625,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.00390625,
+          "missed_response": 0.18359375,
+          "false_action_rate_before_onset": 0.06384769082069397,
+          "severity": 3
+        },
+        "13": {
+          "coverage": 0.8115234375,
+          "hazard_deployed": 0.0048828125,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.0048828125,
+          "missed_response": 0.18359375,
+          "false_action_rate_before_onset": 0.0650973916053772,
+          "severity": 3
+        },
+        "14": {
+          "coverage": 0.7958984375,
+          "hazard_deployed": 0.0087890625,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.0087890625,
+          "missed_response": 0.1962890625,
+          "false_action_rate_before_onset": 0.07284148037433624,
+          "severity": 3
+        },
+        "15": {
+          "coverage": 0.9951171875,
+          "hazard_deployed": 0.0048828125,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.0048828125,
+          "missed_response": 0.0,
+          "false_action_rate_before_onset": 0.06166063994169235,
+          "severity": 4
+        },
+        "16": {
+          "coverage": 0.9951171875,
+          "hazard_deployed": 0.0048828125,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.0048828125,
+          "missed_response": 0.0,
+          "false_action_rate_before_onset": 0.06389905512332916,
+          "severity": 4
+        },
+        "17": {
+          "coverage": 0.998046875,
+          "hazard_deployed": 0.001953125,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.001953125,
+          "missed_response": 0.0,
+          "false_action_rate_before_onset": 0.05361948534846306,
+          "severity": 4
+        }
+      },
+      "residual_risk_per_orbit": 0.0009490234375,
+      "coverage_mean_faults": 0.7916475183823529
+    },
+    "o3_dawn_dusk": {
+      "per_fault": {
+        "0": {
+          "coverage": 1.0,
+          "hazard_deployed": 0.0,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.0,
+          "missed_response": 0.0,
+          "false_action_rate_before_onset": 0.14332880079746246,
+          "severity": 0
+        },
+        "1": {
+          "coverage": 0.7880859375,
+          "hazard_deployed": 0.00390625,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.00390625,
+          "missed_response": 0.208984375,
+          "false_action_rate_before_onset": 0.1464817076921463,
+          "severity": 3
+        },
+        "2": {
+          "coverage": 0.8076171875,
+          "hazard_deployed": 0.00390625,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.00390625,
+          "missed_response": 0.19140625,
+          "false_action_rate_before_onset": 0.13743989169597626,
+          "severity": 3
+        },
+        "3": {
+          "coverage": 1.0,
+          "hazard_deployed": 0.0,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.0,
+          "missed_response": 0.0,
+          "false_action_rate_before_onset": 0.14679047465324402,
+          "severity": 3
+        },
+        "4": {
+          "coverage": 0.99609375,
+          "hazard_deployed": 0.0009765625,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.0009765625,
+          "missed_response": 0.0029296875,
+          "false_action_rate_before_onset": 0.1445203721523285,
+          "severity": 2
+        },
+        "5": {
+          "coverage": 0.0068359375,
+          "hazard_deployed": 0.9345703125,
+          "hazard_expert": 0.0458984375,
+          "hazard_no_fdir": 1.0,
+          "avoidable_hazard": 0.8984375,
+          "missed_response": 0.783203125,
+          "false_action_rate_before_onset": 0.14108356833457947,
+          "severity": 1
+        },
+        "6": {
+          "coverage": 0.9990234375,
+          "hazard_deployed": 0.0009765625,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.0009765625,
+          "missed_response": 0.0,
+          "false_action_rate_before_onset": 0.14101479947566986,
+          "severity": 3
+        },
+        "7": {
+          "coverage": 0.8125,
+          "hazard_deployed": 0.0009765625,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.0009765625,
+          "missed_response": 0.1865234375,
+          "false_action_rate_before_onset": 0.14796984195709229,
+          "severity": 3
+        },
+        "8": {
+          "coverage": 0.998046875,
+          "hazard_deployed": 0.9658203125,
+          "hazard_expert": 0.9638671875,
+          "hazard_no_fdir": 0.9638671875,
+          "avoidable_hazard": 0.001953125,
+          "missed_response": 0.0,
+          "false_action_rate_before_onset": 0.1486494392156601,
+          "severity": 2
+        },
+        "9": {
+          "coverage": 1.0,
+          "hazard_deployed": 0.0,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.0,
+          "missed_response": 0.0,
+          "false_action_rate_before_onset": 0.15119613707065582,
+          "severity": 2
+        },
+        "10": {
+          "coverage": 1.0,
+          "hazard_deployed": 1.0,
+          "hazard_expert": 1.0,
+          "hazard_no_fdir": 1.0,
+          "avoidable_hazard": 0.0,
+          "missed_response": 0.0,
+          "false_action_rate_before_onset": 0.15330567955970764,
+          "severity": 1
+        },
+        "11": {
+          "coverage": 0.8486328125,
+          "hazard_deployed": 0.00390625,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.00390625,
+          "missed_response": 0.1474609375,
+          "false_action_rate_before_onset": 0.14671044051647186,
+          "severity": 2
+        },
+        "12": {
+          "coverage": 0.8173828125,
+          "hazard_deployed": 0.0009765625,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.0009765625,
+          "missed_response": 0.181640625,
+          "false_action_rate_before_onset": 0.14660823345184326,
+          "severity": 3
+        },
+        "13": {
+          "coverage": 0.82421875,
+          "hazard_deployed": 0.001953125,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.001953125,
+          "missed_response": 0.173828125,
+          "false_action_rate_before_onset": 0.1553787738084793,
+          "severity": 3
+        },
+        "14": {
+          "coverage": 0.8408203125,
+          "hazard_deployed": 0.0009765625,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.0009765625,
+          "missed_response": 0.158203125,
+          "false_action_rate_before_onset": 0.14947164058685303,
+          "severity": 3
+        },
+        "15": {
+          "coverage": 0.9990234375,
+          "hazard_deployed": 0.0009765625,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.0009765625,
+          "missed_response": 0.0,
+          "false_action_rate_before_onset": 0.15516297519207,
+          "severity": 4
+        },
+        "16": {
+          "coverage": 0.9990234375,
+          "hazard_deployed": 0.0009765625,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.0009765625,
+          "missed_response": 0.0,
+          "false_action_rate_before_onset": 0.1425735056400299,
+          "severity": 4
+        },
+        "17": {
+          "coverage": 0.9990234375,
+          "hazard_deployed": 0.0009765625,
+          "hazard_expert": 0.0,
+          "hazard_no_fdir": 0.0,
+          "avoidable_hazard": 0.0009765625,
+          "missed_response": 0.0,
+          "false_action_rate_before_onset": 0.13986286520957947,
+          "severity": 4
+        }
+      },
+      "residual_risk_per_orbit": 0.000666796875,
+      "coverage_mean_faults": 0.8668428308823529
+    }
+  }
+}

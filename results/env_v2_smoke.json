@@ -1,0 +1,83 @@
+{
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 3080 Laptop GPU",
+  "n_env": 16384,
+  "steps": 17100,
+  "dt": 1.0,
+  "orbit": "xjtu",
+  "seed": 0,
+  "wall_s": 646.1438283920288,
+  "env_steps_per_s": 433597.5795005462,
+  "obs_shape": [
+    16384,
+    6
+  ],
+  "all_finite": true,
+  "ekf_abs_err_settled_normal_p95_pct": 0.3108561038970947,
+  "ekf_abs_err_settled_all_p95_pct": 0.4767954349517822,
+  "obs_ranges": {
+    "v_cell": [
+      3.1169800758361816,
+      4.200720310211182
+    ],
+    "c_rate": [
+      -0.4790021777153015,
+      0.5153376460075378
+    ],
+    "t_bat": [
+      13.0625,
+      31.375
+    ],
+    "soc_ekf": [
+      0.04396592825651169,
+      0.997229278087616
+    ],
+    "i_sa_pu": [
+      0.0,
+      1.0
+    ],
+    "u_bus_pu": [
+      0.0,
+      0.9995906949043274
+    ]
+  },
+  "faults_per_class": {
+    "1": 909,
+    "2": 848,
+    "3": 887,
+    "4": 843,
+    "5": 913,
+    "6": 904,
+    "7": 877,
+    "8": 858,
+    "9": 790,
+    "10": 865,
+    "11": 833,
+    "12": 864,
+    "13": 864,
+    "14": 895,
+    "15": 844,
+    "16": 864,
+    "17": 896
+  },
+  "normal_envs": 1630,
+  "expert_action_share_nonzero": 0.3788282871246338,
+  "hazards_final": {
+    "deep_discharge": 0,
+    "overcharge": 0,
+    "over_temp": 0,
+    "unpowered": 1193
+  },
+  "checks": {
+    "shapes asserted every step": true,
+    "all observations finite": true,
+    "every fault class injected": true,
+    "EKF p95 SoC error < 5 % (normal envs, settled)": true,
+    "v_cell inside SGO plausibility band [0.5, 4.5]": true,
+    "deterministic for a fixed seed": true
+  },
+  "gate": {
+    "pass": true,
+    "failed": []
+  }
+}

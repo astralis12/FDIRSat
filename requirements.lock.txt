@@ -1,4 +1,4 @@
 numpy==2.5.3
 pybamm==26.10.1.0
 scipy==1.18.1
-5.95.1 (cbmc-5.95.1)
+# toolchain (not pip): CBMC 5.95.1 (cbmc-5.95.1), see verify/cbmc/logs/cbmc_version.txt

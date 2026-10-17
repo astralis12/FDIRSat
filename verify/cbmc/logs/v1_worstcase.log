@@ -10,57 +10,57 @@ Removal of function pointers and virtual functions
 Generic Property Instrumentation
 Running with 8 object bits, 56 offset bits (default)
 Starting Bounded Model Checking
-Runtime Symex: 0.00705726s
+Runtime Symex: 0.0095565s
 size of program expression: 194 steps
 simple slicing removed 7 assignments
 Generated 68 VCC(s), 14 remaining after simplification
-Runtime Postprocess Equation: 5.752e-05s
+Runtime Postprocess Equation: 3.7103e-05s
 Passing problem to propositional reduction
 converting SSA
-Runtime Convert SSA: 0.00240212s
+Runtime Convert SSA: 0.00269776s
 Running propositional reduction
 Post-processing
-Runtime Post-process: 5.756e-06s
+Runtime Post-process: 7.004e-06s
 Solving with MiniSAT 2.2.1 with simplifier
 2307 variables, 4220 clauses
 SAT checker: instance is SATISFIABLE
-Runtime Solver: 0.0056291s
-Runtime decision procedure: 0.0105914s
+Runtime Solver: 0.00668914s
+Runtime decision procedure: 0.012317s
 Building error trace
 Running propositional reduction
 Solving with MiniSAT 2.2.1 with simplifier
 2307 variables, 2648 clauses
 SAT checker: instance is SATISFIABLE
-Runtime Solver: 0.000850784s
-Runtime decision procedure: 0.00295349s
+Runtime Solver: 0.000692197s
+Runtime decision procedure: 0.00192575s
 Building error trace
 Running propositional reduction
 Solving with MiniSAT 2.2.1 with simplifier
 2307 variables, 2648 clauses
 SAT checker: instance is SATISFIABLE
-Runtime Solver: 0.00055978s
-Runtime decision procedure: 0.0016947s
+Runtime Solver: 0.000679342s
+Runtime decision procedure: 0.00173758s
 Building error trace
 Running propositional reduction
 Solving with MiniSAT 2.2.1 with simplifier
 2307 variables, 2648 clauses
 SAT checker: instance is SATISFIABLE
-Runtime Solver: 0.00055754s
-Runtime decision procedure: 0.00144728s
+Runtime Solver: 0.000700139s
+Runtime decision procedure: 0.00171631s
 Building error trace
 Running propositional reduction
 Solving with MiniSAT 2.2.1 with simplifier
 2307 variables, 2648 clauses
 SAT checker: instance is SATISFIABLE
-Runtime Solver: 0.000557644s
-Runtime decision procedure: 0.00142193s
+Runtime Solver: 0.000767691s
+Runtime decision procedure: 0.0020553s
 Building error trace
 Running propositional reduction
 Solving with MiniSAT 2.2.1 with simplifier
 2307 variables, 2648 clauses
 SAT checker: instance is UNSATISFIABLE
-Runtime Solver: 0.000921691s
-Runtime decision procedure: 0.00200444s
+Runtime Solver: 0.00124999s
+Runtime decision procedure: 0.00245103s
 
 ** Results:
 /src/firmware/src/fdir_sgo.c function process_fdir_with_sgo

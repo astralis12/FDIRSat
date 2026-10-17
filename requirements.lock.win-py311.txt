@@ -1,0 +1,8 @@
+numpy==2.4.6
+pandas==3.0.6
+pybamm==26.10.1.0
+pyserial==3.5
+scikit-learn==1.9.1
+scipy==1.17.1
+torch==2.13.0+cu130
+wandb==0.31.0
