@@ -1,0 +1,9 @@
+# data is not committed (CLAUDE.md); data/xjtu_sps and data/nasa_rw are junctions to the local datasets
+data/
+# never commit the dataset's pickle copies
+*.pkl
+__pycache__/
+*.pyc
+.venv/
+*.o
+verify/ekf_bitexact_*/

@@ -1,0 +1,53 @@
+{
+  "_status": "PROPOSED 2026-10-17 (RUNBOOK 4.3). Severities and response channels are proposals for the M2 FMECA-lite; the M2 gate requires a source for every entry. Do not use as final cost-matrix values.",
+  "_severity_scale": {
+    "standard": "ECSS-Q-ST-30-02C severity categories, dependability consequences (verify wording against the standard in M2)",
+    "1": "Catastrophic: failure propagation to other units / hazard",
+    "2": "Critical: loss of mission",
+    "3": "Major: major mission degradation",
+    "4": "Minor: minor mission degradation or any other effect"
+  },
+  "_response_channels": {
+    "S": "solar array reconfiguration (SGO solar_reconfig_action)",
+    "B": "battery charge / discharge limiting (battery_limit_action)",
+    "L": "load shedding (load_shed_action)",
+    "report": "no onboard action beyond flagging; ground trend analysis"
+  },
+  "_label_source": "fault ids and names: fault_dict in the dataset's own generation code (Data_generate_code_20260309.zip, XJTU-SPS for FD.py / for AD.py); dataset arXiv:2601.12667",
+  "fault_classes": {
+    "0":  {"name": "normal", "subsystem": "-", "failure_mode": "none", "severity": null, "response": [], "rationale": "nominal operation"},
+    "1":  {"name": "SA_partial component or branch open circuit", "subsystem": "SA", "failure_mode": "string/branch open", "severity": 3, "response": ["S"], "rationale": "array power reduced by the lost branch; battery covers the deficit while margin lasts"},
+    "2":  {"name": "SA_partial component or branch short circuit", "subsystem": "SA", "failure_mode": "string/branch short", "severity": 3, "response": ["S"], "rationale": "shorted branch is lost and loads the array; isolate the branch"},
+    "3":  {"name": "SA_component deterioration", "subsystem": "SA", "failure_mode": "gradual power loss (ageing)", "severity": 3, "response": ["report"], "rationale": "slow loss of power margin; trended on ground, load plan adapted"},
+    "4":  {"name": "BCR_open circuit", "subsystem": "BCR", "failure_mode": "no charge path", "severity": 2, "response": ["L"], "rationale": "battery cannot recharge; without redundancy it depletes over orbits; shed loads to stretch energy"},
+    "5":  {"name": "BCR_short circuit", "subsystem": "BCR", "failure_mode": "uncontrolled charge path", "severity": 1, "response": ["B", "S"], "rationale": "uncontrolled charging can overcharge the battery and propagate (cell overvoltage / thermal); limit charge and isolate the array"},
+    "6":  {"name": "BCR_increased power loss", "subsystem": "BCR", "failure_mode": "efficiency loss", "severity": 3, "response": ["report"], "rationale": "less charge per orbit and more heat; trend and adapt"},
+    "7":  {"name": "BAT_degradation", "subsystem": "BAT", "failure_mode": "capacity fade / resistance rise", "severity": 3, "response": ["L"], "rationale": "less eclipse energy; deeper DoD accelerates fade; shed secondary loads in eclipse"},
+    "8":  {"name": "BAT_open circuit", "subsystem": "BAT", "failure_mode": "battery string disconnected", "severity": 2, "response": ["L"], "rationale": "no eclipse energy from the string; with no spare string, eclipse loads are lost"},
+    "9":  {"name": "Bus_open circuit", "subsystem": "Bus", "failure_mode": "bus disconnected", "severity": 2, "response": ["L"], "rationale": "downstream units lose power"},
+    "10": {"name": "Bus_short circuit", "subsystem": "Bus", "failure_mode": "bus short", "severity": 1, "response": ["L", "B"], "rationale": "overcurrent on the common bus propagates to every unit; isolate and shed"},
+    "11": {"name": "Bus_insulation breakdown", "subsystem": "Bus", "failure_mode": "leakage to structure", "severity": 2, "response": ["L"], "rationale": "leakage current and possible escalation to a short"},
+    "12": {"name": "PDM1_open circuit or short circuit", "subsystem": "PDM", "failure_mode": "channel open/short", "severity": 3, "response": ["L"], "rationale": "one distribution channel lost; a short is contained by channel protection"},
+    "13": {"name": "PDM2_open circuit or short circuit", "subsystem": "PDM", "failure_mode": "channel open/short", "severity": 3, "response": ["L"], "rationale": "as PDM1"},
+    "14": {"name": "PDM3_open circuit or short circuit", "subsystem": "PDM", "failure_mode": "channel open/short", "severity": 3, "response": ["L"], "rationale": "as PDM1"},
+    "15": {"name": "Load1_open circuit", "subsystem": "Load", "failure_mode": "load open", "severity": 4, "response": ["report"], "rationale": "one load stops drawing power; no EPS hazard"},
+    "16": {"name": "Load2_open circuit", "subsystem": "Load", "failure_mode": "load open", "severity": 4, "response": ["report"], "rationale": "as Load1"},
+    "17": {"name": "Load3_open circuit", "subsystem": "Load", "failure_mode": "load open", "severity": 4, "response": ["report"], "rationale": "as Load1"}
+  },
+  "work_modes": {
+    "_source": "XJTU-SPS for MR/readme.md",
+    "1": "Fast charging, sunlit, no task",
+    "2": "Shunt, sunlit, non-orientation task 1",
+    "3": "Trickle charging, sunlit, no task",
+    "4": "Joint power supply, sunlit, ground-orientation task 2",
+    "5": "Idle, shadow, no task",
+    "6": "Discharge, shadow, non-orientation task 3"
+  },
+  "fdir_artefact_modes": {
+    "_source": "plan doc, 'RAMS and FDIR' (the FDIR artefact is an FMECA item, ECSS-Q-ST-30-02C HSIA); not dataset labels",
+    "A1": {"name": "tree table bit flip (SEU)", "severity": 1, "mitigation": "SGO v2 output sanitisation, CBMC P1/P2 (ISS-015)"},
+    "A2": {"name": "non-finite or implausible telemetry", "severity": 2, "mitigation": "SGO v2 plausibility gate, CBMC P7-P9 (ISS-014)"},
+    "A3": {"name": "wrong SoC estimate / overconfident sigma", "severity": 2, "mitigation": "EKF guards + CBMC E2-E7; coverage calibration (ISS-018, ISS-025 open)"},
+    "A4": {"name": "UART desync between DAQ and DUT", "severity": 3, "mitigation": "not yet designed (HIL, RUNBOOK 5)"}
+  }
+}

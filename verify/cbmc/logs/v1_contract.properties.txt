@@ -1,0 +1,14 @@
+[main.assertion.1] line 82 P1a solar action in 0..3: SUCCESS
+[main.assertion.2] line 83 P1b battery action in 0..3: SUCCESS
+[main.assertion.3] line 84 P1c load action in 0..3: SUCCESS
+[main.assertion.4] line 87 P2 fault mask bits 0..4 only: SUCCESS
+[main.assertion.5] line 103 P3a DD -> L=3: SUCCESS
+[main.assertion.6] line 104 P3b DD -> B>=1 (charge path kept): SUCCESS
+[main.assertion.7] line 105 P3c DD flagged: SUCCESS
+[main.assertion.8] line 109 P4 UV -> L>=1: SUCCESS
+[main.assertion.9] line 113 P5a OC -> B>=2: SUCCESS
+[main.assertion.10] line 114 P5b OC -> L>=1: SUCCESS
+[main.assertion.11] line 118 P6a OT -> S=2: SUCCESS
+[main.assertion.12] line 119 P6b OT -> L>=2: SUCCESS
+[main.assertion.13] line 125 P7 non-finite input is flagged: FAILURE
+[main.assertion.14] line 130 P8 SoC outside plausible band is flagged: FAILURE

@@ -1,0 +1,8 @@
+[cbmc_expf.assertion.1] line 37 M1 expf argument in modelled range: SUCCESS
+[cbmc_sqrtf.assertion.1] line 46 M2 sqrtf argument in modelled range: SUCCESS
+[main.assertion.1] line 81 E6 init inside guard band: SUCCESS
+[main.assertion.2] line 96 E2 state inside guard band after step: SUCCESS
+[main.assertion.3] line 97 E3 innovation outputs finite: SUCCESS
+[main.assertion.4] line 106 E4 rejected input leaves state unchanged: SUCCESS
+[main.assertion.5] line 110 E5 std finite in [0, 1]: SUCCESS
+[main.assertion.6] line 112 E7 status uses defined bits only: SUCCESS

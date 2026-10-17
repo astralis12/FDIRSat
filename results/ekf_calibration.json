@@ -1,0 +1,30 @@
+{
+  "model_sigma_pct": 0.2529113511595288,
+  "ekf_noise": {
+    "q_soc": 1e-10,
+    "r_v": 2.5e-05
+  },
+  "seeds": {
+    "0": {
+      "role": "calibration",
+      "soc_rmse_pct": 0.35471850490468415,
+      "soc_max_abs_pct": 1.5155039933562375,
+      "coverage_raw_2sigma": 0.7258643629139556,
+      "coverage_calibrated_2sigma": 0.9499881531703939
+    },
+    "1": {
+      "role": "held-out",
+      "soc_rmse_pct": 0.7851219065841639,
+      "soc_max_abs_pct": 1.0852211626395603,
+      "coverage_raw_2sigma": 0.17254125412541255,
+      "coverage_calibrated_2sigma": 0.2548797736916549
+    },
+    "2": {
+      "role": "held-out",
+      "soc_rmse_pct": 0.6266354034620889,
+      "soc_max_abs_pct": 1.6256504541313999,
+      "coverage_raw_2sigma": 0.21928934010152284,
+      "coverage_calibrated_2sigma": 0.5923313995649021
+    }
+  }
+}

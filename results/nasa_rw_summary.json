@@ -1,0 +1,58 @@
+{
+  "RW17": {
+    "reference_discharges": 29,
+    "capacity_first_Ah": 2.131,
+    "capacity_last_Ah": 1.096,
+    "capacity_retention_pct": 51.4,
+    "span_days": 197.3,
+    "pulsed_load_blocks": 29,
+    "rw_cycles": 624,
+    "first_rw_cycle_minutes": 34.3,
+    "temp_range_C_first4000steps": [
+      21.8,
+      52.0
+    ]
+  },
+  "RW18": {
+    "reference_discharges": 28,
+    "capacity_first_Ah": 2.121,
+    "capacity_last_Ah": 1.117,
+    "capacity_retention_pct": 52.7,
+    "span_days": 200.1,
+    "pulsed_load_blocks": 28,
+    "rw_cycles": 665,
+    "first_rw_cycle_minutes": 34.3,
+    "temp_range_C_first4000steps": [
+      -4099.4,
+      49.7
+    ]
+  },
+  "RW19": {
+    "reference_discharges": 27,
+    "capacity_first_Ah": 2.132,
+    "capacity_last_Ah": 1.075,
+    "capacity_retention_pct": 50.4,
+    "span_days": 197.6,
+    "pulsed_load_blocks": 27,
+    "rw_cycles": 686,
+    "first_rw_cycle_minutes": 31.6,
+    "temp_range_C_first4000steps": [
+      21.8,
+      51.6
+    ]
+  },
+  "RW20": {
+    "reference_discharges": 29,
+    "capacity_first_Ah": 2.129,
+    "capacity_last_Ah": 1.071,
+    "capacity_retention_pct": 50.3,
+    "span_days": 196.0,
+    "pulsed_load_blocks": 29,
+    "rw_cycles": 544,
+    "first_rw_cycle_minutes": 32.0,
+    "temp_range_C_first4000steps": [
+      21.8,
+      55.9
+    ]
+  }
+}

@@ -1,0 +1,889 @@
+CBMC version 5.95.1 (cbmc-5.95.1) 64-bit x86_64 linux
+Parsing /src/verify/cbmc/harness_ekf.c
+Parsing /src/firmware/src/soc_ekf.c
+Converting
+Type-checking harness_ekf
+Type-checking soc_ekf
+Generating GOTO Program
+Adding CPROVER library (x86_64)
+Removal of function pointers and virtual functions
+Generic Property Instrumentation
+Running with 8 object bits, 56 offset bits (default)
+Starting Bounded Model Checking
+Unwinding loop reset_cov.0 iteration 1 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.0 iteration 2 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.0 iteration 3 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.1 iteration 1 file /src/firmware/src/soc_ekf.c line 106 function reset_cov thread 0
+Unwinding loop reset_cov.0 iteration 1 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.0 iteration 2 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.0 iteration 3 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.1 iteration 2 file /src/firmware/src/soc_ekf.c line 106 function reset_cov thread 0
+Unwinding loop reset_cov.0 iteration 1 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.0 iteration 2 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.0 iteration 3 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.1 iteration 3 file /src/firmware/src/soc_ekf.c line 106 function reset_cov thread 0
+Unwinding loop in_band.0 iteration 1 file /src/verify/cbmc/harness_ekf.c line 60 function in_band thread 0
+Unwinding loop in_band.0 iteration 2 file /src/verify/cbmc/harness_ekf.c line 60 function in_band thread 0
+Unwinding loop in_band.0 iteration 3 file /src/verify/cbmc/harness_ekf.c line 60 function in_band thread 0
+Unwinding loop in_band.1 iteration 1 file /src/verify/cbmc/harness_ekf.c line 59 function in_band thread 0
+Unwinding loop in_band.0 iteration 1 file /src/verify/cbmc/harness_ekf.c line 60 function in_band thread 0
+Unwinding loop in_band.0 iteration 2 file /src/verify/cbmc/harness_ekf.c line 60 function in_band thread 0
+Unwinding loop in_band.0 iteration 3 file /src/verify/cbmc/harness_ekf.c line 60 function in_band thread 0
+Unwinding loop in_band.1 iteration 2 file /src/verify/cbmc/harness_ekf.c line 59 function in_band thread 0
+Unwinding loop in_band.0 iteration 1 file /src/verify/cbmc/harness_ekf.c line 60 function in_band thread 0
+Unwinding loop in_band.0 iteration 2 file /src/verify/cbmc/harness_ekf.c line 60 function in_band thread 0
+Unwinding loop in_band.0 iteration 3 file /src/verify/cbmc/harness_ekf.c line 60 function in_band thread 0
+Unwinding loop in_band.1 iteration 3 file /src/verify/cbmc/harness_ekf.c line 59 function in_band thread 0
+Unwinding loop main.0 iteration 1 file /src/verify/cbmc/harness_ekf.c line 87 function main thread 0
+Unwinding loop main.0 iteration 2 file /src/verify/cbmc/harness_ekf.c line 87 function main thread 0
+Unwinding loop main.0 iteration 3 file /src/verify/cbmc/harness_ekf.c line 87 function main thread 0
+Unwinding loop main.1 iteration 1 file /src/verify/cbmc/harness_ekf.c line 85 function main thread 0
+Unwinding loop main.0 iteration 1 file /src/verify/cbmc/harness_ekf.c line 87 function main thread 0
+Unwinding loop main.0 iteration 2 file /src/verify/cbmc/harness_ekf.c line 87 function main thread 0
+Unwinding loop main.0 iteration 3 file /src/verify/cbmc/harness_ekf.c line 87 function main thread 0
+Unwinding loop main.1 iteration 2 file /src/verify/cbmc/harness_ekf.c line 85 function main thread 0
+Unwinding loop main.0 iteration 1 file /src/verify/cbmc/harness_ekf.c line 87 function main thread 0
+Unwinding loop main.0 iteration 2 file /src/verify/cbmc/harness_ekf.c line 87 function main thread 0
+Unwinding loop main.0 iteration 3 file /src/verify/cbmc/harness_ekf.c line 87 function main thread 0
+Unwinding loop main.1 iteration 3 file /src/verify/cbmc/harness_ekf.c line 85 function main thread 0
+Unwinding loop in_band.0 iteration 1 file /src/verify/cbmc/harness_ekf.c line 60 function in_band thread 0
+Unwinding loop in_band.0 iteration 2 file /src/verify/cbmc/harness_ekf.c line 60 function in_band thread 0
+Unwinding loop in_band.0 iteration 3 file /src/verify/cbmc/harness_ekf.c line 60 function in_band thread 0
+Unwinding loop in_band.1 iteration 1 file /src/verify/cbmc/harness_ekf.c line 59 function in_band thread 0
+Unwinding loop in_band.0 iteration 1 file /src/verify/cbmc/harness_ekf.c line 60 function in_band thread 0
+Unwinding loop in_band.0 iteration 2 file /src/verify/cbmc/harness_ekf.c line 60 function in_band thread 0
+Unwinding loop in_band.0 iteration 3 file /src/verify/cbmc/harness_ekf.c line 60 function in_band thread 0
+Unwinding loop in_band.1 iteration 2 file /src/verify/cbmc/harness_ekf.c line 59 function in_band thread 0
+Unwinding loop in_band.0 iteration 1 file /src/verify/cbmc/harness_ekf.c line 60 function in_band thread 0
+Unwinding loop in_band.0 iteration 2 file /src/verify/cbmc/harness_ekf.c line 60 function in_band thread 0
+Unwinding loop in_band.0 iteration 3 file /src/verify/cbmc/harness_ekf.c line 60 function in_band thread 0
+Unwinding loop in_band.1 iteration 3 file /src/verify/cbmc/harness_ekf.c line 59 function in_band thread 0
+Unwinding loop interp.0 iteration 1 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 2 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 3 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 4 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 5 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 6 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 7 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 8 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Not unwinding loop interp.0 iteration 9 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 1 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 2 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 3 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 4 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 5 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 6 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 7 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 8 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Not unwinding loop interp.0 iteration 9 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 1 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 2 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 3 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 4 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 5 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 6 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 7 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 8 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Not unwinding loop interp.0 iteration 9 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 1 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 2 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 3 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 4 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 5 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 6 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 7 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 8 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Not unwinding loop interp.0 iteration 9 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 1 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 2 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 3 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 4 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 5 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 6 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 7 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 8 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Not unwinding loop interp.0 iteration 9 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop soc_ekf_step.0 iteration 1 file /src/firmware/src/soc_ekf.c line 194 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.0 iteration 2 file /src/firmware/src/soc_ekf.c line 194 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.0 iteration 3 file /src/firmware/src/soc_ekf.c line 194 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.1 iteration 1 file /src/firmware/src/soc_ekf.c line 198 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.1 iteration 2 file /src/firmware/src/soc_ekf.c line 198 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.1 iteration 3 file /src/firmware/src/soc_ekf.c line 198 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.2 iteration 1 file /src/firmware/src/soc_ekf.c line 197 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.1 iteration 1 file /src/firmware/src/soc_ekf.c line 198 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.1 iteration 2 file /src/firmware/src/soc_ekf.c line 198 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.1 iteration 3 file /src/firmware/src/soc_ekf.c line 198 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.2 iteration 2 file /src/firmware/src/soc_ekf.c line 197 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.1 iteration 1 file /src/firmware/src/soc_ekf.c line 198 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.1 iteration 2 file /src/firmware/src/soc_ekf.c line 198 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.1 iteration 3 file /src/firmware/src/soc_ekf.c line 198 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.2 iteration 3 file /src/firmware/src/soc_ekf.c line 197 function soc_ekf_step thread 0
+Unwinding loop guard_state.0 iteration 1 file /src/firmware/src/soc_ekf.c line 134 function guard_state thread 0
+Unwinding loop guard_state.0 iteration 2 file /src/firmware/src/soc_ekf.c line 134 function guard_state thread 0
+Unwinding loop guard_state.1 iteration 1 file /src/firmware/src/soc_ekf.c line 141 function guard_state thread 0
+Unwinding loop guard_state.1 iteration 2 file /src/firmware/src/soc_ekf.c line 141 function guard_state thread 0
+Unwinding loop guard_state.1 iteration 3 file /src/firmware/src/soc_ekf.c line 141 function guard_state thread 0
+Unwinding loop guard_state.2 iteration 1 file /src/firmware/src/soc_ekf.c line 140 function guard_state thread 0
+Unwinding loop guard_state.1 iteration 1 file /src/firmware/src/soc_ekf.c line 141 function guard_state thread 0
+Unwinding loop guard_state.1 iteration 2 file /src/firmware/src/soc_ekf.c line 141 function guard_state thread 0
+Unwinding loop guard_state.1 iteration 3 file /src/firmware/src/soc_ekf.c line 141 function guard_state thread 0
+Unwinding loop guard_state.2 iteration 2 file /src/firmware/src/soc_ekf.c line 140 function guard_state thread 0
+Unwinding loop guard_state.1 iteration 1 file /src/firmware/src/soc_ekf.c line 141 function guard_state thread 0
+Unwinding loop guard_state.1 iteration 2 file /src/firmware/src/soc_ekf.c line 141 function guard_state thread 0
+Unwinding loop guard_state.1 iteration 3 file /src/firmware/src/soc_ekf.c line 141 function guard_state thread 0
+Unwinding loop guard_state.2 iteration 3 file /src/firmware/src/soc_ekf.c line 140 function guard_state thread 0
+Unwinding loop reset_cov.0 iteration 1 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.0 iteration 2 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.0 iteration 3 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.1 iteration 1 file /src/firmware/src/soc_ekf.c line 106 function reset_cov thread 0
+Unwinding loop reset_cov.0 iteration 1 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.0 iteration 2 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.0 iteration 3 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.1 iteration 2 file /src/firmware/src/soc_ekf.c line 106 function reset_cov thread 0
+Unwinding loop reset_cov.0 iteration 1 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.0 iteration 2 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.0 iteration 3 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.1 iteration 3 file /src/firmware/src/soc_ekf.c line 106 function reset_cov thread 0
+Unwinding loop interp.0 iteration 1 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 2 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 3 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 4 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 5 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 6 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 7 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 8 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Not unwinding loop interp.0 iteration 9 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 1 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 2 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 3 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 4 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 5 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 6 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 7 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop interp.0 iteration 8 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Not unwinding loop interp.0 iteration 9 file /src/firmware/src/soc_ekf.c line 81 function interp thread 0
+Unwinding loop soc_ekf_step.3 iteration 1 file /src/firmware/src/soc_ekf.c line 216 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.3 iteration 2 file /src/firmware/src/soc_ekf.c line 216 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.3 iteration 3 file /src/firmware/src/soc_ekf.c line 216 function soc_ekf_step thread 0
+Unwinding loop reset_cov.0 iteration 1 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.0 iteration 2 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.0 iteration 3 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.1 iteration 1 file /src/firmware/src/soc_ekf.c line 106 function reset_cov thread 0
+Unwinding loop reset_cov.0 iteration 1 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.0 iteration 2 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.0 iteration 3 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.1 iteration 2 file /src/firmware/src/soc_ekf.c line 106 function reset_cov thread 0
+Unwinding loop reset_cov.0 iteration 1 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.0 iteration 2 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.0 iteration 3 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.1 iteration 3 file /src/firmware/src/soc_ekf.c line 106 function reset_cov thread 0
+Unwinding loop guard_state.0 iteration 1 file /src/firmware/src/soc_ekf.c line 134 function guard_state thread 0
+Unwinding loop guard_state.0 iteration 2 file /src/firmware/src/soc_ekf.c line 134 function guard_state thread 0
+Unwinding loop guard_state.1 iteration 1 file /src/firmware/src/soc_ekf.c line 141 function guard_state thread 0
+Unwinding loop guard_state.1 iteration 2 file /src/firmware/src/soc_ekf.c line 141 function guard_state thread 0
+Unwinding loop guard_state.1 iteration 3 file /src/firmware/src/soc_ekf.c line 141 function guard_state thread 0
+Unwinding loop guard_state.2 iteration 1 file /src/firmware/src/soc_ekf.c line 140 function guard_state thread 0
+Unwinding loop guard_state.1 iteration 1 file /src/firmware/src/soc_ekf.c line 141 function guard_state thread 0
+Unwinding loop guard_state.1 iteration 2 file /src/firmware/src/soc_ekf.c line 141 function guard_state thread 0
+Unwinding loop guard_state.1 iteration 3 file /src/firmware/src/soc_ekf.c line 141 function guard_state thread 0
+Unwinding loop guard_state.2 iteration 2 file /src/firmware/src/soc_ekf.c line 140 function guard_state thread 0
+Unwinding loop guard_state.1 iteration 1 file /src/firmware/src/soc_ekf.c line 141 function guard_state thread 0
+Unwinding loop guard_state.1 iteration 2 file /src/firmware/src/soc_ekf.c line 141 function guard_state thread 0
+Unwinding loop guard_state.1 iteration 3 file /src/firmware/src/soc_ekf.c line 141 function guard_state thread 0
+Unwinding loop guard_state.2 iteration 3 file /src/firmware/src/soc_ekf.c line 140 function guard_state thread 0
+Unwinding loop soc_ekf_step.4 iteration 1 file /src/firmware/src/soc_ekf.c line 225 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.4 iteration 2 file /src/firmware/src/soc_ekf.c line 225 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.4 iteration 3 file /src/firmware/src/soc_ekf.c line 225 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.5 iteration 1 file /src/firmware/src/soc_ekf.c line 229 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.5 iteration 2 file /src/firmware/src/soc_ekf.c line 229 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.5 iteration 3 file /src/firmware/src/soc_ekf.c line 229 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.6 iteration 1 file /src/firmware/src/soc_ekf.c line 233 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.6 iteration 2 file /src/firmware/src/soc_ekf.c line 233 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.6 iteration 3 file /src/firmware/src/soc_ekf.c line 233 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.7 iteration 1 file /src/firmware/src/soc_ekf.c line 232 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.6 iteration 1 file /src/firmware/src/soc_ekf.c line 233 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.6 iteration 2 file /src/firmware/src/soc_ekf.c line 233 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.6 iteration 3 file /src/firmware/src/soc_ekf.c line 233 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.7 iteration 2 file /src/firmware/src/soc_ekf.c line 232 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.6 iteration 1 file /src/firmware/src/soc_ekf.c line 233 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.6 iteration 2 file /src/firmware/src/soc_ekf.c line 233 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.6 iteration 3 file /src/firmware/src/soc_ekf.c line 233 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.7 iteration 3 file /src/firmware/src/soc_ekf.c line 232 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.8 iteration 1 file /src/firmware/src/soc_ekf.c line 240 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.8 iteration 2 file /src/firmware/src/soc_ekf.c line 240 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.8 iteration 3 file /src/firmware/src/soc_ekf.c line 240 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.9 iteration 1 file /src/firmware/src/soc_ekf.c line 239 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.8 iteration 1 file /src/firmware/src/soc_ekf.c line 240 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.8 iteration 2 file /src/firmware/src/soc_ekf.c line 240 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.8 iteration 3 file /src/firmware/src/soc_ekf.c line 240 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.9 iteration 2 file /src/firmware/src/soc_ekf.c line 239 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.8 iteration 1 file /src/firmware/src/soc_ekf.c line 240 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.8 iteration 2 file /src/firmware/src/soc_ekf.c line 240 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.8 iteration 3 file /src/firmware/src/soc_ekf.c line 240 function soc_ekf_step thread 0
+Unwinding loop soc_ekf_step.9 iteration 3 file /src/firmware/src/soc_ekf.c line 239 function soc_ekf_step thread 0
+Unwinding loop guard_state.0 iteration 1 file /src/firmware/src/soc_ekf.c line 134 function guard_state thread 0
+Unwinding loop guard_state.0 iteration 2 file /src/firmware/src/soc_ekf.c line 134 function guard_state thread 0
+Unwinding loop guard_state.1 iteration 1 file /src/firmware/src/soc_ekf.c line 141 function guard_state thread 0
+Unwinding loop guard_state.1 iteration 2 file /src/firmware/src/soc_ekf.c line 141 function guard_state thread 0
+Unwinding loop guard_state.1 iteration 3 file /src/firmware/src/soc_ekf.c line 141 function guard_state thread 0
+Unwinding loop guard_state.2 iteration 1 file /src/firmware/src/soc_ekf.c line 140 function guard_state thread 0
+Unwinding loop guard_state.1 iteration 1 file /src/firmware/src/soc_ekf.c line 141 function guard_state thread 0
+Unwinding loop guard_state.1 iteration 2 file /src/firmware/src/soc_ekf.c line 141 function guard_state thread 0
+Unwinding loop guard_state.1 iteration 3 file /src/firmware/src/soc_ekf.c line 141 function guard_state thread 0
+Unwinding loop guard_state.2 iteration 2 file /src/firmware/src/soc_ekf.c line 140 function guard_state thread 0
+Unwinding loop guard_state.1 iteration 1 file /src/firmware/src/soc_ekf.c line 141 function guard_state thread 0
+Unwinding loop guard_state.1 iteration 2 file /src/firmware/src/soc_ekf.c line 141 function guard_state thread 0
+Unwinding loop guard_state.1 iteration 3 file /src/firmware/src/soc_ekf.c line 141 function guard_state thread 0
+Unwinding loop guard_state.2 iteration 3 file /src/firmware/src/soc_ekf.c line 140 function guard_state thread 0
+Unwinding loop reset_cov.0 iteration 1 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.0 iteration 2 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.0 iteration 3 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.1 iteration 1 file /src/firmware/src/soc_ekf.c line 106 function reset_cov thread 0
+Unwinding loop reset_cov.0 iteration 1 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.0 iteration 2 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.0 iteration 3 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.1 iteration 2 file /src/firmware/src/soc_ekf.c line 106 function reset_cov thread 0
+Unwinding loop reset_cov.0 iteration 1 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.0 iteration 2 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.0 iteration 3 file /src/firmware/src/soc_ekf.c line 107 function reset_cov thread 0
+Unwinding loop reset_cov.1 iteration 3 file /src/firmware/src/soc_ekf.c line 106 function reset_cov thread 0
+Unwinding loop in_band.0 iteration 1 file /src/verify/cbmc/harness_ekf.c line 60 function in_band thread 0
+Unwinding loop in_band.0 iteration 2 file /src/verify/cbmc/harness_ekf.c line 60 function in_band thread 0
+Unwinding loop in_band.0 iteration 3 file /src/verify/cbmc/harness_ekf.c line 60 function in_band thread 0
+Unwinding loop in_band.1 iteration 1 file /src/verify/cbmc/harness_ekf.c line 59 function in_band thread 0
+Unwinding loop in_band.0 iteration 1 file /src/verify/cbmc/harness_ekf.c line 60 function in_band thread 0
+Unwinding loop in_band.0 iteration 2 file /src/verify/cbmc/harness_ekf.c line 60 function in_band thread 0
+Unwinding loop in_band.0 iteration 3 file /src/verify/cbmc/harness_ekf.c line 60 function in_band thread 0
+Unwinding loop in_band.1 iteration 2 file /src/verify/cbmc/harness_ekf.c line 59 function in_band thread 0
+Unwinding loop in_band.0 iteration 1 file /src/verify/cbmc/harness_ekf.c line 60 function in_band thread 0
+Unwinding loop in_band.0 iteration 2 file /src/verify/cbmc/harness_ekf.c line 60 function in_band thread 0
+Unwinding loop in_band.0 iteration 3 file /src/verify/cbmc/harness_ekf.c line 60 function in_band thread 0
+Unwinding loop in_band.1 iteration 3 file /src/verify/cbmc/harness_ekf.c line 59 function in_band thread 0
+Unwinding loop main.2 iteration 1 file /src/verify/cbmc/harness_ekf.c line 102 function main thread 0
+Unwinding loop main.2 iteration 2 file /src/verify/cbmc/harness_ekf.c line 102 function main thread 0
+Unwinding loop main.2 iteration 3 file /src/verify/cbmc/harness_ekf.c line 102 function main thread 0
+Unwinding loop main.3 iteration 1 file /src/verify/cbmc/harness_ekf.c line 100 function main thread 0
+Unwinding loop main.2 iteration 1 file /src/verify/cbmc/harness_ekf.c line 102 function main thread 0
+Unwinding loop main.2 iteration 2 file /src/verify/cbmc/harness_ekf.c line 102 function main thread 0
+Unwinding loop main.2 iteration 3 file /src/verify/cbmc/harness_ekf.c line 102 function main thread 0
+Unwinding loop main.3 iteration 2 file /src/verify/cbmc/harness_ekf.c line 100 function main thread 0
+Unwinding loop main.2 iteration 1 file /src/verify/cbmc/harness_ekf.c line 102 function main thread 0
+Unwinding loop main.2 iteration 2 file /src/verify/cbmc/harness_ekf.c line 102 function main thread 0
+Unwinding loop main.2 iteration 3 file /src/verify/cbmc/harness_ekf.c line 102 function main thread 0
+Unwinding loop main.3 iteration 3 file /src/verify/cbmc/harness_ekf.c line 100 function main thread 0
+Runtime Symex: 0.428383s
+size of program expression: 4252 steps
+simple slicing removed 9 assignments
+Generated 3753 VCC(s), 946 remaining after simplification
+Runtime Postprocess Equation: 0.00112978s
+Passing problem to propositional reduction
+converting SSA
+Runtime Convert SSA: 1.15454s
+Running propositional reduction
+Post-processing
+Runtime Post-process: 7.387e-06s
+Solving with MiniSAT 2.2.1 with simplifier
+730514 variables, 3391449 clauses
+SAT checker: instance is UNSATISFIABLE
+Runtime Solver: 2896.05s
+Runtime decision procedure: 2897.21s
+
+** Results:
+/src/firmware/src/soc_ekf.c function guard_state
+[guard_state.array_bounds.1] line 130 array.x dynamic object upper bound in e->x[(signed long int)0]: SUCCESS
+[guard_state.pointer_dereference.1] line 130 dereference failure: pointer NULL in e->x: SUCCESS
+[guard_state.pointer_dereference.2] line 130 dereference failure: pointer invalid in e->x: SUCCESS
+[guard_state.pointer_dereference.3] line 130 dereference failure: deallocated dynamic object in e->x: SUCCESS
+[guard_state.pointer_dereference.4] line 130 dereference failure: dead object in e->x: SUCCESS
+[guard_state.pointer_dereference.5] line 130 dereference failure: pointer outside object bounds in e->x: SUCCESS
+[guard_state.pointer_dereference.6] line 130 dereference failure: invalid integer address in e->x: SUCCESS
+[guard_state.array_bounds.2] line 131 array.x dynamic object upper bound in e->x[(signed long int)0]: SUCCESS
+[guard_state.array_bounds.3] line 131 array.x dynamic object upper bound in e->x[(signed long int)0]: SUCCESS
+[guard_state.pointer_dereference.7] line 131 dereference failure: pointer NULL in e->x: SUCCESS
+[guard_state.pointer_dereference.8] line 131 dereference failure: pointer invalid in e->x: SUCCESS
+[guard_state.pointer_dereference.9] line 131 dereference failure: deallocated dynamic object in e->x: SUCCESS
+[guard_state.pointer_dereference.10] line 131 dereference failure: dead object in e->x: SUCCESS
+[guard_state.pointer_dereference.11] line 131 dereference failure: pointer outside object bounds in e->x: SUCCESS
+[guard_state.pointer_dereference.12] line 131 dereference failure: invalid integer address in e->x: SUCCESS
+[guard_state.pointer_dereference.13] line 131 dereference failure: pointer NULL in e->x: SUCCESS
+[guard_state.pointer_dereference.14] line 131 dereference failure: pointer invalid in e->x: SUCCESS
+[guard_state.pointer_dereference.15] line 131 dereference failure: deallocated dynamic object in e->x: SUCCESS
+[guard_state.pointer_dereference.16] line 131 dereference failure: dead object in e->x: SUCCESS
+[guard_state.pointer_dereference.17] line 131 dereference failure: pointer outside object bounds in e->x: SUCCESS
+[guard_state.pointer_dereference.18] line 131 dereference failure: invalid integer address in e->x: SUCCESS
+[guard_state.overflow.1] line 134 arithmetic overflow on signed + in i + 1: SUCCESS
+[guard_state.array_bounds.4] line 135 array.x dynamic object upper bound in e->x[(signed long int)i]: SUCCESS
+[guard_state.pointer_dereference.19] line 135 dereference failure: pointer NULL in e->x: SUCCESS
+[guard_state.pointer_dereference.20] line 135 dereference failure: pointer invalid in e->x: SUCCESS
+[guard_state.pointer_dereference.21] line 135 dereference failure: deallocated dynamic object in e->x: SUCCESS
+[guard_state.pointer_dereference.22] line 135 dereference failure: dead object in e->x: SUCCESS
+[guard_state.pointer_dereference.23] line 135 dereference failure: pointer outside object bounds in e->x: SUCCESS
+[guard_state.pointer_dereference.24] line 135 dereference failure: invalid integer address in e->x: SUCCESS
+[guard_state.array_bounds.5] line 136 array.x dynamic object upper bound in e->x[(signed long int)i]: SUCCESS
+[guard_state.array_bounds.6] line 136 array.x dynamic object upper bound in e->x[(signed long int)i]: SUCCESS
+[guard_state.pointer_dereference.25] line 136 dereference failure: pointer NULL in e->x: SUCCESS
+[guard_state.pointer_dereference.26] line 136 dereference failure: pointer invalid in e->x: SUCCESS
+[guard_state.pointer_dereference.27] line 136 dereference failure: deallocated dynamic object in e->x: SUCCESS
+[guard_state.pointer_dereference.28] line 136 dereference failure: dead object in e->x: SUCCESS
+[guard_state.pointer_dereference.29] line 136 dereference failure: pointer outside object bounds in e->x: SUCCESS
+[guard_state.pointer_dereference.30] line 136 dereference failure: invalid integer address in e->x: SUCCESS
+[guard_state.pointer_dereference.31] line 136 dereference failure: pointer NULL in e->x: SUCCESS
+[guard_state.pointer_dereference.32] line 136 dereference failure: pointer invalid in e->x: SUCCESS
+[guard_state.pointer_dereference.33] line 136 dereference failure: deallocated dynamic object in e->x: SUCCESS
+[guard_state.pointer_dereference.34] line 136 dereference failure: dead object in e->x: SUCCESS
+[guard_state.pointer_dereference.35] line 136 dereference failure: pointer outside object bounds in e->x: SUCCESS
+[guard_state.pointer_dereference.36] line 136 dereference failure: invalid integer address in e->x: SUCCESS
+[guard_state.overflow.3] line 140 arithmetic overflow on signed + in i + 1: SUCCESS
+[guard_state.overflow.2] line 141 arithmetic overflow on signed + in j + 1: SUCCESS
+[guard_state.array_bounds.7] line 142 array.P dynamic object upper bound in e->P[(signed long int)i]: SUCCESS
+[guard_state.array_bounds.8] line 142 array.P[] dynamic object upper bound in e->P[(signed long int)i][(signed long int)j]: SUCCESS
+[guard_state.pointer_dereference.37] line 142 dereference failure: pointer NULL in e->P: SUCCESS
+[guard_state.pointer_dereference.38] line 142 dereference failure: pointer invalid in e->P: SUCCESS
+[guard_state.pointer_dereference.39] line 142 dereference failure: deallocated dynamic object in e->P: SUCCESS
+[guard_state.pointer_dereference.40] line 142 dereference failure: dead object in e->P: SUCCESS
+[guard_state.pointer_dereference.41] line 142 dereference failure: pointer outside object bounds in e->P: SUCCESS
+[guard_state.pointer_dereference.42] line 142 dereference failure: invalid integer address in e->P: SUCCESS
+[guard_state.array_bounds.9] line 146 array.P dynamic object upper bound in e->P[(signed long int)i]: SUCCESS
+[guard_state.array_bounds.10] line 146 array.P[] dynamic object upper bound in e->P[(signed long int)i][(signed long int)i]: SUCCESS
+[guard_state.pointer_dereference.43] line 146 dereference failure: pointer NULL in e->P: SUCCESS
+[guard_state.pointer_dereference.44] line 146 dereference failure: pointer invalid in e->P: SUCCESS
+[guard_state.pointer_dereference.45] line 146 dereference failure: deallocated dynamic object in e->P: SUCCESS
+[guard_state.pointer_dereference.46] line 146 dereference failure: dead object in e->P: SUCCESS
+[guard_state.pointer_dereference.47] line 146 dereference failure: pointer outside object bounds in e->P: SUCCESS
+[guard_state.pointer_dereference.48] line 146 dereference failure: invalid integer address in e->P: SUCCESS
+
+/src/firmware/src/soc_ekf.c function interp
+[interp.overflow.1] line 72 arithmetic overflow on signed - in n - 1: SUCCESS
+[interp.pointer_dereference.1] line 75 dereference failure: pointer NULL in xp[(signed long int)0]: SUCCESS
+[interp.pointer_dereference.2] line 75 dereference failure: pointer invalid in xp[(signed long int)0]: SUCCESS
+[interp.pointer_dereference.3] line 75 dereference failure: deallocated dynamic object in xp[(signed long int)0]: SUCCESS
+[interp.pointer_dereference.4] line 75 dereference failure: dead object in xp[(signed long int)0]: SUCCESS
+[interp.pointer_dereference.5] line 75 dereference failure: pointer outside object bounds in xp[(signed long int)0]: SUCCESS
+[interp.pointer_dereference.6] line 75 dereference failure: invalid integer address in xp[(signed long int)0]: SUCCESS
+[interp.pointer_dereference.7] line 76 dereference failure: pointer NULL in fp[(signed long int)0]: SUCCESS
+[interp.pointer_dereference.8] line 76 dereference failure: pointer invalid in fp[(signed long int)0]: SUCCESS
+[interp.pointer_dereference.9] line 76 dereference failure: deallocated dynamic object in fp[(signed long int)0]: SUCCESS
+[interp.pointer_dereference.10] line 76 dereference failure: dead object in fp[(signed long int)0]: SUCCESS
+[interp.pointer_dereference.11] line 76 dereference failure: pointer outside object bounds in fp[(signed long int)0]: SUCCESS
+[interp.pointer_dereference.12] line 76 dereference failure: invalid integer address in fp[(signed long int)0]: SUCCESS
+[interp.overflow.2] line 78 arithmetic overflow on signed - in n - 1: SUCCESS
+[interp.pointer_dereference.13] line 78 dereference failure: pointer NULL in xp[(signed long int)(n - 1)]: SUCCESS
+[interp.pointer_dereference.14] line 78 dereference failure: pointer invalid in xp[(signed long int)(n - 1)]: SUCCESS
+[interp.pointer_dereference.15] line 78 dereference failure: deallocated dynamic object in xp[(signed long int)(n - 1)]: SUCCESS
+[interp.pointer_dereference.16] line 78 dereference failure: dead object in xp[(signed long int)(n - 1)]: SUCCESS
+[interp.pointer_dereference.17] line 78 dereference failure: pointer outside object bounds in xp[(signed long int)(n - 1)]: SUCCESS
+[interp.pointer_dereference.18] line 78 dereference failure: invalid integer address in xp[(signed long int)(n - 1)]: SUCCESS
+[interp.pointer_dereference.19] line 79 dereference failure: pointer NULL in fp[(signed long int)(n - 1)]: SUCCESS
+[interp.pointer_dereference.20] line 79 dereference failure: pointer invalid in fp[(signed long int)(n - 1)]: SUCCESS
+[interp.pointer_dereference.21] line 79 dereference failure: deallocated dynamic object in fp[(signed long int)(n - 1)]: SUCCESS
+[interp.pointer_dereference.22] line 79 dereference failure: dead object in fp[(signed long int)(n - 1)]: SUCCESS
+[interp.pointer_dereference.23] line 79 dereference failure: pointer outside object bounds in fp[(signed long int)(n - 1)]: SUCCESS
+[interp.pointer_dereference.24] line 79 dereference failure: invalid integer address in fp[(signed long int)(n - 1)]: SUCCESS
+[interp.overflow.3] line 81 arithmetic overflow on signed - in hi - lo: SUCCESS
+[interp.unwind.0] line 81 unwinding assertion loop 0: SUCCESS
+[interp.overflow.4] line 82 arithmetic overflow on signed + in lo + (hi - lo) / 2: SUCCESS
+[interp.pointer_dereference.25] line 83 dereference failure: pointer NULL in xp[(signed long int)mid]: SUCCESS
+[interp.pointer_dereference.26] line 83 dereference failure: pointer invalid in xp[(signed long int)mid]: SUCCESS
+[interp.pointer_dereference.27] line 83 dereference failure: deallocated dynamic object in xp[(signed long int)mid]: SUCCESS
+[interp.pointer_dereference.28] line 83 dereference failure: dead object in xp[(signed long int)mid]: SUCCESS
+[interp.pointer_dereference.29] line 83 dereference failure: pointer outside object bounds in xp[(signed long int)mid]: SUCCESS
+[interp.pointer_dereference.30] line 83 dereference failure: invalid integer address in xp[(signed long int)mid]: SUCCESS
+[interp.NaN.1] line 89 NaN on - in fp[(signed long int)(lo + 1)] - fp[(signed long int)lo]: SUCCESS
+[interp.NaN.2] line 89 NaN on - in xp[(signed long int)(lo + 1)] - xp[(signed long int)lo]: SUCCESS
+[interp.NaN.3] line 89 NaN on / in (fp[(signed long int)(lo + 1)] - fp[(signed long int)lo]) / (xp[(signed long int)(lo + 1)] - xp[(signed long int)lo]): SUCCESS
+[interp.division-by-zero.1] line 89 division by zero in (fp[(signed long int)(lo + 1)] - fp[(signed long int)lo]) / (xp[(signed long int)(lo + 1)] - xp[(signed long int)lo]): SUCCESS
+[interp.overflow.5] line 89 arithmetic overflow on signed + in lo + 1: SUCCESS
+[interp.overflow.6] line 89 arithmetic overflow on floating-point subtraction in fp[(signed long int)(lo + 1)] - fp[(signed long int)lo]: SUCCESS
+[interp.overflow.7] line 89 arithmetic overflow on floating-point subtraction in xp[(signed long int)(lo + 1)] - xp[(signed long int)lo]: SUCCESS
+[interp.overflow.8] line 89 arithmetic overflow on floating-point division in (fp[(signed long int)(lo + 1)] - fp[(signed long int)lo]) / (xp[(signed long int)(lo + 1)] - xp[(signed long int)lo]): SUCCESS
+[interp.pointer_dereference.31] line 89 dereference failure: pointer NULL in fp[(signed long int)(lo + 1)]: SUCCESS
+[interp.pointer_dereference.32] line 89 dereference failure: pointer invalid in fp[(signed long int)(lo + 1)]: SUCCESS
+[interp.pointer_dereference.33] line 89 dereference failure: deallocated dynamic object in fp[(signed long int)(lo + 1)]: SUCCESS
+[interp.pointer_dereference.34] line 89 dereference failure: dead object in fp[(signed long int)(lo + 1)]: SUCCESS
+[interp.pointer_dereference.35] line 89 dereference failure: pointer outside object bounds in fp[(signed long int)(lo + 1)]: SUCCESS
+[interp.pointer_dereference.36] line 89 dereference failure: invalid integer address in fp[(signed long int)(lo + 1)]: SUCCESS
+[interp.pointer_dereference.37] line 89 dereference failure: pointer NULL in fp[(signed long int)lo]: SUCCESS
+[interp.pointer_dereference.38] line 89 dereference failure: pointer invalid in fp[(signed long int)lo]: SUCCESS
+[interp.pointer_dereference.39] line 89 dereference failure: deallocated dynamic object in fp[(signed long int)lo]: SUCCESS
+[interp.pointer_dereference.40] line 89 dereference failure: dead object in fp[(signed long int)lo]: SUCCESS
+[interp.pointer_dereference.41] line 89 dereference failure: pointer outside object bounds in fp[(signed long int)lo]: SUCCESS
+[interp.pointer_dereference.42] line 89 dereference failure: invalid integer address in fp[(signed long int)lo]: SUCCESS
+[interp.pointer_dereference.43] line 89 dereference failure: pointer NULL in xp[(signed long int)(lo + 1)]: SUCCESS
+[interp.pointer_dereference.44] line 89 dereference failure: pointer invalid in xp[(signed long int)(lo + 1)]: SUCCESS
+[interp.pointer_dereference.45] line 89 dereference failure: deallocated dynamic object in xp[(signed long int)(lo + 1)]: SUCCESS
+[interp.pointer_dereference.46] line 89 dereference failure: dead object in xp[(signed long int)(lo + 1)]: SUCCESS
+[interp.pointer_dereference.47] line 89 dereference failure: pointer outside object bounds in xp[(signed long int)(lo + 1)]: SUCCESS
+[interp.pointer_dereference.48] line 89 dereference failure: invalid integer address in xp[(signed long int)(lo + 1)]: SUCCESS
+[interp.pointer_dereference.49] line 89 dereference failure: pointer NULL in xp[(signed long int)lo]: SUCCESS
+[interp.pointer_dereference.50] line 89 dereference failure: pointer invalid in xp[(signed long int)lo]: SUCCESS
+[interp.pointer_dereference.51] line 89 dereference failure: deallocated dynamic object in xp[(signed long int)lo]: SUCCESS
+[interp.pointer_dereference.52] line 89 dereference failure: dead object in xp[(signed long int)lo]: SUCCESS
+[interp.pointer_dereference.53] line 89 dereference failure: pointer outside object bounds in xp[(signed long int)lo]: SUCCESS
+[interp.pointer_dereference.54] line 89 dereference failure: invalid integer address in xp[(signed long int)lo]: SUCCESS
+[interp.NaN.4] line 90 NaN on - in x - xp[(signed long int)lo]: SUCCESS
+[interp.NaN.5] line 90 NaN on * in slope * (x - xp[(signed long int)lo]): SUCCESS
+[interp.NaN.6] line 90 NaN on + in slope * (x - xp[(signed long int)lo]) + fp[(signed long int)lo]: SUCCESS
+[interp.overflow.9] line 90 arithmetic overflow on floating-point subtraction in x - xp[(signed long int)lo]: SUCCESS
+[interp.overflow.10] line 90 arithmetic overflow on floating-point multiplication in slope * (x - xp[(signed long int)lo]): SUCCESS
+[interp.overflow.11] line 90 arithmetic overflow on floating-point addition in slope * (x - xp[(signed long int)lo]) + fp[(signed long int)lo]: SUCCESS
+
+/src/firmware/src/soc_ekf.c function reset_cov
+[reset_cov.overflow.2] line 106 arithmetic overflow on signed + in i + 1: SUCCESS
+[reset_cov.overflow.1] line 107 arithmetic overflow on signed + in j + 1: SUCCESS
+[reset_cov.array_bounds.1] line 108 array.P dynamic object upper bound in e->P[(signed long int)i]: SUCCESS
+[reset_cov.array_bounds.2] line 108 array.P[] dynamic object upper bound in e->P[(signed long int)i][(signed long int)j]: SUCCESS
+[reset_cov.pointer_dereference.1] line 108 dereference failure: pointer NULL in e->P: SUCCESS
+[reset_cov.pointer_dereference.2] line 108 dereference failure: pointer invalid in e->P: SUCCESS
+[reset_cov.pointer_dereference.3] line 108 dereference failure: deallocated dynamic object in e->P: SUCCESS
+[reset_cov.pointer_dereference.4] line 108 dereference failure: dead object in e->P: SUCCESS
+[reset_cov.pointer_dereference.5] line 108 dereference failure: pointer outside object bounds in e->P: SUCCESS
+[reset_cov.pointer_dereference.6] line 108 dereference failure: invalid integer address in e->P: SUCCESS
+[reset_cov.array_bounds.3] line 111 array.P dynamic object upper bound in e->P[(signed long int)0]: SUCCESS
+[reset_cov.array_bounds.4] line 111 array.P[] dynamic object upper bound in e->P[(signed long int)0][(signed long int)0]: SUCCESS
+[reset_cov.pointer_dereference.7] line 111 dereference failure: pointer NULL in e->P: SUCCESS
+[reset_cov.pointer_dereference.8] line 111 dereference failure: pointer invalid in e->P: SUCCESS
+[reset_cov.pointer_dereference.9] line 111 dereference failure: deallocated dynamic object in e->P: SUCCESS
+[reset_cov.pointer_dereference.10] line 111 dereference failure: dead object in e->P: SUCCESS
+[reset_cov.pointer_dereference.11] line 111 dereference failure: pointer outside object bounds in e->P: SUCCESS
+[reset_cov.pointer_dereference.12] line 111 dereference failure: invalid integer address in e->P: SUCCESS
+[reset_cov.array_bounds.5] line 112 array.P dynamic object upper bound in e->P[(signed long int)1]: SUCCESS
+[reset_cov.array_bounds.6] line 112 array.P[] dynamic object upper bound in e->P[(signed long int)1][(signed long int)1]: SUCCESS
+[reset_cov.pointer_dereference.13] line 112 dereference failure: pointer NULL in e->P: SUCCESS
+[reset_cov.pointer_dereference.14] line 112 dereference failure: pointer invalid in e->P: SUCCESS
+[reset_cov.pointer_dereference.15] line 112 dereference failure: deallocated dynamic object in e->P: SUCCESS
+[reset_cov.pointer_dereference.16] line 112 dereference failure: dead object in e->P: SUCCESS
+[reset_cov.pointer_dereference.17] line 112 dereference failure: pointer outside object bounds in e->P: SUCCESS
+[reset_cov.pointer_dereference.18] line 112 dereference failure: invalid integer address in e->P: SUCCESS
+[reset_cov.array_bounds.7] line 113 array.P dynamic object upper bound in e->P[(signed long int)2]: SUCCESS
+[reset_cov.array_bounds.8] line 113 array.P[] dynamic object upper bound in e->P[(signed long int)2][(signed long int)2]: SUCCESS
+[reset_cov.pointer_dereference.19] line 113 dereference failure: pointer NULL in e->P: SUCCESS
+[reset_cov.pointer_dereference.20] line 113 dereference failure: pointer invalid in e->P: SUCCESS
+[reset_cov.pointer_dereference.21] line 113 dereference failure: deallocated dynamic object in e->P: SUCCESS
+[reset_cov.pointer_dereference.22] line 113 dereference failure: dead object in e->P: SUCCESS
+[reset_cov.pointer_dereference.23] line 113 dereference failure: pointer outside object bounds in e->P: SUCCESS
+[reset_cov.pointer_dereference.24] line 113 dereference failure: invalid integer address in e->P: SUCCESS
+
+/src/firmware/src/soc_ekf.c function soc_ekf_init
+[soc_ekf_init.array_bounds.1] line 118 array.x dynamic object upper bound in e->x[(signed long int)0]: SUCCESS
+[soc_ekf_init.pointer_dereference.1] line 118 dereference failure: pointer NULL in e->x: SUCCESS
+[soc_ekf_init.pointer_dereference.2] line 118 dereference failure: pointer invalid in e->x: SUCCESS
+[soc_ekf_init.pointer_dereference.3] line 118 dereference failure: deallocated dynamic object in e->x: SUCCESS
+[soc_ekf_init.pointer_dereference.4] line 118 dereference failure: dead object in e->x: SUCCESS
+[soc_ekf_init.pointer_dereference.5] line 118 dereference failure: pointer outside object bounds in e->x: SUCCESS
+[soc_ekf_init.pointer_dereference.6] line 118 dereference failure: invalid integer address in e->x: SUCCESS
+[soc_ekf_init.array_bounds.2] line 119 array.x dynamic object upper bound in e->x[(signed long int)1]: SUCCESS
+[soc_ekf_init.pointer_dereference.7] line 119 dereference failure: pointer NULL in e->x: SUCCESS
+[soc_ekf_init.pointer_dereference.8] line 119 dereference failure: pointer invalid in e->x: SUCCESS
+[soc_ekf_init.pointer_dereference.9] line 119 dereference failure: deallocated dynamic object in e->x: SUCCESS
+[soc_ekf_init.pointer_dereference.10] line 119 dereference failure: dead object in e->x: SUCCESS
+[soc_ekf_init.pointer_dereference.11] line 119 dereference failure: pointer outside object bounds in e->x: SUCCESS
+[soc_ekf_init.pointer_dereference.12] line 119 dereference failure: invalid integer address in e->x: SUCCESS
+[soc_ekf_init.array_bounds.3] line 120 array.x dynamic object upper bound in e->x[(signed long int)2]: SUCCESS
+[soc_ekf_init.pointer_dereference.13] line 120 dereference failure: pointer NULL in e->x: SUCCESS
+[soc_ekf_init.pointer_dereference.14] line 120 dereference failure: pointer invalid in e->x: SUCCESS
+[soc_ekf_init.pointer_dereference.15] line 120 dereference failure: deallocated dynamic object in e->x: SUCCESS
+[soc_ekf_init.pointer_dereference.16] line 120 dereference failure: dead object in e->x: SUCCESS
+[soc_ekf_init.pointer_dereference.17] line 120 dereference failure: pointer outside object bounds in e->x: SUCCESS
+[soc_ekf_init.pointer_dereference.18] line 120 dereference failure: invalid integer address in e->x: SUCCESS
+
+/src/firmware/src/soc_ekf.c function soc_ekf_soc
+[soc_ekf_soc.array_bounds.1] line 253 array.x dynamic object upper bound in e->x[(signed long int)0]: SUCCESS
+[soc_ekf_soc.pointer_dereference.1] line 253 dereference failure: pointer NULL in e->x: SUCCESS
+[soc_ekf_soc.pointer_dereference.2] line 253 dereference failure: pointer invalid in e->x: SUCCESS
+[soc_ekf_soc.pointer_dereference.3] line 253 dereference failure: deallocated dynamic object in e->x: SUCCESS
+[soc_ekf_soc.pointer_dereference.4] line 253 dereference failure: dead object in e->x: SUCCESS
+[soc_ekf_soc.pointer_dereference.5] line 253 dereference failure: pointer outside object bounds in e->x: SUCCESS
+[soc_ekf_soc.pointer_dereference.6] line 253 dereference failure: invalid integer address in e->x: SUCCESS
+
+/src/firmware/src/soc_ekf.c function soc_ekf_std
+[soc_ekf_std.array_bounds.1] line 258 array.P dynamic object upper bound in e->P[(signed long int)0]: SUCCESS
+[soc_ekf_std.array_bounds.2] line 258 array.P[] dynamic object upper bound in e->P[(signed long int)0][(signed long int)0]: SUCCESS
+[soc_ekf_std.pointer_dereference.1] line 258 dereference failure: pointer NULL in e->P: SUCCESS
+[soc_ekf_std.pointer_dereference.2] line 258 dereference failure: pointer invalid in e->P: SUCCESS
+[soc_ekf_std.pointer_dereference.3] line 258 dereference failure: deallocated dynamic object in e->P: SUCCESS
+[soc_ekf_std.pointer_dereference.4] line 258 dereference failure: dead object in e->P: SUCCESS
+[soc_ekf_std.pointer_dereference.5] line 258 dereference failure: pointer outside object bounds in e->P: SUCCESS
+[soc_ekf_std.pointer_dereference.6] line 258 dereference failure: invalid integer address in e->P: SUCCESS
+
+/src/firmware/src/soc_ekf.c function soc_ekf_step
+[soc_ekf_step.pointer_dereference.1] line 168 dereference failure: pointer NULL in out->innov: SUCCESS
+[soc_ekf_step.pointer_dereference.2] line 168 dereference failure: pointer invalid in out->innov: SUCCESS
+[soc_ekf_step.pointer_dereference.3] line 168 dereference failure: deallocated dynamic object in out->innov: SUCCESS
+[soc_ekf_step.pointer_dereference.4] line 168 dereference failure: dead object in out->innov: SUCCESS
+[soc_ekf_step.pointer_dereference.5] line 168 dereference failure: pointer outside object bounds in out->innov: SUCCESS
+[soc_ekf_step.pointer_dereference.6] line 168 dereference failure: invalid integer address in out->innov: SUCCESS
+[soc_ekf_step.pointer_dereference.7] line 169 dereference failure: pointer NULL in out->innov_var: SUCCESS
+[soc_ekf_step.pointer_dereference.8] line 169 dereference failure: pointer invalid in out->innov_var: SUCCESS
+[soc_ekf_step.pointer_dereference.9] line 169 dereference failure: deallocated dynamic object in out->innov_var: SUCCESS
+[soc_ekf_step.pointer_dereference.10] line 169 dereference failure: dead object in out->innov_var: SUCCESS
+[soc_ekf_step.pointer_dereference.11] line 169 dereference failure: pointer outside object bounds in out->innov_var: SUCCESS
+[soc_ekf_step.pointer_dereference.12] line 169 dereference failure: invalid integer address in out->innov_var: SUCCESS
+[soc_ekf_step.array_bounds.1] line 178 array.x dynamic object upper bound in e->x[(signed long int)0]: SUCCESS
+[soc_ekf_step.pointer_dereference.13] line 178 dereference failure: pointer NULL in e->x: SUCCESS
+[soc_ekf_step.pointer_dereference.14] line 178 dereference failure: pointer invalid in e->x: SUCCESS
+[soc_ekf_step.pointer_dereference.15] line 178 dereference failure: deallocated dynamic object in e->x: SUCCESS
+[soc_ekf_step.pointer_dereference.16] line 178 dereference failure: dead object in e->x: SUCCESS
+[soc_ekf_step.pointer_dereference.17] line 178 dereference failure: pointer outside object bounds in e->x: SUCCESS
+[soc_ekf_step.pointer_dereference.18] line 178 dereference failure: invalid integer address in e->x: SUCCESS
+[soc_ekf_step.NaN.1] line 184 NaN on / in tau1 / r1: SUCCESS
+[soc_ekf_step.division-by-zero.1] line 184 division by zero in tau1 / r1: SUCCESS
+[soc_ekf_step.overflow.1] line 184 arithmetic overflow on floating-point division in tau1 / r1: SUCCESS
+[soc_ekf_step.NaN.2] line 185 NaN on / in tau2 / r2: SUCCESS
+[soc_ekf_step.division-by-zero.2] line 185 division by zero in tau2 / r2: SUCCESS
+[soc_ekf_step.overflow.2] line 185 arithmetic overflow on floating-point division in tau2 / r2: SUCCESS
+[soc_ekf_step.NaN.3] line 187 NaN on * in r1 * c1: SUCCESS
+[soc_ekf_step.NaN.4] line 187 NaN on / in -dt / (r1 * c1): SUCCESS
+[soc_ekf_step.division-by-zero.3] line 187 division by zero in -dt / (r1 * c1): SUCCESS
+[soc_ekf_step.overflow.3] line 187 arithmetic overflow on floating-point multiplication in r1 * c1: SUCCESS
+[soc_ekf_step.overflow.4] line 187 arithmetic overflow on floating-point division in -dt / (r1 * c1): SUCCESS
+[soc_ekf_step.NaN.5] line 188 NaN on * in r2 * c2: SUCCESS
+[soc_ekf_step.NaN.6] line 188 NaN on / in -dt / (r2 * c2): SUCCESS
+[soc_ekf_step.division-by-zero.4] line 188 division by zero in -dt / (r2 * c2): SUCCESS
+[soc_ekf_step.overflow.5] line 188 arithmetic overflow on floating-point multiplication in r2 * c2: SUCCESS
+[soc_ekf_step.overflow.6] line 188 arithmetic overflow on floating-point division in -dt / (r2 * c2): SUCCESS
+[soc_ekf_step.overflow.7] line 189 arithmetic overflow on floating-point division in -dt / ((ekf_real_t)3600.0 * (ekf_real_t)5): SUCCESS
+[soc_ekf_step.NaN.7] line 190 NaN on * in r1 * ((ekf_real_t)1.0 - a[(signed long int)1]): SUCCESS
+[soc_ekf_step.overflow.8] line 190 arithmetic overflow on floating-point subtraction in (ekf_real_t)1.0 - a[(signed long int)1]: SUCCESS
+[soc_ekf_step.overflow.9] line 190 arithmetic overflow on floating-point multiplication in r1 * ((ekf_real_t)1.0 - a[(signed long int)1]): SUCCESS
+[soc_ekf_step.NaN.8] line 191 NaN on * in r2 * ((ekf_real_t)1.0 - a[(signed long int)2]): SUCCESS
+[soc_ekf_step.overflow.10] line 191 arithmetic overflow on floating-point subtraction in (ekf_real_t)1.0 - a[(signed long int)2]: SUCCESS
+[soc_ekf_step.overflow.11] line 191 arithmetic overflow on floating-point multiplication in r2 * ((ekf_real_t)1.0 - a[(signed long int)2]): SUCCESS
+[soc_ekf_step.overflow.15] line 194 arithmetic overflow on signed + in i + 1: SUCCESS
+[soc_ekf_step.NaN.9] line 195 NaN on * in a[(signed long int)i] * e->x[(signed long int)i]: SUCCESS
+[soc_ekf_step.NaN.10] line 195 NaN on * in b[(signed long int)i] * i_prev: SUCCESS
+[soc_ekf_step.NaN.11] line 195 NaN on + in a[(signed long int)i] * e->x[(signed long int)i] + b[(signed long int)i] * i_prev: SUCCESS
+[soc_ekf_step.array_bounds.2] line 195 array.x dynamic object upper bound in e->x[(signed long int)i]: SUCCESS
+[soc_ekf_step.array_bounds.3] line 195 array 'a' lower bound in a[(signed long int)i]: SUCCESS
+[soc_ekf_step.array_bounds.4] line 195 array 'a' upper bound in a[(signed long int)i]: SUCCESS
+[soc_ekf_step.array_bounds.5] line 195 array 'b' lower bound in b[(signed long int)i]: SUCCESS
+[soc_ekf_step.array_bounds.6] line 195 array 'b' upper bound in b[(signed long int)i]: SUCCESS
+[soc_ekf_step.overflow.12] line 195 arithmetic overflow on floating-point multiplication in a[(signed long int)i] * e->x[(signed long int)i]: SUCCESS
+[soc_ekf_step.overflow.13] line 195 arithmetic overflow on floating-point multiplication in b[(signed long int)i] * i_prev: SUCCESS
+[soc_ekf_step.overflow.14] line 195 arithmetic overflow on floating-point addition in a[(signed long int)i] * e->x[(signed long int)i] + b[(signed long int)i] * i_prev: SUCCESS
+[soc_ekf_step.pointer_dereference.19] line 195 dereference failure: pointer NULL in e->x: SUCCESS
+[soc_ekf_step.pointer_dereference.20] line 195 dereference failure: pointer invalid in e->x: SUCCESS
+[soc_ekf_step.pointer_dereference.21] line 195 dereference failure: deallocated dynamic object in e->x: SUCCESS
+[soc_ekf_step.pointer_dereference.22] line 195 dereference failure: dead object in e->x: SUCCESS
+[soc_ekf_step.pointer_dereference.23] line 195 dereference failure: pointer outside object bounds in e->x: SUCCESS
+[soc_ekf_step.pointer_dereference.24] line 195 dereference failure: invalid integer address in e->x: SUCCESS
+[soc_ekf_step.overflow.19] line 197 arithmetic overflow on signed + in i + 1: SUCCESS
+[soc_ekf_step.overflow.18] line 198 arithmetic overflow on signed + in j + 1: SUCCESS
+[soc_ekf_step.NaN.12] line 199 NaN on * in a[(signed long int)i] * e->P[(signed long int)i][(signed long int)j]: SUCCESS
+[soc_ekf_step.NaN.13] line 199 NaN on * in a[(signed long int)i] * e->P[(signed long int)i][(signed long int)j] * a[(signed long int)j]: SUCCESS
+[soc_ekf_step.array_bounds.7] line 199 array.P dynamic object upper bound in e->P[(signed long int)i]: SUCCESS
+[soc_ekf_step.array_bounds.8] line 199 array.P[] dynamic object upper bound in e->P[(signed long int)i][(signed long int)j]: SUCCESS
+[soc_ekf_step.array_bounds.9] line 199 array 'a' lower bound in a[(signed long int)i]: SUCCESS
+[soc_ekf_step.array_bounds.10] line 199 array 'a' upper bound in a[(signed long int)i]: SUCCESS
+[soc_ekf_step.array_bounds.11] line 199 array 'a' lower bound in a[(signed long int)j]: SUCCESS
+[soc_ekf_step.array_bounds.12] line 199 array 'a' upper bound in a[(signed long int)j]: SUCCESS
+[soc_ekf_step.overflow.16] line 199 arithmetic overflow on floating-point multiplication in a[(signed long int)i] * e->P[(signed long int)i][(signed long int)j]: SUCCESS
+[soc_ekf_step.overflow.17] line 199 arithmetic overflow on floating-point multiplication in a[(signed long int)i] * e->P[(signed long int)i][(signed long int)j] * a[(signed long int)j]: SUCCESS
+[soc_ekf_step.pointer_dereference.25] line 199 dereference failure: pointer NULL in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.26] line 199 dereference failure: pointer invalid in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.27] line 199 dereference failure: deallocated dynamic object in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.28] line 199 dereference failure: dead object in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.29] line 199 dereference failure: pointer outside object bounds in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.30] line 199 dereference failure: invalid integer address in e->P: SUCCESS
+[soc_ekf_step.array_bounds.13] line 202 array.P dynamic object upper bound in e->P[(signed long int)0]: SUCCESS
+[soc_ekf_step.array_bounds.14] line 202 array.P[] dynamic object upper bound in e->P[(signed long int)0][(signed long int)0]: SUCCESS
+[soc_ekf_step.overflow.20] line 202 arithmetic overflow on floating-point addition in e->P[(signed long int)0][(signed long int)0] + (ekf_real_t)1.000000e-10: SUCCESS
+[soc_ekf_step.pointer_dereference.31] line 202 dereference failure: pointer NULL in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.32] line 202 dereference failure: pointer invalid in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.33] line 202 dereference failure: deallocated dynamic object in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.34] line 202 dereference failure: dead object in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.35] line 202 dereference failure: pointer outside object bounds in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.36] line 202 dereference failure: invalid integer address in e->P: SUCCESS
+[soc_ekf_step.array_bounds.15] line 203 array.P dynamic object upper bound in e->P[(signed long int)1]: SUCCESS
+[soc_ekf_step.array_bounds.16] line 203 array.P[] dynamic object upper bound in e->P[(signed long int)1][(signed long int)1]: SUCCESS
+[soc_ekf_step.overflow.21] line 203 arithmetic overflow on floating-point addition in e->P[(signed long int)1][(signed long int)1] + (ekf_real_t)1.000000e-7: SUCCESS
+[soc_ekf_step.pointer_dereference.37] line 203 dereference failure: pointer NULL in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.38] line 203 dereference failure: pointer invalid in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.39] line 203 dereference failure: deallocated dynamic object in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.40] line 203 dereference failure: dead object in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.41] line 203 dereference failure: pointer outside object bounds in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.42] line 203 dereference failure: invalid integer address in e->P: SUCCESS
+[soc_ekf_step.array_bounds.17] line 204 array.P dynamic object upper bound in e->P[(signed long int)2]: SUCCESS
+[soc_ekf_step.array_bounds.18] line 204 array.P[] dynamic object upper bound in e->P[(signed long int)2][(signed long int)2]: SUCCESS
+[soc_ekf_step.overflow.22] line 204 arithmetic overflow on floating-point addition in e->P[(signed long int)2][(signed long int)2] + (ekf_real_t)1.000000e-7: SUCCESS
+[soc_ekf_step.pointer_dereference.43] line 204 dereference failure: pointer NULL in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.44] line 204 dereference failure: pointer invalid in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.45] line 204 dereference failure: deallocated dynamic object in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.46] line 204 dereference failure: dead object in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.47] line 204 dereference failure: pointer outside object bounds in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.48] line 204 dereference failure: invalid integer address in e->P: SUCCESS
+[soc_ekf_step.array_bounds.19] line 211 array.x dynamic object upper bound in e->x[(signed long int)0]: SUCCESS
+[soc_ekf_step.pointer_dereference.49] line 211 dereference failure: pointer NULL in e->x: SUCCESS
+[soc_ekf_step.pointer_dereference.50] line 211 dereference failure: pointer invalid in e->x: SUCCESS
+[soc_ekf_step.pointer_dereference.51] line 211 dereference failure: deallocated dynamic object in e->x: SUCCESS
+[soc_ekf_step.pointer_dereference.52] line 211 dereference failure: dead object in e->x: SUCCESS
+[soc_ekf_step.pointer_dereference.53] line 211 dereference failure: pointer outside object bounds in e->x: SUCCESS
+[soc_ekf_step.pointer_dereference.54] line 211 dereference failure: invalid integer address in e->x: SUCCESS
+[soc_ekf_step.NaN.14] line 215 NaN on - in return_value_soc_ekf_ocv - e->x[(signed long int)1]: SUCCESS
+[soc_ekf_step.NaN.15] line 215 NaN on - in (return_value_soc_ekf_ocv - e->x[(signed long int)1]) - e->x[(signed long int)2]: SUCCESS
+[soc_ekf_step.NaN.16] line 215 NaN on * in r0 * i_now: SUCCESS
+[soc_ekf_step.NaN.17] line 215 NaN on - in ((return_value_soc_ekf_ocv - e->x[(signed long int)1]) - e->x[(signed long int)2]) - r0 * i_now: SUCCESS
+[soc_ekf_step.array_bounds.20] line 215 array.x dynamic object upper bound in e->x[(signed long int)1]: SUCCESS
+[soc_ekf_step.array_bounds.21] line 215 array.x dynamic object upper bound in e->x[(signed long int)2]: SUCCESS
+[soc_ekf_step.overflow.23] line 215 arithmetic overflow on floating-point subtraction in return_value_soc_ekf_ocv - e->x[(signed long int)1]: SUCCESS
+[soc_ekf_step.overflow.24] line 215 arithmetic overflow on floating-point subtraction in (return_value_soc_ekf_ocv - e->x[(signed long int)1]) - e->x[(signed long int)2]: SUCCESS
+[soc_ekf_step.overflow.25] line 215 arithmetic overflow on floating-point multiplication in r0 * i_now: SUCCESS
+[soc_ekf_step.overflow.26] line 215 arithmetic overflow on floating-point subtraction in ((return_value_soc_ekf_ocv - e->x[(signed long int)1]) - e->x[(signed long int)2]) - r0 * i_now: SUCCESS
+[soc_ekf_step.pointer_dereference.55] line 215 dereference failure: pointer NULL in e->x: SUCCESS
+[soc_ekf_step.pointer_dereference.56] line 215 dereference failure: pointer invalid in e->x: SUCCESS
+[soc_ekf_step.pointer_dereference.57] line 215 dereference failure: deallocated dynamic object in e->x: SUCCESS
+[soc_ekf_step.pointer_dereference.58] line 215 dereference failure: dead object in e->x: SUCCESS
+[soc_ekf_step.pointer_dereference.59] line 215 dereference failure: pointer outside object bounds in e->x: SUCCESS
+[soc_ekf_step.pointer_dereference.60] line 215 dereference failure: invalid integer address in e->x: SUCCESS
+[soc_ekf_step.overflow.32] line 216 arithmetic overflow on signed + in j + 1: SUCCESS
+[soc_ekf_step.NaN.18] line 217 NaN on * in H[(signed long int)0] * e->P[(signed long int)0][(signed long int)j]: SUCCESS
+[soc_ekf_step.NaN.19] line 217 NaN on * in H[(signed long int)1] * e->P[(signed long int)1][(signed long int)j]: SUCCESS
+[soc_ekf_step.NaN.20] line 217 NaN on + in H[(signed long int)0] * e->P[(signed long int)0][(signed long int)j] + H[(signed long int)1] * e->P[(signed long int)1][(signed long int)j]: SUCCESS
+[soc_ekf_step.NaN.21] line 217 NaN on * in H[(signed long int)2] * e->P[(signed long int)2][(signed long int)j]: SUCCESS
+[soc_ekf_step.NaN.22] line 217 NaN on + in H[(signed long int)0] * e->P[(signed long int)0][(signed long int)j] + H[(signed long int)1] * e->P[(signed long int)1][(signed long int)j] + H[(signed long int)2] * e->P[(signed long int)2][(signed long int)j]: SUCCESS
+[soc_ekf_step.array_bounds.22] line 217 array 'hp' lower bound in hp[(signed long int)j]: SUCCESS
+[soc_ekf_step.array_bounds.23] line 217 array 'hp' upper bound in hp[(signed long int)j]: SUCCESS
+[soc_ekf_step.array_bounds.24] line 217 array.P dynamic object upper bound in e->P[(signed long int)0]: SUCCESS
+[soc_ekf_step.array_bounds.25] line 217 array.P[] dynamic object upper bound in e->P[(signed long int)0][(signed long int)j]: SUCCESS
+[soc_ekf_step.array_bounds.26] line 217 array.P dynamic object upper bound in e->P[(signed long int)1]: SUCCESS
+[soc_ekf_step.array_bounds.27] line 217 array.P[] dynamic object upper bound in e->P[(signed long int)1][(signed long int)j]: SUCCESS
+[soc_ekf_step.array_bounds.28] line 217 array.P dynamic object upper bound in e->P[(signed long int)2]: SUCCESS
+[soc_ekf_step.array_bounds.29] line 217 array.P[] dynamic object upper bound in e->P[(signed long int)2][(signed long int)j]: SUCCESS
+[soc_ekf_step.overflow.27] line 217 arithmetic overflow on floating-point multiplication in H[(signed long int)0] * e->P[(signed long int)0][(signed long int)j]: SUCCESS
+[soc_ekf_step.overflow.28] line 217 arithmetic overflow on floating-point multiplication in H[(signed long int)1] * e->P[(signed long int)1][(signed long int)j]: SUCCESS
+[soc_ekf_step.overflow.29] line 217 arithmetic overflow on floating-point addition in H[(signed long int)0] * e->P[(signed long int)0][(signed long int)j] + H[(signed long int)1] * e->P[(signed long int)1][(signed long int)j]: SUCCESS
+[soc_ekf_step.overflow.30] line 217 arithmetic overflow on floating-point multiplication in H[(signed long int)2] * e->P[(signed long int)2][(signed long int)j]: SUCCESS
+[soc_ekf_step.overflow.31] line 217 arithmetic overflow on floating-point addition in H[(signed long int)0] * e->P[(signed long int)0][(signed long int)j] + H[(signed long int)1] * e->P[(signed long int)1][(signed long int)j] + H[(signed long int)2] * e->P[(signed long int)2][(signed long int)j]: SUCCESS
+[soc_ekf_step.pointer_dereference.61] line 217 dereference failure: pointer NULL in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.62] line 217 dereference failure: pointer invalid in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.63] line 217 dereference failure: deallocated dynamic object in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.64] line 217 dereference failure: dead object in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.65] line 217 dereference failure: pointer outside object bounds in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.66] line 217 dereference failure: invalid integer address in e->P: SUCCESS
+[soc_ekf_step.NaN.23] line 219 NaN on * in hp[(signed long int)0] * H[(signed long int)0]: SUCCESS
+[soc_ekf_step.NaN.24] line 219 NaN on * in hp[(signed long int)1] * H[(signed long int)1]: SUCCESS
+[soc_ekf_step.NaN.25] line 219 NaN on + in hp[(signed long int)0] * H[(signed long int)0] + hp[(signed long int)1] * H[(signed long int)1]: SUCCESS
+[soc_ekf_step.NaN.26] line 219 NaN on * in hp[(signed long int)2] * H[(signed long int)2]: SUCCESS
+[soc_ekf_step.NaN.27] line 219 NaN on + in hp[(signed long int)0] * H[(signed long int)0] + hp[(signed long int)1] * H[(signed long int)1] + hp[(signed long int)2] * H[(signed long int)2]: SUCCESS
+[soc_ekf_step.overflow.33] line 219 arithmetic overflow on floating-point multiplication in hp[(signed long int)0] * H[(signed long int)0]: SUCCESS
+[soc_ekf_step.overflow.34] line 219 arithmetic overflow on floating-point multiplication in hp[(signed long int)1] * H[(signed long int)1]: SUCCESS
+[soc_ekf_step.overflow.35] line 219 arithmetic overflow on floating-point addition in hp[(signed long int)0] * H[(signed long int)0] + hp[(signed long int)1] * H[(signed long int)1]: SUCCESS
+[soc_ekf_step.overflow.36] line 219 arithmetic overflow on floating-point multiplication in hp[(signed long int)2] * H[(signed long int)2]: SUCCESS
+[soc_ekf_step.overflow.37] line 219 arithmetic overflow on floating-point addition in hp[(signed long int)0] * H[(signed long int)0] + hp[(signed long int)1] * H[(signed long int)1] + hp[(signed long int)2] * H[(signed long int)2]: SUCCESS
+[soc_ekf_step.overflow.38] line 219 arithmetic overflow on floating-point addition in hp[(signed long int)0] * H[(signed long int)0] + hp[(signed long int)1] * H[(signed long int)1] + hp[(signed long int)2] * H[(signed long int)2] + (ekf_real_t)0.0009: SUCCESS
+[soc_ekf_step.overflow.45] line 225 arithmetic overflow on signed + in i + 1: SUCCESS
+[soc_ekf_step.NaN.28] line 226 NaN on * in e->P[(signed long int)i][(signed long int)0] * H[(signed long int)0]: SUCCESS
+[soc_ekf_step.NaN.29] line 226 NaN on * in e->P[(signed long int)i][(signed long int)1] * H[(signed long int)1]: SUCCESS
+[soc_ekf_step.NaN.30] line 226 NaN on + in e->P[(signed long int)i][(signed long int)0] * H[(signed long int)0] + e->P[(signed long int)i][(signed long int)1] * H[(signed long int)1]: SUCCESS
+[soc_ekf_step.NaN.31] line 226 NaN on * in e->P[(signed long int)i][(signed long int)2] * H[(signed long int)2]: SUCCESS
+[soc_ekf_step.NaN.32] line 226 NaN on + in e->P[(signed long int)i][(signed long int)0] * H[(signed long int)0] + e->P[(signed long int)i][(signed long int)1] * H[(signed long int)1] + e->P[(signed long int)i][(signed long int)2] * H[(signed long int)2]: SUCCESS
+[soc_ekf_step.NaN.33] line 226 NaN on / in (e->P[(signed long int)i][(signed long int)0] * H[(signed long int)0] + e->P[(signed long int)i][(signed long int)1] * H[(signed long int)1] + e->P[(signed long int)i][(signed long int)2] * H[(signed long int)2]) / S: SUCCESS
+[soc_ekf_step.array_bounds.30] line 226 array 'K' lower bound in K[(signed long int)i]: SUCCESS
+[soc_ekf_step.array_bounds.31] line 226 array 'K' upper bound in K[(signed long int)i]: SUCCESS
+[soc_ekf_step.array_bounds.32] line 226 array.P dynamic object upper bound in e->P[(signed long int)i]: SUCCESS
+[soc_ekf_step.array_bounds.33] line 226 array.P[] dynamic object upper bound in e->P[(signed long int)i][(signed long int)0]: SUCCESS
+[soc_ekf_step.array_bounds.34] line 226 array.P[] dynamic object upper bound in e->P[(signed long int)i][(signed long int)1]: SUCCESS
+[soc_ekf_step.array_bounds.35] line 226 array.P[] dynamic object upper bound in e->P[(signed long int)i][(signed long int)2]: SUCCESS
+[soc_ekf_step.division-by-zero.5] line 226 division by zero in (e->P[(signed long int)i][(signed long int)0] * H[(signed long int)0] + e->P[(signed long int)i][(signed long int)1] * H[(signed long int)1] + e->P[(signed long int)i][(signed long int)2] * H[(signed long int)2]) / S: SUCCESS
+[soc_ekf_step.overflow.39] line 226 arithmetic overflow on floating-point multiplication in e->P[(signed long int)i][(signed long int)0] * H[(signed long int)0]: SUCCESS
+[soc_ekf_step.overflow.40] line 226 arithmetic overflow on floating-point multiplication in e->P[(signed long int)i][(signed long int)1] * H[(signed long int)1]: SUCCESS
+[soc_ekf_step.overflow.41] line 226 arithmetic overflow on floating-point addition in e->P[(signed long int)i][(signed long int)0] * H[(signed long int)0] + e->P[(signed long int)i][(signed long int)1] * H[(signed long int)1]: SUCCESS
+[soc_ekf_step.overflow.42] line 226 arithmetic overflow on floating-point multiplication in e->P[(signed long int)i][(signed long int)2] * H[(signed long int)2]: SUCCESS
+[soc_ekf_step.overflow.43] line 226 arithmetic overflow on floating-point addition in e->P[(signed long int)i][(signed long int)0] * H[(signed long int)0] + e->P[(signed long int)i][(signed long int)1] * H[(signed long int)1] + e->P[(signed long int)i][(signed long int)2] * H[(signed long int)2]: SUCCESS
+[soc_ekf_step.overflow.44] line 226 arithmetic overflow on floating-point division in (e->P[(signed long int)i][(signed long int)0] * H[(signed long int)0] + e->P[(signed long int)i][(signed long int)1] * H[(signed long int)1] + e->P[(signed long int)i][(signed long int)2] * H[(signed long int)2]) / S: SUCCESS
+[soc_ekf_step.pointer_dereference.67] line 226 dereference failure: pointer NULL in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.68] line 226 dereference failure: pointer invalid in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.69] line 226 dereference failure: deallocated dynamic object in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.70] line 226 dereference failure: dead object in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.71] line 226 dereference failure: pointer outside object bounds in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.72] line 226 dereference failure: invalid integer address in e->P: SUCCESS
+[soc_ekf_step.NaN.34] line 228 NaN on - in v_meas - y_hat: SUCCESS
+[soc_ekf_step.overflow.46] line 228 arithmetic overflow on floating-point subtraction in v_meas - y_hat: SUCCESS
+[soc_ekf_step.overflow.49] line 229 arithmetic overflow on signed + in i + 1: SUCCESS
+[soc_ekf_step.NaN.35] line 230 NaN on * in K[(signed long int)i] * innov: SUCCESS
+[soc_ekf_step.NaN.36] line 230 NaN on + in e->x[(signed long int)i] + K[(signed long int)i] * innov: SUCCESS
+[soc_ekf_step.array_bounds.36] line 230 array.x dynamic object upper bound in e->x[(signed long int)i]: SUCCESS
+[soc_ekf_step.array_bounds.37] line 230 array 'K' lower bound in K[(signed long int)i]: SUCCESS
+[soc_ekf_step.array_bounds.38] line 230 array 'K' upper bound in K[(signed long int)i]: SUCCESS
+[soc_ekf_step.overflow.47] line 230 arithmetic overflow on floating-point multiplication in K[(signed long int)i] * innov: SUCCESS
+[soc_ekf_step.overflow.48] line 230 arithmetic overflow on floating-point addition in e->x[(signed long int)i] + K[(signed long int)i] * innov: SUCCESS
+[soc_ekf_step.pointer_dereference.73] line 230 dereference failure: pointer NULL in e->x: SUCCESS
+[soc_ekf_step.pointer_dereference.74] line 230 dereference failure: pointer invalid in e->x: SUCCESS
+[soc_ekf_step.pointer_dereference.75] line 230 dereference failure: deallocated dynamic object in e->x: SUCCESS
+[soc_ekf_step.pointer_dereference.76] line 230 dereference failure: dead object in e->x: SUCCESS
+[soc_ekf_step.pointer_dereference.77] line 230 dereference failure: pointer outside object bounds in e->x: SUCCESS
+[soc_ekf_step.pointer_dereference.78] line 230 dereference failure: invalid integer address in e->x: SUCCESS
+[soc_ekf_step.overflow.62] line 232 arithmetic overflow on signed + in i + 1: SUCCESS
+[soc_ekf_step.overflow.61] line 233 arithmetic overflow on signed + in j + 1: SUCCESS
+[soc_ekf_step.NaN.37] line 234 NaN on * in K[(signed long int)i] * H[(signed long int)0]: SUCCESS
+[soc_ekf_step.NaN.38] line 234 NaN on * in ((i == 0 ? (ekf_real_t)1.0 : (ekf_real_t)0.0) - K[(signed long int)i] * H[(signed long int)0]) * e->P[(signed long int)0][(signed long int)j]: SUCCESS
+[soc_ekf_step.array_bounds.39] line 234 array 'Pn' lower bound in Pn[(signed long int)i]: SUCCESS
+[soc_ekf_step.array_bounds.40] line 234 array 'Pn' upper bound in Pn[(signed long int)i]: SUCCESS
+[soc_ekf_step.array_bounds.41] line 234 array 'Pn'[] lower bound in Pn[(signed long int)i][(signed long int)j]: SUCCESS
+[soc_ekf_step.array_bounds.42] line 234 array 'Pn'[] upper bound in Pn[(signed long int)i][(signed long int)j]: SUCCESS
+[soc_ekf_step.array_bounds.43] line 234 array 'K' lower bound in K[(signed long int)i]: SUCCESS
+[soc_ekf_step.array_bounds.44] line 234 array 'K' upper bound in K[(signed long int)i]: SUCCESS
+[soc_ekf_step.array_bounds.45] line 234 array.P dynamic object upper bound in e->P[(signed long int)0]: SUCCESS
+[soc_ekf_step.array_bounds.46] line 234 array.P[] dynamic object upper bound in e->P[(signed long int)0][(signed long int)j]: SUCCESS
+[soc_ekf_step.overflow.50] line 234 arithmetic overflow on floating-point multiplication in K[(signed long int)i] * H[(signed long int)0]: SUCCESS
+[soc_ekf_step.overflow.51] line 234 arithmetic overflow on floating-point subtraction in (i == 0 ? (ekf_real_t)1.0 : (ekf_real_t)0.0) - K[(signed long int)i] * H[(signed long int)0]: SUCCESS
+[soc_ekf_step.overflow.52] line 234 arithmetic overflow on floating-point multiplication in ((i == 0 ? (ekf_real_t)1.0 : (ekf_real_t)0.0) - K[(signed long int)i] * H[(signed long int)0]) * e->P[(signed long int)0][(signed long int)j]: SUCCESS
+[soc_ekf_step.pointer_dereference.79] line 234 dereference failure: pointer NULL in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.80] line 234 dereference failure: pointer invalid in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.81] line 234 dereference failure: deallocated dynamic object in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.82] line 234 dereference failure: dead object in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.83] line 234 dereference failure: pointer outside object bounds in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.84] line 234 dereference failure: invalid integer address in e->P: SUCCESS
+[soc_ekf_step.NaN.39] line 235 NaN on * in K[(signed long int)i] * H[(signed long int)1]: SUCCESS
+[soc_ekf_step.NaN.40] line 235 NaN on * in ((i == 1 ? (ekf_real_t)1.0 : (ekf_real_t)0.0) - K[(signed long int)i] * H[(signed long int)1]) * e->P[(signed long int)1][(signed long int)j]: SUCCESS
+[soc_ekf_step.NaN.41] line 235 NaN on + in ((i == 0 ? (ekf_real_t)1.0 : (ekf_real_t)0.0) - K[(signed long int)i] * H[(signed long int)0]) * e->P[(signed long int)0][(signed long int)j] + ((i == 1 ? (ekf_real_t)1.0 : (ekf_real_t)0.0) - K[(signed long int)i] * H[(signed long int)1]) * e->P[(signed long int)1][(signed long int)j]: SUCCESS
+[soc_ekf_step.array_bounds.47] line 235 array.P dynamic object upper bound in e->P[(signed long int)1]: SUCCESS
+[soc_ekf_step.array_bounds.48] line 235 array.P[] dynamic object upper bound in e->P[(signed long int)1][(signed long int)j]: SUCCESS
+[soc_ekf_step.overflow.53] line 235 arithmetic overflow on floating-point multiplication in K[(signed long int)i] * H[(signed long int)1]: SUCCESS
+[soc_ekf_step.overflow.54] line 235 arithmetic overflow on floating-point subtraction in (i == 1 ? (ekf_real_t)1.0 : (ekf_real_t)0.0) - K[(signed long int)i] * H[(signed long int)1]: SUCCESS
+[soc_ekf_step.overflow.55] line 235 arithmetic overflow on floating-point multiplication in ((i == 1 ? (ekf_real_t)1.0 : (ekf_real_t)0.0) - K[(signed long int)i] * H[(signed long int)1]) * e->P[(signed long int)1][(signed long int)j]: SUCCESS
+[soc_ekf_step.overflow.56] line 235 arithmetic overflow on floating-point addition in ((i == 0 ? (ekf_real_t)1.0 : (ekf_real_t)0.0) - K[(signed long int)i] * H[(signed long int)0]) * e->P[(signed long int)0][(signed long int)j] + ((i == 1 ? (ekf_real_t)1.0 : (ekf_real_t)0.0) - K[(signed long int)i] * H[(signed long int)1]) * e->P[(signed long int)1][(signed long int)j]: SUCCESS
+[soc_ekf_step.NaN.42] line 236 NaN on * in K[(signed long int)i] * H[(signed long int)2]: SUCCESS
+[soc_ekf_step.NaN.43] line 236 NaN on * in ((i == 2 ? (ekf_real_t)1.0 : (ekf_real_t)0.0) - K[(signed long int)i] * H[(signed long int)2]) * e->P[(signed long int)2][(signed long int)j]: SUCCESS
+[soc_ekf_step.NaN.44] line 236 NaN on + in ((i == 0 ? (ekf_real_t)1.0 : (ekf_real_t)0.0) - K[(signed long int)i] * H[(signed long int)0]) * e->P[(signed long int)0][(signed long int)j] + ((i == 1 ? (ekf_real_t)1.0 : (ekf_real_t)0.0) - K[(signed long int)i] * H[(signed long int)1]) * e->P[(signed long int)1][(signed long int)j] + ((i == 2 ? (ekf_real_t)1.0 : (ekf_real_t)0.0) - K[(signed long int)i] * H[(signed long int)2]) * e->P[(signed long int)2][(signed long int)j]: SUCCESS
+[soc_ekf_step.array_bounds.49] line 236 array.P dynamic object upper bound in e->P[(signed long int)2]: SUCCESS
+[soc_ekf_step.array_bounds.50] line 236 array.P[] dynamic object upper bound in e->P[(signed long int)2][(signed long int)j]: SUCCESS
+[soc_ekf_step.overflow.57] line 236 arithmetic overflow on floating-point multiplication in K[(signed long int)i] * H[(signed long int)2]: SUCCESS
+[soc_ekf_step.overflow.58] line 236 arithmetic overflow on floating-point subtraction in (i == 2 ? (ekf_real_t)1.0 : (ekf_real_t)0.0) - K[(signed long int)i] * H[(signed long int)2]: SUCCESS
+[soc_ekf_step.overflow.59] line 236 arithmetic overflow on floating-point multiplication in ((i == 2 ? (ekf_real_t)1.0 : (ekf_real_t)0.0) - K[(signed long int)i] * H[(signed long int)2]) * e->P[(signed long int)2][(signed long int)j]: SUCCESS
+[soc_ekf_step.overflow.60] line 236 arithmetic overflow on floating-point addition in ((i == 0 ? (ekf_real_t)1.0 : (ekf_real_t)0.0) - K[(signed long int)i] * H[(signed long int)0]) * e->P[(signed long int)0][(signed long int)j] + ((i == 1 ? (ekf_real_t)1.0 : (ekf_real_t)0.0) - K[(signed long int)i] * H[(signed long int)1]) * e->P[(signed long int)1][(signed long int)j] + ((i == 2 ? (ekf_real_t)1.0 : (ekf_real_t)0.0) - K[(signed long int)i] * H[(signed long int)2]) * e->P[(signed long int)2][(signed long int)j]: SUCCESS
+[soc_ekf_step.overflow.64] line 239 arithmetic overflow on signed + in i + 1: SUCCESS
+[soc_ekf_step.overflow.63] line 240 arithmetic overflow on signed + in j + 1: SUCCESS
+[soc_ekf_step.array_bounds.51] line 241 array.P dynamic object upper bound in e->P[(signed long int)i]: SUCCESS
+[soc_ekf_step.array_bounds.52] line 241 array.P[] dynamic object upper bound in e->P[(signed long int)i][(signed long int)j]: SUCCESS
+[soc_ekf_step.array_bounds.53] line 241 array 'Pn' lower bound in Pn[(signed long int)i]: SUCCESS
+[soc_ekf_step.array_bounds.54] line 241 array 'Pn' upper bound in Pn[(signed long int)i]: SUCCESS
+[soc_ekf_step.array_bounds.55] line 241 array 'Pn'[] lower bound in Pn[(signed long int)i][(signed long int)j]: SUCCESS
+[soc_ekf_step.array_bounds.56] line 241 array 'Pn'[] upper bound in Pn[(signed long int)i][(signed long int)j]: SUCCESS
+[soc_ekf_step.pointer_dereference.85] line 241 dereference failure: pointer NULL in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.86] line 241 dereference failure: pointer invalid in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.87] line 241 dereference failure: deallocated dynamic object in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.88] line 241 dereference failure: dead object in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.89] line 241 dereference failure: pointer outside object bounds in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.90] line 241 dereference failure: invalid integer address in e->P: SUCCESS
+[soc_ekf_step.pointer_dereference.91] line 245 dereference failure: pointer NULL in out->innov: SUCCESS
+[soc_ekf_step.pointer_dereference.92] line 245 dereference failure: pointer invalid in out->innov: SUCCESS
+[soc_ekf_step.pointer_dereference.93] line 245 dereference failure: deallocated dynamic object in out->innov: SUCCESS
+[soc_ekf_step.pointer_dereference.94] line 245 dereference failure: dead object in out->innov: SUCCESS
+[soc_ekf_step.pointer_dereference.95] line 245 dereference failure: pointer outside object bounds in out->innov: SUCCESS
+[soc_ekf_step.pointer_dereference.96] line 245 dereference failure: invalid integer address in out->innov: SUCCESS
+[soc_ekf_step.pointer_dereference.97] line 246 dereference failure: pointer NULL in out->innov_var: SUCCESS
+[soc_ekf_step.pointer_dereference.98] line 246 dereference failure: pointer invalid in out->innov_var: SUCCESS
+[soc_ekf_step.pointer_dereference.99] line 246 dereference failure: deallocated dynamic object in out->innov_var: SUCCESS
+[soc_ekf_step.pointer_dereference.100] line 246 dereference failure: dead object in out->innov_var: SUCCESS
+[soc_ekf_step.pointer_dereference.101] line 246 dereference failure: pointer outside object bounds in out->innov_var: SUCCESS
+[soc_ekf_step.pointer_dereference.102] line 246 dereference failure: invalid integer address in out->innov_var: SUCCESS
+
+/src/verify/cbmc/harness_ekf.c function cbmc_expf
+[cbmc_expf.assertion.1] line 37 M1 expf argument in modelled range: SUCCESS
+[cbmc_expf.overflow.1] line 37 arithmetic overflow on floating-point division in -60.0f / 0.5f: SUCCESS
+
+/src/verify/cbmc/harness_ekf.c function cbmc_sqrtf
+[cbmc_sqrtf.assertion.1] line 46 M2 sqrtf argument in modelled range: SUCCESS
+
+/src/verify/cbmc/harness_ekf.c function in_band
+[in_band.array_bounds.1] line 56 array.x dynamic object upper bound in e->x[(signed long int)0]: SUCCESS
+[in_band.array_bounds.2] line 56 array.x dynamic object upper bound in e->x[(signed long int)0]: SUCCESS
+[in_band.pointer_dereference.1] line 56 dereference failure: pointer NULL in e->x: SUCCESS
+[in_band.pointer_dereference.2] line 56 dereference failure: pointer invalid in e->x: SUCCESS
+[in_band.pointer_dereference.3] line 56 dereference failure: deallocated dynamic object in e->x: SUCCESS
+[in_band.pointer_dereference.4] line 56 dereference failure: dead object in e->x: SUCCESS
+[in_band.pointer_dereference.5] line 56 dereference failure: pointer outside object bounds in e->x: SUCCESS
+[in_band.pointer_dereference.6] line 56 dereference failure: invalid integer address in e->x: SUCCESS
+[in_band.pointer_dereference.7] line 56 dereference failure: pointer NULL in e->x: SUCCESS
+[in_band.pointer_dereference.8] line 56 dereference failure: pointer invalid in e->x: SUCCESS
+[in_band.pointer_dereference.9] line 56 dereference failure: deallocated dynamic object in e->x: SUCCESS
+[in_band.pointer_dereference.10] line 56 dereference failure: dead object in e->x: SUCCESS
+[in_band.pointer_dereference.11] line 56 dereference failure: pointer outside object bounds in e->x: SUCCESS
+[in_band.pointer_dereference.12] line 56 dereference failure: invalid integer address in e->x: SUCCESS
+[in_band.array_bounds.3] line 57 array.x dynamic object upper bound in e->x[(signed long int)1]: SUCCESS
+[in_band.array_bounds.4] line 57 array.x dynamic object upper bound in e->x[(signed long int)1]: SUCCESS
+[in_band.pointer_dereference.13] line 57 dereference failure: pointer NULL in e->x: SUCCESS
+[in_band.pointer_dereference.14] line 57 dereference failure: pointer invalid in e->x: SUCCESS
+[in_band.pointer_dereference.15] line 57 dereference failure: deallocated dynamic object in e->x: SUCCESS
+[in_band.pointer_dereference.16] line 57 dereference failure: dead object in e->x: SUCCESS
+[in_band.pointer_dereference.17] line 57 dereference failure: pointer outside object bounds in e->x: SUCCESS
+[in_band.pointer_dereference.18] line 57 dereference failure: invalid integer address in e->x: SUCCESS
+[in_band.pointer_dereference.19] line 57 dereference failure: pointer NULL in e->x: SUCCESS
+[in_band.pointer_dereference.20] line 57 dereference failure: pointer invalid in e->x: SUCCESS
+[in_band.pointer_dereference.21] line 57 dereference failure: deallocated dynamic object in e->x: SUCCESS
+[in_band.pointer_dereference.22] line 57 dereference failure: dead object in e->x: SUCCESS
+[in_band.pointer_dereference.23] line 57 dereference failure: pointer outside object bounds in e->x: SUCCESS
+[in_band.pointer_dereference.24] line 57 dereference failure: invalid integer address in e->x: SUCCESS
+[in_band.array_bounds.5] line 58 array.x dynamic object upper bound in e->x[(signed long int)2]: SUCCESS
+[in_band.array_bounds.6] line 58 array.x dynamic object upper bound in e->x[(signed long int)2]: SUCCESS
+[in_band.pointer_dereference.25] line 58 dereference failure: pointer NULL in e->x: SUCCESS
+[in_band.pointer_dereference.26] line 58 dereference failure: pointer invalid in e->x: SUCCESS
+[in_band.pointer_dereference.27] line 58 dereference failure: deallocated dynamic object in e->x: SUCCESS
+[in_band.pointer_dereference.28] line 58 dereference failure: dead object in e->x: SUCCESS
+[in_band.pointer_dereference.29] line 58 dereference failure: pointer outside object bounds in e->x: SUCCESS
+[in_band.pointer_dereference.30] line 58 dereference failure: invalid integer address in e->x: SUCCESS
+[in_band.pointer_dereference.31] line 58 dereference failure: pointer NULL in e->x: SUCCESS
+[in_band.pointer_dereference.32] line 58 dereference failure: pointer invalid in e->x: SUCCESS
+[in_band.pointer_dereference.33] line 58 dereference failure: deallocated dynamic object in e->x: SUCCESS
+[in_band.pointer_dereference.34] line 58 dereference failure: dead object in e->x: SUCCESS
+[in_band.pointer_dereference.35] line 58 dereference failure: pointer outside object bounds in e->x: SUCCESS
+[in_band.pointer_dereference.36] line 58 dereference failure: invalid integer address in e->x: SUCCESS
+[in_band.overflow.2] line 59 arithmetic overflow on signed + in i + 1: SUCCESS
+[in_band.overflow.1] line 60 arithmetic overflow on signed + in j + 1: SUCCESS
+[in_band.array_bounds.7] line 61 array.P dynamic object upper bound in e->P[(signed long int)i]: SUCCESS
+[in_band.array_bounds.8] line 61 array.P[] dynamic object upper bound in e->P[(signed long int)i][(signed long int)j]: SUCCESS
+[in_band.array_bounds.9] line 61 array.P dynamic object upper bound in e->P[(signed long int)i]: SUCCESS
+[in_band.array_bounds.10] line 61 array.P[] dynamic object upper bound in e->P[(signed long int)i][(signed long int)j]: SUCCESS
+[in_band.pointer_dereference.37] line 61 dereference failure: pointer NULL in e->P: SUCCESS
+[in_band.pointer_dereference.38] line 61 dereference failure: pointer invalid in e->P: SUCCESS
+[in_band.pointer_dereference.39] line 61 dereference failure: deallocated dynamic object in e->P: SUCCESS
+[in_band.pointer_dereference.40] line 61 dereference failure: dead object in e->P: SUCCESS
+[in_band.pointer_dereference.41] line 61 dereference failure: pointer outside object bounds in e->P: SUCCESS
+[in_band.pointer_dereference.42] line 61 dereference failure: invalid integer address in e->P: SUCCESS
+[in_band.pointer_dereference.43] line 61 dereference failure: pointer NULL in e->P: SUCCESS
+[in_band.pointer_dereference.44] line 61 dereference failure: pointer invalid in e->P: SUCCESS
+[in_band.pointer_dereference.45] line 61 dereference failure: deallocated dynamic object in e->P: SUCCESS
+[in_band.pointer_dereference.46] line 61 dereference failure: dead object in e->P: SUCCESS
+[in_band.pointer_dereference.47] line 61 dereference failure: pointer outside object bounds in e->P: SUCCESS
+[in_band.pointer_dereference.48] line 61 dereference failure: invalid integer address in e->P: SUCCESS
+[in_band.array_bounds.11] line 63 array.P dynamic object upper bound in e->P[(signed long int)i]: SUCCESS
+[in_band.array_bounds.12] line 63 array.P[] dynamic object upper bound in e->P[(signed long int)i][(signed long int)i]: SUCCESS
+[in_band.pointer_dereference.49] line 63 dereference failure: pointer NULL in e->P: SUCCESS
+[in_band.pointer_dereference.50] line 63 dereference failure: pointer invalid in e->P: SUCCESS
+[in_band.pointer_dereference.51] line 63 dereference failure: deallocated dynamic object in e->P: SUCCESS
+[in_band.pointer_dereference.52] line 63 dereference failure: dead object in e->P: SUCCESS
+[in_band.pointer_dereference.53] line 63 dereference failure: pointer outside object bounds in e->P: SUCCESS
+[in_band.pointer_dereference.54] line 63 dereference failure: invalid integer address in e->P: SUCCESS
+
+/src/verify/cbmc/harness_ekf.c function main
+[main.assertion.1] line 81 E6 init inside guard band: SUCCESS
+[main.overflow.2] line 85 arithmetic overflow on signed + in i + 1: SUCCESS
+[main.array_bounds.1] line 86 array 'e'.x lower bound in e.x[(signed long int)i]: SUCCESS
+[main.array_bounds.2] line 86 array 'e'.x upper bound in e.x[(signed long int)i]: SUCCESS
+[main.overflow.1] line 87 arithmetic overflow on signed + in j + 1: SUCCESS
+[main.array_bounds.3] line 88 array 'e'.P lower bound in e.P[(signed long int)i]: SUCCESS
+[main.array_bounds.4] line 88 array 'e'.P upper bound in e.P[(signed long int)i]: SUCCESS
+[main.array_bounds.5] line 88 array 'e'.P[] lower bound in e.P[(signed long int)i][(signed long int)j]: SUCCESS
+[main.array_bounds.6] line 88 array 'e'.P[] upper bound in e.P[(signed long int)i][(signed long int)j]: SUCCESS
+[main.assertion.2] line 96 E2 state inside guard band after step: SUCCESS
+[main.assertion.3] line 97 E3 innovation outputs finite: SUCCESS
+[main.overflow.4] line 100 arithmetic overflow on signed + in i + 1: SUCCESS
+[main.array_bounds.7] line 101 array 'e'.x lower bound in e.x[(signed long int)i]: SUCCESS
+[main.array_bounds.8] line 101 array 'e'.x upper bound in e.x[(signed long int)i]: SUCCESS
+[main.array_bounds.9] line 101 array 'before'.x lower bound in before.x[(signed long int)i]: SUCCESS
+[main.array_bounds.10] line 101 array 'before'.x upper bound in before.x[(signed long int)i]: SUCCESS
+[main.overflow.3] line 102 arithmetic overflow on signed + in j + 1: SUCCESS
+[main.array_bounds.11] line 103 array 'e'.P lower bound in e.P[(signed long int)i]: SUCCESS
+[main.array_bounds.12] line 103 array 'e'.P upper bound in e.P[(signed long int)i]: SUCCESS
+[main.array_bounds.13] line 103 array 'e'.P[] lower bound in e.P[(signed long int)i][(signed long int)j]: SUCCESS
+[main.array_bounds.14] line 103 array 'e'.P[] upper bound in e.P[(signed long int)i][(signed long int)j]: SUCCESS
+[main.array_bounds.15] line 103 array 'before'.P lower bound in before.P[(signed long int)i]: SUCCESS
+[main.array_bounds.16] line 103 array 'before'.P upper bound in before.P[(signed long int)i]: SUCCESS
+[main.array_bounds.17] line 103 array 'before'.P[] lower bound in before.P[(signed long int)i][(signed long int)j]: SUCCESS
+[main.array_bounds.18] line 103 array 'before'.P[] upper bound in before.P[(signed long int)i][(signed long int)j]: SUCCESS
+[main.assertion.4] line 106 E4 rejected input leaves state unchanged: SUCCESS
+[main.assertion.5] line 110 E5 std finite in [0, 1]: SUCCESS
+[main.assertion.6] line 112 E7 status uses defined bits only: SUCCESS
+
+** 0 of 574 failed (1 iterations)
+VERIFICATION SUCCESSFUL
