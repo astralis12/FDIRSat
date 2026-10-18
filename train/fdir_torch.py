@@ -10,7 +10,7 @@ import numpy as np
 import torch
 
 # fdir_config.h, per cell / per unit (pack values divide by N_S, currents by Q * nP)
-V_CRIT, V_NOM, C_CRIT, T_CRIT, SOC_CRIT_PCT = 3.0, 3.6, 1.5, 60.0, 5.0
+V_CRIT, V_NOM, C_CRIT, T_CRIT, SOC_CRIT_PCT = 3.0, 3.6, 1.5, 55.0, 5.0   # ref config (fdir_config_ref.h, ADR-0023)
 V_PL = (0.5, 4.5)
 C_PL = 10.0
 T_PL = (-60.0, 150.0)

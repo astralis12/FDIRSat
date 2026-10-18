@@ -3,9 +3,9 @@
   "tree": {
     "n": 6000,
     "mismatches": 0,
-    "cycles_max": 374,
-    "cycles_median": 374.0,
-    "wall_s": 95.69922018051147
+    "cycles_max": 373,
+    "cycles_median": 373.0,
+    "wall_s": 95.75674700737
   },
   "chain": {
     "steps": 3000,
@@ -15,9 +15,9 @@
     "action_mismatches": 0,
     "flag_mismatches": 0,
     "ekf_guard_activations": 0,
-    "cycles_max": 15732,
-    "cycles_median": 15602.0,
-    "max_us_at_16MHz": 983.25,
+    "cycles_max": 15729,
+    "cycles_median": 15599.0,
+    "max_us_at_16MHz": 983.0625,
     "actions_seen": [
       [
         0,

@@ -1,29 +1,61 @@
 {
-  "cell_limits": {
-    "model": "Sony US18650VTC6",
-    "v_max": 4.2,
-    "v_charge_tol": 0.05,
-    "v_min": 2.5,
-    "v_min_rating": 2.0,
-    "q_ah": 3.0,
-    "q_nominal_ah": 3.13,
-    "v_nominal": 3.6,
-    "i_charge_std_a": 3.0,
-    "i_discharge_tested_a": 20.0,
-    "i_cycle_rated_a": 15.0,
-    "i_cont_no_cutoff_a": 15.0,
-    "i_cont_80c_cutoff_a": 30.0,
-    "t_discharge_char_c": [
-      -20.0,
-      60.0
-    ],
-    "t_charge_c": [
-      0.0,
-      45.0
-    ],
-    "src_owner_18oct": "owner 18 Oct 2026 from the Murata SDS and product datasheet: 30 A with 80 degC cut-off, 15-20 A without; discharge -20..60 degC; charge 0..45 degC; CC/CV to 4.2 V (4.25 V max)",
-    "src": "Sony US18650VTC6 Technical Information Rev 0.1: charge 4.2 +/- 0.05 V CC/CV 3.0 A; rated 3000 mAh (0.2 C to 2.0 V); 2.5 V cut-off at 1 C and 10 A; discharge curves -20..60 degC; cycle life at 7.5 A and 15 A (charged to 4.15 V); load curves to 20 A",
-    "firmware_q_ah": 2.0
+  "cells": {
+    "ref": {
+      "model": "LG INR21700-M50",
+      "doc": "LG Chem Product Specification LRB-PS-CY18.2Wh-M50, 2017-09-22, Rev 0 (Tentative)",
+      "v_max": 4.2,
+      "v_charge_tol": 0.0,
+      "v_min": 2.5,
+      "v_nominal": 3.63,
+      "q_ah": 5.0,
+      "q_1c_spec_a": 4.85,
+      "i_charge_max_c": {
+        "0..25": 0.3,
+        "25..45": 0.7
+      },
+      "i_discharge_max_c": {
+        "-20..10": 0.5,
+        "10..25": 3.0,
+        "25..55": 1.5
+      },
+      "t_charge_c": [
+        0.0,
+        45.0
+      ],
+      "t_discharge_c": [
+        -20.0,
+        55.0
+      ],
+      "clauses": {
+        "energy": "2.1 (18.2 Wh nominal, 17.6 Wh min)",
+        "v_nominal": "2.2 (3.63 V)",
+        "charge": "2.4/4.1.1 (0.3 C CC to 4.20 V, 50 mA end)",
+        "v_max": "2.5 (4.20 V)",
+        "cutoff": "2.6/4.1.2 (2.50 V)",
+        "temperature": "2.7 (charge 0..45, discharge -20..55 degC; section 5 warning says -20..60)",
+        "i_charge": "4.2.7 (0.3 C at 0..25, 0.7 C at 25..45 degC)",
+        "i_discharge": "4.2.9 (0.5 C at -20..10, 3.0 C at 10..25, 1.5 C at 25..55 degC)"
+      }
+    },
+    "bench": {
+      "model": "Sony/Murata US18650VTC6",
+      "doc": "Sony Technical Information Rev 0.1 (20 Jan 2015) + Murata SDS (owner, 18 Oct 2026)",
+      "v_max": 4.2,
+      "v_charge_tol": 0.05,
+      "v_min": 2.5,
+      "v_nominal": 3.6,
+      "q_ah": 3.0,
+      "i_cont_no_cutoff_a": 15.0,
+      "i_cont_80c_cutoff_a": 30.0,
+      "t_charge_c": [
+        0.0,
+        45.0
+      ],
+      "t_discharge_c": [
+        -20.0,
+        60.0
+      ]
+    }
   },
   "ecss": {
     "system_fdir": "ECSS-Q-ST-30 Annex F (referenced by 6.4.2.10a): FDIR analysis at system level",
@@ -34,86 +66,115 @@
   },
   "configs": {
     "ref": {
+      "cell": "LG INR21700-M50",
       "n_series": 8.0,
       "n_parallel": 4.0,
-      "q_ah": 2.0,
+      "q_ah": 5.0,
+      "pack_ah": 20.0,
       "vcell_ov_max": 4.2,
-      "ibat_critical_a": 12.0,
+      "ibat_critical_a": 30.0,
+      "tbat_critical_max": 55.0,
       "tbat_charge": [
         0.0,
         45.0
       ]
     },
     "bench": {
+      "cell": "Sony/Murata US18650VTC6",
       "n_series": 8.0,
       "n_parallel": 1.0,
       "q_ah": 3.0,
+      "pack_ah": 3.0,
       "vcell_ov_max": 4.25,
       "ibat_critical_a": 4.5,
+      "tbat_critical_max": 60.0,
       "tbat_charge": [
         0.0,
         45.0
       ],
-      "note": "Q is a PLACEHOLDER (VTC6 rated 3.0 Ah) until the C/5 capacity in the 4.20-3.3 V bench window is measured; OV 4.25 V because the charger CV is fixed at 4.2 +/- 0.05 V (ISS-049)",
-      "current_scale_to_ref": 2.6666666666666665
+      "note": "Q is a PLACEHOLDER (VTC6 rated 3.0 Ah) until the C/5 capacity in the 4.20-3.3 V bench window is measured",
+      "current_scale_to_ref": 6.666666666666667
     }
   },
-  "n_series": 8.0,
-  "n_parallel": 4.0,
   "rows": [
     {
       "threshold": "Deep discharge, cell voltage",
       "symbol": "FDIR_VCELL_CRITICAL_MIN",
       "value": 3.0,
       "unit": "V/cell",
-      "source": "Sony US18650VTC6 Technical Information Rev 0.1: charge 4.2 +/- 0.05 V CC/CV 3.0 A; rated 3000 mAh (0.2 C to 2.0 V); 2.5 V cut-off at 1 C and 10 A; discharge curves -20..60 degC; cycle life at 7.5 A and 15 A (charged to 4.15 V); load curves to 20 A; JSC 20793 Rev C 4.4.3a (detect and control under-voltage of any cell)",
       "margin": 0.5,
-      "margin_vs": "VTC6 discharge cut-off 2.5 V (rating uses 2.0 V)",
-      "cbmc": "P3a-c (SGO v2/v3)"
+      "margin_vs": "LG INR21700-M50 discharge cut-off 2.5 V",
+      "cbmc": "P3a-c",
+      "source": "fdir_config.h (3.0 V/cell); JSC 20793 Rev C 4.4.3a (detect and control under-voltage of any cell)",
+      "bench": {
+        "value": 3.0,
+        "margin": 0.5,
+        "margin_vs": "Sony/Murata US18650VTC6 discharge cut-off 2.5 V"
+      }
     },
     {
       "threshold": "Undervoltage, cell voltage",
       "symbol": "FDIR_VCELL_NOMINAL_MIN",
       "value": 3.6,
       "unit": "V/cell",
-      "source": "derived: 3.6 V/cell = original 10.8 V / 3S nominal minimum (fdir_config.h header) = VTC6 nominal voltage 3.6 V (Sony US18650VTC6 Technical Information Rev 0.1); ECSS-E-ST-20-20C clause 1: single-point-failure-free power system, one failure loses at most one LCL/RLCL/HLCL line",
       "margin": 0.6000000000000001,
       "margin_vs": "deep-discharge threshold",
-      "cbmc": "P4"
+      "cbmc": "P4",
+      "source": "derived: 3.6 V/cell = original 10.8 V / 3S nominal minimum; ECSS-E-ST-20-20C clause 1 (owner mapping)",
+      "bench": {
+        "value": 3.6,
+        "margin": 0.6000000000000001,
+        "margin_vs": "deep-discharge threshold"
+      }
     },
     {
       "threshold": "Overvoltage, pack-average cell voltage",
       "symbol": "FDIR_VCELL_OV_MAX",
       "value": 4.2,
       "unit": "V/cell",
-      "source": "ADR-0018; Sony US18650VTC6 Technical Information Rev 0.1: charge 4.2 +/- 0.05 V CC/CV 3.0 A; rated 3000 mAh (0.2 C to 2.0 V); 2.5 V cut-off at 1 C and 10 A; discharge curves -20..60 degC; cycle life at 7.5 A and 15 A (charged to 4.15 V); load curves to 20 A; JSC 20793 Rev C 5.1.2.1 a, e, i (overcharge failure tolerance, no uncontrolled charging); 4.4.3a requires per-cell monitoring (taps)",
       "margin": 0.0,
-      "margin_vs": "VTC6 charge voltage 4.2 V; the charger tolerance is +/-0.05 V, so a charger at the upper tolerance (4.25 V) trips the invariant at end of charge (ISS-049)",
-      "margin_vs_charger_hi": -0.04999999999999982,
-      "cbmc": "P10a-c (SGO v3)"
+      "margin_vs": "LG INR21700-M50 max charge voltage 4.2 V (+0.0 V charger tolerance); average, one cell may be higher",
+      "cbmc": "P10a-c",
+      "source": "ADR-0018; ref 4.20 V = M50 spec 2.5; bench 4.25 V (charger CV fixed 4.2 +/- 0.05 V, ISS-049); JSC 20793 Rev C 5.1.2.1 a, e, i; 4.4.3a needs cell taps (ISS-047)",
+      "bench": {
+        "value": 4.25,
+        "margin": 0.0,
+        "margin_vs": "Sony/Murata US18650VTC6 max charge voltage 4.2 V (+0.05 V charger tolerance); average, one cell may be higher"
+      }
     },
     {
       "threshold": "Overcurrent, battery",
       "symbol": "FDIR_C_RATE_MAX",
       "value": 1.5,
       "unit": "C",
-      "source": "fdir_config.h (1.5 C); JSC 20793 Rev C 4.4.3b (battery-level current monitoring); Sony US18650VTC6 Technical Information Rev 0.1 cycle-life rating at 15 A; Murata SDS 15 A continuous without thermal cut-off",
-      "margin": 10.5,
-      "margin_vs": "VTC6 15 A continuous without thermal cut-off, per cell (A)",
+      "pack_value": 30.0,
+      "pack_unit": "A (8S4P)",
+      "margin": 0.0,
+      "margin_vs": "LG INR21700-M50 max continuous discharge per cell (A; M50 at 25..55 degC)",
       "cbmc": "P5a-b",
-      "pack_value": 18.0,
-      "pack_unit": "A (8S4P VTC6)",
-      "pack_value_firmware": 12.0
+      "source": "fdir_config.h (1.5 C); M50 spec 4.2.9 (1.5 C at 25..55 degC, 0.5 C below 10 degC: not temperature-scheduled here, ISS-059); VTC6 15 A continuous; JSC 20793 Rev C 4.4.3b",
+      "bench": {
+        "value": 1.5,
+        "margin": 10.5,
+        "margin_vs": "Sony/Murata US18650VTC6 max continuous discharge per cell (A; M50 at 25..55 degC)",
+        "pack_value": 4.5,
+        "pack_unit": "A (8S1P)"
+      }
     },
     {
       "threshold": "Over-temperature, battery",
       "symbol": "FDIR_TBAT_CRITICAL_MAX",
-      "value": 60.0,
+      "value": 55.0,
       "unit": "degC",
-      "source": "fdir_sgo.h v1 (ECSS_TBAT_CRITICAL_MAX, cell qualification envelope); JSC 20793 Rev C 4.4.3c (temperature monitoring); bench rule 45 degC (CLAUDE.md)",
       "margin": 0.0,
-      "margin_vs": "top of the VTC6 discharge range 60 degC",
-      "cbmc": "P6a-b"
+      "margin_vs": "LG INR21700-M50 discharge max 55.0 degC",
+      "cbmc": "P6a-b",
+      "source": "ref 55 degC = M50 spec 2.7 discharge max (ADR-0023, was 60); bench 60 degC = VTC6; JSC 20793 Rev C 4.4.3c",
+      "bench": {
+        "value": 60.0,
+        "margin": 0.0,
+        "margin_vs": "Sony/Murata US18650VTC6 discharge max 60.0 degC"
+      }
     },
     {
       "threshold": "Charge-temperature window (charge inhibit)",
@@ -123,13 +184,24 @@
         45.0
       ],
       "unit": "degC",
-      "source": "ISS-050 (owner approval 18 Oct 2026); VTC6 charge 0..45 degC (Murata SDS); ref config ASSUMED same until the XJTU cell datasheet is traced; JSC 20793 Rev C 4.4.3c",
       "margin": [
         0.0,
         0.0
       ],
-      "margin_vs": "VTC6 charge window (low, high)",
-      "cbmc": "P11a-d (SGO v3)"
+      "margin_vs": "LG INR21700-M50 charge window [0.0, 45.0]",
+      "cbmc": "P11a-d",
+      "source": "ISS-050 / ADR-0020; ref M50 spec 2.7 (0..45 degC); bench VTC6 Murata SDS (0..45 degC)",
+      "bench": {
+        "value": [
+          0.0,
+          45.0
+        ],
+        "margin": [
+          0.0,
+          0.0
+        ],
+        "margin_vs": "Sony/Murata US18650VTC6 charge window [0.0, 45.0]"
+      }
     },
     {
       "threshold": "Charge-inhibit release (hysteresis)",
@@ -139,30 +211,41 @@
         42.0
       ],
       "unit": "degC",
-      "source": "owner 18 Oct 2026 (2 / 42 degC)",
       "margin": [
         2.0,
         3.0
       ],
-      "margin_vs": "hysteresis width to the window",
-      "cbmc": "P11b-c"
+      "margin_vs": "hysteresis width to the window (owner 18 Oct: 2 / 42 degC)",
+      "cbmc": "P11b-c",
+      "source": "owner 18 Oct 2026 (2 / 42 degC)",
+      "bench": {
+        "value": [
+          2.0,
+          42.0
+        ],
+        "margin": [
+          2.0,
+          3.0
+        ],
+        "margin_vs": "hysteresis width to the window (owner 18 Oct: 2 / 42 degC)"
+      }
     },
     {
       "threshold": "Temperature sensor disagreement (median-of-3)",
       "symbol": "FDIR_TBAT_SENSOR_DISAGREE",
       "value": 5.0,
       "unit": "degC",
-      "source": "PROPOSED (ISS-050); DS18B20 +/-0.5 degC accuracy, sensors on one pack",
+      "source": "PROPOSED (ISS-050); DS18B20 +/-0.5 degC, sensors on one pack",
       "margin": null,
       "margin_vs": "-",
-      "cbmc": "P11e-g (vote bounded by any two valid sensors)"
+      "cbmc": "P11e-g"
     },
     {
       "threshold": "Deep discharge, SoC",
       "symbol": "FDIR_SOC_CRITICAL_MIN",
       "value": 5.0,
       "unit": "%",
-      "source": "fdir_config.h; EKF 2-sigma ~0.6 % SoC (results/ekf_sigma_cv.json) sets the margin to 0 %",
+      "source": "fdir_config.h; EKF 2-sigma ~0.6 % SoC (results/ekf_sigma_cv.json)",
       "margin": 5.0,
       "margin_vs": "0 % SoC",
       "cbmc": "P3a-c"
@@ -177,7 +260,7 @@
       "unit": "V/cell",
       "source": "ADR-0017 (physically impossible readings)",
       "margin": 0.25,
-      "margin_vs": "VTC6 charge voltage at upper tolerance 4.25 V",
+      "margin_vs": "highest charge voltage of either cell (VTC6 4.25 V)",
       "cbmc": "P7, P9a-b"
     },
     {
@@ -201,7 +284,7 @@
         150.0
       ],
       "unit": "degC",
-      "source": "ADR-0017; NASA RW18 -4099 degC channel (ISS-021) and XJTU T_Load1 210 degC spike (ISS-031) are rejected",
+      "source": "ADR-0017; NASA RW18 -4099 degC (ISS-021) and XJTU T_Load1 210 degC (ISS-031) rejected",
       "margin": null,
       "margin_vs": "-",
       "cbmc": "P7, P9a-b"
@@ -211,10 +294,10 @@
       "symbol": "FDIR_EKF_C_RATE_ABS_MAX",
       "value": 10.0,
       "unit": "C",
-      "source": "fdir_config.h (EKF guard G1)",
+      "source": "fdir_config.h (EKF guard G1); EKF tables use the DFN (M50) capacity 5.0 Ah",
       "margin": null,
       "margin_vs": "-",
-      "cbmc": "E4 (rejected input leaves state unchanged)"
+      "cbmc": "E4"
     },
     {
       "threshold": "EKF SoC guard band",
@@ -241,9 +324,9 @@
     }
   ],
   "pending": [
-    "MIL-HDBK-217F part list with C1, C2, pi_T, pi_E (SF), pi_Q, pi_L per part (sections 5, 6, 9-15)",
-    "XJTU reference cell datasheet (charge window, ref config ASSUMED 0..45 degC)",
     "bench cell capacity measured at C/5 in the 4.20-3.3 V window",
-    "ECSS clause text check (mapping is owner-supplied)"
+    "MIL-HDBK-217F part list with C1, C2, pi_T, pi_E (SF), pi_Q, pi_L per part (sections 5, 6, 9-15)",
+    "ECSS clause text check (mapping is owner-supplied)",
+    "M50 spec is Rev 0 'Tentative' (2017); confirm no later revision changes the limits"
   ]
 }

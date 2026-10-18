@@ -38,7 +38,7 @@
 #define FDIR_IBAT_PLAUSIBLE_ABS  (10.0f * FDIR_CELL_CAPACITY_AH * (float)FDIR_N_PARALLEL)
 
 /* Temperature thresholds [degC] — carried over from fdir_sgo.h. TRACE IN M2 */
-#define FDIR_TBAT_CRITICAL_MAX   60.0f  /* = top of the VTC6 discharge range      */
+/* FDIR_TBAT_CRITICAL_MAX is per configuration (cell discharge limit) */
 #define FDIR_TBAT_SENSOR_DISAGREE 5.0f  /* one of 3 sensors this far from the median -> bit 4 */
 #define FDIR_TBAT_VOTE_INVALID   1000.0f  /* vote result with < 2 valid sensors (implausible) */
 #define FDIR_TBAT_PLAUSIBLE_MIN  (-60.0f)

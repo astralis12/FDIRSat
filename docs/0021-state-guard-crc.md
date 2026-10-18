@@ -30,14 +30,15 @@ step, so a fixed reference copy (as for the tree tables) does not apply.
   step is injective in the register. By induction over the bytes, any single-bit flip in the guarded
   bytes changes the CRC, so it is repaired (G3). A symbolic 380-byte state in one proof ran out of
   memory, hence the lemma split.
-- G1: the rebuilt SoC is in [0, 1] for any float voltage (NaN, Inf included).
-- G2: a sealed state passes the check unchanged. G4: a mismatch is repaired, the rebuilt state has
+- G1: the rebuilt SoC is in [0, 1] for any float voltage (NaN, Inf included) and any OCV curve (OCV stubbed as any float).
+- G2 / G4 on a concrete instance (SoC 0.6, 3.8 V, linear OCV stub) with any wrong CRC value; a symbolic state timed out (> 30 min). G2: a sealed state passes the check unchanged. G4: a mismatch is repaired, the rebuilt state has
   SoC in [0, 1], latch 1, and is sealed (passes the next check).
 
 ## Consequences
 
-- Cost per spacecraft step: ~15.7k cycles (was ~5k): ~1 ms at 16 MHz, ~160 us at 100 MHz. 7
-  spacecraft at 1 Hz: < 1 % duty at 16 MHz.
+- Cost per spacecraft step (`results/timing_sweep.json`, with the guard): 983.8 us at 16 MHz, 181.1 us
+  at 100 MHz / 3 wait states (was ~5k cycles before the guard). 7 spacecraft at 1 Hz: 1.82 % duty at
+  16 MHz, 0.31 % at 100 MHz.
 - A repair loses the EKF's convergence and the 60 s / 10 min history: the tree runs on a cold-start
   EKF for a few minutes. This is a detected, bounded degradation, not an SDC.
 - Upsets that land between the check and the seal inside one step (the step's own computation) are

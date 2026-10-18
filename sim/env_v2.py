@@ -53,7 +53,7 @@ N_CELLS = 8                             # 8S reference pack (CLAUDE.md)
 V_CELL_MAX, V_CELL_CUTOFF = 4.2, 2.5
 
 # SGO thresholds per cell / per unit (fdir_config.h: 3.0 V, 3.6 V, 1.5 C, 60 C, 5 %)
-TH_V_CRIT, TH_V_NOM, TH_C_CRIT, TH_T_CRIT, TH_SOC_CRIT = 3.0, 3.6, 1.5, 60.0, 0.05
+TH_V_CRIT, TH_V_NOM, TH_C_CRIT, TH_T_CRIT, TH_SOC_CRIT = 3.0, 3.6, 1.5, 55.0, 0.05   # T: LG M50 discharge max (ADR-0023; was 60)
 
 
 @dataclass

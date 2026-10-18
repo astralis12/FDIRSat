@@ -4,7 +4,7 @@
  * 8S1P of Sony/Murata US18650VTC6. Same source code, tree and proofs as the
  * reference; only these values change (the tree takes per-unit inputs, so only
  * Q x N_p, which converts amps to C-rate, matters). Owner decision 18 Oct 2026.
- * Bench current scale to the reference: 8 Ah / (Q x 1) ~ 1:2.7 at Q = 3.0 Ah.
+ * Bench current scale to the reference: 20 Ah (8S4P M50) / (Q x 1) ~ 1:6.7 at Q = 3.0 Ah.
  */
 #ifndef FDIR_CONFIG_BENCH_H
 #define FDIR_CONFIG_BENCH_H
@@ -26,6 +26,9 @@
  * charge-voltage limit 4.25 V (Sony Technical Information Rev 0.1; ISS-049).
  * With cell taps the per-cell form of ADR-0018 part 2 replaces this. */
 #define FDIR_VCELL_OV_MAX        4.25f
+
+/* Over-temperature: VTC6 discharge range -20..60 degC (Murata SDS). */
+#define FDIR_TBAT_CRITICAL_MAX   60.0f
 
 /* VTC6 charge window 0..45 degC (Murata SDS), release at 2 / 42 degC. */
 #define FDIR_TBAT_CHARGE_MIN     0.0f

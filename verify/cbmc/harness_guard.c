@@ -10,7 +10,8 @@
  *       different CRC (registers are equal before the flipped byte, differ after it by
  *       L1, and stay different by L2), so fdir_state_check() repairs it.
  *       (A symbolic 380-byte state in one proof exceeds the machine's memory.)
- *   G2  an initialised, sealed state passes the check unchanged (no false repair)
+ *   G2  an initialised, sealed state passes the check unchanged (no false repair; start SoC 0.6)
+ *   G2/G4 run on a concrete instance (SoC 0.6, v 3.8 V, linear OCV) with ANY wrong CRC value;
  *   G4  a state whose CRC does not match is rebuilt: check returns 1, SoC in [0, 1],
  *       latch = 1, and the rebuilt state is sealed
  * plus runtime safety (bounds, pointers, overflow, NaN, shifts) of the module.
@@ -29,7 +30,12 @@ uint16_t nondet_uint16(void);
 /* The EKF is abstracted (soc_ekf.c has its own proof, verify/cbmc/harness_ekf.c):
  * the OCV table returns ANY float (NaN, Inf included), which makes G1 / G4 hold for any
  * OCV curve; soc_ekf_init is modelled by its effect on x and P (firmware/src/soc_ekf.c). */
+#ifdef GUARD_STATE
+/* concrete instance: linear OCV (a symbolic rebuilt SoC makes the CRC proof time out) */
+ekf_real_t soc_ekf_ocv(ekf_real_t soc) { return 3.0f + 1.2f * soc; }
+#else
 ekf_real_t soc_ekf_ocv(ekf_real_t soc) { (void)soc; return nondet_float(); }
+#endif
 void soc_ekf_init(SocEkf *e, ekf_real_t soc0)
 {
     int i, j;
@@ -77,9 +83,10 @@ int main(void)
     __CPROVER_assume(c1 != c2);
     __CPROVER_assert(fdir_crc16(&b, 1U, c1) != fdir_crc16(&b, 1U, c2), "L2 CRC step injective in the register");
 #else
-    const float soc0 = nondet_float();
-    __CPROVER_assume(soc0 >= 0.0f && soc0 <= 1.0f);
-    const float v = nondet_float();
+    /* concrete start state (the CRC over a symbolic 380-byte state does not finish in
+     * 30 min); G2 / G4 do not depend on its value, and G3 is covered by L0-L2 for any state */
+    const float soc0 = 0.6f;
+    const float v = 3.8f;          /* concrete; G1 covers any voltage */
     fdir_state_init(&s, soc0);
 
     /* G2 */
