@@ -1,0 +1,4874 @@
+{
+  "response_s": 600.0,
+  "per_fault": 512,
+  "episode_orbits": 2.0,
+  "seed": 4242,
+  "orbits": {
+    "xjtu": {
+      "deployed": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.04841693490743637,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.37109375,
+            "hazard": 0.0,
+            "false_action_rate": 0.05111350119113922,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.37109375,
+            "hazard": 0.0,
+            "false_action_rate": 0.04556289687752724,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.05039388686418533,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.806640625,
+            "hazard": 0.0,
+            "false_action_rate": 0.04529112949967384,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.154296875,
+            "coverage_mitigable": 0.09468822181224823,
+            "hazard": 0.185546875,
+            "false_action_rate": 0.05341792106628418,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.05298014357686043,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.67578125,
+            "hazard": 0.0,
+            "false_action_rate": 0.05285279080271721,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.998046875,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.998046875,
+            "false_action_rate": 0.047708772122859955,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.04677506163716316,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.05416719987988472,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.857421875,
+            "hazard": 0.00390625,
+            "false_action_rate": 0.04762288182973862,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.734375,
+            "hazard": 0.0,
+            "false_action_rate": 0.043877799063920975,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.85546875,
+            "hazard": 0.0,
+            "false_action_rate": 0.050309352576732635,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.73828125,
+            "hazard": 0.0,
+            "false_action_rate": 0.04831874743103981,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.051972877234220505,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.05720023065805435,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.048103004693984985,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.7813086388632655,
+        "false_action_rate_mean": 0.04978250732852353,
+        "alarm_precision": 0.7759814262390137,
+        "hazard_mean_faults": 0.12867647058823528,
+        "residual_risk_relative": 0.0009142731487751006
+      },
+      "tree6": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.994140625,
+            "hazard": 0.005859375,
+            "false_action_rate": 0.05719366297125816,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.525390625,
+            "hazard": 0.017578125,
+            "false_action_rate": 0.05813241004943848,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.52734375,
+            "hazard": 0.04296875,
+            "false_action_rate": 0.060825105756521225,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.99609375,
+            "hazard": 0.00390625,
+            "false_action_rate": 0.060659121721982956,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.75390625,
+            "hazard": 0.01171875,
+            "false_action_rate": 0.05821065604686737,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.154296875,
+            "coverage_mitigable": 0.11316397041082382,
+            "hazard": 0.068359375,
+            "false_action_rate": 0.07227755337953568,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.990234375,
+            "hazard": 0.0078125,
+            "false_action_rate": 0.05590517818927765,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.490234375,
+            "hazard": 0.01171875,
+            "false_action_rate": 0.05456438660621643,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.998046875,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.998046875,
+            "false_action_rate": 0.06582847237586975,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.99609375,
+            "hazard": 0.00390625,
+            "false_action_rate": 0.05583110451698303,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.06428191065788269,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.81640625,
+            "hazard": 0.013671875,
+            "false_action_rate": 0.057909898459911346,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.84375,
+            "hazard": 0.001953125,
+            "false_action_rate": 0.05520745739340782,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.818359375,
+            "hazard": 0.001953125,
+            "false_action_rate": 0.05743803828954697,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.8203125,
+            "hazard": 0.001953125,
+            "false_action_rate": 0.06026805564761162,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.994140625,
+            "hazard": 0.00390625,
+            "false_action_rate": 0.058683812618255615,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.061533622443675995,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.99609375,
+            "hazard": 0.00390625,
+            "false_action_rate": 0.058840055018663406,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.7925952090881765,
+        "false_action_rate_mean": 0.05964391678571701,
+        "alarm_precision": 0.7595130205154419,
+        "hazard_mean_faults": 0.12902113970588236,
+        "residual_risk_relative": 0.0008834453493356706
+      },
+      "M1": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.99609375,
+            "hazard": 0.0,
+            "false_action_rate": 0.000947004824411124,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0006861958536319435,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0010329786455258727,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.0008878615917637944,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.001953125,
+            "hazard": 0.0,
+            "false_action_rate": 0.0008507915190421045,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.154296875,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.6875,
+            "false_action_rate": 0.0011117864632979035,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.98828125,
+            "hazard": 0.0,
+            "false_action_rate": 0.000773186213336885,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.009765625,
+            "hazard": 0.0,
+            "false_action_rate": 0.0008551711798645556,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.998046875,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.998046875,
+            "false_action_rate": 0.001355593092739582,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0007487787515856326,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.0004889475530944765,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.005859375,
+            "hazard": 0.0,
+            "false_action_rate": 0.0005502210697159171,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.001953125,
+            "hazard": 0.0,
+            "false_action_rate": 0.000926439359318465,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.001953125,
+            "hazard": 0.0,
+            "false_action_rate": 0.0006368922768160701,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.000998299103230238,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.0007194025092758238,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0008709589019417763,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0011089957552030683,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.3128662109375,
+        "false_action_rate_mean": 0.0008638613702108463,
+        "alarm_precision": 0.9920773506164551,
+        "hazard_mean_faults": 0.15797334558823528,
+        "residual_risk_relative": 0.0027978515625000006
+      },
+      "M2": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.99609375,
+            "hazard": 0.0,
+            "false_action_rate": 0.0009621858480386436,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0006840832647867501,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.001023695687763393,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.0009228602866642177,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.001953125,
+            "hazard": 0.0,
+            "false_action_rate": 0.0008558927802368999,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.154296875,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.6875,
+            "false_action_rate": 0.001121765119023621,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.98828125,
+            "hazard": 0.0,
+            "false_action_rate": 0.0007656127563677728,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.009765625,
+            "hazard": 0.0,
+            "false_action_rate": 0.0008558311965316534,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.998046875,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.998046875,
+            "false_action_rate": 0.0013788959477096796,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.000774264510255307,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.0005055314395576715,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.00390625,
+            "hazard": 0.0,
+            "false_action_rate": 0.0005633616237901151,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.001953125,
+            "hazard": 0.0,
+            "false_action_rate": 0.0009535743156448007,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0006357892416417599,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0010148038854822516,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.0007398564484901726,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0008898770320229232,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.001110904267989099,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.3126220703125,
+        "false_action_rate_mean": 0.0008754880917775962,
+        "alarm_precision": 0.9919294118881226,
+        "hazard_mean_faults": 0.15797334558823528,
+        "residual_risk_relative": 0.0027988281250000005
+      },
+      "M6": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.99609375,
+            "hazard": 0.0,
+            "false_action_rate": 0.0011476022191345692,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.000805682095233351,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.001154325669631362,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.0010533574968576431,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.001953125,
+            "hazard": 0.0,
+            "false_action_rate": 0.0009469042997807264,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.154296875,
+            "coverage_mitigable": 0.07390300184488297,
+            "hazard": 0.177734375,
+            "false_action_rate": 0.0012495325645431876,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.98828125,
+            "hazard": 0.0,
+            "false_action_rate": 0.00098541215993464,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.009765625,
+            "hazard": 0.0,
+            "false_action_rate": 0.0009968767408281565,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.998046875,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.998046875,
+            "false_action_rate": 0.0014739682665094733,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0009642862714827061,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.0005831476300954819,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.005859375,
+            "hazard": 0.0,
+            "false_action_rate": 0.0007040201453492045,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.001953125,
+            "hazard": 0.0,
+            "false_action_rate": 0.0010043974034488201,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.001953125,
+            "hazard": 0.0,
+            "false_action_rate": 0.0007630137261003256,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0011130431666970253,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.0008372545125894248,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0010862427297979593,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0011760205961763859,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.3174851485528052,
+        "false_action_rate_mean": 0.001002504871899469,
+        "alarm_precision": 0.9900290966033936,
+        "hazard_mean_faults": 0.12798713235294118,
+        "residual_risk_relative": 0.0027682903617620475
+      },
+      "nofm_2_3": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.030720803886651993,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.359375,
+            "hazard": 0.0,
+            "false_action_rate": 0.035907160490751266,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.36328125,
+            "hazard": 0.0,
+            "false_action_rate": 0.03134213387966156,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.03296957165002823,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.69921875,
+            "hazard": 0.0,
+            "false_action_rate": 0.030132081359624863,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.154296875,
+            "coverage_mitigable": 0.09237875044345856,
+            "hazard": 0.177734375,
+            "false_action_rate": 0.04051876440644264,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.03861016407608986,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.50390625,
+            "hazard": 0.001953125,
+            "false_action_rate": 0.03317847475409508,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.998046875,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.998046875,
+            "false_action_rate": 0.034443508833646774,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.026099706068634987,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.040592581033706665,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.82421875,
+            "hazard": 0.00390625,
+            "false_action_rate": 0.032524749636650085,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.70703125,
+            "hazard": 0.0,
+            "false_action_rate": 0.034107111394405365,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.8046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.03898137807846069,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.71875,
+            "hazard": 0.0,
+            "false_action_rate": 0.03337933123111725,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.04049127548933029,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.043297234922647476,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0361701175570488,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.7544308984652162,
+        "false_action_rate_mean": 0.035192563819388546,
+        "alarm_precision": 0.7906929850578308,
+        "hazard_mean_faults": 0.12833180147058823,
+        "residual_risk_relative": 0.0010148063123226168
+      },
+      "nofm_3_5": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.03201332315802574,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.353515625,
+            "hazard": 0.0,
+            "false_action_rate": 0.03563785180449486,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.35546875,
+            "hazard": 0.0,
+            "false_action_rate": 0.03146408125758171,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.034631989896297455,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.67578125,
+            "hazard": 0.0,
+            "false_action_rate": 0.030107473954558372,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.154296875,
+            "coverage_mitigable": 0.09237875044345856,
+            "hazard": 0.177734375,
+            "false_action_rate": 0.040445726364851,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.03852353245019913,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.498046875,
+            "hazard": 0.001953125,
+            "false_action_rate": 0.0325385183095932,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.998046875,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.998046875,
+            "false_action_rate": 0.035352397710084915,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0259043388068676,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.04031630605459213,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.80859375,
+            "hazard": 0.00390625,
+            "false_action_rate": 0.03329700604081154,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.685546875,
+            "hazard": 0.0,
+            "false_action_rate": 0.03313954174518585,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.783203125,
+            "hazard": 0.0,
+            "false_action_rate": 0.03906536474823952,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.705078125,
+            "hazard": 0.0,
+            "false_action_rate": 0.03369652107357979,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.04154351353645325,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.045580144971609116,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.03532816842198372,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.7472287500277162,
+        "false_action_rate_mean": 0.035476988905833826,
+        "alarm_precision": 0.7919257283210754,
+        "hazard_mean_faults": 0.12833180147058823,
+        "residual_risk_relative": 0.0010417594373226167
+      },
+      "nofm_5_8": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.030660437420010567,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.349609375,
+            "hazard": 0.0,
+            "false_action_rate": 0.03530465066432953,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.349609375,
+            "hazard": 0.0,
+            "false_action_rate": 0.031582530587911606,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.033924736082553864,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.6640625,
+            "hazard": 0.0,
+            "false_action_rate": 0.02818196639418602,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.154296875,
+            "coverage_mitigable": 0.08775981515645981,
+            "hazard": 0.1796875,
+            "false_action_rate": 0.038993220776319504,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.03757954388856888,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.48828125,
+            "hazard": 0.001953125,
+            "false_action_rate": 0.031302448362112045,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.998046875,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.998046875,
+            "false_action_rate": 0.03418037295341492,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.02510092779994011,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.0384875163435936,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.798828125,
+            "hazard": 0.00390625,
+            "false_action_rate": 0.03220987319946289,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.671875,
+            "hazard": 0.0,
+            "false_action_rate": 0.03204192966222763,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.7109375,
+            "hazard": 0.0,
+            "false_action_rate": 0.03804399445652962,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.6875,
+            "hazard": 0.0,
+            "false_action_rate": 0.032501641660928726,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.03988078236579895,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.04430361092090607,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.033796895295381546,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.7379068634472787,
+        "false_action_rate_mean": 0.03433761549078756,
+        "alarm_precision": 0.7938307523727417,
+        "hazard_mean_faults": 0.1284466911764706,
+        "residual_risk_relative": 0.0010746616989374162
+      },
+      "nofm_8_10": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.026975512504577637,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.337890625,
+            "hazard": 0.0,
+            "false_action_rate": 0.031221065670251846,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.333984375,
+            "hazard": 0.0,
+            "false_action_rate": 0.028074020519852638,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.028559120371937752,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.642578125,
+            "hazard": 0.0,
+            "false_action_rate": 0.02494332194328308,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.154296875,
+            "coverage_mitigable": 0.08545034378767014,
+            "hazard": 0.1796875,
+            "false_action_rate": 0.03432822600007057,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.035010624676942825,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.4765625,
+            "hazard": 0.001953125,
+            "false_action_rate": 0.027517519891262054,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.998046875,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.998046875,
+            "false_action_rate": 0.030915770679712296,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.022794857621192932,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.0344911590218544,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.78515625,
+            "hazard": 0.005859375,
+            "false_action_rate": 0.02982628159224987,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.65625,
+            "hazard": 0.0,
+            "false_action_rate": 0.02678849548101425,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.685546875,
+            "hazard": 0.0,
+            "false_action_rate": 0.034491460770368576,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.66796875,
+            "hazard": 0.0,
+            "false_action_rate": 0.029419617727398872,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.03686559572815895,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.04007318988442421,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.030277442187070847,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.7293396699242294,
+        "false_action_rate_mean": 0.03069851568175687,
+        "alarm_precision": 0.8011782765388489,
+        "hazard_mean_faults": 0.12856158088235295,
+        "residual_risk_relative": 0.001106054237484932
+      },
+      "nofm_15_20": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.02664181962609291,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.3359375,
+            "hazard": 0.0,
+            "false_action_rate": 0.0321316197514534,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.32421875,
+            "hazard": 0.0,
+            "false_action_rate": 0.02851848676800728,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.030810851603746414,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.603515625,
+            "hazard": 0.0,
+            "false_action_rate": 0.024588296189904213,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.154296875,
+            "coverage_mitigable": 0.08775981515645981,
+            "hazard": 0.18359375,
+            "false_action_rate": 0.033811796456575394,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0332629568874836,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.46875,
+            "hazard": 0.0,
+            "false_action_rate": 0.027233421802520752,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.998046875,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.998046875,
+            "false_action_rate": 0.030696062371134758,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.02319100871682167,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.03361572325229645,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.77734375,
+            "hazard": 0.005859375,
+            "false_action_rate": 0.02823524922132492,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.640625,
+            "hazard": 0.0,
+            "false_action_rate": 0.026592295616865158,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.671875,
+            "hazard": 0.0,
+            "false_action_rate": 0.034226659685373306,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.638671875,
+            "hazard": 0.0,
+            "false_action_rate": 0.028885366395115852,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.03682484105229378,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.04074501991271973,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.02918633259832859,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.7216715118847787,
+        "false_action_rate_mean": 0.030510989328225453,
+        "alarm_precision": 0.8024923801422119,
+        "hazard_mean_faults": 0.12867647058823528,
+        "residual_risk_relative": 0.0011348179489374163
+      },
+      "expert": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.994140625,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.76171875,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.748046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.994140625,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.154296875,
+            "coverage_mitigable": 0.27713626623153687,
+            "hazard": 0.154296875,
+            "false_action_rate": 0.0,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.986328125,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.998046875,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.998046875,
+            "false_action_rate": 0.0,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.0,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.922716524451971,
+        "false_action_rate_mean": 0.0,
+        "alarm_precision": 1.0,
+        "hazard_mean_faults": 0.12660845588235295,
+        "residual_risk_relative": 0.0003914892435073853
+      },
+      "none": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.994140625,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.994140625,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.154296875,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.6875,
+            "false_action_rate": 0.0,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.986328125,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.998046875,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.998046875,
+            "false_action_rate": 0.0,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.0,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.31103515625,
+        "false_action_rate_mean": 0.0,
+        "alarm_precision": null,
+        "hazard_mean_faults": 0.15797334558823528,
+        "residual_risk_relative": 0.002804296875
+      }
+    },
+    "o2_sso_1030": {
+      "deployed": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.04857110232114792,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.37109375,
+            "hazard": 0.0,
+            "false_action_rate": 0.050741225481033325,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.365234375,
+            "hazard": 0.0,
+            "false_action_rate": 0.045561112463474274,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.05035112053155899,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.802734375,
+            "hazard": 0.0,
+            "false_action_rate": 0.043763354420661926,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.15625,
+            "coverage_mitigable": 0.09490741044282913,
+            "hazard": 0.1796875,
+            "false_action_rate": 0.05341911315917969,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.05217793211340904,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.673828125,
+            "hazard": 0.0,
+            "false_action_rate": 0.05455660820007324,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.998046875,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.998046875,
+            "false_action_rate": 0.047904256731271744,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.047738708555698395,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.05284437909722328,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.8515625,
+            "hazard": 0.00390625,
+            "false_action_rate": 0.047371309250593185,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.736328125,
+            "hazard": 0.0,
+            "false_action_rate": 0.04392809793353081,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.857421875,
+            "hazard": 0.0,
+            "false_action_rate": 0.05027669295668602,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.73828125,
+            "hazard": 0.0,
+            "false_action_rate": 0.048672329634428024,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.052349161356687546,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.056241560727357864,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.047846291214227676,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.7803457756526768,
+        "false_action_rate_mean": 0.04968413089712461,
+        "alarm_precision": 0.7758310437202454,
+        "hazard_mean_faults": 0.12833180147058823,
+        "residual_risk_relative": 0.0009182870358228683
+      },
+      "tree6": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.9921875,
+            "hazard": 0.005859375,
+            "false_action_rate": 0.05558852106332779,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.5234375,
+            "hazard": 0.017578125,
+            "false_action_rate": 0.05781523883342743,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.525390625,
+            "hazard": 0.0390625,
+            "false_action_rate": 0.059672288596630096,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.99609375,
+            "hazard": 0.00390625,
+            "false_action_rate": 0.06268694996833801,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.748046875,
+            "hazard": 0.009765625,
+            "false_action_rate": 0.05597889423370361,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.15625,
+            "coverage_mitigable": 0.10879629850387573,
+            "hazard": 0.068359375,
+            "false_action_rate": 0.06907627731561661,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.98828125,
+            "hazard": 0.0078125,
+            "false_action_rate": 0.05701656639575958,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.482421875,
+            "hazard": 0.01171875,
+            "false_action_rate": 0.0540965236723423,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.998046875,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.998046875,
+            "false_action_rate": 0.06547640264034271,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.99609375,
+            "hazard": 0.00390625,
+            "false_action_rate": 0.05555626004934311,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.06365422904491425,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.81640625,
+            "hazard": 0.013671875,
+            "false_action_rate": 0.05798167362809181,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.849609375,
+            "hazard": 0.001953125,
+            "false_action_rate": 0.054975513368844986,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.81640625,
+            "hazard": 0.001953125,
+            "false_action_rate": 0.05719851702451706,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.826171875,
+            "hazard": 0.0,
+            "false_action_rate": 0.06154340133070946,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.994140625,
+            "hazard": 0.00390625,
+            "false_action_rate": 0.05995319038629532,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.001953125,
+            "false_action_rate": 0.06172185018658638,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.99609375,
+            "hazard": 0.00390625,
+            "false_action_rate": 0.05995996668934822,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.7915898077189922,
+        "false_action_rate_mean": 0.05944179246822993,
+        "alarm_precision": 0.7600301504135132,
+        "hazard_mean_faults": 0.12867647058823528,
+        "residual_risk_relative": 0.0008879267930984496
+      },
+      "M1": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.994140625,
+            "hazard": 0.0,
+            "false_action_rate": 0.0009698716457933187,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0007069233688525856,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0010773499961942434,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.0008971344213932753,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.001953125,
+            "hazard": 0.0,
+            "false_action_rate": 0.0008766846731305122,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.15625,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.68359375,
+            "false_action_rate": 0.0011482845293357968,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.986328125,
+            "hazard": 0.0,
+            "false_action_rate": 0.0008263398776762187,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.009765625,
+            "hazard": 0.0,
+            "false_action_rate": 0.0009418597328476608,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.998046875,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.998046875,
+            "false_action_rate": 0.0013808371732011437,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0007874068105593324,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.0005325881065800786,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0078125,
+            "hazard": 0.0,
+            "false_action_rate": 0.0005508483154699206,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.001953125,
+            "hazard": 0.0,
+            "false_action_rate": 0.0009854610543698072,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.001953125,
+            "hazard": 0.0,
+            "false_action_rate": 0.0006585043156519532,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0010719610145315528,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.0007333020330406725,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0009272533934563398,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0011833375319838524,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.3128662109375,
+        "false_action_rate_mean": 0.0009031082218926814,
+        "alarm_precision": 0.9917446970939636,
+        "hazard_mean_faults": 0.1577435661764706,
+        "residual_risk_relative": 0.0027976562500000007
+      },
+      "M2": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.994140625,
+            "hazard": 0.0,
+            "false_action_rate": 0.0009869941277429461,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0007088406127877533,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0010831946274265647,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.0009238703059963882,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.001953125,
+            "hazard": 0.0,
+            "false_action_rate": 0.000871094933245331,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.15625,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.68359375,
+            "false_action_rate": 0.0011634953552857041,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.986328125,
+            "hazard": 0.0,
+            "false_action_rate": 0.0008307063835673034,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.009765625,
+            "hazard": 0.0,
+            "false_action_rate": 0.0009515354176983237,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.998046875,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.998046875,
+            "false_action_rate": 0.0014079685788601637,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0008149817585945129,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.0005517855170182884,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.005859375,
+            "hazard": 0.0,
+            "false_action_rate": 0.0005618371651507914,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.001953125,
+            "hazard": 0.0,
+            "false_action_rate": 0.0010115214390680194,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0006582157802768052,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0010983524844050407,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.0007538798963651061,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0009510981617495418,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0011960251722484827,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.3126220703125,
+        "false_action_rate_mean": 0.0009180776509715037,
+        "alarm_precision": 0.9915750622749329,
+        "hazard_mean_faults": 0.1577435661764706,
+        "residual_risk_relative": 0.0027986328125000006
+      },
+      "M6": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.994140625,
+            "hazard": 0.0,
+            "false_action_rate": 0.0011704469798132777,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0008231888059526682,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0011938355164602399,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.0010596095817163587,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.001953125,
+            "hazard": 0.0,
+            "false_action_rate": 0.000973579240962863,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.15625,
+            "coverage_mitigable": 0.07175926119089127,
+            "hazard": 0.173828125,
+            "false_action_rate": 0.0012838643742725253,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.986328125,
+            "hazard": 0.0,
+            "false_action_rate": 0.0010345566552132368,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.009765625,
+            "hazard": 0.0,
+            "false_action_rate": 0.0010825240751728415,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.998046875,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.998046875,
+            "false_action_rate": 0.0014957999810576439,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.000999190378934145,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.0006244650576263666,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0078125,
+            "hazard": 0.0,
+            "false_action_rate": 0.0007058921037241817,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.001953125,
+            "hazard": 0.0,
+            "false_action_rate": 0.0010671581840142608,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.001953125,
+            "hazard": 0.0,
+            "false_action_rate": 0.0007865572115406394,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0011891477042809129,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.0008476203074678779,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0011436236090958118,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.001248045708052814,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.3173511647619307,
+        "false_action_rate_mean": 0.001040505859742148,
+        "alarm_precision": 0.9897408485412598,
+        "hazard_mean_faults": 0.12775735294117646,
+        "residual_risk_relative": 0.002768952545523644
+      },
+      "nofm_2_3": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.03060273267328739,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.35546875,
+            "hazard": 0.0,
+            "false_action_rate": 0.035683173686265945,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.353515625,
+            "hazard": 0.0,
+            "false_action_rate": 0.031178690493106842,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.03461652621626854,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.693359375,
+            "hazard": 0.0,
+            "false_action_rate": 0.02942364290356636,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.15625,
+            "coverage_mitigable": 0.09259258955717087,
+            "hazard": 0.171875,
+            "false_action_rate": 0.04253867268562317,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.038589008152484894,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.498046875,
+            "hazard": 0.001953125,
+            "false_action_rate": 0.032967183738946915,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.998046875,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.998046875,
+            "false_action_rate": 0.03478776291012764,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.028520379215478897,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.03968287259340286,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.81640625,
+            "hazard": 0.00390625,
+            "false_action_rate": 0.03335017338395119,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.705078125,
+            "hazard": 0.0,
+            "false_action_rate": 0.03397946432232857,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.80859375,
+            "hazard": 0.0,
+            "false_action_rate": 0.038978900760412216,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.71484375,
+            "hazard": 0.0,
+            "false_action_rate": 0.032710667699575424,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.040185194462537766,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.04319734871387482,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.03611018881201744,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.7521249274723232,
+        "false_action_rate_mean": 0.03539458796795872,
+        "alarm_precision": 0.7904886603355408,
+        "hazard_mean_faults": 0.12798713235294118,
+        "residual_risk_relative": 0.0010235098391771316
+      },
+      "nofm_3_5": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.03067031130194664,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.353515625,
+            "hazard": 0.0,
+            "false_action_rate": 0.035169702023267746,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.34375,
+            "hazard": 0.0,
+            "false_action_rate": 0.03123527206480503,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.03572189435362816,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.671875,
+            "hazard": 0.0,
+            "false_action_rate": 0.029092364013195038,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.15625,
+            "coverage_mitigable": 0.09259258955717087,
+            "hazard": 0.171875,
+            "false_action_rate": 0.041835274547338486,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.03869384527206421,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.494140625,
+            "hazard": 0.001953125,
+            "false_action_rate": 0.03212694823741913,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.998046875,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.998046875,
+            "false_action_rate": 0.03721574693918228,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.028187543153762817,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.04081190004944801,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.8046875,
+            "hazard": 0.00390625,
+            "false_action_rate": 0.03319321945309639,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.693359375,
+            "hazard": 0.0,
+            "false_action_rate": 0.03414822369813919,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.779296875,
+            "hazard": 0.0,
+            "false_action_rate": 0.03891444951295853,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.705078125,
+            "hazard": 0.0,
+            "false_action_rate": 0.03304605185985565,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.04218012094497681,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.045438095927238464,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.03497040271759033,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.7458993415348232,
+        "false_action_rate_mean": 0.03570285367055072,
+        "alarm_precision": 0.7918691635131836,
+        "hazard_mean_faults": 0.12798713235294118,
+        "residual_risk_relative": 0.0010467520266771316
+      },
+      "nofm_5_8": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.029899457469582558,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.349609375,
+            "hazard": 0.001953125,
+            "false_action_rate": 0.03633524104952812,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.3359375,
+            "hazard": 0.0,
+            "false_action_rate": 0.03136024624109268,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.034083291888237,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.65625,
+            "hazard": 0.0,
+            "false_action_rate": 0.027585415169596672,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.15625,
+            "coverage_mitigable": 0.08796296268701553,
+            "hazard": 0.173828125,
+            "false_action_rate": 0.04031505063176155,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.03778059408068657,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.484375,
+            "hazard": 0.001953125,
+            "false_action_rate": 0.030716614797711372,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.998046875,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.998046875,
+            "false_action_rate": 0.03610481694340706,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.027457119897007942,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.03772354498505592,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.794921875,
+            "hazard": 0.005859375,
+            "false_action_rate": 0.032105788588523865,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.67578125,
+            "hazard": 0.0,
+            "false_action_rate": 0.03286942094564438,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.716796875,
+            "hazard": 0.0,
+            "false_action_rate": 0.03796592354774475,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.6875,
+            "hazard": 0.0,
+            "false_action_rate": 0.03242412582039833,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.04119618609547615,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.04395627975463867,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.03343953192234039,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.7365767867304385,
+        "false_action_rate_mean": 0.03462881387935744,
+        "alarm_precision": 0.7937421202659607,
+        "hazard_mean_faults": 0.12833180147058823,
+        "residual_risk_relative": 0.0010800491899251939
+      },
+      "nofm_8_10": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.0274422038346529,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.33984375,
+            "hazard": 0.0,
+            "false_action_rate": 0.031027302145957947,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.318359375,
+            "hazard": 0.0,
+            "false_action_rate": 0.028113992884755135,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.028711581602692604,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.6328125,
+            "hazard": 0.0,
+            "false_action_rate": 0.023488715291023254,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.15625,
+            "coverage_mitigable": 0.0833333358168602,
+            "hazard": 0.173828125,
+            "false_action_rate": 0.03453025594353676,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.035071540623903275,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.474609375,
+            "hazard": 0.001953125,
+            "false_action_rate": 0.027252843603491783,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.998046875,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.998046875,
+            "false_action_rate": 0.03157694265246391,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.025205489248037338,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.033774591982364655,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.787109375,
+            "hazard": 0.005859375,
+            "false_action_rate": 0.029958339408040047,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.66015625,
+            "hazard": 0.0,
+            "false_action_rate": 0.026782190427184105,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.701171875,
+            "hazard": 0.0,
+            "false_action_rate": 0.03526443615555763,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.671875,
+            "hazard": 0.0,
+            "false_action_rate": 0.028658654540777206,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.038098473101854324,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.03766113892197609,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.03045959398150444,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.7290852866135538,
+        "false_action_rate_mean": 0.0307265714638763,
+        "alarm_precision": 0.8009078502655029,
+        "hazard_mean_faults": 0.12821691176470587,
+        "residual_risk_relative": 0.0011080729156732558
+      },
+      "nofm_15_20": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.027231521904468536,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.3359375,
+            "hazard": 0.0,
+            "false_action_rate": 0.031754039227962494,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.306640625,
+            "hazard": 0.0,
+            "false_action_rate": 0.02820691652595997,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.02886892855167389,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.599609375,
+            "hazard": 0.0,
+            "false_action_rate": 0.024578914046287537,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.15625,
+            "coverage_mitigable": 0.08564814925193787,
+            "hazard": 0.173828125,
+            "false_action_rate": 0.03542126342654228,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.03479508310556412,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.458984375,
+            "hazard": 0.001953125,
+            "false_action_rate": 0.026923492550849915,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.998046875,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.998046875,
+            "false_action_rate": 0.032033197581768036,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.024497738108038902,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.03281356394290924,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.779296875,
+            "hazard": 0.005859375,
+            "false_action_rate": 0.029571667313575745,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.646484375,
+            "hazard": 0.0,
+            "false_action_rate": 0.029064804315567017,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.673828125,
+            "hazard": 0.0,
+            "false_action_rate": 0.034946076571941376,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.642578125,
+            "hazard": 0.0,
+            "false_action_rate": 0.02865920402109623,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.03797884285449982,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.03954686224460602,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.02974315918982029,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.7203188296407461,
+        "false_action_rate_mean": 0.03092418197128508,
+        "alarm_precision": 0.8018417954444885,
+        "hazard_mean_faults": 0.12821691176470587,
+        "residual_risk_relative": 0.0011397641777992247
+      },
+      "expert": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.9921875,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.759765625,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.748046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.994140625,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.15625,
+            "coverage_mitigable": 0.26620370149612427,
+            "hazard": 0.15625,
+            "false_action_rate": 0.0,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.984375,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.998046875,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.998046875,
+            "false_action_rate": 0.0,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.0,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.9217890985310078,
+        "false_action_rate_mean": 0.0,
+        "alarm_precision": 1.0,
+        "hazard_mean_faults": 0.12672334558823528,
+        "residual_risk_relative": 0.0003966435194015502
+      },
+      "none": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.9921875,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.994140625,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.15625,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.68359375,
+            "false_action_rate": 0.0,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.984375,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.998046875,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.998046875,
+            "false_action_rate": 0.0,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.0,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.3109130859375,
+        "false_action_rate_mean": 0.0,
+        "alarm_precision": null,
+        "hazard_mean_faults": 0.1577435661764706,
+        "residual_risk_relative": 0.0028046875000000003
+      }
+    },
+    "o3_dawn_dusk": {
+      "deployed": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.14614635705947876,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.63671875,
+            "hazard": 0.0,
+            "false_action_rate": 0.14962613582611084,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.619140625,
+            "hazard": 0.0,
+            "false_action_rate": 0.13734307885169983,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.15584109723567963,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.12843875586986542,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.068359375,
+            "coverage_mitigable": 0.0,
+            "hazard": 1.0,
+            "false_action_rate": 0.13945457339286804,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.14954471588134766,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.78515625,
+            "hazard": 0.0,
+            "false_action_rate": 0.15975423157215118,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.962890625,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.962890625,
+            "false_action_rate": 0.13992545008659363,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.13394948840141296,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.12960284948349,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.86328125,
+            "hazard": 0.0,
+            "false_action_rate": 0.15269063413143158,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.775390625,
+            "hazard": 0.0,
+            "false_action_rate": 0.13766199350357056,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.837890625,
+            "hazard": 0.0,
+            "false_action_rate": 0.15034261345863342,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.798828125,
+            "hazard": 0.0,
+            "false_action_rate": 0.15065644681453705,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.14806948602199554,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.1568516194820404,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.13512031733989716,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.8321533203125,
+        "false_action_rate_mean": 0.144501102467378,
+        "alarm_precision": 0.6340786218643188,
+        "hazard_mean_faults": 0.1742876838235294,
+        "residual_risk_relative": 0.0007509765625000001
+      },
+      "tree6": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.14068028330802917,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.80078125,
+            "hazard": 0.001953125,
+            "false_action_rate": 0.1461256444454193,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.783203125,
+            "hazard": 0.005859375,
+            "false_action_rate": 0.12973865866661072,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.16356271505355835,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.1309364289045334,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.068359375,
+            "coverage_mitigable": 0.029350105673074722,
+            "hazard": 0.75390625,
+            "false_action_rate": 0.14414334297180176,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.13544686138629913,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.81640625,
+            "hazard": 0.001953125,
+            "false_action_rate": 0.15775009989738464,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.962890625,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.962890625,
+            "false_action_rate": 0.15179342031478882,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.13752029836177826,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.13124337792396545,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.8828125,
+            "hazard": 0.001953125,
+            "false_action_rate": 0.15123222768306732,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.83984375,
+            "hazard": 0.0,
+            "false_action_rate": 0.1357896476984024,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.857421875,
+            "hazard": 0.001953125,
+            "false_action_rate": 0.14649754762649536,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.837890625,
+            "hazard": 0.0,
+            "false_action_rate": 0.1536788046360016,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.001953125,
+            "false_action_rate": 0.14245930314064026,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.15297077596187592,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.998046875,
+            "hazard": 0.001953125,
+            "false_action_rate": 0.14451473951339722,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.8651156316045672,
+        "false_action_rate_mean": 0.1442268987496694,
+        "alarm_precision": 0.65689617395401,
+        "hazard_mean_faults": 0.16084558823529413,
+        "residual_risk_relative": 0.0006372833952307702
+      },
+      "M1": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.068359375,
+            "coverage_mitigable": 0.0,
+            "hazard": 1.0,
+            "false_action_rate": 0.0,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.001953125,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.962890625,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.962890625,
+            "false_action_rate": 0.0,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.0,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.3126220703125,
+        "false_action_rate_mean": 0.0,
+        "alarm_precision": 1.0,
+        "hazard_mean_faults": 0.1742876838235294,
+        "residual_risk_relative": 0.002799609375
+      },
+      "M2": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.068359375,
+            "coverage_mitigable": 0.0,
+            "hazard": 1.0,
+            "false_action_rate": 0.0,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.001953125,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.962890625,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.962890625,
+            "false_action_rate": 0.0,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.0,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.3126220703125,
+        "false_action_rate_mean": 0.0,
+        "alarm_precision": 1.0,
+        "hazard_mean_faults": 0.1742876838235294,
+        "residual_risk_relative": 0.002799609375
+      },
+      "M6": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.00023519745445810258,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.00017628091154620051,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.00390625,
+            "hazard": 0.0,
+            "false_action_rate": 0.00015392508066724986,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.00024065026082098484,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.00014782461221329868,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.068359375,
+            "coverage_mitigable": 0.0,
+            "hazard": 1.0,
+            "false_action_rate": 0.00016423662600573152,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0002545009774621576,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.001953125,
+            "hazard": 0.0,
+            "false_action_rate": 0.00019553431775420904,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.962890625,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.962890625,
+            "false_action_rate": 0.00014048130833543837,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0003154416917823255,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.00016246119048446417,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.00025334686506539583,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.00016759538266342133,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0001989083830267191,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.00019268423784524202,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.00017189510981552303,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.00025387361529283226,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.00016044094809331,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.3128662109375,
+        "false_action_rate_mean": 0.00019918216518514478,
+        "alarm_precision": 0.9981229901313782,
+        "hazard_mean_faults": 0.1742876838235294,
+        "residual_risk_relative": 0.002798828125
+      },
+      "nofm_2_3": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.12286670506000519,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.623046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.12365780025720596,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.609375,
+            "hazard": 0.0,
+            "false_action_rate": 0.11353162676095963,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.12859268486499786,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.986328125,
+            "hazard": 0.0,
+            "false_action_rate": 0.10656613111495972,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.068359375,
+            "coverage_mitigable": 0.0,
+            "hazard": 1.0,
+            "false_action_rate": 0.11579851061105728,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.1264210045337677,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.732421875,
+            "hazard": 0.0,
+            "false_action_rate": 0.13361455500125885,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.962890625,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.962890625,
+            "false_action_rate": 0.12013471871614456,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.10869906097650528,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.10849376767873764,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.85546875,
+            "hazard": 0.0,
+            "false_action_rate": 0.12599283456802368,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.751953125,
+            "hazard": 0.0,
+            "false_action_rate": 0.11558238416910172,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.80078125,
+            "hazard": 0.0,
+            "false_action_rate": 0.12563183903694153,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.767578125,
+            "hazard": 0.0,
+            "false_action_rate": 0.12909269332885742,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.12172523140907288,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.1368408501148224,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.11208125948905945,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.8204345703125,
+        "false_action_rate_mean": 0.12085131431619327,
+        "alarm_precision": 0.6446628570556641,
+        "hazard_mean_faults": 0.1742876838235294,
+        "residual_risk_relative": 0.0007904296875
+      },
+      "nofm_3_5": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.12325450032949448,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.609375,
+            "hazard": 0.0,
+            "false_action_rate": 0.12413839250802994,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.603515625,
+            "hazard": 0.0,
+            "false_action_rate": 0.11362512409687042,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.12858758866786957,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.978515625,
+            "hazard": 0.0,
+            "false_action_rate": 0.10623862594366074,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.068359375,
+            "coverage_mitigable": 0.0,
+            "hazard": 1.0,
+            "false_action_rate": 0.11605943739414215,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.1260729879140854,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.73046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.13385826349258423,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.962890625,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.962890625,
+            "false_action_rate": 0.12016522884368896,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.10843228548765182,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.1084546148777008,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.849609375,
+            "hazard": 0.0,
+            "false_action_rate": 0.12587213516235352,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.740234375,
+            "hazard": 0.0,
+            "false_action_rate": 0.11571108549833298,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.787109375,
+            "hazard": 0.0,
+            "false_action_rate": 0.12549948692321777,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.75,
+            "hazard": 0.0,
+            "false_action_rate": 0.13089387118816376,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.122715525329113,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.13705147802829742,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.11224523186683655,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.8155517578125,
+        "false_action_rate_mean": 0.12104865908622742,
+        "alarm_precision": 0.6445298194885254,
+        "hazard_mean_faults": 0.1742876838235294,
+        "residual_risk_relative": 0.0008074218750000001
+      },
+      "nofm_5_8": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.12146107107400894,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.599609375,
+            "hazard": 0.0,
+            "false_action_rate": 0.12159937620162964,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.6015625,
+            "hazard": 0.0,
+            "false_action_rate": 0.11277762800455093,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.12688423693180084,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.96875,
+            "hazard": 0.0,
+            "false_action_rate": 0.10420268028974533,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.068359375,
+            "coverage_mitigable": 0.0,
+            "hazard": 1.0,
+            "false_action_rate": 0.11422937363386154,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.12420681118965149,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.728515625,
+            "hazard": 0.0,
+            "false_action_rate": 0.13262876868247986,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.962890625,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.962890625,
+            "false_action_rate": 0.11798440665006638,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.1070629209280014,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.10678017139434814,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.83984375,
+            "hazard": 0.0,
+            "false_action_rate": 0.12295427918434143,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.734375,
+            "hazard": 0.0,
+            "false_action_rate": 0.11403626203536987,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.775390625,
+            "hazard": 0.0,
+            "false_action_rate": 0.12351954728364944,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.744140625,
+            "hazard": 0.0,
+            "false_action_rate": 0.12868961691856384,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.12068375200033188,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.13481487333774567,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.11030389368534088,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.81201171875,
+        "false_action_rate_mean": 0.11915664830141598,
+        "alarm_precision": 0.6448572278022766,
+        "hazard_mean_faults": 0.1742876838235294,
+        "residual_risk_relative": 0.000820703125
+      },
+      "nofm_8_10": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.11404815316200256,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.587890625,
+            "hazard": 0.0,
+            "false_action_rate": 0.11482363939285278,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.583984375,
+            "hazard": 0.0,
+            "false_action_rate": 0.10593390464782715,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.11999257653951645,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.96484375,
+            "hazard": 0.0,
+            "false_action_rate": 0.09798654913902283,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.068359375,
+            "coverage_mitigable": 0.0,
+            "hazard": 1.0,
+            "false_action_rate": 0.10672802478075027,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.11832843720912933,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.69921875,
+            "hazard": 0.0,
+            "false_action_rate": 0.12512829899787903,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.962890625,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.962890625,
+            "false_action_rate": 0.11076849699020386,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.10162483900785446,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.1005719006061554,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.830078125,
+            "hazard": 0.0,
+            "false_action_rate": 0.1164536103606224,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.71484375,
+            "hazard": 0.0,
+            "false_action_rate": 0.10676631331443787,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.755859375,
+            "hazard": 0.0,
+            "false_action_rate": 0.11639317125082016,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.728515625,
+            "hazard": 0.0,
+            "false_action_rate": 0.1220737025141716,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.11394018679857254,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.1279085874557495,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.10423982888460159,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.8040771484375,
+        "false_action_rate_mean": 0.11242834561400944,
+        "alarm_precision": 0.647009551525116,
+        "hazard_mean_faults": 0.1742876838235294,
+        "residual_risk_relative": 0.0008474609375000001
+      },
+      "nofm_15_20": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.11390423774719238,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.57421875,
+            "hazard": 0.0,
+            "false_action_rate": 0.11449342966079712,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.578125,
+            "hazard": 0.0,
+            "false_action_rate": 0.1052294448018074,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.11993440240621567,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.94140625,
+            "hazard": 0.0,
+            "false_action_rate": 0.09779191762208939,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.068359375,
+            "coverage_mitigable": 0.0,
+            "hazard": 1.0,
+            "false_action_rate": 0.10660246759653091,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.11808368563652039,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.693359375,
+            "hazard": 0.0,
+            "false_action_rate": 0.12534017860889435,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.962890625,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.962890625,
+            "false_action_rate": 0.11052346229553223,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.10136529058218002,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.09933561831712723,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.8203125,
+            "hazard": 0.0,
+            "false_action_rate": 0.11576735973358154,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.69921875,
+            "hazard": 0.0,
+            "false_action_rate": 0.10681812465190887,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.75,
+            "hazard": 0.0,
+            "false_action_rate": 0.11611711233854294,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.716796875,
+            "hazard": 0.0,
+            "false_action_rate": 0.12171080708503723,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.11381131410598755,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.12805190682411194,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.1038086861371994,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.79833984375,
+        "false_action_rate_mean": 0.11214941367506981,
+        "alarm_precision": 0.6475681662559509,
+        "hazard_mean_faults": 0.1742876838235294,
+        "residual_risk_relative": 0.000869140625
+      },
+      "expert": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.98046875,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.978515625,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.068359375,
+            "coverage_mitigable": 0.4591194987297058,
+            "hazard": 0.068359375,
+            "false_action_rate": 0.0,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.962890625,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.962890625,
+            "false_action_rate": 0.0,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.0,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.9636314921081066,
+        "false_action_rate_mean": 0.0,
+        "alarm_precision": 1.0,
+        "hazard_mean_faults": 0.11948529411764706,
+        "residual_risk_relative": 0.00022455532550811767
+      },
+      "none": {
+        "per_fault": {
+          "0": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 0
+          },
+          "1": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "2": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "3": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "4": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 2
+          },
+          "5": {
+            "not_mitigable_share": 0.068359375,
+            "coverage_mitigable": 0.0,
+            "hazard": 1.0,
+            "false_action_rate": 0.0,
+            "severity": 1
+          },
+          "6": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "7": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "8": {
+            "not_mitigable_share": 0.962890625,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.962890625,
+            "false_action_rate": 0.0,
+            "severity": 2
+          },
+          "9": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 2
+          },
+          "10": {
+            "not_mitigable_share": 1.0,
+            "coverage_mitigable": null,
+            "hazard": 1.0,
+            "false_action_rate": 0.0,
+            "severity": 1
+          },
+          "11": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 2
+          },
+          "12": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "13": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "14": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 0.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 3
+          },
+          "15": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 4
+          },
+          "16": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 4
+          },
+          "17": {
+            "not_mitigable_share": 0.0,
+            "coverage_mitigable": 1.0,
+            "hazard": 0.0,
+            "false_action_rate": 0.0,
+            "severity": 4
+          }
+        },
+        "coverage_mitigable_mean": 0.3125,
+        "false_action_rate_mean": 0.0,
+        "alarm_precision": null,
+        "hazard_mean_faults": 0.1742876838235294,
+        "residual_risk_relative": 0.0028000000000000004
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "tree": "sw_dagger_s6.pkl",
+  "dataset": "XJTU-SPS AD Test",
+  "battery": "BAT2",
+  "merge_s": 60,
+  "q_string_ah_assumed": 2.0,
+  "variants": {
+    "measured_temperature": {
+      "precision_event": 0.6258992805755396,
+      "recall_event": 1.0,
+      "f0_5_event": 0.6765163297045101,
+      "n_true_events": 17,
+      "n_pred_events": 139,
+      "recall_per_fault_class": {
+        "1": 1.0,
+        "2": 1.0,
+        "3": 1.0,
+        "4": 1.0,
+        "5": 1.0,
+        "6": 1.0,
+        "7": 1.0,
+        "8": 1.0,
+        "9": 1.0,
+        "10": 1.0,
+        "11": 1.0,
+        "12": 1.0,
+        "13": 1.0,
+        "14": 1.0,
+        "15": 1.0,
+        "16": 1.0,
+        "17": 1.0
+      },
+      "false_alarm_share_normal_segment": 0.9496775834467901
+    },
+    "temperature_fixed_25C": {
+      "precision_event": 0.6204379562043796,
+      "recall_event": 1.0,
+      "f0_5_event": 0.6714060031595577,
+      "n_true_events": 17,
+      "n_pred_events": 137,
+      "recall_per_fault_class": {
+        "1": 1.0,
+        "2": 1.0,
+        "3": 1.0,
+        "4": 1.0,
+        "5": 1.0,
+        "6": 1.0,
+        "7": 1.0,
+        "8": 1.0,
+        "9": 1.0,
+        "10": 1.0,
+        "11": 1.0,
+        "12": 1.0,
+        "13": 1.0,
+        "14": 1.0,
+        "15": 1.0,
+        "16": 1.0,
+        "17": 1.0
+      },
+      "false_alarm_share_normal_segment": 0.945346279866545
+    }
+  }
+}

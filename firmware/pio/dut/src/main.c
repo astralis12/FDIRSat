@@ -11,8 +11,9 @@
  * SEU tolerance (item 5): tree tables in RAM (FDIR_TREE_IN_RAM) scrubbed by the
  * hardware CRC unit every frame and restored from flash on mismatch; IWDG (~1 s);
  * HardFault -> reset; boot frame 'b' with the reset cause.
- * Status byte per spacecraft: bits 0-3 EKF guards, bit 6 tree structural fault,
- * bit 7 tree tables repaired by the scrub in this frame.
+ * Status byte per spacecraft: bits 0-3 EKF guards, bit 5 state CRC mismatch (EKF /
+ * history / charge latch rebuilt, ISS-057), bit 6 tree structural fault, bit 7 tree
+ * tables repaired by the scrub in this frame.
  *
  * Frame (both directions, little-endian):
  *   0xA5 0x5A | cmd (1) | len (1) | payload (len) | CRC-16/CCITT-FALSE over cmd..payload (2)
@@ -46,8 +47,9 @@
 #include "fdir_features.h"
 #include "fdir_sgo_v3.h"
 #include "fdir_config.h"
+#include "fdir_state_guard.h"
 
-#define FW_VERSION "fdir-dut 0.7 tree9 sgo-v3.1 multi7 seu " FDIR_CONFIG_NAME
+#define FW_VERSION "fdir-dut 0.8 tree9 sgo3.1 guard multi7 " FDIR_CONFIG_NAME
 #define MULTI 7
 #ifndef UART_BAUD
 #define UART_BAUD 460800U
@@ -63,38 +65,46 @@
 static uint8_t scrub_flag;   /* set when the scrub repaired the tree tables in this frame */
 static uint8_t scrub_on = 1U;
 
-static SocEkf ekf;
-SocEkf ekfs[MULTI];   /* not static: fault injection targets it by symbol (hil/run_case.py C3) */
-FdirFeatures feats[MULTI];
-static uint8_t ct_latch[MULTI];   /* SGO v3 charge-temperature latch per spacecraft (ISS-050) */
-static FdirFeatures feat;
+static SocEkf ekf;            /* 'S' command only (bare EKF) */
+/* Per-spacecraft state behind a CRC-16 guard (ISS-057): EKF, history, charge latch.
+ * Not static: fault injection targets it by symbol (verify/fault_injection.py, hil/run_case.py C3). */
+FdirGuardedState gstate[MULTI];
+static FdirGuardedState xstate;   /* the single-spacecraft 'X' / 'G' path */
 
 /* ---------------------------------------------------------------- hardware */
 /* one full 1 Hz loop on EKF instance e: in = 8 floats as 'X', out = 17 bytes */
-static void full_step(SocEkf *e, FdirFeatures *h, const uint8_t *in, uint8_t *out)
+static void full_step(FdirGuardedState *g, const uint8_t *in, uint8_t *out)
 {
     float f[8], x[FDIR_TREE_INPUTS], soc, sd;
     FDIRResult r;
     uint32_t t0, cycles;
     uint8_t status;
+    int repaired;
     memcpy(f, in, 32);
     t0 = DWT->CYCCNT;
-    status = soc_ekf_step(e, f[0], f[1], f[2], f[3], NULL);
-    soc = soc_ekf_soc(e);
-    sd = soc_ekf_std(e);
+    repaired = fdir_state_check(g, f[2]);          /* SEU between steps -> rebuilt state */
+    status = soc_ekf_step(&g->ekf, f[0], f[1], f[2], f[3], NULL);
+    soc = soc_ekf_soc(&g->ekf);
+    sd = soc_ekf_std(&g->ekf);
     x[0] = f[2];
     x[1] = f[4];
     x[2] = f[5];
     x[3] = soc;
     x[4] = f[6];
     x[5] = f[7];
-    fdir_features_step(h, x[0], x[3], x[4], &x[6]);
+    fdir_features_step(&g->feat, x[0], x[3], x[4], &x[6]);
+    fdir_sgo_v3_charge_inhibit = g->latch;
     r = fdir_onboard_step(x);
+    g->latch = fdir_sgo_v3_charge_inhibit;
+    fdir_state_seal(g);
     cycles = DWT->CYCCNT - t0;
     if (fdir_tree_last_status != 0) {
         status |= 0x40U;
     }
     status |= scrub_flag;
+    if (repaired) {
+        status |= FDIR_GUARD_ST_REPAIRED;
+    }
     memcpy(out, &soc, 4);
     memcpy(&out[4], &sd, 4);
     out[8] = r.solar_reconfig_action;
@@ -282,7 +292,10 @@ int main(void)
     }
     iwdg_init();
     soc_ekf_init(&ekf, 0.5f);
-    fdir_features_init(&feat);
+    fdir_state_init(&xstate, 0.5f);
+    for (uint32_t k = 0; k < MULTI; k++) {
+        fdir_state_init(&gstate[k], 0.5f);
+    }
 
     for (;;) {
         int r = recv_frame(&cmd, in, &len);
@@ -300,8 +313,7 @@ int main(void)
             float soc0;
             memcpy(&soc0, in, 4);
             soc_ekf_init(&ekf, soc0);
-            fdir_features_init(&feat);
-            fdir_sgo_v3_charge_inhibit = 0U;
+            fdir_state_init(&xstate, soc0);
             send_frame('i', out, 0);
         } else if (cmd == 'S' && len == 16) {
             float f[4];
@@ -352,7 +364,10 @@ int main(void)
             memcpy(x, in, 36);
             memcpy(tb, &in[36], 12);
             t0 = DWT->CYCCNT;
+            fdir_sgo_v3_charge_inhibit = xstate.latch;
             r = fdir_onboard_step3(x, tb);
+            xstate.latch = fdir_sgo_v3_charge_inhibit;
+            fdir_state_seal(&xstate);
             cycles = DWT->CYCCNT - t0;
             out[0] = r.solar_reconfig_action;
             out[1] = r.battery_limit_action;
@@ -362,26 +377,20 @@ int main(void)
             memcpy(&out[5], &cycles, 4);
             send_frame('g', out, 9);
         } else if (cmd == 'X' && len == 32) {
-            full_step(&ekf, &feat, in, out);
+            full_step(&xstate, in, out);
             send_frame('x', out, 17);
         } else if (cmd == 'J' && len >= 1 && in[0] >= 1U && in[0] <= MULTI && len == 1U + 4U * in[0]) {
             for (uint32_t k = 0; k < in[0]; k++) {
                 float soc0;
                 memcpy(&soc0, &in[1 + 4 * k], 4);
-                soc_ekf_init(&ekfs[k], soc0);
-                fdir_features_init(&feats[k]);
-                ct_latch[k] = 0U;
+                fdir_state_init(&gstate[k], soc0);
             }
             send_frame('j', out, 0);
         } else if (cmd == 'Y' && len >= 1 && in[0] >= 1U && in[0] <= MULTI && len == 1U + 32U * in[0]) {
             static uint8_t big[MULTI * 17];
-            const uint8_t keep = fdir_sgo_v3_charge_inhibit;   /* the 'X' path's latch */
             for (uint32_t k = 0; k < in[0]; k++) {
-                fdir_sgo_v3_charge_inhibit = ct_latch[k];
-                full_step(&ekfs[k], &feats[k], &in[1 + 32 * k], &big[17 * k]);
-                ct_latch[k] = fdir_sgo_v3_charge_inhibit;
+                full_step(&gstate[k], &in[1 + 32 * k], &big[17 * k]);
             }
-            fdir_sgo_v3_charge_inhibit = keep;
             send_frame('y', big, (uint8_t)(17U * in[0]));
         } else if (cmd == 'Z' && len == 1) {
             scrub_on = in[0] ? 1U : 0U;

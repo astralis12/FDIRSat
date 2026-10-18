@@ -149,8 +149,11 @@ def main() -> None:
         ra.append(aa[0].numpy()); rf.append(int(ff[0]) | (16 if bool(single[k]) else 0)); rl.append(int(latch[0]))
     v_act = int((np.asarray(ra) != vo[:, :3]).any(1).sum()); v_flag = int((np.asarray(rf) != vo[:, 3]).sum())
     v_lat = int((np.asarray(rl) != vlat).sum())
+    bad = np.flatnonzero((np.asarray(ra) != vo[:, :3]).any(1) | (np.asarray(rf) != vo[:, 3]))
+    vote_mism = [{"k": int(k), "kind": int(kind[k]), "tb": tb[k].tolist(), "t_hi": float(th[k]), "t_lo": float(tl[k]),
+                  "dut": vo[k].tolist(), "ref_act": np.asarray(ra)[k].tolist(), "ref_flags": int(rf[k]), "latch": int(vlat[k])} for k in bad[:12]]
     res["vote"] = {"n": nv, "action_mismatches": v_act, "flag_mismatches": v_flag, "latch_mismatches": v_lat,
-                   "latch_set_share": float(np.mean(vlat)), "cases": {k: int((kind == i).sum()) for i, k in enumerate(["c0", "c1", "c2", "outlier", "nan", "two_lost"])}}
+                   "latch_set_share": float(np.mean(vlat)), "mismatch_examples": vote_mism, "cases": {k: int((kind == i).sum()) for i, k in enumerate(["c0", "c1", "c2", "outlier", "nan", "two_lost"])}}
     print("vote", res["vote"], flush=True)
     g = mism + res["chain"]["soc_mismatches"] + act_mis + flag_mis + v_act + v_flag + v_lat
     res["gate"] = {"metric": "tree + chain mismatches on target", "value": g, "pass": g == 0}

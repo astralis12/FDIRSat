@@ -140,11 +140,11 @@ def run_batch(dut: Dut, tree, specs, orbits: float, seed: int, mode: str) -> dic
         meas = torch.stack([corrupt(meas[j:j + 1], specs[j][2], k, t_inj)[0] for j in range(n)])
         if mode == "pil":
             if not injected and k >= t_inj and any(s[2] == "e" for s in specs):
-                base = symbol_addr("ekfs")
+                base = symbol_addr("gstate")          # FdirGuardedState[7], 380 B each (ISS-057)
                 writes = []
                 for j, s in enumerate(specs):
-                    if s[2] == "e":                 # SocEkf = x[3] + P[3][3] floats
-                        writes += [(base + 48 * j, f32_bits(3.0)), (base + 48 * j + 12, 0x7FC00000)]
+                    if s[2] == "e":                 # SocEkf (offset 0) = x[3] + P[3][3] floats
+                        writes += [(base + 380 * j, f32_bits(3.0)), (base + 380 * j + 12, 0x7FC00000)]
                 openocd_write(writes)
                 injected = True
             pay = bytes([n])

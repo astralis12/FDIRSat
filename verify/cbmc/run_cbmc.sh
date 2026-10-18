@@ -24,7 +24,9 @@ HT="$ROOT/verify/cbmc/harness_tree.c"
 ST="$ROOT/firmware/src/fdir_tree.c"
 HF="$ROOT/verify/cbmc/harness_features.c"
 SF="$ROOT/firmware/src/fdir_features.c"
-sha256sum "$H" "$HE" "$HT" "$INC"/*.h "${SRC[v1]}" "${SRC[v2]}" "${SRC[v3]}" "$SE" "$ST" "$HF" "$SF" "$ROOT/verify/cbmc/harness_tree_any.c" > "$LOG/hashes.txt"
+HG="$ROOT/verify/cbmc/harness_guard.c"
+SG="$ROOT/firmware/src/fdir_state_guard.c"
+sha256sum "$H" "$HE" "$HT" "$INC"/*.h "${SRC[v1]}" "${SRC[v2]}" "${SRC[v3]}" "$SE" "$ST" "$HF" "$SF" "$ROOT/verify/cbmc/harness_tree_any.c" "$HG" "$SG" > "$LOG/hashes.txt"
 
 status=0
 # v3 = reference configuration (fdir_config_ref.h), v3bench = bench (fdir_config_bench.h)
@@ -96,4 +98,18 @@ nfail=$(grep -c 'FAILURE$' "$LOG/$TAG.properties.txt" || true)
 printf '%-14s %-26s failed properties: %s\n' "$TAG" "$verdict" "$nfail"
 [[ "$verdict" != "VERIFICATION SUCCESSFUL" ]] && status=1
 if grep -qE "no body for function|implicit function declaration" "$LOG/$TAG.log"; then echo "$TAG: missing body or implicit declaration (ISS-016)"; status=1; fi
+# State guard (ISS-057, ADR-0021): CRC lemmas + SoC rebuild range, then check / repair on a real state
+for GM in lemmas state; do
+  TAG=guard_$GM
+  D=-DGUARD_STATE; [[ "$GM" == lemmas ]] && D=-DGUARD_LEMMAS
+  cbmc "$HG" "$SG" "$SF" -I "$INC" $D --unwind 400 --unwinding-assertions "${COMMON[@]}" > "$LOG/$TAG.log" 2>&1 || true
+  grep -E '\.assertion\.[0-9]+\].*(SUCCESS|FAILURE)$' "$LOG/$TAG.log" > "$LOG/$TAG.properties.txt" || true
+  grep -E 'FAILURE$' "$LOG/$TAG.log" | grep -v '\.assertion\.' > "$LOG/$TAG.runtime_failures.txt" || true
+  verdict=$(grep -E '^VERIFICATION (SUCCESSFUL|FAILED)' "$LOG/$TAG.log" | tail -1)
+  nfail=$(grep -c 'FAILURE$' "$LOG/$TAG.properties.txt" || true)
+  printf '%-14s %-26s failed properties: %s
+' "$TAG" "$verdict" "$nfail"
+  [[ "$verdict" != "VERIFICATION SUCCESSFUL" ]] && status=1
+  if grep -qE "no body for function|implicit function declaration" "$LOG/$TAG.log"; then echo "$TAG: missing body or implicit declaration (ISS-016)"; status=1; fi
+done
 exit $status

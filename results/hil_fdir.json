@@ -1,11 +1,11 @@
 {
-  "firmware": "fdir-dut 0.7 tree9 sgo-v3.1 multi7 seu ref",
+  "firmware": "fdir-dut 0.8 tree9 sgo3.1 guard multi7 ref",
   "tree": {
     "n": 6000,
     "mismatches": 0,
     "cycles_max": 374,
     "cycles_median": 374.0,
-    "wall_s": 95.72255253791809
+    "wall_s": 95.69922018051147
   },
   "chain": {
     "steps": 3000,
@@ -15,9 +15,9 @@
     "action_mismatches": 0,
     "flag_mismatches": 0,
     "ekf_guard_activations": 0,
-    "cycles_max": 4961,
-    "cycles_median": 4830.0,
-    "max_us_at_16MHz": 310.0625,
+    "cycles_max": 15732,
+    "cycles_median": 15602.0,
+    "max_us_at_16MHz": 983.25,
     "actions_seen": [
       [
         0,
@@ -37,6 +37,7 @@
     "flag_mismatches": 0,
     "latch_mismatches": 0,
     "latch_set_share": 0.2625,
+    "mismatch_examples": [],
     "cases": {
       "c0": 328,
       "c1": 347,

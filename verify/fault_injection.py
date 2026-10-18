@@ -47,6 +47,7 @@ OCD = Path.home() / ".platformio" / "packages" / "tool-openocd"
 N_SLOTS, W, K = 7, 10, 40
 FAULTS = [0, 5, 10, 1, 7, 12, 4]                    # workload: one stream per slot
 EKF_SIZE, FEAT_SIZE = 48, 328
+GS_SIZE, GS_FEAT, GS_GUARD = 380, 48, 376     # FdirGuardedState: ekf @0, feat @48, latch + crc @376 (ISS-057)
 
 
 def symbols() -> dict:
@@ -76,6 +77,7 @@ class Ocd:
             except OSError:
                 time.sleep(0.2)
         self.cmd("init")
+        self.retries = 0
 
     def cmd(self, c: str) -> str:
         self.s.sendall(c.encode() + b"\x1a")
@@ -87,8 +89,16 @@ class Ocd:
     def flip(self, addr: int, bit: int) -> None:
         a = addr & ~3
         b = bit + 8 * (addr & 3)
-        r = self.cmd(f"return [read_memory 0x{a:08x} 32 1]")
-        v = int(r.strip().split()[0], 0) ^ (1 << b)
+        for attempt in range(5):                     # transient SWD errors (18 Oct: 'read_memory: failed')
+            r = self.cmd(f"return [read_memory 0x{a:08x} 32 1]")
+            try:
+                v = int(r.strip().split()[0], 0) ^ (1 << b)
+                break
+            except (ValueError, IndexError):
+                self.retries += 1
+                time.sleep(0.3 * (attempt + 1))
+        else:
+            raise IOError(f"SWD read failed 5 times at 0x{a:08x}: {r!r}")
         self.cmd(f"write_memory 0x{a:08x} 32 {{0x{v:08x}}}")
 
     def close(self):
@@ -168,18 +178,21 @@ def main() -> None:
     a = ap.parse_args()
     sym = symbols()
     tables = [sym[n] for n in ("feat_ram", "leaf_ram", "left_ram", "right_ram", "thr_ram")]
-    big = {"ekfs", "feats", "feat_ram", "leaf_ram", "left_ram", "right_ram", "thr_ram"}
+    big = {"gstate", "feat_ram", "leaf_ram", "left_ram", "right_ram", "thr_ram"}
+    gs0, gsz = sym["gstate"]
+    assert gsz == N_SLOTS * GS_SIZE, f"gstate size {gsz} != {N_SLOTS} x {GS_SIZE}"
+    per = lambda lo, hi: np.concatenate([np.arange(gs0 + k * GS_SIZE + lo, gs0 + k * GS_SIZE + hi) for k in range(N_SLOTS)])
     sdata, ebss = sym["_sdata"][0], sym["_ebss"][0]
     # globals: .data/.bss bytes not covered by the big objects
     covered = np.zeros(ebss - sdata, bool)
     for n in big:
         s0, sz = sym[n]
         covered[s0 - sdata:s0 - sdata + sz] = True
-    glob = sdata + np.flatnonzero(~covered)
+    glob = np.concatenate([sdata + np.flatnonzero(~covered), per(GS_GUARD, GS_SIZE)])   # + latch / CRC / padding
     regions = {
         "tree_tables": np.concatenate([np.arange(s, s + z) for s, z in tables]),
-        "ekf_state": np.arange(sym["ekfs"][0], sym["ekfs"][0] + sym["ekfs"][1]),
-        "features": np.arange(sym["feats"][0], sym["feats"][0] + sym["feats"][1]),
+        "ekf_state": per(0, GS_FEAT),
+        "features": per(GS_FEAT, GS_GUARD),
         "globals": glob,
         "stack": np.arange(sym["_estack"][0] - 1024, sym["_estack"][0]),
     }
@@ -205,10 +218,8 @@ def main() -> None:
             for i in range(int(n)):
                 addr = int(rng.choice(regions[name]))
                 bit = int(rng.integers(0, 8))
-                if name == "ekf_state":
-                    slots = [(addr - sym["ekfs"][0]) // EKF_SIZE]
-                elif name == "features":
-                    slots = [(addr - sym["feats"][0]) // FEAT_SIZE]
+                if name in ("ekf_state", "features"):
+                    slots = [(addr - gs0) // GS_SIZE]
                 else:
                     slots = list(range(N_SLOTS))
                 f = run(dut, wl, inject=lambda: ocd.flip(addr, bit))
@@ -233,6 +244,7 @@ def main() -> None:
     size = {k: res["region_bytes"][k] for k in gated}
     w = {k: size[k] / sum(size.values()) for k in gated}
     weighted = sum(w[k] * gated[k]["sdc"] / max(sum(gated[k].values()), 1) for k in gated)
+    res["swd_read_retries"] = ocd.retries
     res["summary"] = {"injections_gated": n_tot, "sdc_gated": n_sdc, "sdc_rate_upper95_if_zero": upper,
                       "sdc_rate_size_weighted": weighted, "wall_s": time.time() - t0}
     res["gate"] = {"metric": "zero SDC in >= 3000 injections with mitigation", "pass": n_tot >= 3000 and n_sdc == 0}
