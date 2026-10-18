@@ -1,9 +1,18 @@
 /*
  * DUT firmware (STM32F411CE): onboard FDIR code behind a framed UART protocol.
  *
- * Clock: HSI 16 MHz, no PLL, 0 flash wait states (cycle counts are for this
- * configuration). USART1 PA9 TX / PA10 RX, UART_BAUD (default 460800) 8N1. LED PC13 toggles per frame.
- * The firmware drives no other GPIO: it only computes and reports.
+ * Clock: SYSCLK_MHZ (default 16 = HSI, no PLL). Other values use the PLL from HSI,
+ * flash wait states per RM0383 Table 6 (2.7-3.6 V: 0 WS <= 30 MHz, 1 <= 64, 2 <= 90,
+ * 3 <= 100), voltage scale 1 above 84 MHz, APB1 / 2 above 50 MHz; ART accelerator
+ * (prefetch + I/D cache) on unless ART=0. USART1 PA9 TX / PA10 RX, UART_BAUD
+ * (default 460800) 8N1. LED PC13 toggles per frame. The firmware drives no other
+ * GPIO: it only computes and reports.
+ *
+ * SEU tolerance (item 5): tree tables in RAM (FDIR_TREE_IN_RAM) scrubbed by the
+ * hardware CRC unit every frame and restored from flash on mismatch; IWDG (~1 s);
+ * HardFault -> reset; boot frame 'b' with the reset cause.
+ * Status byte per spacecraft: bits 0-3 EKF guards, bit 6 tree structural fault,
+ * bit 7 tree tables repaired by the scrub in this frame.
  *
  * Frame (both directions, little-endian):
  *   0xA5 0x5A | cmd (1) | len (1) | payload (len) | CRC-16/CCITT-FALSE over cmd..payload (2)
@@ -12,15 +21,18 @@
  *   'I' f32 soc0        -> 'i' (empty)            soc_ekf_init
  *   'S' f32 i_prev, i_now, v, dt
  *                       -> 's' f32 soc, std, innov, innov_var | u8 status | u32 cycles
- *   'T' f32 in[6]       -> 't' u8 S, B, L | u32 cycles                 tree only
- *   'F' f32 in[6]       -> 'f' u8 S, B, L, flags | u32 cycles          tree + SGO v2
+ *   'T' f32 in[9]       -> 't' u8 S, B, L | u32 cycles                 tree only
+ *   'F' f32 in[9]       -> 'f' u8 S, B, L, flags | u32 cycles          tree + SGO v3
  *   'X' f32 i_prev, i_now, v, dt, c_rate, t_bat, i_sa_pu, u_bus_pu
  *                       -> 'x' f32 soc, std | u8 S, B, L, flags, ekf_status | u32 cycles
- *                          full 1 Hz loop: EKF step, then tree + SGO with the EKF SoC
+ *                          full 1 Hz loop: EKF step, history features, tree + SGO v3
  *   'J' u8 n, f32 soc0[n]   -> 'j'      init n (<= MULTI) independent EKF instances
  *   'Y' u8 n, n x (8 f32 as 'X')
  *                       -> 'y' n x (f32 soc, std | u8 S, B, L, flags, ekf_status | u32 cycles)
  *                          the 'X' loop for n spacecraft per frame (processor-in-the-loop)
+ *   'Z' u8 on            -> 'z'      tree-table scrub on/off (fault-injection ablation)
+ *   'C'                  -> 'c' u32 cycles of one scrub (timing sweep)
+ *   'b' (DUT -> host at boot) "fdir-dut <version>" | u8 reset cause (RCC CSR bits 24-31)
  * Bad CRC or unknown command -> 'e' u8 code.
  */
 #include <stdint.h>
@@ -29,21 +41,34 @@
 #include "soc_ekf.h"
 #include "fdir_tree.h"
 #include "fdir_onboard.h"
+#include "fdir_features.h"
 
-#define FW_VERSION "fdir-dut 0.3 ekf+tree+sgo multi7"
+#define FW_VERSION "fdir-dut 0.6 ekf+hist+tree9+sgo-v3 multi7 seu"
 #define MULTI 7
 #ifndef UART_BAUD
 #define UART_BAUD 460800U
 #endif
+#ifndef SYSCLK_MHZ
+#define SYSCLK_MHZ 16U
+#endif
+#ifndef ART
+#define ART 1
+#endif
+#define SYSCLK_HZ (SYSCLK_MHZ * 1000000U)
+
+static uint8_t scrub_flag;   /* set when the scrub repaired the tree tables in this frame */
+static uint8_t scrub_on = 1U;
 
 static SocEkf ekf;
 SocEkf ekfs[MULTI];   /* not static: fault injection targets it by symbol (hil/run_case.py C3) */
+FdirFeatures feats[MULTI];
+static FdirFeatures feat;
 
 /* ---------------------------------------------------------------- hardware */
 /* one full 1 Hz loop on EKF instance e: in = 8 floats as 'X', out = 17 bytes */
-static void full_step(SocEkf *e, const uint8_t *in, uint8_t *out)
+static void full_step(SocEkf *e, FdirFeatures *h, const uint8_t *in, uint8_t *out)
 {
-    float f[8], x[6], soc, sd;
+    float f[8], x[FDIR_TREE_INPUTS], soc, sd;
     FDIRResult r;
     uint32_t t0, cycles;
     uint8_t status;
@@ -58,8 +83,13 @@ static void full_step(SocEkf *e, const uint8_t *in, uint8_t *out)
     x[3] = soc;
     x[4] = f[6];
     x[5] = f[7];
+    fdir_features_step(h, x[0], x[3], x[4], &x[6]);
     r = fdir_onboard_step(x);
     cycles = DWT->CYCCNT - t0;
+    if (fdir_tree_last_status != 0) {
+        status |= 0x40U;
+    }
+    status |= scrub_flag;
     memcpy(out, &soc, 4);
     memcpy(&out[4], &sd, 4);
     out[8] = r.solar_reconfig_action;
@@ -70,8 +100,67 @@ static void full_step(SocEkf *e, const uint8_t *in, uint8_t *out)
     memcpy(&out[13], &cycles, 4);
 }
 
+/* Hardware CRC unit (CRC-32/MPEG-2 polynomial, word input) for the tree scrub */
+uint32_t fdir_tree_crc32(const void *data, uint32_t len)
+{
+    const uint8_t *p = (const uint8_t *)data;
+    uint32_t k, w;
+    CRC->CR = CRC_CR_RESET;
+    for (k = 0; k + 4U <= len; k += 4U) {
+        memcpy(&w, &p[k], 4);
+        CRC->DR = w;
+    }
+    for (; k < len; k++) {
+        CRC->DR = (uint32_t)p[k];
+    }
+    return CRC->DR;
+}
+
+void HardFault_Handler(void)
+{
+    NVIC_SystemReset();                                  /* reported by the boot frame */
+}
+
+static void clock_init(void)
+{
+#if SYSCLK_MHZ > 16U
+    uint32_t ws = (SYSCLK_MHZ <= 30U) ? 0U : (SYSCLK_MHZ <= 64U) ? 1U : (SYSCLK_MHZ <= 90U) ? 2U : 3U;
+    uint32_t pllp = (SYSCLK_MHZ >= 50U) ? 2U : 4U;      /* VCO = SYSCLK * pllp stays in 100..432 MHz */
+    uint32_t plln = SYSCLK_MHZ * pllp / 2U;             /* PLL input 2 MHz (HSI / 8) */
+    RCC->APB1ENR |= RCC_APB1ENR_PWREN;
+    (void)RCC->APB1ENR;
+    PWR->CR = (PWR->CR & ~PWR_CR_VOS) | ((SYSCLK_MHZ > 84U) ? PWR_CR_VOS : PWR_CR_VOS_1);
+    FLASH->ACR = (FLASH->ACR & ~FLASH_ACR_LATENCY) | ws;
+    RCC->PLLCFGR = 8U | (plln << RCC_PLLCFGR_PLLN_Pos) | (((pllp / 2U) - 1U) << RCC_PLLCFGR_PLLP_Pos)
+                 | (4U << RCC_PLLCFGR_PLLQ_Pos);         /* PLLSRC = HSI (bit 22 = 0) */
+    RCC->CR |= RCC_CR_PLLON;
+    while (!(RCC->CR & RCC_CR_PLLRDY)) {
+    }
+    RCC->CFGR = (RCC->CFGR & ~(RCC_CFGR_PPRE1 | RCC_CFGR_PPRE2)) | ((SYSCLK_MHZ > 50U) ? RCC_CFGR_PPRE1_DIV2 : 0U);
+    RCC->CFGR = (RCC->CFGR & ~RCC_CFGR_SW) | RCC_CFGR_SW_PLL;
+    while ((RCC->CFGR & RCC_CFGR_SWS) != RCC_CFGR_SWS_PLL) {
+    }
+#endif
+#if ART
+    FLASH->ACR |= FLASH_ACR_PRFTEN | FLASH_ACR_ICEN | FLASH_ACR_DCEN;
+#else
+    FLASH->ACR &= ~(FLASH_ACR_PRFTEN | FLASH_ACR_ICEN | FLASH_ACR_DCEN);
+#endif
+}
+
+static void iwdg_init(void)
+{
+    IWDG->KR = 0x5555U;                                  /* unlock PR / RLR */
+    IWDG->PR = 3U;                                       /* LSI 32 kHz / 32 = 1 kHz */
+    IWDG->RLR = 1000U;                                   /* ~1 s */
+    IWDG->KR = 0xAAAAU;
+    IWDG->KR = 0xCCCCU;                                  /* start */
+}
+
 static void hw_init(void)
 {
+    clock_init();
+    RCC->AHB1ENR |= RCC_AHB1ENR_CRCEN;
     RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN | RCC_AHB1ENR_GPIOCEN;
     RCC->APB2ENR |= RCC_APB2ENR_USART1EN;
     (void)RCC->APB2ENR;
@@ -88,9 +177,9 @@ static void hw_init(void)
     GPIOC->MODER &= ~GPIO_MODER_MODER13;
     GPIOC->MODER |= (1U << GPIO_MODER_MODER13_Pos);
 
-    /* USART1, oversampling 16: BRR = round(16 MHz / baud)
-     * 115200 -> 139 (0.08 % error), 460800 -> 35 (0.8 % error) */
-    USART1->BRR = (16000000U + UART_BAUD / 2U) / UART_BAUD;
+    /* USART1 on APB2 = SYSCLK, oversampling 16: BRR = round(SYSCLK / baud)
+     * 16 MHz: 460800 -> 35 (0.8 % error); 100 MHz -> 217 (0.03 %) */
+    USART1->BRR = (SYSCLK_HZ + UART_BAUD / 2U) / UART_BAUD;
     USART1->CR1 = USART_CR1_TE | USART_CR1_RE | USART_CR1_UE;
 
     /* DWT cycle counter */
@@ -102,6 +191,7 @@ static void hw_init(void)
 static uint8_t uart_get(void)
 {
     while (!(USART1->SR & USART_SR_RXNE)) {
+        IWDG->KR = 0xAAAAU;                               /* idle host is not a hang */
         if (USART1->SR & USART_SR_ORE) {
             (void)USART1->DR;                                   /* clear overrun */
         }
@@ -176,11 +266,24 @@ int main(void)
 {
     uint8_t cmd = 0U, len = 0U, in[255], out[32];   /* set by recv_frame; init for GCC 7 -Wmaybe-uninitialized */
     hw_init();
+    fdir_tree_init();
+    {
+        uint8_t boot[48];
+        uint32_t n = (uint32_t)strlen(FW_VERSION);
+        memcpy(boot, FW_VERSION, n);
+        boot[n] = (uint8_t)(RCC->CSR >> 24);             /* reset cause: IWDG, software, POR, pin ... */
+        RCC->CSR |= RCC_CSR_RMVF;
+        send_frame('b', boot, (uint8_t)(n + 1U));
+    }
+    iwdg_init();
     soc_ekf_init(&ekf, 0.5f);
+    fdir_features_init(&feat);
 
     for (;;) {
         int r = recv_frame(&cmd, in, &len);
         GPIOC->ODR ^= GPIO_ODR_OD13;
+        IWDG->KR = 0xAAAAU;
+        scrub_flag = (uint8_t)((scrub_on && fdir_tree_scrub()) ? 0x80U : 0x00U);   /* check tables once per frame */
         if (r <= 0) {
             uint8_t code = (r < 0) ? 1U : 2U;                  /* 1 = CRC, 2 = sync */
             send_frame('e', &code, 1);
@@ -192,6 +295,7 @@ int main(void)
             float soc0;
             memcpy(&soc0, in, 4);
             soc_ekf_init(&ekf, soc0);
+            fdir_features_init(&feat);
             send_frame('i', out, 0);
         } else if (cmd == 'S' && len == 16) {
             float f[4];
@@ -210,22 +314,22 @@ int main(void)
             out[16] = status;
             memcpy(&out[17], &cycles, 4);
             send_frame('s', out, 21);
-        } else if (cmd == 'T' && len == 24) {
-            float x[6];
+        } else if (cmd == 'T' && len == 36) {
+            float x[FDIR_TREE_INPUTS];
             uint8_t a[3];
             uint32_t t0, cycles;
-            memcpy(x, in, 24);
+            memcpy(x, in, 36);
             t0 = DWT->CYCCNT;
             fdir_tree_eval(x, a);
             cycles = DWT->CYCCNT - t0;
             memcpy(out, a, 3);
             memcpy(&out[3], &cycles, 4);
             send_frame('t', out, 7);
-        } else if (cmd == 'F' && len == 24) {
-            float x[6];
+        } else if (cmd == 'F' && len == 36) {
+            float x[FDIR_TREE_INPUTS];
             FDIRResult r;
             uint32_t t0, cycles;
-            memcpy(x, in, 24);
+            memcpy(x, in, 36);
             t0 = DWT->CYCCNT;
             r = fdir_onboard_step(x);
             cycles = DWT->CYCCNT - t0;
@@ -236,21 +340,31 @@ int main(void)
             memcpy(&out[4], &cycles, 4);
             send_frame('f', out, 8);
         } else if (cmd == 'X' && len == 32) {
-            full_step(&ekf, in, out);
+            full_step(&ekf, &feat, in, out);
             send_frame('x', out, 17);
         } else if (cmd == 'J' && len >= 1 && in[0] >= 1U && in[0] <= MULTI && len == 1U + 4U * in[0]) {
             for (uint32_t k = 0; k < in[0]; k++) {
                 float soc0;
                 memcpy(&soc0, &in[1 + 4 * k], 4);
                 soc_ekf_init(&ekfs[k], soc0);
+                fdir_features_init(&feats[k]);
             }
             send_frame('j', out, 0);
         } else if (cmd == 'Y' && len >= 1 && in[0] >= 1U && in[0] <= MULTI && len == 1U + 32U * in[0]) {
             static uint8_t big[MULTI * 17];
             for (uint32_t k = 0; k < in[0]; k++) {
-                full_step(&ekfs[k], &in[1 + 32 * k], &big[17 * k]);
+                full_step(&ekfs[k], &feats[k], &in[1 + 32 * k], &big[17 * k]);
             }
             send_frame('y', big, (uint8_t)(17U * in[0]));
+        } else if (cmd == 'Z' && len == 1) {
+            scrub_on = in[0] ? 1U : 0U;
+            send_frame('z', out, 0);
+        } else if (cmd == 'C' && len == 0) {
+            uint32_t t0 = DWT->CYCCNT, c;
+            (void)fdir_tree_scrub();
+            c = DWT->CYCCNT - t0;
+            memcpy(out, &c, 4);
+            send_frame('c', out, 4);
         } else {
             uint8_t code = 3U;                                  /* unknown command / length */
             send_frame('e', &code, 1);

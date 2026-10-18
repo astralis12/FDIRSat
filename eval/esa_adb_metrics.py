@@ -31,6 +31,7 @@ for p in ("sim", "train"):
     sys.path.insert(0, str(ROOT / p))
 import xjtu_sps as X  # noqa: E402
 from env_v2 import BatchedEKF, Tables  # noqa: E402
+from features import Features  # noqa: E402
 from fdir_torch import GpuTree, sgo_v2  # noqa: E402
 
 MERGE_S = 60
@@ -83,6 +84,17 @@ def ekf_soc(pu, seg, tab, dev) -> np.ndarray:
     return soc
 
 
+def history(x: np.ndarray, seg: np.ndarray) -> np.ndarray:
+    """ADR-0019 features, restarted at every AD segment (a separate recording)."""
+    out = np.zeros((len(x), 3), np.float32)
+    for s in np.unique(seg):
+        g = np.flatnonzero(seg == s)
+        f = Features(1, "cpu")
+        xs = torch.from_numpy(x[g].astype(np.float32))
+        out[g] = torch.stack([f.step(xs[k:k + 1, 0], xs[k:k + 1, 3], xs[k:k + 1, 4])[0] for k in range(len(g))]).numpy()
+    return out
+
+
 def score(alarm: np.ndarray, ad) -> dict:
     true_ev = []
     for s in range(1, 18):
@@ -123,6 +135,7 @@ def main() -> None:
            "q_string_ah_assumed": X.Q_STRING_AH, "variants": {}}
     for name, t_in in (("measured_temperature", pu["t_bat"].values), (f"temperature_fixed_{T_FIXED:g}C", np.full(len(pu), T_FIXED))):
         x = np.stack([pu["v_cell"].values, pu["c_rate"].values, t_in, soc, pu["i_sa_pu"].values, pu["u_bus_pu"].values], 1)
+        x = np.concatenate([x, history(x, ad["segment"].values)], 1)
         xt = torch.from_numpy(x.astype(np.float32)).to(dev)
         act, flags = sgo_v2(tree(xt), xt[:, 0], xt[:, 1], xt[:, 2], xt[:, 3])
         alarm = ((act > 0).any(1) | (flags > 0)).cpu().numpy()

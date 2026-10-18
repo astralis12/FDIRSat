@@ -40,6 +40,7 @@ for p in ("sim", "train", "verify"):
 from env_v2 import EPSEnv, EnvConfig  # noqa: E402
 from fdir_torch import GpuTree, sgo_v2  # noqa: E402
 from hil_ekf import Dut  # noqa: E402
+from features import Features  # noqa: E402
 
 MULTI = 7
 OPENOCD = Path.home() / ".platformio" / "packages" / "tool-openocd"
@@ -111,6 +112,7 @@ def run_batch(dut: Dut, tree, specs, orbits: float, seed: int, mode: str) -> dic
     else:                                          # host EKF fed with the same (corrupted) measurements
         from env_v2 import BatchedEKF
         sil_ekf = BatchedEKF(env.tab, torch.full((n,), soc0))
+        sil_feat = Features(n, "cpu")
     hazard = torch.zeros(n, dtype=torch.bool)
     actions, flags_seen, guards, cyc = [], torch.zeros(n, dtype=torch.long), torch.zeros(n, dtype=torch.long), 0
     i_prev = torch.zeros(n)
@@ -147,6 +149,7 @@ def run_batch(dut: Dut, tree, specs, orbits: float, seed: int, mode: str) -> dic
         else:
             sil_ekf.step(i_prev * q, meas[:, 1] * q, torch.nan_to_num(meas[:, 0], nan=0.0), 1.0)
             x = torch.stack([meas[:, 0], meas[:, 1], meas[:, 2], sil_ekf.soc, meas[:, 3], meas[:, 4]], 1)
+            x = torch.cat([x, sil_feat.step(x[:, 0], x[:, 3], x[:, 4])], 1)
             a, fl = sgo_v2(tree(x), x[:, 0], x[:, 1], x[:, 2], x[:, 3])
             flags_seen |= fl
         i_prev = torch.nan_to_num(meas[:, 1], nan=0.0)
@@ -161,10 +164,14 @@ def main() -> None:
     ap.add_argument("--case", default="all", choices=["C1", "C2", "C3", "all"])
     ap.add_argument("--repeat", type=int, default=5)
     ap.add_argument("--port", default="COM5")
+    ap.add_argument("--faults", type=int, nargs="*", default=None, help="C2: only these fault ids")
+    ap.add_argument("--tag", default="", help="suffix for the case key in the results file (e.g. _sgo_v3)")
+    ap.add_argument("--tree", nargs=2, default=["results/dagger_summary.json", "checkpoints/tree"], metavar=("SUMMARY", "CKPT_DIR"),
+                    help="host (SIL) tree; must match the tree flashed on the DUT")
     ap.add_argument("--out", default=str(ROOT / "results" / "hil_cases.json"))
     a = ap.parse_args()
-    dep = json.load(open(ROOT / "results" / "dagger_summary.json"))["deploy"]
-    tree = GpuTree(pickle.load(open(ROOT / "checkpoints" / "tree" / f"{dep['mode']}_s{dep['seed']}.pkl", "rb")), "cpu")
+    dep = json.load(open(ROOT / a.tree[0]))["deploy"]
+    tree = GpuTree(pickle.load(open(ROOT / a.tree[1] / f"{dep['mode']}_s{dep['seed']}.pkl", "rb")), "cpu")
     dut = Dut(a.port)
     _, ver = dut.call(b"P")
     out_p = Path(a.out)
@@ -172,6 +179,8 @@ def main() -> None:
     res["firmware"] = ver.decode()
     for case in (["C1", "C2", "C3"] if a.case == "all" else [a.case]):
         specs_all, orbits = case_list(case)
+        if case == "C2" and a.faults:
+            specs_all = [s for s in specs_all if s[1] in a.faults]
         specs_all = [s for s in specs_all for _ in range(a.repeat)]
         rows = {}
         t0 = time.time()
@@ -197,7 +206,7 @@ def main() -> None:
             r["agreement_mean"] = float(np.mean(r["agreement"]))
             r["agreement_min"] = float(np.min(r["agreement"]))
             del r["agreement"]
-        res[case] = {"orbits": orbits, "repeat": a.repeat, "wall_s": time.time() - t0, "rows": rows}
+        res[case + a.tag] = {"orbits": orbits, "repeat": a.repeat, "wall_s": time.time() - t0, "rows": rows}
         out_p.write_text(json.dumps(res, indent=2))
         print(case, json.dumps(rows, indent=1)[:2000])
 

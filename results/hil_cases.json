@@ -1,5 +1,5 @@
 {
-  "firmware": "fdir-dut 0.3 ekf+tree+sgo multi7",
+  "firmware": "fdir-dut 0.4 ekf+tree+sgo-v3 multi7",
   "C1": {
     "orbits": 1.5,
     "repeat": 5,
@@ -271,6 +271,42 @@
         "cycles_max": 4738,
         "agreement_mean": 0.9860350966453553,
         "agreement_min": 0.9743859767913818
+      }
+    }
+  },
+  "C2_sgo_v3_bcr_short": {
+    "orbits": 1.0,
+    "repeat": 14,
+    "wall_s": 507.72885394096375,
+    "rows": {
+      "C2_f5": {
+        "runs": 14,
+        "hazard_pil": 1,
+        "hazard_sil": 1,
+        "flags_pil": 32,
+        "flags_sil": 32,
+        "guard_steps": 0,
+        "cycles_max": 4746,
+        "agreement_mean": 1.0,
+        "agreement_min": 1.0
+      }
+    }
+  },
+  "C1_sgo_v3": {
+    "orbits": 1.5,
+    "repeat": 5,
+    "wall_s": 355.76506757736206,
+    "rows": {
+      "C1": {
+        "runs": 5,
+        "hazard_pil": 0,
+        "hazard_sil": 0,
+        "flags_pil": 0,
+        "flags_sil": 0,
+        "guard_steps": 0,
+        "cycles_max": 4746,
+        "agreement_mean": 1.0,
+        "agreement_min": 1.0
       }
     }
   }

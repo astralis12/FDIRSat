@@ -44,8 +44,10 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "codegen"))
 sys.path.insert(0, str(ROOT / "sim"))
 
-N_INPUTS = 6
-INPUT_NAMES = ("v_cell", "c_rate", "t_bat", "soc_ekf", "i_sa_pu", "u_bus_pu")
+BASE_INPUTS = ("v_cell", "c_rate", "t_bat", "soc_ekf", "i_sa_pu", "u_bus_pu")
+HISTORY_INPUTS = ("dv60", "i_sa_sun", "dsoc600")        # ADR-0019, sim/features.py
+INPUT_NAMES = BASE_INPUTS + HISTORY_INPUTS                # default: 9 inputs (history=True)
+N_INPUTS = len(INPUT_NAMES)
 N_FAULTS = 18                           # 0 = normal, 1..17 = XJTU-SPS classes
 N_CELLS = 8                             # 8S reference pack (CLAUDE.md)
 V_CELL_MAX, V_CELL_CUTOFF = 4.2, 2.5
@@ -97,6 +99,7 @@ class EnvConfig:
     t_noise: float = 0.1
     t_quant: float = 0.0625
     seed: int = 0
+    history: bool = True                # ADR-0019: append the 3 history features
     device: str = "cuda" if torch.cuda.is_available() else "cpu"
 
 
@@ -267,6 +270,8 @@ class EPSEnv:
         self.i_prev = torch.zeros(B, device=self.dev)
         self.action = torch.zeros(B, 3, dtype=torch.long, device=self.dev)
         self.ekf = BatchedEKF(self.tab, (self.soc.mean(1) + 0.05 * self._n(B)).clamp(0.05, 0.98))
+        from features import Features
+        self.feat = Features(B, self.dev)
         self.obs, self.info = self._observe(torch.zeros(B, device=self.dev), torch.zeros(B, device=self.dev),
                                             torch.zeros(B, device=self.dev), self.cell_voltage(torch.zeros(B, device=self.dev)))
         z = torch.zeros(B, device=self.dev)
@@ -388,6 +393,8 @@ class EPSEnv:
         self.ekf.step(self.i_prev * self.tab.q_ah, i_meas * self.tab.q_ah, v_meas, self.cfg.dt)
         obs = torch.stack([v_meas, i_meas, t_meas, self.ekf.soc,
                            i_sa / self.cfg.sa_c_rate, u_bus / (N_CELLS * V_CELL_MAX)], 1)
+        if self.cfg.history:                       # same features the DUT computes onboard
+            obs = torch.cat([obs, self.feat.step(obs[:, 0], obs[:, 3], obs[:, 4])], 1)
         info = {"soc_true_min": self.soc.min(1).values, "soc_true_mean": self.soc.mean(1),
                 "v_cell_true_min": v_cells.min(1).values, "v_cell_true_max": v_cells.max(1).values,
                 "temp_true": self.temp.clone(), "i_bat": i_bat, "ekf_std": self.ekf.std,
@@ -427,7 +434,8 @@ class EPSEnv:
 def smoke(cfg: EnvConfig, steps: int) -> dict:
     env = EPSEnv(cfg)
     B = cfg.n_env
-    assert env.obs.shape == (B, N_INPUTS), env.obs.shape
+    n_in = N_INPUTS if cfg.history else len(BASE_INPUTS)
+    assert env.obs.shape == (B, n_in), env.obs.shape
     t0 = time.time()
     traj_err, act_hist = [], []
     finite = True
@@ -435,7 +443,7 @@ def smoke(cfg: EnvConfig, steps: int) -> dict:
     for k in range(steps):
         a = None if expert is None else expert          # closed loop with the expert
         obs, expert, info = env.step(a)
-        assert obs.shape == (B, N_INPUTS) and obs.dtype == torch.float32
+        assert obs.shape == (B, n_in) and obs.dtype == torch.float32
         assert expert.shape == (B, 3) and int(expert.min()) >= 0 and int(expert.max()) <= 3
         finite &= bool(torch.isfinite(obs).all())
         if k % 60 == 0:
@@ -460,7 +468,7 @@ def smoke(cfg: EnvConfig, steps: int) -> dict:
         "obs_shape": list(obs.shape), "all_finite": finite,
         "ekf_abs_err_settled_normal_p95_pct": float(100 * torch.quantile(settled[:, normal.cpu()].flatten(), 0.95)),
         "ekf_abs_err_settled_all_p95_pct": float(100 * torch.quantile(settled.flatten(), 0.95)),
-        "obs_ranges": {n: [float(obs[:, j].min()), float(obs[:, j].max())] for j, n in enumerate(INPUT_NAMES)},
+        "obs_ranges": {n: [float(obs[:, j].min()), float(obs[:, j].max())] for j, n in enumerate(INPUT_NAMES[:obs.shape[1]])},
         "faults_per_class": fault_hit, "normal_envs": int(normal.sum()),
         "expert_action_share_nonzero": float((acts.sum(2) > 0).float().mean()),
         "hazards_final": {k: int(v.sum()) for k, v in env.hazards().items()},

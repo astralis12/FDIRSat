@@ -1,11 +1,11 @@
 {
-  "firmware": "fdir-dut 0.3 ekf+tree+sgo multi7",
+  "firmware": "fdir-dut 0.4 ekf+tree+sgo-v3 multi7",
   "tree": {
     "n": 6000,
     "mismatches": 0,
     "cycles_max": 340,
     "cycles_median": 336.0,
-    "wall_s": 95.73004698753357
+    "wall_s": 95.67970275878906
   },
   "chain": {
     "steps": 3000,
@@ -15,9 +15,9 @@
     "action_mismatches": 0,
     "flag_mismatches": 0,
     "ekf_guard_activations": 0,
-    "cycles_max": 4687,
-    "cycles_median": 4653.0,
-    "max_us_at_16MHz": 292.9375,
+    "cycles_max": 4695,
+    "cycles_median": 4661.0,
+    "max_us_at_16MHz": 293.4375,
     "actions_seen": [
       [
         0,

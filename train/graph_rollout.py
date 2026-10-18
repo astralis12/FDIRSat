@@ -15,7 +15,7 @@ import torch
 
 
 def _state_objects(env):
-    return [env, env.ekf]
+    return [env, env.ekf] + ([env.feat] if hasattr(env, "feat") else [])
 
 
 class GraphStep:

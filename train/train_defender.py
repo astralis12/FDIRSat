@@ -30,27 +30,27 @@ import torch.nn as nn
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "sim"))
-from env_v2 import INPUT_NAMES, N_INPUTS  # noqa: E402
+from env_v2 import INPUT_NAMES  # noqa: E402
 
-# input scaling: per-unit inputs are O(1) already; temperature in units of 60 C
-IN_SCALE = torch.tensor([4.2, 1.0, 60.0, 1.0, 1.0, 1.0])
-IN_SHIFT = torch.tensor([0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+# input scaling: per-unit inputs are O(1) already; temperature in units of 60 C;
+# history features (ADR-0019): dv60 in units of 0.1 V, dsoc600 in units of 0.05
+IN_SCALE_ALL = torch.tensor([4.2, 1.0, 60.0, 1.0, 1.0, 1.0, 0.1, 1.0, 0.05])
 W_SEV = torch.tensor([1.0, 4.0, 3.0, 2.0, 1.0])     # index = severity 0 (normal) .. 4
 W_INVARIANT = 4.0
 HEADS = ("S", "B", "L")
 
 
 class Defender(nn.Module):
-    def __init__(self, hidden: int = 64, depth: int = 2):
+    def __init__(self, hidden: int = 64, depth: int = 2, n_in: int = 9):
         super().__init__()
-        layers, d = [], N_INPUTS
+        layers, d = [], n_in
         for _ in range(depth):
             layers += [nn.Linear(d, hidden), nn.ReLU()]
             d = hidden
         self.backbone = nn.Sequential(*layers)
         self.heads = nn.ModuleList(nn.Linear(hidden, 4) for _ in HEADS)
-        self.register_buffer("scale", IN_SCALE.clone())
-        self.register_buffer("shift", IN_SHIFT.clone())
+        self.register_buffer("scale", IN_SCALE_ALL[:n_in].clone())
+        self.register_buffer("shift", torch.zeros(n_in))
 
     def forward(self, x):
         h = self.backbone((x - self.shift) / self.scale)
@@ -106,7 +106,7 @@ def evaluate(model, d, dev, batch=1 << 16) -> dict:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--seed", type=int, required=True)
-    ap.add_argument("--data", default=str(ROOT / "data" / "defender"))
+    ap.add_argument("--data", default=str(ROOT / "data" / "defender9"))
     ap.add_argument("--orbit", default="xjtu")
     ap.add_argument("--train-seeds", type=int, nargs="+", default=[0, 1, 2, 3])
     ap.add_argument("--val-seeds", type=int, nargs="+", default=[100])
@@ -133,10 +133,10 @@ def main() -> None:
     os.environ.setdefault("WANDB_DIR", str(ROOT / "wandb_runs"))
     Path(os.environ["WANDB_DIR"]).mkdir(exist_ok=True)
     import wandb
-    run = wandb.init(project="fdir-v2-defender", name=f"defender_s{a.seed}", config={**vars(a), "n_train": n,
-                     "W_SEV": W_SEV.tolist(), "W_INVARIANT": W_INVARIANT, "inputs": INPUT_NAMES})
+    run = wandb.init(project="fdir-v2-defender", name=f"defender{X.shape[1]}_s{a.seed}", config={**vars(a), "n_train": n,
+                     "W_SEV": W_SEV.tolist(), "W_INVARIANT": W_INVARIANT, "inputs": INPUT_NAMES[:X.shape[1]]})
 
-    model = Defender(a.hidden).to(dev)
+    model = Defender(a.hidden, n_in=X.shape[1]).to(dev)
     opt = torch.optim.Adam(model.parameters(), lr=a.lr)
     sched = torch.optim.lr_scheduler.CosineAnnealingLR(opt, T_max=a.epochs)
     ce = nn.CrossEntropyLoss(reduction="none")
@@ -165,9 +165,9 @@ def main() -> None:
                    **{f"val_acc_{h}": v for h, v in zip(HEADS, ev["acc_per_head"])}}, step=ep)
         if ev["loss"] < best:
             best = ev["loss"]
-            torch.save({"state": model.state_dict(), "epoch": ep, "val": ev, "args": vars(a)}, ck / f"s{a.seed}_best.pt")
+            torch.save({"state": model.state_dict(), "epoch": ep, "val": ev, "args": vars(a), "n_in": X.shape[1]}, ck / f"s{a.seed}_best.pt")
         print(f"seed {a.seed} ep {ep:2d} train {tl / n:.4f} val {ev['loss']:.4f} sev-err {ev['severity_weighted_error']:.4f}", flush=True)
-    torch.save({"state": model.state_dict(), "epoch": a.epochs - 1, "val": ev, "args": vars(a)}, ck / f"s{a.seed}_final.pt")
+    torch.save({"state": model.state_dict(), "epoch": a.epochs - 1, "val": ev, "args": vars(a), "n_in": X.shape[1]}, ck / f"s{a.seed}_final.pt")
     vl = [h["val_loss"] for h in hist]
     tail = max(1, a.epochs // 10)
     conv = {"final_within_2pct_of_best": vl[-1] <= 1.02 * min(vl),

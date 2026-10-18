@@ -18,14 +18,15 @@ SOC_PL = (-5.0, 105.0)
 SAFE = (0, 1, 1)                        # SAFE_S, SAFE_B, SAFE_L
 
 
-V_OV = 4.20                             # SGO v3 CANDIDATE only (not in firmware): pack-average cell overvoltage
+V_OV = 4.20                             # SGO v3 invariant 5 (fdir_config.h FDIR_VCELL_OV_MAX, ADR-0018)
 
 
-def sgo_v2(act: torch.Tensor, v_cell, c_rate, temp, soc, ov_invariant: bool = False) -> tuple[torch.Tensor, torch.Tensor]:
+def sgo_v2(act: torch.Tensor, v_cell, c_rate, temp, soc, ov_invariant: bool = True) -> tuple[torch.Tensor, torch.Tensor]:
     """act (N, 3) tree output in 0..255; inputs per cell / per unit, soc in 0..1.
     Returns the actuator command (N, 3) and the fault-flag byte (N,).
-    ov_invariant=True adds the SGO v3 CANDIDATE invariant (simulation only, not in
-    fdir_sgo_v2.c): cell overvoltage > V_OV -> arrays isolated (S=2), charge limited (B>=2)."""
+    ov_invariant=True (default since 17 Oct) is SGO v3 (fdir_sgo_v3.c, ADR-0018): invariant 5,
+    pack-average cell overvoltage > V_OV -> arrays isolated (S=2), charge limited (B>=2), flag bit 5.
+    ov_invariant=False reproduces SGO v2."""
     a = act.long().clone()
     flags = torch.zeros(a.shape[0], dtype=torch.long, device=a.device)
     safe = torch.zeros_like(a)                     # no host->device copy: CUDA-graph safe
@@ -60,6 +61,7 @@ def sgo_v2(act: torch.Tensor, v_cell, c_rate, temp, soc, ov_invariant: bool = Fa
     L = torch.where(ot, L.clamp_min(2), L)
     if ov_invariant:
         ov = live & (v_cell > V_OV)
+        flags = flags | torch.where(ov, 32, 0)
         S = torch.where(ov, 2, S)
         B = torch.where(ov, B.clamp_min(2), B)
     return torch.stack([S, B, L], 1), flags

@@ -1,6 +1,6 @@
 # 0018 — SGO v3 candidate: cell-overvoltage invariant (and cell taps)
 
-**Status:** Proposed (owner decision needed; not implemented in firmware)
+**Status:** Accepted 17 Oct 2026 (owner instruction). Part 1 implemented in `firmware/src/fdir_sgo_v3.c` with CBMC P10; part 2 (cell taps) waits for the DAQ hardware.
 **Date:** 2026-10-17
 
 ## Context

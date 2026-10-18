@@ -14,7 +14,7 @@
 #include <stdint.h>
 #include "fdir_sgo.h"
 
-#ifdef SGO_V2
+#if defined(SGO_V2) || defined(SGO_V3)
 #include "fdir_config.h"
 #define TH_SOC_CRIT  FDIR_SOC_CRITICAL_MIN
 #define TH_V_CRIT    FDIR_VBAT_CRITICAL_MIN
@@ -83,12 +83,17 @@ int main(void)
     __CPROVER_assert(o.battery_limit_action  <= 3u, "P1b battery action in 0..3");
     __CPROVER_assert(o.load_shed_action      <= 3u, "P1c load action in 0..3");
 
+#ifdef SGO_V3
+    /* P2 (v3): fault mask uses only defined bits 0..5 */
+    __CPROVER_assert((o.fault_flags & ~0x3Fu) == 0u, "P2 fault mask bits 0..5 only");
+#else
     /* P2: fault mask uses only defined bits 0..4 */
     __CPROVER_assert((o.fault_flags & ~0x1Fu) == 0u, "P2 fault mask bits 0..4 only");
+#endif
 
     const int plausible = PLAUSIBLE(V, I, T, S);
 
-#ifdef SGO_V2
+#if defined(SGO_V2) || defined(SGO_V3)
     /* P9: implausible (incl. non-finite) telemetry -> sensor bit + safe default */
     if (!dropout && !plausible) {
         __CPROVER_assert(o.fault_flags & FAULT_BIT_SENSOR_DROPOUT, "P9a implausible -> bit 4");
@@ -119,6 +124,15 @@ int main(void)
             __CPROVER_assert(o.load_shed_action >= ACT_SHED_PRIMARY, "P6b OT -> L>=2");
         }
     }
+
+#ifdef SGO_V3
+    /* P10 (v3): cell overvoltage (pack average) -> arrays isolated, charge limited, flagged */
+    if (!dropout && plausible && V > FDIR_VBAT_OV_MAX) {
+        __CPROVER_assert(o.solar_reconfig_action == ACT_ISOLATE_ARRAYS, "P10a OV -> S=2");
+        __CPROVER_assert(o.battery_limit_action >= ACT_ISOLATE_ARRAYS, "P10b OV -> B>=2");
+        __CPROVER_assert(o.fault_flags & (1U << 5), "P10c OV flagged (bit 5)");
+    }
+#endif
 
     /* P7: a non-finite sensor reading must never pass silently */
     if (NONFINITE(V) || NONFINITE(I) || NONFINITE(T) || NONFINITE(S)) {

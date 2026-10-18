@@ -49,23 +49,26 @@ from graph_rollout import GraphStep  # noqa: E402
 
 MAX_DEPTH = 12                     # plan: at most 12 gather steps on the GPU / MCU
 ROUNDS = 8
-BOX = np.array([[2.4, 4.4], [-3.5, 1.5], [-10.0, 90.0], [-0.1, 1.1], [0.0, 1.1], [0.0, 1.05]], np.float32)
+BOX = np.array([[2.4, 4.4], [-3.5, 1.5], [-10.0, 90.0], [-0.1, 1.1], [0.0, 1.1], [0.0, 1.05],
+                [-0.3, 0.3], [0.0, 1.1], [-0.1, 0.1]], np.float32)   # last 3: history features (ADR-0019)
 THRESH = {0: (3.0, 3.6), 1: (1.5,), 2: (60.0,), 3: (0.05,)}      # SGO thresholds per input
 D_CAP = 3_000_000                  # cap on the aggregated dataset (random subsample beyond)
 
 
 def oracle_for(seed: int, dev: str) -> Defender:
     ck = torch.load(ROOT / "checkpoints" / "defender" / f"s{seed}_best.pt", map_location=dev, weights_only=False)
-    m = Defender(ck["args"]["hidden"]).to(dev)
+    m = Defender(ck["args"]["hidden"], n_in=ck.get("n_in", 6)).to(dev)
+    oracle_for.n_in = ck.get("n_in", 6)
     m.load_state_dict(ck["state"])
     m.eval()
     return m
 
 
 def d0(oracle, n: int, rng: np.random.Generator, dev: str) -> dict:
-    x = rng.uniform(BOX[:, 0], BOX[:, 1], size=(n, 6)).astype(np.float32)
+    k = oracle_for.n_in
+    x = rng.uniform(BOX[:k, 0], BOX[:k, 1], size=(n, k)).astype(np.float32)
     nb = n // 4                                    # boundary samples around SGO thresholds
-    xb = rng.uniform(BOX[:, 0], BOX[:, 1], size=(nb, 6)).astype(np.float32)
+    xb = rng.uniform(BOX[:k, 0], BOX[:k, 1], size=(nb, k)).astype(np.float32)
     for j in range(nb):
         f = rng.integers(0, 4)
         th = THRESH[f][rng.integers(0, len(THRESH[f]))]
@@ -138,7 +141,8 @@ def rollout(policy_tree, oracle, beta: float, cfg: EnvConfig, every: int, scen: 
 
 
 def uniform_fidelity(tree, oracle, rng, dev, n=500_000) -> float:
-    x = torch.from_numpy(rng.uniform(BOX[:, 0], BOX[:, 1], size=(n, 6)).astype(np.float32)).to(dev)
+    k = oracle_for.n_in
+    x = torch.from_numpy(rng.uniform(BOX[:k, 0], BOX[:k, 1], size=(n, k)).astype(np.float32)).to(dev)
     with torch.no_grad():
         return float((tree(x) == oracle.act(x)).all(1).float().mean())
 
@@ -157,6 +161,17 @@ def scenarios(n: int, mean: dict | None, gen: torch.Generator, dev: str, horizon
     return {"fault": f, "onset": clip(mean["onset"][0] + mean["onset"][1] * rn(), 0.02 * horizon_s, 0.8 * horizon_s),
             "mag": clip(mean["mag"][0] + mean["mag"][1] * rn(), 0.3, 1.0),
             "soc0": clip(mean["soc0"][0] + mean["soc0"][1] * rn(), 0.1, 0.97), "phase": u() * 5700.0}
+
+
+def failure_clusters(s: dict, score: torch.Tensor, horizon_s: float) -> set:
+    """Distinct failing scenario cells: fault id x onset decile x magnitude quintile
+    x initial-SoC quintile (metric fix, item 4: raw counts reward repeats)."""
+    fail = (score >= 1.0).cpu()
+    on = (s["onset"].cpu() / horizon_s * 10).long().clamp(0, 9)
+    mg = ((s["mag"].cpu() - 0.3) / 0.7 * 5).long().clamp(0, 4)
+    sc = (s["soc0"].cpu() * 5).long().clamp(0, 4)
+    f = s["fault"].cpu()
+    return {(int(f[i]), int(on[i]), int(mg[i]), int(sc[i])) for i in torch.nonzero(fail).flatten().tolist()}
 
 
 def cem_update(s: dict, score: torch.Tensor, dev: str, elite_frac=0.1) -> dict:
@@ -190,6 +205,7 @@ def main() -> None:
     horizon = a.orbits * 5700.0
     hist, best = [], None
     adv_mean, adv_found, fuzz_found = None, 0, 0
+    adv_clusters, fuzz_clusters = set(), set()
     t0 = time.time()
 
     def evaluate(tree):
@@ -221,9 +237,11 @@ def main() -> None:
             ra = rollout(tree, oracle, 0.0, EnvConfig(**{**base, "n_env": a.adv_env}, seed=5000 + 100 * a.seed + i), a.every, sc)
             adv_mean = cem_update(sc, ra["per_env_score"], dev)
             adv_found += int((ra["per_env_score"] >= 1.0).sum())
+            adv_clusters |= failure_clusters(sc, ra["per_env_score"], horizon)
             sf = scenarios(a.adv_env, None, gen, dev, horizon)
             rf = rollout(tree, oracle, 0.0, EnvConfig(**{**base, "n_env": a.adv_env}, seed=7000 + 100 * a.seed + i), a.every, sf)
             fuzz_found += int((rf["per_env_score"] >= 1.0).sum())
+            fuzz_clusters |= failure_clusters(sf, rf["per_env_score"], horizon)
             parts.append({"x": ra["x"], "y": ra["y"], "w": ra["w"]})
         D = {k: np.concatenate([p[k] for p in parts]) for k in ("x", "y", "w")}
         if len(D["x"]) > D_CAP:                     # keep D0 (uniform part) + a random subsample of the rest
@@ -239,6 +257,9 @@ def main() -> None:
     res = {"seed": a.seed, "mode": a.mode, "max_depth": MAX_DEPTH, "rounds": rounds, "wall_s": time.time() - t0,
            "selected_round": ev_best["round"], "selected": ev_best, "history": hist,
            "adversary_failures_found": adv_found, "fuzzing_failures_found": fuzz_found,
+           "adversary_failure_clusters": len(adv_clusters), "fuzzing_failure_clusters": len(fuzz_clusters),
+           "clusters_found_only_by_adversary": len(adv_clusters - fuzz_clusters),
+           "clusters_found_only_by_fuzzing": len(fuzz_clusters - adv_clusters),
            "adversary_budget_envs": a.adv_env * (rounds - 1) if a.mode == "sw_dagger" else 0}
     (out / f"{a.mode}_s{a.seed}.json").write_text(json.dumps(res, indent=2))
     print("selected", ev_best)

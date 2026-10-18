@@ -76,7 +76,7 @@ def main() -> None:
     ap.add_argument("--per-fault", type=int, default=1024)
     ap.add_argument("--episode-orbits", type=float, default=2.0)
     ap.add_argument("--seed", type=int, default=4242)
-    ap.add_argument("--sgo-v3-candidate", action="store_true", help="add the simulation-only cell-overvoltage invariant")
+    ap.add_argument("--sgo", default="v3", choices=["v2", "v3"], help="safety layer version (v3 = deployed, ADR-0018)")
     ap.add_argument("--out", default=str(ROOT / "results" / "residual_risk.json"))
     a = ap.parse_args()
     dev = "cuda" if torch.cuda.is_available() else "cpu"
@@ -86,7 +86,7 @@ def main() -> None:
     tree = GpuTree(pickle.load(open(a.tree, "rb")), dev)
 
     def deployed(obs, expert):
-        return sgo_v2(tree(obs), obs[:, 0], obs[:, 1], obs[:, 2], obs[:, 3], ov_invariant=a.sgo_v3_candidate)[0]
+        return sgo_v2(tree(obs), obs[:, 0], obs[:, 1], obs[:, 2], obs[:, 3], ov_invariant=a.sgo == "v3")[0]
 
     def expert_pol(obs, expert):
         return expert
@@ -95,7 +95,7 @@ def main() -> None:
         return torch.zeros_like(expert)
 
     sev = json.load(open(ROOT / "config" / "fmeca_xjtu_sps.json", encoding="utf-8"))["fault_classes"]
-    res = {"tree": Path(a.tree).name, "sgo": "v3 candidate (sim only)" if a.sgo_v3_candidate else "v2", "response_s": RESPONSE_S, "p_fault_per_orbit_ASSUMED": P_FAULT_ASSUMED,
+    res = {"tree": Path(a.tree).name, "sgo": a.sgo, "response_s": RESPONSE_S, "p_fault_per_orbit_ASSUMED": P_FAULT_ASSUMED,
            "severity_weights": W_SEV.tolist(), "orbits": {}}
     for orb in a.orbits:
         cfg = EnvConfig(n_env=a.per_fault * N_FAULTS, orbit=orb, episode_orbits=a.episode_orbits, seed=a.seed, fault_prob=1.0)

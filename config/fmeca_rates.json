@@ -1,0 +1,34 @@
+{
+  "_status": "M2 occurrence rates, built 17 Oct 2026 in three layers; every row records its source. Rates are uncertain by about one decade; eval/residual_risk_band.py varies each over +-1 decade (log-uniform). Values marked PENDING need the owner's lookup before freeze.",
+  "layer1_subsystem_prior": {
+    "eps_rate_per_h": null,
+    "_derivation": "lambda_EPS = share_EPS * H(1 yr) / 8766 h, H(t) = (t / theta)^beta (single Weibull with PNZ, infant mortality included, DOA excluded)",
+    "weibull": {"beta": 0.4797, "theta_days": 4661.7975, "pnz": 0.8146,
+                "source": "Langer & Bouwmeester 2016, 'Reliability of CubeSats - Statistical Data, Developers' Beliefs and the Way Forward', AIAA/USU SmallSat, p. 3 (178 CubeSats, MLE single Weibull PNZ fit)"},
+    "eps_share": {"value": 0.40, "source": "Langer & Bouwmeester 2016, Figure 5 text: EPS causes more than 40 % of all failures after 30 days"},
+    "cross_check": {"value": "41.3 % of small satellites launched 2000-2016 failed or partially failed",
+                    "source": "Jacklin, 'Small-Satellite Mission Failure Rates', NASA/TM-2018-220034 (NTRS 20190002705), 2019"},
+    "limitation": "CubeSat data (largely university missions, infant mortality); Castet & Saleh 2009 subsystem Weibull fits for larger spacecraft (RESS 94(11):1718-1728) could not be accessed here and are not used; flight-grade EPS rates are expected lower. The +-1 decade band covers part of this."
+  },
+  "layer2_parts_split": {
+    "_method": "lambda_mode = lambda_EPS * parts_block / parts_total / modes_in_block. PROPOSED part counts for the 8S4P reference EPS; equal generic failure rate per part until MIL-HDBK-217F Notice 2 parts-count tables (lambda_g x pi_Q, environment SF) are looked up (PENDING).",
+    "source": "MIL-HDBK-217F Notice 2, parts-count method (structure); part counts PROPOSED, to be replaced by the M2 parts list",
+    "blocks": {
+      "SA":    {"parts": 8,  "modes": [1, 2, 3],    "note": "8 array strings"},
+      "BCR":   {"parts": 12, "modes": [4, 5, 6],    "note": "switching converter: MOSFETs, diodes, inductor, controller, sense"},
+      "BAT":   {"parts": 32, "modes": [7, 8],       "note": "8S4P cells"},
+      "Bus":   {"parts": 6,  "modes": [9, 10, 11],  "note": "harness and connectors"},
+      "PDM":   {"parts": 15, "modes": [12, 13, 14], "note": "3 channels x latching current limiter (5 parts each)"},
+      "Loads": {"parts": 3,  "modes": [15, 16, 17], "note": "3 load channels"}
+    }
+  },
+  "layer3_environment": {
+    "_method": "lambda = r_bit x sensitive bits x P(SDC | upset); P(SDC | upset) from results/fault_injection.json (rule-of-three upper bound when no SDC is seen)",
+    "r_bit_per_bit_day": {"value": 1e-7, "source": "PENDING: SPENVIS (CREME96) SEU rate for the STM32F411 SRAM in each orbit; 1e-7 /bit/day is an ASSUMED order of magnitude for unhardened commercial SRAM in LEO"},
+    "modes": {
+      "A1": {"name": "tree table upset", "bits": 428472, "region": "tree_tables", "note": "53 559 B RAM tables (flight: 1 copy)"},
+      "A3": {"name": "EKF / history state upset", "bits": 3008, "region": ["ekf_state", "features"], "note": "48 B EKF + 328 B history (flight: 1 instance)"},
+      "A5": {"name": "stack / globals upset", "bits": 9216, "region": ["stack", "globals"], "note": "1 KB stack + ~128 B globals"}
+    }
+  }
+}

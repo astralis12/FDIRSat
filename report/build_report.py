@@ -7,11 +7,13 @@ Usage: python report/build_report.py
 from __future__ import annotations
 
 import html
+import sys
 import json
 import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 R = ROOT / "results"
 
 
@@ -105,7 +107,7 @@ def build() -> str:
     nasa = load("nasa_rw_summary.json")
     fmeca = json.load(open(ROOT / "config" / "fmeca_xjtu_sps.json", encoding="utf-8"))["fault_classes"]
     cbmc = {}
-    for t in ("v1_contract", "v1_worstcase", "v2_contract", "v2_worstcase", "ekf", "tree"):
+    for t in ("v1_contract", "v1_worstcase", "v2_contract", "v2_worstcase", "v3_contract", "v3_worstcase", "ekf", "tree", "tree_any", "features"):
         p = ROOT / "verify" / "cbmc" / "logs" / f"{t}.log"
         if p.exists():
             txt = p.read_text(errors="replace")
@@ -132,9 +134,12 @@ def build() -> str:
         ("4.8", "XJTU-SPS event-wise F0.5", "tables filled", "2 variants" if adb else None, True if adb else None),
         ("5.6", "Processor-in-the-loop cases", "C1–C3 run, PIL ≈ SIL", ", ".join(k for k in ("C1", "C2", "C3") if hc and k in hc) or None, (all(k in hc for k in ("C1", "C2", "C3")) if hc else None)),
     ]
+    import sections_v3
+    gates += sections_v3.gates(load, cbmc)
     S.append(("gates", "Gate board", table(["Step", "Deliverable", "Gate", "Value", ""],
               [[esc(a), esc(b), esc(c), esc(fmt(d, 4) if not isinstance(d, str) else d), pill(e)] for a, b, c, d, e in gates], "gates")))
-    S.append(("analysis", "Analysis", analysis(ecm, cv, bit, hil, dsum, gsum, tb, rr, adb, hf, hc, cbmc, fmeca, load("residual_risk_sgo_v3_candidate.json"))))
+    S.append(("analysis", "Analysis", analysis(ecm, cv, bit, hil, dsum, gsum, tb, rr, adb, hf, hc, cbmc, fmeca, None)))
+    S += sections_v3.sections(load, fmeca)
 
     # ---- 4.1 estimator
     if ecm:
@@ -437,7 +442,7 @@ svg.chart{width:100%;height:auto;display:block;max-width:760px}
 .chart .bar.b0{fill:var(--muted);opacity:.55}.chart .bar.b1{fill:var(--accent)}.chart .bar.b2{fill:var(--accent2)}
 .chart .ref{stroke:var(--bad);stroke-dasharray:4 3;stroke-width:1.5}.chart .reflabel{fill:var(--bad);font:11px var(--mono)}
 .chart .line{stroke-width:2.2}.chart .line.s0{stroke:var(--muted)}.chart .line.s1{stroke:var(--accent)}
-.chart .dot.s0{fill:var(--muted)}.chart .dot.s1{fill:var(--accent)}.chart .s0-t{fill:var(--muted)}.chart .s1-t{fill:var(--accent)}
+.chart .dot.s0{fill:var(--muted)}.chart .dot.s1{fill:var(--accent)}.chart .dot.s2{fill:var(--accent2)}.chart .s2-t{fill:var(--accent2)}.chart .s0-t{fill:var(--muted)}.chart .s1-t{fill:var(--accent)}
 nav{display:flex;flex-wrap:wrap;gap:6px 14px;font:500 .8rem var(--mono)}
 nav a{color:var(--accent);text-decoration:none}nav a:hover,nav a:focus-visible{text-decoration:underline}
 a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}

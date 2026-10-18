@@ -28,6 +28,7 @@ for p in ("sim", "train", "codegen", "verify"):
 from hil_ekf import Dut  # noqa: E402
 from dagger_adversary import BOX, THRESH  # noqa: E402
 from fdir_torch import sgo_v2  # noqa: E402
+from features import Features  # noqa: E402
 
 TOL_SOC = 1e-4
 
@@ -48,20 +49,21 @@ def main() -> None:
     res = {"firmware": ver.decode(), "tree": pk.name}
 
     # --- tree: uniform, boundary, environment states
-    xu = rng.uniform(BOX[:, 0], BOX[:, 1], size=(a.n_tree // 3, 6)).astype(np.float32)
-    xb = rng.uniform(BOX[:, 0], BOX[:, 1], size=(a.n_tree // 3, 6)).astype(np.float32)
+    k_in = clf.n_features_in_
+    xu = rng.uniform(BOX[:k_in, 0], BOX[:k_in, 1], size=(a.n_tree // 3, k_in)).astype(np.float32)
+    xb = rng.uniform(BOX[:k_in, 0], BOX[:k_in, 1], size=(a.n_tree // 3, k_in)).astype(np.float32)
     for j in range(len(xb)):
         f = rng.integers(0, 4)
         th = THRESH[f][rng.integers(0, len(THRESH[f]))]
         xb[j, f] = np.float32(th + rng.normal(0, 0.01 * max(abs(th), 0.05)))
-    val = np.load(ROOT / "data" / "defender" / "val_xjtu_s100.npz")["obs"]
+    val = np.load(ROOT / "data" / "defender9" / "val_xjtu_s100.npz")["obs"]
     xe = val[rng.choice(len(val), a.n_tree // 3, replace=False)].astype(np.float32)
     x = np.concatenate([xu, xb, xe])
     ref = clf.predict(x).astype(int)
     got, cyc = np.zeros_like(ref), []
     t0 = time.time()
     for k, row in enumerate(x):
-        c, d = dut.call(b"T", struct.pack("<6f", *row))
+        c, d = dut.call(b"T", struct.pack(f"<{k_in}f", *row))
         got[k] = list(d[:3])
         cyc.append(struct.unpack("<I", d[3:7])[0])
     mism = int((got != ref).any(1).sum())
@@ -103,6 +105,9 @@ def main() -> None:
     out = np.asarray(out, float)
     dsoc = np.abs(out[:, 0] - refe["soc_est"][1:])
     xin = np.stack([meas[:, 2], meas[:, 4], meas[:, 5], out[:, 0].astype(np.float32), meas[:, 6], meas[:, 7]], 1).astype(np.float32)
+    hist = Features(1, "cpu")                          # host twin of the DUT's history features
+    h = np.stack([hist.step(torch.tensor([r[0]]), torch.tensor([r[3]]), torch.tensor([r[4]]))[0].numpy() for r in xin])
+    xin = np.concatenate([xin, h], 1).astype(np.float32)
     xt = torch.from_numpy(xin)
     tree_out = torch.from_numpy(clf.predict(xin).astype(np.int64))
     act, flags = sgo_v2(tree_out, xt[:, 0], xt[:, 1], xt[:, 2], xt[:, 3])

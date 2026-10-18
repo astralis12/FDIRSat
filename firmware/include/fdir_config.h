@@ -22,12 +22,14 @@
 /* Per-cell voltage thresholds [V/cell] — TRACE IN M2 */
 #define FDIR_VCELL_CRITICAL_MIN  3.0f   /* deep-discharge protection             */
 #define FDIR_VCELL_NOMINAL_MIN   3.6f   /* undervoltage (secondary shed)         */
+#define FDIR_VCELL_OV_MAX        4.20f  /* SGO v3 overvoltage, pack average (ADR-0018) */
 #define FDIR_VCELL_PLAUSIBLE_MIN 0.5f   /* below: reading treated as invalid     */
 #define FDIR_VCELL_PLAUSIBLE_MAX 4.5f   /* above: reading treated as invalid     */
 
 /* Pack thresholds derived from per-cell values */
 #define FDIR_VBAT_CRITICAL_MIN   (FDIR_VCELL_CRITICAL_MIN  * (float)FDIR_N_SERIES)
 #define FDIR_VBAT_NOMINAL_MIN    (FDIR_VCELL_NOMINAL_MIN   * (float)FDIR_N_SERIES)
+#define FDIR_VBAT_OV_MAX         (FDIR_VCELL_OV_MAX        * (float)FDIR_N_SERIES)
 #define FDIR_VBAT_PLAUSIBLE_MIN  (FDIR_VCELL_PLAUSIBLE_MIN * (float)FDIR_N_SERIES)
 #define FDIR_VBAT_PLAUSIBLE_MAX  (FDIR_VCELL_PLAUSIBLE_MAX * (float)FDIR_N_SERIES)
 

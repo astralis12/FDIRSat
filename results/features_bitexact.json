@@ -1,0 +1,9 @@
+{
+  "steps": 20000,
+  "corrupted_samples": 400,
+  "bit_mismatches": 0,
+  "all_finite_c": true,
+  "gate": {
+    "pass": true
+  }
+}

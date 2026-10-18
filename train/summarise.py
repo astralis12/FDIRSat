@@ -51,7 +51,11 @@ def main() -> None:
                      "hazard_rate": ci95([r["selected"]["hazard_rate"] for r in rs]),
                      "leaves": ci95([r["selected"]["leaves"] for r in rs]),
                      "adversary_failures_found": int(sum(r["adversary_failures_found"] for r in rs)),
-                     "fuzzing_failures_found": int(sum(r["fuzzing_failures_found"] for r in rs))}
+                     "fuzzing_failures_found": int(sum(r["fuzzing_failures_found"] for r in rs)),
+                     "adversary_failure_clusters": ci95([r.get("adversary_failure_clusters", np.nan) for r in rs]),
+                     "fuzzing_failure_clusters": ci95([r.get("fuzzing_failure_clusters", np.nan) for r in rs]),
+                     "clusters_only_adversary": ci95([r.get("clusters_found_only_by_adversary", np.nan) for r in rs]),
+                     "clusters_only_fuzzing": ci95([r.get("clusters_found_only_by_fuzzing", np.nan) for r in rs])}
     res = {"modes": out}
     if "sw_dagger" in out:
         rs = [json.load(open(f)) for f in sorted((ROOT / "results" / "dagger").glob("sw_dagger_s*.json"))]

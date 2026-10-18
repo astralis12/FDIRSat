@@ -1,11 +1,13 @@
 /*
- * fdir_onboard.c — glue between the 6-input tree and the SGO v2 (see header).
+ * fdir_onboard.c — glue between the 9-input tree (ADR-0019) and SGO v3 (see header).
  */
 #include <string.h>
 #include "fdir_onboard.h"
+#include "fdir_sgo_v3.h"
 #include "fdir_config.h"
 
 static float g_in[FDIR_TREE_INPUTS];
+int fdir_tree_last_status;          /* 1 if the last evaluation hit a structural fault */
 
 /* The SGO's "raw FDIR policy": the generated tree on the stored inputs. */
 FDIRResult execute_onboard_fdir(HealthTelemetry *telemetry)
@@ -13,7 +15,7 @@ FDIRResult execute_onboard_fdir(HealthTelemetry *telemetry)
     FDIRResult r;
     uint8_t a[3];
     (void)telemetry;
-    fdir_tree_eval(g_in, a);
+    fdir_tree_last_status = fdir_tree_eval(g_in, a);
     r.fault_flags = 0U;
     r.solar_reconfig_action = a[0];
     r.battery_limit_action = a[1];

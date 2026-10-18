@@ -17,4 +17,6 @@
 
 FDIRResult fdir_onboard_step(const float in[FDIR_TREE_INPUTS]);
 
+extern int fdir_tree_last_status;   /* 1 if the last tree evaluation hit a structural fault */
+
 #endif /* FDIR_ONBOARD_H */

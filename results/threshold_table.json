@@ -1,0 +1,152 @@
+{
+  "cell_limits": {
+    "v_max": 4.2,
+    "v_min": 2.5,
+    "q_ah": 2.0,
+    "src": "plan doc, Reference spacecraft (XJTU-type 18650 NCM, 4.2/2.5 V); PENDING cell datasheet"
+  },
+  "n_series": 8.0,
+  "n_parallel": 4.0,
+  "rows": [
+    {
+      "threshold": "Deep discharge, cell voltage",
+      "symbol": "FDIR_VCELL_CRITICAL_MIN",
+      "value": 3.0,
+      "unit": "V/cell",
+      "source": "plan doc, Reference spacecraft (XJTU-type 18650 NCM, 4.2/2.5 V); PENDING cell datasheet; JSC 20793 Rev C 4.4.3a (detect and control under-voltage of any cell)",
+      "margin": 0.5,
+      "margin_vs": "cell cut-off 2.5 V",
+      "cbmc": "P3a-c (SGO v2/v3)"
+    },
+    {
+      "threshold": "Undervoltage, cell voltage",
+      "symbol": "FDIR_VCELL_NOMINAL_MIN",
+      "value": 3.6,
+      "unit": "V/cell",
+      "source": "derived: 3.6 V/cell = original 10.8 V / 3S nominal minimum (fdir_config.h header); ECSS-E-ST-20C clause PENDING",
+      "margin": 0.6000000000000001,
+      "margin_vs": "deep-discharge threshold",
+      "cbmc": "P4"
+    },
+    {
+      "threshold": "Overvoltage, pack-average cell voltage",
+      "symbol": "FDIR_VCELL_OV_MAX",
+      "value": 4.2,
+      "unit": "V/cell",
+      "source": "ADR-0018; plan doc, Reference spacecraft (XJTU-type 18650 NCM, 4.2/2.5 V); PENDING cell datasheet; JSC 20793 Rev C 5.1.2.1 a, e, i (overcharge failure tolerance, no uncontrolled charging); 4.4.3a requires per-cell monitoring (taps)",
+      "margin": 0.0,
+      "margin_vs": "cell charge cut-off 4.2 V (average; one cell may be higher)",
+      "cbmc": "P10a-c (SGO v3)"
+    },
+    {
+      "threshold": "Overcurrent, battery",
+      "symbol": "FDIR_C_RATE_MAX",
+      "value": 1.5,
+      "unit": "C",
+      "source": "fdir_config.h (1.5 C); JSC 20793 Rev C 4.4.3b (battery-level current monitoring); cell max continuous discharge PENDING datasheet",
+      "margin": null,
+      "margin_vs": "cell max continuous current (PENDING)",
+      "cbmc": "P5a-b",
+      "pack_value": 12.0,
+      "pack_unit": "A (8S4P)"
+    },
+    {
+      "threshold": "Over-temperature, battery",
+      "symbol": "FDIR_TBAT_CRITICAL_MAX",
+      "value": 60.0,
+      "unit": "degC",
+      "source": "fdir_sgo.h v1 (ECSS_TBAT_CRITICAL_MAX, cell qualification envelope); JSC 20793 Rev C 4.4.3c (temperature monitoring); bench rule 45 degC (CLAUDE.md)",
+      "margin": null,
+      "margin_vs": "cell max charge / discharge temperature (PENDING datasheet)",
+      "cbmc": "P6a-b"
+    },
+    {
+      "threshold": "Deep discharge, SoC",
+      "symbol": "FDIR_SOC_CRITICAL_MIN",
+      "value": 5.0,
+      "unit": "%",
+      "source": "fdir_config.h; EKF 2-sigma ~0.6 % SoC (results/ekf_sigma_cv.json) sets the margin to 0 %",
+      "margin": 5.0,
+      "margin_vs": "0 % SoC",
+      "cbmc": "P3a-c"
+    },
+    {
+      "threshold": "Plausibility, cell voltage",
+      "symbol": "FDIR_VCELL_PLAUSIBLE_MIN/MAX",
+      "value": [
+        0.5,
+        4.5
+      ],
+      "unit": "V/cell",
+      "source": "ADR-0017 (physically impossible readings)",
+      "margin": 0.2999999999999998,
+      "margin_vs": "cell max 4.2 V",
+      "cbmc": "P7, P9a-b"
+    },
+    {
+      "threshold": "Plausibility, SoC",
+      "symbol": "FDIR_SOC_PLAUSIBLE_MIN/MAX",
+      "value": [
+        -5.0,
+        105.0
+      ],
+      "unit": "%",
+      "source": "ADR-0017 (small EKF overshoot tolerated)",
+      "margin": null,
+      "margin_vs": "-",
+      "cbmc": "P8, P9a-b"
+    },
+    {
+      "threshold": "Plausibility, temperature",
+      "symbol": "FDIR_TBAT_PLAUSIBLE_MIN/MAX",
+      "value": [
+        -60.0,
+        150.0
+      ],
+      "unit": "degC",
+      "source": "ADR-0017; NASA RW18 -4099 degC channel (ISS-021) and XJTU T_Load1 210 degC spike (ISS-031) are rejected",
+      "margin": null,
+      "margin_vs": "-",
+      "cbmc": "P7, P9a-b"
+    },
+    {
+      "threshold": "EKF accepted current",
+      "symbol": "FDIR_EKF_C_RATE_ABS_MAX",
+      "value": 10.0,
+      "unit": "C",
+      "source": "fdir_config.h (EKF guard G1)",
+      "margin": null,
+      "margin_vs": "-",
+      "cbmc": "E4 (rejected input leaves state unchanged)"
+    },
+    {
+      "threshold": "EKF SoC guard band",
+      "symbol": "FDIR_EKF_SOC_MIN/MAX",
+      "value": [
+        -0.2,
+        1.2
+      ],
+      "unit": "-",
+      "source": "fdir_config.h (EKF guard G3)",
+      "margin": null,
+      "margin_vs": "-",
+      "cbmc": "E2, E6"
+    },
+    {
+      "threshold": "Orbit-to-probability conversion",
+      "symbol": "P = 1 - exp(-lambda T_orb)",
+      "value": "lambda T_orb for small lambda",
+      "unit": "-",
+      "source": "derived formula (item 6); T_orb from sim/env_v2.py ORBITS",
+      "margin": null,
+      "margin_vs": "-",
+      "cbmc": "-"
+    }
+  ],
+  "pending": [
+    "cell model and datasheet clauses (owner)",
+    "ECSS-E-ST-20C clause numbers",
+    "MIL-HDBK-217F lambda_g / pi_Q values",
+    "SPENVIS SEU rate per orbit"
+  ]
+}

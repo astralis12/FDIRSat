@@ -3,101 +3,105 @@
   "mode": "sw_dagger",
   "max_depth": 12,
   "rounds": 8,
-  "wall_s": 2376.8924198150635,
+  "wall_s": 2047.6063792705536,
   "selected_round": 2,
   "selected": {
-    "fidelity_closed_loop": 0.9560498297214508,
-    "sev_weighted_disagreement": 0.04261956550180912,
-    "hazard_rate": 0.11163330078125,
+    "fidelity_closed_loop": 0.930884450674057,
+    "sev_weighted_disagreement": 0.06888950988650322,
+    "hazard_rate": 0.10650634765625,
     "round": 2,
     "n_data": 3000000,
     "depth": 12,
-    "leaves": 3081,
-    "fidelity_uniform": 0.7213799953460693
+    "leaves": 3283,
+    "fidelity_uniform": 0.6650739908218384
   },
   "history": [
     {
-      "fidelity_closed_loop": 0.4921363890171051,
-      "sev_weighted_disagreement": 0.5112966597080231,
-      "hazard_rate": 0.37286376953125,
+      "fidelity_closed_loop": 0.20213955640792847,
+      "sev_weighted_disagreement": 0.743371993303299,
+      "hazard_rate": 0.1051025390625,
       "round": 0,
       "n_data": 500000,
       "depth": 12,
-      "leaves": 3553,
-      "fidelity_uniform": 0.7606920003890991
+      "leaves": 3547,
+      "fidelity_uniform": 0.6983299851417542
     },
     {
-      "fidelity_closed_loop": 0.9511153697967529,
-      "sev_weighted_disagreement": 0.048309506848454475,
-      "hazard_rate": 0.120330810546875,
+      "fidelity_closed_loop": 0.9210759103298187,
+      "sev_weighted_disagreement": 0.08043940737843513,
+      "hazard_rate": 0.1077880859375,
       "round": 1,
       "n_data": 2445600,
       "depth": 12,
-      "leaves": 3013,
-      "fidelity_uniform": 0.7265939712524414
+      "leaves": 3327,
+      "fidelity_uniform": 0.6674519777297974
     },
     {
-      "fidelity_closed_loop": 0.9560498297214508,
-      "sev_weighted_disagreement": 0.04261956550180912,
-      "hazard_rate": 0.11163330078125,
+      "fidelity_closed_loop": 0.930884450674057,
+      "sev_weighted_disagreement": 0.06888950988650322,
+      "hazard_rate": 0.10650634765625,
       "round": 2,
       "n_data": 3000000,
       "depth": 12,
-      "leaves": 3081,
-      "fidelity_uniform": 0.7213799953460693
+      "leaves": 3283,
+      "fidelity_uniform": 0.6650739908218384
     },
     {
-      "fidelity_closed_loop": 0.9403215646743774,
-      "sev_weighted_disagreement": 0.055367566645145416,
-      "hazard_rate": 0.12091064453125,
+      "fidelity_closed_loop": 0.9026061594486237,
+      "sev_weighted_disagreement": 0.09529216960072517,
+      "hazard_rate": 0.10650634765625,
       "round": 3,
       "n_data": 3000000,
       "depth": 12,
-      "leaves": 2813,
-      "fidelity_uniform": 0.7163199782371521
+      "leaves": 3107,
+      "fidelity_uniform": 0.6560540199279785
     },
     {
-      "fidelity_closed_loop": 0.9309916496276855,
-      "sev_weighted_disagreement": 0.06171668693423271,
-      "hazard_rate": 0.117034912109375,
+      "fidelity_closed_loop": 0.9255103468894958,
+      "sev_weighted_disagreement": 0.07508238404989243,
+      "hazard_rate": 0.108184814453125,
       "round": 4,
       "n_data": 3000000,
       "depth": 12,
-      "leaves": 2679,
-      "fidelity_uniform": 0.7224100232124329
+      "leaves": 2804,
+      "fidelity_uniform": 0.6646199822425842
     },
     {
-      "fidelity_closed_loop": 0.9339112341403961,
-      "sev_weighted_disagreement": 0.060551589354872704,
-      "hazard_rate": 0.11651611328125,
+      "fidelity_closed_loop": 0.898073822259903,
+      "sev_weighted_disagreement": 0.09675104543566704,
+      "hazard_rate": 0.106597900390625,
       "round": 5,
       "n_data": 3000000,
       "depth": 12,
-      "leaves": 2639,
-      "fidelity_uniform": 0.7198659777641296
+      "leaves": 2997,
+      "fidelity_uniform": 0.6629239916801453
     },
     {
-      "fidelity_closed_loop": 0.9153154790401459,
-      "sev_weighted_disagreement": 0.07746409624814987,
-      "hazard_rate": 0.121673583984375,
+      "fidelity_closed_loop": 0.921290785074234,
+      "sev_weighted_disagreement": 0.07952315360307693,
+      "hazard_rate": 0.10650634765625,
       "round": 6,
       "n_data": 3000000,
       "depth": 12,
-      "leaves": 2676,
-      "fidelity_uniform": 0.721750020980835
+      "leaves": 3063,
+      "fidelity_uniform": 0.6621699929237366
     },
     {
-      "fidelity_closed_loop": 0.9505721926689148,
-      "sev_weighted_disagreement": 0.04794040508568287,
-      "hazard_rate": 0.115692138671875,
+      "fidelity_closed_loop": 0.9092077314853668,
+      "sev_weighted_disagreement": 0.085228331387043,
+      "hazard_rate": 0.108367919921875,
       "round": 7,
       "n_data": 3000000,
       "depth": 12,
-      "leaves": 2714,
-      "fidelity_uniform": 0.7209339737892151
+      "leaves": 2994,
+      "fidelity_uniform": 0.6592819690704346
     }
   ],
-  "adversary_failures_found": 23254,
-  "fuzzing_failures_found": 5001,
+  "adversary_failures_found": 21316,
+  "fuzzing_failures_found": 3960,
+  "adversary_failure_clusters": 713,
+  "fuzzing_failure_clusters": 678,
+  "clusters_found_only_by_adversary": 177,
+  "clusters_found_only_by_fuzzing": 142,
   "adversary_budget_envs": 28672
 }
