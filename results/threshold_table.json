@@ -11,11 +11,17 @@
     "i_charge_std_a": 3.0,
     "i_discharge_tested_a": 20.0,
     "i_cycle_rated_a": 15.0,
+    "i_cont_no_cutoff_a": 15.0,
+    "i_cont_80c_cutoff_a": 30.0,
     "t_discharge_char_c": [
       -20.0,
       60.0
     ],
-    "t_charge_c": null,
+    "t_charge_c": [
+      0.0,
+      45.0
+    ],
+    "src_owner_18oct": "owner 18 Oct 2026 from the Murata SDS and product datasheet: 30 A with 80 degC cut-off, 15-20 A without; discharge -20..60 degC; charge 0..45 degC; CC/CV to 4.2 V (4.25 V max)",
     "src": "Sony US18650VTC6 Technical Information Rev 0.1: charge 4.2 +/- 0.05 V CC/CV 3.0 A; rated 3000 mAh (0.2 C to 2.0 V); 2.5 V cut-off at 1 C and 10 A; discharge curves -20..60 degC; cycle life at 7.5 A and 15 A (charged to 4.15 V); load curves to 20 A",
     "firmware_q_ah": 2.0
   },
@@ -25,6 +31,32 @@
     "hierarchy": "ECSS-E-ST-70-11C section 5: FDIR levels, failures isolated at the lower level; deterministic end configuration",
     "thermal": "ECSS-E-ST-70-11C 5.9.6 (thermal control)",
     "aocs": "ECSS-E-ST-60-30C 5.1 (functional and FDIR requirements)"
+  },
+  "configs": {
+    "ref": {
+      "n_series": 8.0,
+      "n_parallel": 4.0,
+      "q_ah": 2.0,
+      "vcell_ov_max": 4.2,
+      "ibat_critical_a": 12.0,
+      "tbat_charge": [
+        0.0,
+        45.0
+      ]
+    },
+    "bench": {
+      "n_series": 8.0,
+      "n_parallel": 1.0,
+      "q_ah": 3.0,
+      "vcell_ov_max": 4.25,
+      "ibat_critical_a": 4.5,
+      "tbat_charge": [
+        0.0,
+        45.0
+      ],
+      "note": "Q is a PLACEHOLDER (VTC6 rated 3.0 Ah) until the C/5 capacity in the 4.20-3.3 V bench window is measured; OV 4.25 V because the charger CV is fixed at 4.2 +/- 0.05 V (ISS-049)",
+      "current_scale_to_ref": 2.6666666666666665
+    }
   },
   "n_series": 8.0,
   "n_parallel": 4.0,
@@ -65,9 +97,9 @@
       "symbol": "FDIR_C_RATE_MAX",
       "value": 1.5,
       "unit": "C",
-      "source": "fdir_config.h (1.5 C); JSC 20793 Rev C 4.4.3b (battery-level current monitoring); Sony US18650VTC6 Technical Information Rev 0.1 cycle-life rating at 15 A",
+      "source": "fdir_config.h (1.5 C); JSC 20793 Rev C 4.4.3b (battery-level current monitoring); Sony US18650VTC6 Technical Information Rev 0.1 cycle-life rating at 15 A; Murata SDS 15 A continuous without thermal cut-off",
       "margin": 10.5,
-      "margin_vs": "VTC6 15 A cycle-life discharge current, per cell (A)",
+      "margin_vs": "VTC6 15 A continuous without thermal cut-off, per cell (A)",
       "cbmc": "P5a-b",
       "pack_value": 18.0,
       "pack_unit": "A (8S4P VTC6)",
@@ -80,8 +112,50 @@
       "unit": "degC",
       "source": "fdir_sgo.h v1 (ECSS_TBAT_CRITICAL_MAX, cell qualification envelope); JSC 20793 Rev C 4.4.3c (temperature monitoring); bench rule 45 degC (CLAUDE.md)",
       "margin": 0.0,
-      "margin_vs": "top of the VTC6 characterised discharge range 60 degC (charge range not in Rev 0.1)",
+      "margin_vs": "top of the VTC6 discharge range 60 degC",
       "cbmc": "P6a-b"
+    },
+    {
+      "threshold": "Charge-temperature window (charge inhibit)",
+      "symbol": "FDIR_TBAT_CHARGE_MIN/MAX",
+      "value": [
+        0.0,
+        45.0
+      ],
+      "unit": "degC",
+      "source": "ISS-050 (owner approval 18 Oct 2026); VTC6 charge 0..45 degC (Murata SDS); ref config ASSUMED same until the XJTU cell datasheet is traced; JSC 20793 Rev C 4.4.3c",
+      "margin": [
+        0.0,
+        0.0
+      ],
+      "margin_vs": "VTC6 charge window (low, high)",
+      "cbmc": "P11a-d (SGO v3)"
+    },
+    {
+      "threshold": "Charge-inhibit release (hysteresis)",
+      "symbol": "FDIR_TBAT_CHARGE_REL_MIN/MAX",
+      "value": [
+        2.0,
+        42.0
+      ],
+      "unit": "degC",
+      "source": "owner 18 Oct 2026 (2 / 42 degC)",
+      "margin": [
+        2.0,
+        3.0
+      ],
+      "margin_vs": "hysteresis width to the window",
+      "cbmc": "P11b-c"
+    },
+    {
+      "threshold": "Temperature sensor disagreement (median-of-3)",
+      "symbol": "FDIR_TBAT_SENSOR_DISAGREE",
+      "value": 5.0,
+      "unit": "degC",
+      "source": "PROPOSED (ISS-050); DS18B20 +/-0.5 degC accuracy, sensors on one pack",
+      "margin": null,
+      "margin_vs": "-",
+      "cbmc": "P11e-g (vote bounded by any two valid sensors)"
     },
     {
       "threshold": "Deep discharge, SoC",
@@ -167,9 +241,9 @@
     }
   ],
   "pending": [
-    "VTC6 charge temperature range and max continuous discharge (full product specification; Rev 0.1 has neither)",
     "MIL-HDBK-217F part list with C1, C2, pi_T, pi_E (SF), pi_Q, pi_L per part (sections 5, 6, 9-15)",
-    "SPENVIS SEU rate per orbit (inputs in results/spenvis_inputs.json)",
+    "XJTU reference cell datasheet (charge window, ref config ASSUMED 0..45 degC)",
+    "bench cell capacity measured at C/5 in the 4.20-3.3 V window",
     "ECSS clause text check (mapping is owner-supplied)"
   ]
 }

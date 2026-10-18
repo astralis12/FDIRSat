@@ -1,7 +1,7 @@
 /*
  * fdir_config.h — reference-mission parameters for the SGO.
  *
- * STATUS: PROPOSED (17 Oct 2026). Every value must be traced to a requirement
+ * STATUS: PROPOSED (17 Oct 2026); split into ref / bench headers 18 Oct 2026. Every value must be traced to a requirement
  * or datasheet in the M2 threshold traceability matrix before freeze.
  *
  * Derivation keeps the per-cell values implied by the original 3S/12 V header
@@ -11,18 +11,17 @@
 #ifndef FDIR_CONFIG_H
 #define FDIR_CONFIG_H
 
-#ifndef FDIR_N_SERIES
-#define FDIR_N_SERIES            8      /* 8S: 28.8 V nominal reference bus      */
+/* Cell- and pack-specific values: one header per build configuration
+ * (owner decision 18 Oct 2026). Everything below is shared by both. */
+#if defined(FDIR_CONFIG_BENCH)
+#include "fdir_config_bench.h"
+#else
+#include "fdir_config_ref.h"
 #endif
-#ifndef FDIR_N_PARALLEL
-#define FDIR_N_PARALLEL          4      /* 8S4P flight-like; real testbed is 8S1P */
-#endif
-#define FDIR_CELL_CAPACITY_AH    2.0f   /* XJTU-type 18650 NCM, 2.0 Ah            */
 
 /* Per-cell voltage thresholds [V/cell] — TRACE IN M2 */
 #define FDIR_VCELL_CRITICAL_MIN  3.0f   /* deep-discharge protection             */
 #define FDIR_VCELL_NOMINAL_MIN   3.6f   /* undervoltage (secondary shed)         */
-#define FDIR_VCELL_OV_MAX        4.20f  /* SGO v3 overvoltage, pack average (ADR-0018) */
 #define FDIR_VCELL_PLAUSIBLE_MIN 0.5f   /* below: reading treated as invalid     */
 #define FDIR_VCELL_PLAUSIBLE_MAX 4.5f   /* above: reading treated as invalid     */
 
@@ -39,7 +38,9 @@
 #define FDIR_IBAT_PLAUSIBLE_ABS  (10.0f * FDIR_CELL_CAPACITY_AH * (float)FDIR_N_PARALLEL)
 
 /* Temperature thresholds [degC] — carried over from fdir_sgo.h. TRACE IN M2 */
-#define FDIR_TBAT_CRITICAL_MAX   60.0f
+#define FDIR_TBAT_CRITICAL_MAX   60.0f  /* = top of the VTC6 discharge range      */
+#define FDIR_TBAT_SENSOR_DISAGREE 5.0f  /* one of 3 sensors this far from the median -> bit 4 */
+#define FDIR_TBAT_VOTE_INVALID   1000.0f  /* vote result with < 2 valid sensors (implausible) */
 #define FDIR_TBAT_PLAUSIBLE_MIN  (-60.0f)
 #define FDIR_TBAT_PLAUSIBLE_MAX  150.0f
 

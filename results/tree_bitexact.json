@@ -1,0 +1,12 @@
+{
+  "tree": "sw_dagger_s6.pkl",
+  "n_finite": 609522,
+  "n_special": 4000,
+  "n_threshold_neighbours": 9522,
+  "c_vs_sklearn_mismatches": 0,
+  "c_vs_gpu_mismatches": 0,
+  "c_outputs_in_range": true,
+  "gate": {
+    "pass": true
+  }
+}

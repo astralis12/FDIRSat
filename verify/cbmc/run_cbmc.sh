@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Proves SGO properties with CBMC for v1 (original), v2 and v3 (ADR-0018),
+# Proves SGO properties with CBMC for v1 (original), v2 and v3 (ADR-0018, ISS-050; ref and bench configs),
 # each against a contract-respecting tree and a worst-case (any byte) tree,
 # and runtime safety of the SoC EKF (float build, generated tables).
 # Any "no body for function" warning fails the run (ISS-016).
@@ -17,7 +17,7 @@ COMMON=(--bounds-check --pointer-check --signed-overflow-check
         --unsigned-overflow-check --float-overflow-check --nan-check
         --div-by-zero-check --undefined-shift-check --trace)
 
-declare -A SRC=( [v1]="$ROOT/firmware/src/fdir_sgo.c" [v2]="$ROOT/firmware/src/fdir_sgo_v2.c" [v3]="$ROOT/firmware/src/fdir_sgo_v3.c" )
+declare -A SRC=( [v1]="$ROOT/firmware/src/fdir_sgo.c" [v2]="$ROOT/firmware/src/fdir_sgo_v2.c" [v3]="$ROOT/firmware/src/fdir_sgo_v3.c" [v3bench]="$ROOT/firmware/src/fdir_sgo_v3.c" )
 HE="$ROOT/verify/cbmc/harness_ekf.c"
 SE="$ROOT/firmware/src/soc_ekf.c"
 HT="$ROOT/verify/cbmc/harness_tree.c"
@@ -27,12 +27,14 @@ SF="$ROOT/firmware/src/fdir_features.c"
 sha256sum "$H" "$HE" "$HT" "$INC"/*.h "${SRC[v1]}" "${SRC[v2]}" "${SRC[v3]}" "$SE" "$ST" "$HF" "$SF" "$ROOT/verify/cbmc/harness_tree_any.c" > "$LOG/hashes.txt"
 
 status=0
-for VER in v1 v2 v3; do
+# v3 = reference configuration (fdir_config_ref.h), v3bench = bench (fdir_config_bench.h)
+for VER in v1 v2 v3 v3bench; do
   for MODE in contract worstcase; do
     DEFS=()
     [[ "$MODE" == contract ]] && DEFS+=(-DTREE_CONTRACT)
     [[ "$VER"  == v2 ]]       && DEFS+=(-DSGO_V2)
     [[ "$VER"  == v3 ]]       && DEFS+=(-DSGO_V3)
+    [[ "$VER"  == v3bench ]]  && DEFS+=(-DSGO_V3 -DFDIR_CONFIG_BENCH)
     TAG="${VER}_${MODE}"
     cbmc "$H" "${SRC[$VER]}" -I "$INC" "${DEFS[@]}" "${COMMON[@]}" \
          > "$LOG/$TAG.log" 2>&1 || true

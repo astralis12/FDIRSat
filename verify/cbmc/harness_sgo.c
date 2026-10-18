@@ -13,6 +13,9 @@
  */
 #include <stdint.h>
 #include "fdir_sgo.h"
+#ifdef SGO_V3
+#include "fdir_sgo_v3.h"
+#endif
 
 #if defined(SGO_V2) || defined(SGO_V3)
 #include "fdir_config.h"
@@ -45,6 +48,7 @@
 
 float   nondet_float(void);
 uint8_t nondet_uint8(void);
+int     nondet_int(void);
 
 FDIRResult execute_onboard_fdir(HealthTelemetry *t)
 {
@@ -71,6 +75,24 @@ int main(void)
     t.system_temperature = nondet_float();
     t.battery_soc        = nondet_float();
 
+#ifdef SGO_V3
+    /* Invariant 6 state: any latch value before the call (0 or 1, its only values) */
+    const uint8_t latch0 = nondet_uint8();
+    __CPROVER_assume(latch0 <= 1u);
+    fdir_sgo_v3_charge_inhibit = latch0;
+    /* Either the glue's median-of-3 vote supplies T (= t_hi) and t_lo, or a single
+     * sensor is used (t_lo = T), as in fdir_onboard_step3 / fdir_onboard_step. */
+    float tb[3], th = 0.0f, tl;
+    tb[0] = nondet_float(); tb[1] = nondet_float(); tb[2] = nondet_float();
+    const int use3 = nondet_int();
+    if (use3) {
+        (void)fdir_temp_vote3(tb, &th, &tl);
+        t.system_temperature = th;
+    } else {
+        tl = t.system_temperature;
+    }
+#endif
+
     const float V = t.solar_voltage, I = t.battery_current;
     const float T = t.system_temperature, S = t.battery_soc;
 
@@ -84,8 +106,8 @@ int main(void)
     __CPROVER_assert(o.load_shed_action      <= 3u, "P1c load action in 0..3");
 
 #ifdef SGO_V3
-    /* P2 (v3): fault mask uses only defined bits 0..5 */
-    __CPROVER_assert((o.fault_flags & ~0x3Fu) == 0u, "P2 fault mask bits 0..5 only");
+    /* P2 (v3): fault mask uses only defined bits 0..6 */
+    __CPROVER_assert((o.fault_flags & ~0x7Fu) == 0u, "P2 fault mask bits 0..6 only");
 #else
     /* P2: fault mask uses only defined bits 0..4 */
     __CPROVER_assert((o.fault_flags & ~0x1Fu) == 0u, "P2 fault mask bits 0..4 only");
@@ -131,6 +153,50 @@ int main(void)
         __CPROVER_assert(o.solar_reconfig_action == ACT_ISOLATE_ARRAYS, "P10a OV -> S=2");
         __CPROVER_assert(o.battery_limit_action >= ACT_ISOLATE_ARRAYS, "P10b OV -> B>=2");
         __CPROVER_assert(o.fault_flags & (1U << 5), "P10c OV flagged (bit 5)");
+    }
+
+    /* P11 (v3, ISS-050): charge-temperature window with hysteresis */
+    __CPROVER_assert(fdir_sgo_v3_charge_inhibit <= 1u, "P11d latch stays 0 or 1");
+    if (!dropout && plausible) {
+        const int out_win = (T > FDIR_TBAT_CHARGE_MAX) || (tl < FDIR_TBAT_CHARGE_MIN);
+        const int in_rel  = (T < FDIR_TBAT_CHARGE_REL_MAX) && (tl > FDIR_TBAT_CHARGE_REL_MIN);
+        if (out_win) {
+            __CPROVER_assert(fdir_sgo_v3_charge_inhibit == 1u, "P11a outside window -> latch set");
+            __CPROVER_assert(o.battery_limit_action >= ACT_ISOLATE_ARRAYS, "P11a outside window -> B>=2");
+            __CPROVER_assert(o.fault_flags & (1U << 6), "P11a outside window flagged (bit 6)");
+        }
+        if (latch0 == 1u && !in_rel) {
+            __CPROVER_assert(fdir_sgo_v3_charge_inhibit == 1u, "P11b hysteresis band -> latch held");
+            __CPROVER_assert(o.battery_limit_action >= ACT_ISOLATE_ARRAYS, "P11b latch held -> B>=2");
+        }
+        if (!out_win && in_rel) {
+            __CPROVER_assert(fdir_sgo_v3_charge_inhibit == 0u, "P11c inside release band -> latch cleared");
+        }
+    }
+    /* P11e-g: median-of-3 vote (fdir_temp_vote3) */
+    if (use3) {
+        int nv = 0, i, j;
+        for (i = 0; i < 3; i++) {
+            nv += IN(tb[i], FDIR_TBAT_PLAUSIBLE_MIN, FDIR_TBAT_PLAUSIBLE_MAX);
+        }
+        for (i = 0; i < 3; i++) {
+            for (j = i + 1; j < 3; j++) {
+                if (IN(tb[i], FDIR_TBAT_PLAUSIBLE_MIN, FDIR_TBAT_PLAUSIBLE_MAX) &&
+                    IN(tb[j], FDIR_TBAT_PLAUSIBLE_MIN, FDIR_TBAT_PLAUSIBLE_MAX)) {
+                    const float mx = tb[i] > tb[j] ? tb[i] : tb[j];
+                    const float mn = tb[i] > tb[j] ? tb[j] : tb[i];
+                    __CPROVER_assert(th <= mx && tl >= mn, "P11e vote bounded by any two valid sensors (one-fault tolerant)");
+                }
+            }
+        }
+        if (nv < 2) {
+            __CPROVER_assert(o.fault_flags & FAULT_BIT_SENSOR_DROPOUT, "P11f fewer than 2 valid sensors -> bit 4");
+            __CPROVER_assert(o.solar_reconfig_action == 0u && o.battery_limit_action == 1u &&
+                             o.load_shed_action == 1u, "P11f fewer than 2 valid sensors -> safe default");
+        }
+        if (nv == 3) {
+            __CPROVER_assert(th == tl, "P11g three valid sensors -> single median value");
+        }
     }
 #endif
 

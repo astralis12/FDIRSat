@@ -4,7 +4,14 @@
  * v3 = v2 + invariant 5: pack-average cell voltage above FDIR_VCELL_OV_MAX ->
  * arrays isolated (S=2), charge limited (B>=2), flag bit 5. Applied last, so it
  * only raises actions set by invariants 1-4. Closes the BCR-short gap (ISS-041).
- * Everything below this paragraph is unchanged from v2.
+ *
+ * v3 also has invariant 6 (ISS-050, approved 18 Oct 2026): battery outside the
+ * charge-temperature window [FDIR_TBAT_CHARGE_MIN, _MAX] -> charging inhibited
+ * (B>=2: the BCR stops charging, arrays keep supplying the loads), flag bit 6.
+ * Latched with hysteresis: released only inside [_REL_MIN, _REL_MAX]. The low
+ * check uses the lowest credible reading of the median-of-3 vote
+ * (fdir_temp_vote3), the high checks the highest. Applied after invariant 5.
+ * Everything below this paragraph, up to invariant 5, is unchanged from v2.
  *
  * (v2 header follows)
  * fdir_sgo_v2.c — SGO safety layer, revision 2 (PROPOSED, see ADR-0017 draft).
@@ -33,10 +40,46 @@
 #define SAFE_B  ACT_SHED_SECONDARY
 #define SAFE_L  ACT_SHED_SECONDARY
 
+uint8_t fdir_sgo_v3_charge_inhibit = 0U;
+static uint8_t g_tlo_armed = 0U;   /* 1: g_tlo holds the vote for the next SGO call */
+static float g_tlo;
+
 static int in_range(float x, float lo, float hi)
 {
     /* false for NaN: every comparison with NaN is false */
     return (x >= lo) && (x <= hi);
+}
+
+int fdir_temp_vote3(const float t[3], float *t_hi, float *t_lo)
+{
+    float v[3];
+    unsigned n = 0U, k;
+    int single_fault = 0;
+    for (k = 0U; k < 3U; k++) {
+        if (in_range(t[k], FDIR_TBAT_PLAUSIBLE_MIN, FDIR_TBAT_PLAUSIBLE_MAX)) {
+            v[n++] = t[k];
+        }
+    }
+    if (n == 3U) {
+        float a = v[0], b = v[1], c = v[2], m;
+        if (a > b) { m = a; a = b; b = m; }
+        if (b > c) { m = b; b = c; c = m; }
+        if (a > b) { m = a; a = b; b = m; }
+        *t_hi = b;
+        *t_lo = b;
+        single_fault = (b - a > FDIR_TBAT_SENSOR_DISAGREE) || (c - b > FDIR_TBAT_SENSOR_DISAGREE);
+    } else if (n == 2U) {
+        *t_hi = (v[0] > v[1]) ? v[0] : v[1];
+        *t_lo = (v[0] > v[1]) ? v[1] : v[0];
+        single_fault = 1;
+    } else {
+        *t_hi = FDIR_TBAT_VOTE_INVALID;
+        *t_lo = FDIR_TBAT_VOTE_INVALID;
+        single_fault = 1;
+    }
+    g_tlo = *t_lo;
+    g_tlo_armed = 1U;
+    return single_fault;
 }
 
 static int telemetry_plausible(const HealthTelemetry *t)
@@ -65,6 +108,9 @@ static void apply_safe_default(FDIRResult *o)
 FDIRResult process_fdir_with_sgo(HealthTelemetry *telemetry)
 {
     FDIRResult output = execute_onboard_fdir(telemetry);
+    /* low-temperature reading for invariant 6: the vote's t_lo if armed, else T */
+    const float t_lo = g_tlo_armed ? g_tlo : telemetry->system_temperature;
+    g_tlo_armed = 0U;
 
     /* C1: corrupted tree output -> safe default, keep only defined flag bits */
     if (!tree_output_valid(&output)) {
@@ -136,6 +182,25 @@ FDIRResult process_fdir_with_sgo(HealthTelemetry *telemetry)
         output.solar_reconfig_action = ACT_ISOLATE_ARRAYS;
         if (output.battery_limit_action < ACT_ISOLATE_ARRAYS) {
             output.battery_limit_action = ACT_ISOLATE_ARRAYS;
+        }
+    }
+    /* INVARIANT 6 (v3, ISS-050): charge-temperature window, latched with hysteresis.
+     * T (= t_hi) is plausible here. If t_lo were NaN, every comparison with it is
+     * false, so the latch could only be set by t_hi and never released. */
+    {
+        const float t_hi = telemetry->system_temperature;
+        if (t_hi > FDIR_TBAT_CHARGE_MAX || t_lo < FDIR_TBAT_CHARGE_MIN) {
+            fdir_sgo_v3_charge_inhibit = 1U;
+        } else if (t_hi < FDIR_TBAT_CHARGE_REL_MAX && t_lo > FDIR_TBAT_CHARGE_REL_MIN) {
+            fdir_sgo_v3_charge_inhibit = 0U;
+        } else if (fdir_sgo_v3_charge_inhibit != 0U) {
+            fdir_sgo_v3_charge_inhibit = 1U;   /* hold inside the hysteresis band */
+        }
+        if (fdir_sgo_v3_charge_inhibit != 0U) {
+            output.fault_flags |= FAULT_BIT_CHARGE_TEMP;
+            if (output.battery_limit_action < ACT_ISOLATE_ARRAYS) {
+                output.battery_limit_action = ACT_ISOLATE_ARRAYS;
+            }
         }
     }
     return output;

@@ -23,6 +23,8 @@
  *                       -> 's' f32 soc, std, innov, innov_var | u8 status | u32 cycles
  *   'T' f32 in[9]       -> 't' u8 S, B, L | u32 cycles                 tree only
  *   'F' f32 in[9]       -> 'f' u8 S, B, L, flags | u32 cycles          tree + SGO v3
+ *   'G' f32 in[9], f32 t_bat[3]
+ *                       -> 'g' u8 S, B, L, flags, latch | u32 cycles   median-of-3 vote + tree + SGO v3
  *   'X' f32 i_prev, i_now, v, dt, c_rate, t_bat, i_sa_pu, u_bus_pu
  *                       -> 'x' f32 soc, std | u8 S, B, L, flags, ekf_status | u32 cycles
  *                          full 1 Hz loop: EKF step, history features, tree + SGO v3
@@ -42,8 +44,10 @@
 #include "fdir_tree.h"
 #include "fdir_onboard.h"
 #include "fdir_features.h"
+#include "fdir_sgo_v3.h"
+#include "fdir_config.h"
 
-#define FW_VERSION "fdir-dut 0.6 ekf+hist+tree9+sgo-v3 multi7 seu"
+#define FW_VERSION "fdir-dut 0.7 tree9 sgo-v3.1 multi7 seu " FDIR_CONFIG_NAME
 #define MULTI 7
 #ifndef UART_BAUD
 #define UART_BAUD 460800U
@@ -62,6 +66,7 @@ static uint8_t scrub_on = 1U;
 static SocEkf ekf;
 SocEkf ekfs[MULTI];   /* not static: fault injection targets it by symbol (hil/run_case.py C3) */
 FdirFeatures feats[MULTI];
+static uint8_t ct_latch[MULTI];   /* SGO v3 charge-temperature latch per spacecraft (ISS-050) */
 static FdirFeatures feat;
 
 /* ---------------------------------------------------------------- hardware */
@@ -296,6 +301,7 @@ int main(void)
             memcpy(&soc0, in, 4);
             soc_ekf_init(&ekf, soc0);
             fdir_features_init(&feat);
+            fdir_sgo_v3_charge_inhibit = 0U;
             send_frame('i', out, 0);
         } else if (cmd == 'S' && len == 16) {
             float f[4];
@@ -339,6 +345,22 @@ int main(void)
             out[3] = r.fault_flags;
             memcpy(&out[4], &cycles, 4);
             send_frame('f', out, 8);
+        } else if (cmd == 'G' && len == 48) {
+            float x[FDIR_TREE_INPUTS], tb[3];
+            FDIRResult r;
+            uint32_t t0, cycles;
+            memcpy(x, in, 36);
+            memcpy(tb, &in[36], 12);
+            t0 = DWT->CYCCNT;
+            r = fdir_onboard_step3(x, tb);
+            cycles = DWT->CYCCNT - t0;
+            out[0] = r.solar_reconfig_action;
+            out[1] = r.battery_limit_action;
+            out[2] = r.load_shed_action;
+            out[3] = r.fault_flags;
+            out[4] = fdir_sgo_v3_charge_inhibit;
+            memcpy(&out[5], &cycles, 4);
+            send_frame('g', out, 9);
         } else if (cmd == 'X' && len == 32) {
             full_step(&ekf, &feat, in, out);
             send_frame('x', out, 17);
@@ -348,13 +370,18 @@ int main(void)
                 memcpy(&soc0, &in[1 + 4 * k], 4);
                 soc_ekf_init(&ekfs[k], soc0);
                 fdir_features_init(&feats[k]);
+                ct_latch[k] = 0U;
             }
             send_frame('j', out, 0);
         } else if (cmd == 'Y' && len >= 1 && in[0] >= 1U && in[0] <= MULTI && len == 1U + 32U * in[0]) {
             static uint8_t big[MULTI * 17];
+            const uint8_t keep = fdir_sgo_v3_charge_inhibit;   /* the 'X' path's latch */
             for (uint32_t k = 0; k < in[0]; k++) {
+                fdir_sgo_v3_charge_inhibit = ct_latch[k];
                 full_step(&ekfs[k], &feats[k], &in[1 + 32 * k], &big[17 * k]);
+                ct_latch[k] = fdir_sgo_v3_charge_inhibit;
             }
+            fdir_sgo_v3_charge_inhibit = keep;
             send_frame('y', big, (uint8_t)(17U * in[0]));
         } else if (cmd == 'Z' && len == 1) {
             scrub_on = in[0] ? 1U : 0U;

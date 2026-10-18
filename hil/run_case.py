@@ -14,6 +14,10 @@ Cases
         C3a  NaN cell voltage for 60 s           C3d  all-zero sensor dropout, 30 s
         C3b  stuck temperature -4099 C, 10 min   C3e  EKF state upset in DUT RAM via
         C3c  one-sample current spike +50 C           ST-Link (x[0] = 3.0, P00 = NaN)
+  C5  cold battery, no fault (SGO v3 invariant 6, ISS-050; C4 is reserved for the
+      capacity mis-estimate case on the bench build):
+        C5a  warming: start -6 degC, ambient 8 / 4 degC (sun / eclipse) -> inhibit, then release above 2 degC
+        C5b  cold soak: start -4 degC, ambient -3 / -8 degC -> inhibit held, SGO floor keeps the bus up
 Metrics per case: hazard share (PIL and SIL), action agreement PIL vs SIL,
 SGO flags seen, EKF guard activations, max cycles per spacecraft-step.
 
@@ -79,12 +83,14 @@ def case_list(case: str):
         return [("C2", f, None) for f in range(1, 18)], 1.0
     if case == "C3":
         return [(f"C3{k}", 0, k) for k in "abcde"], 1.0
+    if case == "C5":
+        return [("C5a", 0, "cold_a"), ("C5b", 0, "cold_b")], 1.0
     raise ValueError(case)
 
 
 def corrupt(meas: torch.Tensor, kind: str | None, t: float, t0: float) -> torch.Tensor:
     """meas columns: v_cell, c_rate, t_bat, i_sa_pu, u_bus_pu (per spacecraft)."""
-    if kind is None or t < t0:
+    if kind is None or kind.startswith("cold") or t < t0:
         return meas
     m = meas.clone()
     if kind == "a" and t < t0 + 60:
@@ -101,7 +107,15 @@ def corrupt(meas: torch.Tensor, kind: str | None, t: float, t0: float) -> torch.
 def run_batch(dut: Dut, tree, specs, orbits: float, seed: int, mode: str) -> dict:
     """mode 'pil': DUT closes the loop; 'sil': host tree + SGO + env EKF."""
     n = len(specs)
-    env = EPSEnv(EnvConfig(n_env=n, seed=seed, device="cpu", episode_orbits=orbits, fault_prob=1.0))
+    cfg = EnvConfig(n_env=n, seed=seed, device="cpu", episode_orbits=orbits, fault_prob=1.0)
+    cold = {"cold_a": (-6.0, 8.0, 4.0), "cold_b": (-4.0, -3.0, -8.0)}   # start, ambient sun, ambient eclipse [degC]
+    if any(s[2] in cold for s in specs):
+        cfg.t_amb_sun = torch.tensor([cold.get(s[2], (0, cfg.t_amb_sun, 0))[1] for s in specs])
+        cfg.t_amb_ecl = torch.tensor([cold.get(s[2], (0, 0, cfg.t_amb_ecl))[2] for s in specs])
+    env = EPSEnv(cfg)
+    for j, s in enumerate(specs):
+        if s[2] in cold:
+            env.temp[j] = cold[s[2]][0]
     env.fault[:] = torch.tensor([s[1] for s in specs])
     t_inj = 0.3 * orbits * env.orbit.period_s
     env.t_onset[:] = t_inj
@@ -113,6 +127,7 @@ def run_batch(dut: Dut, tree, specs, orbits: float, seed: int, mode: str) -> dic
         from env_v2 import BatchedEKF
         sil_ekf = BatchedEKF(env.tab, torch.full((n,), soc0))
         sil_feat = Features(n, "cpu")
+        sil_latch = torch.zeros(n, dtype=torch.bool)       # SGO v3 charge-temperature latch (ISS-050)
     hazard = torch.zeros(n, dtype=torch.bool)
     actions, flags_seen, guards, cyc = [], torch.zeros(n, dtype=torch.long), torch.zeros(n, dtype=torch.long), 0
     i_prev = torch.zeros(n)
@@ -150,7 +165,7 @@ def run_batch(dut: Dut, tree, specs, orbits: float, seed: int, mode: str) -> dic
             sil_ekf.step(i_prev * q, meas[:, 1] * q, torch.nan_to_num(meas[:, 0], nan=0.0), 1.0)
             x = torch.stack([meas[:, 0], meas[:, 1], meas[:, 2], sil_ekf.soc, meas[:, 3], meas[:, 4]], 1)
             x = torch.cat([x, sil_feat.step(x[:, 0], x[:, 3], x[:, 4])], 1)
-            a, fl = sgo_v2(tree(x), x[:, 0], x[:, 1], x[:, 2], x[:, 3])
+            a, fl = sgo_v2(tree(x), x[:, 0], x[:, 1], x[:, 2], x[:, 3], ct_latch=sil_latch)
             flags_seen |= fl
         i_prev = torch.nan_to_num(meas[:, 1], nan=0.0)
         act = a
@@ -161,7 +176,7 @@ def run_batch(dut: Dut, tree, specs, orbits: float, seed: int, mode: str) -> dic
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--case", default="all", choices=["C1", "C2", "C3", "all"])
+    ap.add_argument("--case", default="all", choices=["C1", "C2", "C3", "C5", "all"])
     ap.add_argument("--repeat", type=int, default=5)
     ap.add_argument("--port", default="COM5")
     ap.add_argument("--faults", type=int, nargs="*", default=None, help="C2: only these fault ids")
@@ -177,7 +192,7 @@ def main() -> None:
     out_p = Path(a.out)
     res = json.load(open(out_p)) if out_p.exists() else {}
     res["firmware"] = ver.decode()
-    for case in (["C1", "C2", "C3"] if a.case == "all" else [a.case]):
+    for case in (["C1", "C2", "C3", "C5"] if a.case == "all" else [a.case]):
         specs_all, orbits = case_list(case)
         if case == "C2" and a.faults:
             specs_all = [s for s in specs_all if s[1] in a.faults]

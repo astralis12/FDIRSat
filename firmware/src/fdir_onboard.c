@@ -1,5 +1,6 @@
 /*
  * fdir_onboard.c — glue between the 9-input tree (ADR-0019) and SGO v3 (see header).
+ * fdir_onboard_step3() adds the median-of-3 battery temperature vote (ISS-050).
  */
 #include <string.h>
 #include "fdir_onboard.h"
@@ -32,4 +33,18 @@ FDIRResult fdir_onboard_step(const float in[FDIR_TREE_INPUTS])
     t.system_temperature = in[2];
     t.battery_soc        = in[3] * 100.0f;                                                  /* % */
     return process_fdir_with_sgo(&t);
+}
+
+FDIRResult fdir_onboard_step3(const float in[FDIR_TREE_INPUTS], const float tbat[3])
+{
+    float x[FDIR_TREE_INPUTS], t_hi, t_lo;
+    FDIRResult r;
+    int single = fdir_temp_vote3(tbat, &t_hi, &t_lo);
+    memcpy(x, in, sizeof x);
+    x[2] = t_hi;                     /* tree and SGO see the voted (highest credible) temperature */
+    r = fdir_onboard_step(x);
+    if (single) {
+        r.fault_flags |= FAULT_BIT_SENSOR_DROPOUT;   /* one temperature sensor lost or disagreeing */
+    }
+    return r;
 }

@@ -27,7 +27,7 @@ for p in ("sim", "train", "codegen", "verify"):
     sys.path.insert(0, str(ROOT / p))
 from hil_ekf import Dut  # noqa: E402
 from dagger_adversary import BOX, THRESH  # noqa: E402
-from fdir_torch import sgo_v2  # noqa: E402
+from fdir_torch import temp_vote3, sgo_v2  # noqa: E402
 from features import Features  # noqa: E402
 
 TOL_SOC = 1e-4
@@ -38,6 +38,7 @@ def main() -> None:
     ap.add_argument("--port", default="COM5")
     ap.add_argument("--n-tree", type=int, default=6000)
     ap.add_argument("--chain-steps", type=int, default=3000)
+    ap.add_argument("--n-vote", type=int, default=2000)
     ap.add_argument("--out", default=str(ROOT / "results" / "hil_fdir.json"))
     a = ap.parse_args()
     dep = json.load(open(ROOT / "results" / "dagger_summary.json"))["deploy"]
@@ -110,7 +111,11 @@ def main() -> None:
     xin = np.concatenate([xin, h], 1).astype(np.float32)
     xt = torch.from_numpy(xin)
     tree_out = torch.from_numpy(clf.predict(xin).astype(np.int64))
-    act, flags = sgo_v2(tree_out, xt[:, 0], xt[:, 1], xt[:, 2], xt[:, 3])
+    # SGO v3 is stateful (charge-temperature latch, ISS-050): replay step by step; 'I' reset it
+    latch = torch.zeros(1, dtype=torch.bool)
+    rows = [sgo_v2(tree_out[k:k + 1], xt[k:k + 1, 0], xt[k:k + 1, 1], xt[k:k + 1, 2], xt[k:k + 1, 3], ct_latch=latch)
+            for k in range(len(xt))]
+    act = torch.cat([r[0] for r in rows]); flags = torch.cat([r[1] for r in rows])
     act_mis = int(((act.numpy() != out[:, 2:5]).any(1)).sum())
     flag_mis = int((flags.numpy() != out[:, 5]).sum())
     res["chain"] = {"steps": int(len(meas)), "fault": 10, "max_abs_dsoc": float(dsoc.max()), "soc_mismatches": int((dsoc > TOL_SOC).sum()),
@@ -118,7 +123,36 @@ def main() -> None:
                     "cycles_max": int(max(ccyc)), "cycles_median": float(np.median(ccyc)),
                     "max_us_at_16MHz": float(1e6 * max(ccyc) / 16e6), "actions_seen": sorted({tuple(r) for r in out[:, 2:5].astype(int).tolist()})}
     print("chain", res["chain"], flush=True)
-    g = mism + res["chain"]["soc_mismatches"] + act_mis + flag_mis
+    # --- median-of-3 vote + invariant 6 ('G'), sequential so the latch and hysteresis are exercised
+    dut.call(b"I", struct.pack("<f", 0.6))                # resets the 'X'/'G' latch
+    nv = a.n_vote
+    base = x[rng.choice(len(x), nv)].astype(np.float32)
+    tc = np.concatenate([rng.uniform(-10, 55, nv // 2), np.repeat(rng.uniform(-5, 50, nv // 20), 10)])[:nv]  # sweeps + dwells
+    tb = np.repeat(tc[:, None], 3, 1) + rng.normal(0, 0.3, (nv, 3))
+    kind = rng.integers(0, 6, nv)                         # 0-2 clean, 3 outlier, 4 one NaN, 5 two lost
+    col = rng.integers(0, 3, nv)
+    tb[kind == 3, col[kind == 3]] += rng.choice([-30.0, 30.0], (kind == 3).sum())
+    tb[kind == 4, col[kind == 4]] = np.nan
+    tb[kind == 5, :2] = 200.0
+    tb = tb.astype(np.float32)
+    vo, vlat = [], []
+    for k in range(nv):
+        c, d = dut.call(b"G", struct.pack("<12f", *base[k], *tb[k]))
+        vo.append(list(d[:4])); vlat.append(d[4])
+    vo = np.asarray(vo); vlat = np.asarray(vlat)
+    th, tl, single = temp_vote3(torch.from_numpy(tb))
+    xb_ = torch.from_numpy(base.copy()); xb_[:, 2] = th
+    tout = torch.from_numpy(clf.predict(xb_.numpy()).astype(np.int64))
+    latch = torch.zeros(1, dtype=torch.bool); ra, rf, rl = [], [], []
+    for k in range(nv):
+        aa, ff = sgo_v2(tout[k:k + 1], xb_[k:k + 1, 0], xb_[k:k + 1, 1], xb_[k:k + 1, 2], xb_[k:k + 1, 3], ct_latch=latch, t_lo=tl[k:k + 1])
+        ra.append(aa[0].numpy()); rf.append(int(ff[0]) | (16 if bool(single[k]) else 0)); rl.append(int(latch[0]))
+    v_act = int((np.asarray(ra) != vo[:, :3]).any(1).sum()); v_flag = int((np.asarray(rf) != vo[:, 3]).sum())
+    v_lat = int((np.asarray(rl) != vlat).sum())
+    res["vote"] = {"n": nv, "action_mismatches": v_act, "flag_mismatches": v_flag, "latch_mismatches": v_lat,
+                   "latch_set_share": float(np.mean(vlat)), "cases": {k: int((kind == i).sum()) for i, k in enumerate(["c0", "c1", "c2", "outlier", "nan", "two_lost"])}}
+    print("vote", res["vote"], flush=True)
+    g = mism + res["chain"]["soc_mismatches"] + act_mis + flag_mis + v_act + v_flag + v_lat
     res["gate"] = {"metric": "tree + chain mismatches on target", "value": g, "pass": g == 0}
     Path(a.out).write_text(json.dumps(res, indent=2, default=str))
     print("GATE", res["gate"])

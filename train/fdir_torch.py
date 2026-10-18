@@ -18,15 +18,39 @@ SOC_PL = (-5.0, 105.0)
 SAFE = (0, 1, 1)                        # SAFE_S, SAFE_B, SAFE_L
 
 
-V_OV = 4.20                             # SGO v3 invariant 5 (fdir_config.h FDIR_VCELL_OV_MAX, ADR-0018)
+V_OV = 4.20                             # SGO v3 invariant 5 (fdir_config_ref.h FDIR_VCELL_OV_MAX, ADR-0018)
+# SGO v3 invariant 6 (ISS-050): charge-temperature window and release band (fdir_config_ref.h)
+T_CHG = (0.0, 45.0)
+T_REL = (2.0, 42.0)
 
 
-def sgo_v2(act: torch.Tensor, v_cell, c_rate, temp, soc, ov_invariant: bool = True) -> tuple[torch.Tensor, torch.Tensor]:
+def temp_vote3(t: torch.Tensor, pl=T_PL, disagree: float = 5.0, invalid: float = 1000.0):
+    """Twin of fdir_temp_vote3 (fdir_sgo_v3.c): t (N, 3) -> t_hi, t_lo (N,), single_fault (N,) bool."""
+    ok = (t >= pl[0]) & (t <= pl[1])
+    n = ok.sum(1)
+    big = torch.full_like(t, float("inf"))
+    srt = torch.sort(torch.where(ok, t, big), 1).values          # valid readings first, ascending
+    med = srt[:, 1]
+    two_hi, two_lo = srt[:, 1], srt[:, 0]
+    t_hi = torch.where(n == 3, med, torch.where(n == 2, two_hi, torch.full_like(med, invalid)))
+    t_lo = torch.where(n == 3, med, torch.where(n == 2, two_lo, torch.full_like(med, invalid)))
+    dis = ((srt[:, 1] - srt[:, 0]) > disagree) | ((srt[:, 2] - srt[:, 1]) > disagree)
+    single = (n < 3) | ((n == 3) & dis)
+    return t_hi, t_lo, single
+
+
+def sgo_v2(act: torch.Tensor, v_cell, c_rate, temp, soc, ov_invariant: bool = True,
+           ct_latch: torch.Tensor | None = None, t_lo: torch.Tensor | None = None) -> tuple[torch.Tensor, torch.Tensor]:
     """act (N, 3) tree output in 0..255; inputs per cell / per unit, soc in 0..1.
     Returns the actuator command (N, 3) and the fault-flag byte (N,).
     ov_invariant=True (default since 17 Oct) is SGO v3 (fdir_sgo_v3.c, ADR-0018): invariant 5,
     pack-average cell overvoltage > V_OV -> arrays isolated (S=2), charge limited (B>=2), flag bit 5.
-    ov_invariant=False reproduces SGO v2."""
+    ov_invariant=False reproduces SGO v2.
+    With ov_invariant=True, invariant 6 (charge-temperature window, ISS-050) also runs: temp
+    outside T_CHG -> charge inhibited (B>=2), flag bit 6, latched until temp is inside T_REL.
+    ct_latch (N,) bool carries the latch between steps and is updated in place; None = a fresh
+    latch every call (correct except inside the hysteresis band). One sensor here, so
+    t_lo defaults to temp (one sensor); with temp_vote3 pass temp = t_hi and t_lo."""
     a = act.long().clone()
     flags = torch.zeros(a.shape[0], dtype=torch.long, device=a.device)
     safe = torch.zeros_like(a)                     # no host->device copy: CUDA-graph safe
@@ -64,6 +88,17 @@ def sgo_v2(act: torch.Tensor, v_cell, c_rate, temp, soc, ov_invariant: bool = Tr
         flags = flags | torch.where(ov, 32, 0)
         S = torch.where(ov, 2, S)
         B = torch.where(ov, B.clamp_min(2), B)
+        # invariant 6; the C code returns before it for dropout / implausible input
+        prev = ct_latch if ct_latch is not None else torch.zeros_like(live)
+        tl = temp if t_lo is None else t_lo
+        out_win = (temp > T_CHG[1]) | (tl < T_CHG[0])
+        in_rel = (temp < T_REL[1]) & (tl > T_REL[0])
+        lat = torch.where(live, out_win | (prev & ~in_rel), prev)
+        if ct_latch is not None:
+            ct_latch.copy_(lat)
+        inh = live & lat
+        flags = flags | torch.where(inh, 64, 0)
+        B = torch.where(inh, B.clamp_min(2), B)
     return torch.stack([S, B, L], 1), flags
 
 

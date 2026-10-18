@@ -368,7 +368,10 @@ class EPSEnv:
         # thermal: I^2 R of the pack + BCR loss heat, to ambient
         p_heat = (i_a ** 2 * (r0 + r1 + r2) * rdeg).sum(1) + torch.where(fe(6), 2.0 * mag, torch.zeros_like(mag))
         p_heat = p_heat + torch.where(fe(5), 4.0 * (v_max > V_CELL_MAX).float() * mag, torch.zeros_like(mag))
-        t_amb = torch.where(sunlit, torch.full_like(mag, c.t_amb_sun), torch.full_like(mag, c.t_amb_ecl))
+        if isinstance(c.t_amb_sun, torch.Tensor):                                         # per-env ambient (PIL C5)
+            t_amb = torch.where(sunlit, c.t_amb_sun, c.t_amb_ecl)
+        else:
+            t_amb = torch.where(sunlit, torch.full_like(mag, c.t_amb_sun), torch.full_like(mag, c.t_amb_ecl))
         self.temp = self.temp + dt * (p_heat - (self.temp - t_amb) / c.r_th_k_per_w) / c.c_th_j_per_k
 
         # bus voltage (unregulated battery bus); open battery -> array-only bus
@@ -427,7 +430,9 @@ class EPSEnv:
         return {"deep_discharge": i["soc_true_min"] < 0.02,
                 "overcharge": i["v_cell_true_max"] > 4.25,
                 "over_temp": i["temp_true"] > TH_T_CRIT,
-                "unpowered": i["unpowered"]}
+                "unpowered": i["unpowered"],
+                # charging outside the cell's charge window 0..45 degC (VTC6 SDS; ISS-050)
+                "charge_temp": (i["i_bat"] < -0.01) & ((i["temp_true"] < 0.0) | (i["temp_true"] > 45.0))}
 
 
 # ---------------------------------------------------------------- smoke gate

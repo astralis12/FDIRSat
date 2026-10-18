@@ -1,0 +1,289 @@
+{
+  "_source": "SPENVIS 4.6 long-term SEU (spenvis_nuopl.html), saved by the owner 18 Oct 2026; 1-year missions from 2027-01-01",
+  "mission_days": 365.25,
+  "runs": {
+    "run0_geo_check": {
+      "spenvis_version": "4.6.14.3582",
+      "run_time": "18-Oct-2026 07:12:18",
+      "models": [
+        "AP-8 MIN",
+        "ESP-PSYCHIC total fluence",
+        "ISO 15390"
+      ],
+      "shielding": "100.00 mils",
+      "L0_echo": [
+        1.0,
+        1.0,
+        0.5
+      ],
+      "devices": {
+        "D_low": {
+          "direct_per_bit_mission": 6.3867e-06,
+          "proton_per_bit_mission": 1.2828e-06,
+          "total_per_bit_mission": 7.6696e-06,
+          "direct_per_bit_day": 1.748583162217659e-08,
+          "proton_per_bit_day": 3.5121149897330596e-09,
+          "total_per_bit_day": 2.0998220396988366e-08
+        },
+        "D_mid": {
+          "direct_per_bit_mission": 4.7961e-05,
+          "proton_per_bit_mission": 3.8485e-06,
+          "total_per_bit_mission": 5.181e-05,
+          "direct_per_bit_day": 1.313100616016427e-07,
+          "proton_per_bit_day": 1.053661875427789e-08,
+          "total_per_bit_day": 1.4184804928131418e-07
+        },
+        "D_high": {
+          "direct_per_bit_mission": 0.00040442,
+          "proton_per_bit_mission": 1.2828e-05,
+          "total_per_bit_mission": 0.00041725,
+          "direct_per_bit_day": 1.1072416153319643e-06,
+          "proton_per_bit_day": 3.5121149897330596e-08,
+          "total_per_bit_day": 1.1423682409308691e-06
+        }
+      },
+      "run_id": "run0_geo_check",
+      "orbit": "geo",
+      "shielding_mm_al": 2.54,
+      "file": "data/spenvis/html/Long-term Single Event Upset Rates (GEO).html"
+    },
+    "run1_xjtu": {
+      "spenvis_version": "4.6.14.3582",
+      "run_time": "18-Oct-2026 07:35:05",
+      "models": [
+        "AP-8 MIN",
+        "ESP-PSYCHIC total fluence",
+        "ISO 15390"
+      ],
+      "shielding": "0.20 cm",
+      "L0_echo": [
+        1.0,
+        1.0,
+        0.5
+      ],
+      "devices": {
+        "D_low": {
+          "direct_per_bit_mission": 1.6942e-06,
+          "proton_per_bit_mission": 4.2042e-07,
+          "total_per_bit_mission": 2.1147e-06,
+          "direct_per_bit_day": 4.638466803559206e-09,
+          "proton_per_bit_day": 1.151047227926078e-09,
+          "total_per_bit_day": 5.789733059548254e-09
+        },
+        "D_mid": {
+          "direct_per_bit_mission": 1.3601e-05,
+          "proton_per_bit_mission": 1.2612e-06,
+          "total_per_bit_mission": 1.4863e-05,
+          "direct_per_bit_day": 3.7237508555783713e-08,
+          "proton_per_bit_day": 3.4529774127310063e-09,
+          "total_per_bit_day": 4.069267624914442e-08
+        },
+        "D_high": {
+          "direct_per_bit_mission": 0.00012374,
+          "proton_per_bit_mission": 4.2042e-06,
+          "total_per_bit_mission": 0.00012795,
+          "direct_per_bit_day": 3.387816563997262e-07,
+          "proton_per_bit_day": 1.151047227926078e-08,
+          "total_per_bit_day": 3.5030800821355235e-07
+        }
+      },
+      "run_id": "run1_xjtu",
+      "orbit": "xjtu",
+      "shielding_mm_al": 2.0,
+      "file": "data/spenvis/html/Long-term Single Event Upset Rates (XJTU).html"
+    },
+    "run2_o2_sso_1030": {
+      "spenvis_version": "4.6.14.3582",
+      "run_time": "18-Oct-2026 07:36:53",
+      "models": [
+        "AP-8 MIN",
+        "ESP-PSYCHIC total fluence",
+        "ISO 15390"
+      ],
+      "shielding": "0.20 cm",
+      "L0_echo": [
+        1.0,
+        1.0,
+        0.5
+      ],
+      "devices": {
+        "D_low": {
+          "direct_per_bit_mission": 1.692e-06,
+          "proton_per_bit_mission": 4.2646e-07,
+          "total_per_bit_mission": 2.1185e-06,
+          "direct_per_bit_day": 4.632443531827516e-09,
+          "proton_per_bit_day": 1.167583846680356e-09,
+          "total_per_bit_day": 5.8001368925393566e-09
+        },
+        "D_mid": {
+          "direct_per_bit_mission": 1.3607e-05,
+          "proton_per_bit_mission": 1.2794e-06,
+          "total_per_bit_mission": 1.4886e-05,
+          "direct_per_bit_day": 3.7253935660506505e-08,
+          "proton_per_bit_day": 3.50280629705681e-09,
+          "total_per_bit_day": 4.075564681724846e-08
+        },
+        "D_high": {
+          "direct_per_bit_mission": 0.0001242,
+          "proton_per_bit_mission": 4.2646e-06,
+          "total_per_bit_mission": 0.00012847,
+          "direct_per_bit_day": 3.40041067761807e-07,
+          "proton_per_bit_day": 1.1675838466803559e-08,
+          "total_per_bit_day": 3.5173169062286105e-07
+        }
+      },
+      "run_id": "run2_o2_sso_1030",
+      "orbit": "o2_sso_1030",
+      "shielding_mm_al": 2.0,
+      "file": "data/spenvis/html/Long-term Single Event Upset Rates (sso_1030).html"
+    },
+    "run3_o3_dawn_dusk": {
+      "spenvis_version": "4.6.14.3582",
+      "run_time": "18-Oct-2026 07:38:28",
+      "models": [
+        "AP-8 MIN",
+        "ESP-PSYCHIC total fluence",
+        "ISO 15390"
+      ],
+      "shielding": "0.20 cm",
+      "L0_echo": [
+        1.0,
+        1.0,
+        0.5
+      ],
+      "devices": {
+        "D_low": {
+          "direct_per_bit_mission": 1.588e-06,
+          "proton_per_bit_mission": 1.7119e-05,
+          "total_per_bit_mission": 1.8707e-05,
+          "direct_per_bit_day": 4.3477070499657774e-09,
+          "proton_per_bit_day": 4.686926762491444e-08,
+          "total_per_bit_day": 5.121697467488022e-08
+        },
+        "D_mid": {
+          "direct_per_bit_mission": 1.3193e-05,
+          "proton_per_bit_mission": 5.1356e-05,
+          "total_per_bit_mission": 6.455e-05,
+          "direct_per_bit_day": 3.6120465434633815e-08,
+          "proton_per_bit_day": 1.406050650239562e-07,
+          "total_per_bit_day": 1.7672826830937713e-07
+        },
+        "D_high": {
+          "direct_per_bit_mission": 0.00039445,
+          "proton_per_bit_mission": 0.00017119,
+          "total_per_bit_mission": 0.00056563,
+          "direct_per_bit_day": 1.0799452429842574e-06,
+          "proton_per_bit_day": 4.686926762491444e-07,
+          "total_per_bit_day": 1.5486105407255305e-06
+        }
+      },
+      "run_id": "run3_o3_dawn_dusk",
+      "orbit": "o3_dawn_dusk",
+      "shielding_mm_al": 2.0,
+      "file": "data/spenvis/html/Long-term Single Event Upset Rates (dawn_dusk).html"
+    },
+    "run4_o3_1mm": {
+      "spenvis_version": "4.6.14.3582",
+      "run_time": "18-Oct-2026 07:39:37",
+      "models": [
+        "AP-8 MIN",
+        "ESP-PSYCHIC total fluence",
+        "ISO 15390"
+      ],
+      "shielding": "0.10 cm",
+      "L0_echo": [
+        1.0,
+        1.0,
+        0.5
+      ],
+      "devices": {
+        "D_low": {
+          "direct_per_bit_mission": 1.6148e-06,
+          "proton_per_bit_mission": 1.8825e-05,
+          "total_per_bit_mission": 2.044e-05,
+          "direct_per_bit_day": 4.421081451060917e-09,
+          "proton_per_bit_day": 5.154004106776181e-08,
+          "total_per_bit_day": 5.596167008898015e-08
+        },
+        "D_mid": {
+          "direct_per_bit_mission": 1.397e-05,
+          "proton_per_bit_mission": 5.6476e-05,
+          "total_per_bit_mission": 7.0447e-05,
+          "direct_per_bit_day": 3.8247775496235454e-08,
+          "proton_per_bit_day": 1.5462286105407254e-07,
+          "total_per_bit_day": 1.9287337440109513e-07
+        },
+        "D_high": {
+          "direct_per_bit_mission": 0.00092856,
+          "proton_per_bit_mission": 0.00018825,
+          "total_per_bit_mission": 0.0011168,
+          "direct_per_bit_day": 2.542258726899384e-06,
+          "proton_per_bit_day": 5.154004106776181e-07,
+          "total_per_bit_day": 3.057631759069131e-06
+        }
+      },
+      "run_id": "run4_o3_1mm",
+      "orbit": "o3_dawn_dusk",
+      "shielding_mm_al": 1.0,
+      "file": "data/spenvis/html/Long-term Single Event Upset Rates (1mm).html"
+    },
+    "run5_o3_4mm": {
+      "spenvis_version": "4.6.14.3582",
+      "run_time": "18-Oct-2026 07:40:08",
+      "models": [
+        "AP-8 MIN",
+        "ESP-PSYCHIC total fluence",
+        "ISO 15390"
+      ],
+      "shielding": "0.40 cm",
+      "L0_echo": [
+        1.0,
+        1.0,
+        0.5
+      ],
+      "devices": {
+        "D_low": {
+          "direct_per_bit_mission": 1.477e-06,
+          "proton_per_bit_mission": 1.5293e-05,
+          "total_per_bit_mission": 1.677e-05,
+          "direct_per_bit_day": 4.043805612594113e-09,
+          "proton_per_bit_day": 4.1869952087611227e-08,
+          "total_per_bit_day": 4.591375770020534e-08
+        },
+        "D_mid": {
+          "direct_per_bit_mission": 1.2244e-05,
+          "proton_per_bit_mission": 4.588e-05,
+          "total_per_bit_mission": 5.8124e-05,
+          "direct_per_bit_day": 3.352224503764545e-08,
+          "proton_per_bit_day": 1.256125941136208e-07,
+          "total_per_bit_day": 1.5913483915126627e-07
+        },
+        "D_high": {
+          "direct_per_bit_mission": 0.00021872,
+          "proton_per_bit_mission": 0.00015293,
+          "total_per_bit_mission": 0.00037165,
+          "direct_per_bit_day": 5.988227241615331e-07,
+          "proton_per_bit_day": 4.1869952087611224e-07,
+          "total_per_bit_day": 1.0175222450376454e-06
+        }
+      },
+      "run_id": "run5_o3_4mm",
+      "orbit": "o3_dawn_dusk",
+      "shielding_mm_al": 4.0,
+      "file": "data/spenvis/html/Long-term Single Event Upset Rates (4mm).html"
+    }
+  },
+  "geo_check": {
+    "reference": {
+      "direct": 1.66e-07,
+      "proton": 2.56e-08,
+      "source": "Roche, P. (2009) SEE and TID Radiation Test Results on ST Circuits in 65nm CMOS Technologies, ESTEC 18799/04/NL/AG"
+    },
+    "D_mid_over_reference": {
+      "direct": 0.7910244674797753,
+      "proton": 0.4115866700889801
+    },
+    "pass": true,
+    "criterion": "within a factor of 3"
+  }
+}

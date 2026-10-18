@@ -32,7 +32,7 @@ W_SEV = [1.0, 4.0, 3.0, 2.0, 1.0]
 N_DRAWS = 20_000
 
 
-def rates(cfg: dict, fi: dict | None, fm: dict) -> dict:
+def rates(cfg: dict, fi: dict | None, fm: dict, r_day: float) -> dict:
     l1 = cfg["layer1_subsystem_prior"]
     w = l1["weibull"]
     h1 = (365.0 / w["theta_days"]) ** w["beta"]
@@ -45,7 +45,7 @@ def rates(cfg: dict, fi: dict | None, fm: dict) -> dict:
             out[str(m)] = {"lambda_per_h": lam_eps * b["parts"] / total / len(b["modes"]), "layer": 2,
                            "block": name, "severity": fm["fault_classes"][str(m)]["severity"]}
     l3 = cfg["layer3_environment"]
-    r = l3["r_bit_per_bit_day"]["value"] / 24.0
+    r = r_day / 24.0
     for m, d in l3["modes"].items():
         regs = d["region"] if isinstance(d["region"], list) else [d["region"]]
         p_sdc = None
@@ -64,13 +64,18 @@ def main() -> None:
     cmpm = json.load(open(ROOT / "results" / "compare_methods.json"))
     fip = ROOT / "results" / "fault_injection.json"
     fi = json.load(open(fip)) if fip.exists() else None
-    rt = rates(cfg, fi, fm)
-    modes = list(rt["modes"])
+    seu = json.load(open(ROOT / "results" / "seu_rates.json"))
+    rb = cfg["layer3_environment"]["r_bit_per_bit_day"]
     rng = np.random.default_rng(17)
-    res = {"lambda_eps_per_h": rt["lambda_eps_per_h"], "modes": rt["modes"], "draws": N_DRAWS, "orbits": {}}
+    res = {"seu_device": rb["device"], "draws": N_DRAWS, "orbits": {}}
     for orb, o in ORBITS.items():
         if orb not in cmpm["orbits"]:
             continue
+        r_day = seu["runs"][rb["run_per_orbit"][orb]]["devices"][rb["device"]]["total_per_bit_day"]
+        rt = rates(cfg, fi, fm, r_day)
+        modes = list(rt["modes"])
+        res["lambda_eps_per_h"] = rt["lambda_eps_per_h"]
+        res.setdefault("modes_per_orbit", {})[orb] = rt["modes"]
         dep = cmpm["orbits"][orb]["deployed"]["per_fault"]
         t_orb_h = o.period_s / 3600.0
         lam = np.array([rt["modes"][m]["lambda_per_h"] for m in modes])
@@ -99,7 +104,7 @@ def main() -> None:
         top3_kept = float(np.mean([set(np.argsort(-c)[:3]) == top3 for c in contrib]))
         ranks = np.argsort(np.argsort(-contrib, 1), 1) + 1
         res["orbits"][orb] = {
-            "t_orb_h": t_orb_h,
+            "t_orb_h": t_orb_h, "seu_per_bit_day": r_day,
             "residual_risk_nominal": float(nominal_c.sum()),
             "residual_risk_band": {"p5": float(np.percentile(r_mit, 5)), "p50": float(np.median(r_mit)), "p95": float(np.percentile(r_mit, 95))},
             "not_mitigable_band": {"p5": float(np.percentile(r_unm, 5)), "p50": float(np.median(r_unm)), "p95": float(np.percentile(r_unm, 95))},

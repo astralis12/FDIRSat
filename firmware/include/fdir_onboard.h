@@ -16,6 +16,9 @@
 #include "fdir_tree.h"
 
 FDIRResult fdir_onboard_step(const float in[FDIR_TREE_INPUTS]);
+/* Same, with three battery temperature sensors: in[2] is replaced by the
+ * median-of-3 vote; a single lost or disagreeing sensor sets bit 4 (ISS-050). */
+FDIRResult fdir_onboard_step3(const float in[FDIR_TREE_INPUTS], const float tbat[3]);
 
 extern int fdir_tree_last_status;   /* 1 if the last tree evaluation hit a structural fault */
 
