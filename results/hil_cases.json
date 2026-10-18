@@ -1,5 +1,5 @@
 {
-  "firmware": "fdir-dut 0.4 ekf+tree+sgo-v3 multi7",
+  "firmware": "fdir-dut 0.7 tree9 sgo-v3.1 multi7 seu ref",
   "C1": {
     "orbits": 1.5,
     "repeat": 5,
@@ -305,6 +305,35 @@
         "flags_sil": 0,
         "guard_steps": 0,
         "cycles_max": 4746,
+        "agreement_mean": 1.0,
+        "agreement_min": 1.0
+      }
+    }
+  },
+  "C5": {
+    "orbits": 1.0,
+    "repeat": 5,
+    "wall_s": 545.0295407772064,
+    "rows": {
+      "C5a": {
+        "runs": 5,
+        "hazard_pil": 3,
+        "hazard_sil": 3,
+        "flags_pil": 64,
+        "flags_sil": 64,
+        "guard_steps": 0,
+        "cycles_max": 5019,
+        "agreement_mean": 1.0,
+        "agreement_min": 1.0
+      },
+      "C5b": {
+        "runs": 5,
+        "hazard_pil": 3,
+        "hazard_sil": 3,
+        "flags_pil": 64,
+        "flags_sil": 64,
+        "guard_steps": 0,
+        "cycles_max": 5019,
         "agreement_mean": 1.0,
         "agreement_min": 1.0
       }

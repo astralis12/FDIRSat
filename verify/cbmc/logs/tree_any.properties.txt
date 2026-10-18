@@ -1,0 +1,2 @@
+[main.assertion.1] line 37 A1 outputs in 0..3 for any tables: SUCCESS
+[main.assertion.2] line 39 A4 structural fault -> safe default: SUCCESS

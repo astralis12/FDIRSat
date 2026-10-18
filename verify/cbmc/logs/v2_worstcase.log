@@ -10,22 +10,22 @@ Removal of function pointers and virtual functions
 Generic Property Instrumentation
 Running with 8 object bits, 56 offset bits (default)
 Starting Bounded Model Checking
-Runtime Symex: 0.0169769s
+Runtime Symex: 0.0201338s
 size of program expression: 347 steps
 simple slicing removed 7 assignments
 Generated 154 VCC(s), 16 remaining after simplification
-Runtime Postprocess Equation: 8.8304e-05s
+Runtime Postprocess Equation: 6.9035e-05s
 Passing problem to propositional reduction
 converting SSA
-Runtime Convert SSA: 0.00617717s
+Runtime Convert SSA: 0.00668438s
 Running propositional reduction
 Post-processing
-Runtime Post-process: 8.276e-06s
+Runtime Post-process: 5.26e-06s
 Solving with MiniSAT 2.2.1 with simplifier
 5848 variables, 8312 clauses
 SAT checker: instance is UNSATISFIABLE
-Runtime Solver: 0.0130077s
-Runtime decision procedure: 0.0226032s
+Runtime Solver: 0.0119663s
+Runtime decision procedure: 0.0216365s
 
 ** Results:
 /src/firmware/src/fdir_sgo_v2.c function apply_safe_default
@@ -157,22 +157,22 @@ Runtime decision procedure: 0.0226032s
 [tree_output_valid.pointer_dereference.24] line 46 dereference failure: invalid integer address in r->fault_flags: SUCCESS
 
 /src/verify/cbmc/harness_sgo.c function main
-[main.assertion.1] line 82 P1a solar action in 0..3: SUCCESS
-[main.assertion.2] line 83 P1b battery action in 0..3: SUCCESS
-[main.assertion.3] line 84 P1c load action in 0..3: SUCCESS
-[main.assertion.4] line 87 P2 fault mask bits 0..4 only: SUCCESS
-[main.assertion.5] line 94 P9a implausible -> bit 4: SUCCESS
-[main.assertion.6] line 95 P9b implausible -> safe default (0,1,1): SUCCESS
-[main.assertion.7] line 103 P3a DD -> L=3: SUCCESS
-[main.assertion.8] line 104 P3b DD -> B>=1 (charge path kept): SUCCESS
-[main.assertion.9] line 105 P3c DD flagged: SUCCESS
-[main.assertion.10] line 109 P4 UV -> L>=1: SUCCESS
-[main.assertion.11] line 113 P5a OC -> B>=2: SUCCESS
-[main.assertion.12] line 114 P5b OC -> L>=1: SUCCESS
-[main.assertion.13] line 118 P6a OT -> S=2: SUCCESS
-[main.assertion.14] line 119 P6b OT -> L>=2: SUCCESS
-[main.assertion.15] line 125 P7 non-finite input is flagged: SUCCESS
-[main.assertion.16] line 130 P8 SoC outside plausible band is flagged: SUCCESS
+[main.assertion.1] line 104 P1a solar action in 0..3: SUCCESS
+[main.assertion.2] line 105 P1b battery action in 0..3: SUCCESS
+[main.assertion.3] line 106 P1c load action in 0..3: SUCCESS
+[main.assertion.4] line 113 P2 fault mask bits 0..4 only: SUCCESS
+[main.assertion.5] line 121 P9a implausible -> bit 4: SUCCESS
+[main.assertion.6] line 122 P9b implausible -> safe default (0,1,1): SUCCESS
+[main.assertion.7] line 130 P3a DD -> L=3: SUCCESS
+[main.assertion.8] line 131 P3b DD -> B>=1 (charge path kept): SUCCESS
+[main.assertion.9] line 132 P3c DD flagged: SUCCESS
+[main.assertion.10] line 136 P4 UV -> L>=1: SUCCESS
+[main.assertion.11] line 140 P5a OC -> B>=2: SUCCESS
+[main.assertion.12] line 141 P5b OC -> L>=1: SUCCESS
+[main.assertion.13] line 145 P6a OT -> S=2: SUCCESS
+[main.assertion.14] line 146 P6b OT -> L>=2: SUCCESS
+[main.assertion.15] line 205 P7 non-finite input is flagged: SUCCESS
+[main.assertion.16] line 210 P8 SoC outside plausible band is flagged: SUCCESS
 
 ** 0 of 136 failed (1 iterations)
 VERIFICATION SUCCESSFUL

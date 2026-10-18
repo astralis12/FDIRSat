@@ -1,0 +1,844 @@
+CBMC version 5.95.1 (cbmc-5.95.1) 64-bit x86_64 linux
+Parsing /src/verify/cbmc/harness_features.c
+Parsing /src/firmware/src/fdir_features.c
+Converting
+Type-checking fdir_features
+Type-checking harness_features
+Generating GOTO Program
+Adding CPROVER library (x86_64)
+Removal of function pointers and virtual functions
+Generic Property Instrumentation
+Running with 8 object bits, 56 offset bits (default)
+Starting Bounded Model Checking
+Unwinding loop fdir_features_init.0 iteration 1 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 2 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 3 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 4 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 5 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 6 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 7 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 8 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 9 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 10 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 11 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 12 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 13 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 14 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 15 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 16 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 17 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 18 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 19 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 20 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 21 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 22 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 23 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 24 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 25 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 26 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 27 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 28 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 29 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 30 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 31 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 32 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 33 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 34 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 35 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 36 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 37 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 38 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 39 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 40 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 41 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 42 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 43 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 44 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 45 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 46 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 47 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 48 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 49 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 50 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 51 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 52 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 53 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 54 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 55 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 56 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 57 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 58 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 59 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.0 iteration 60 file /src/firmware/src/fdir_features.c line 26 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.1 iteration 1 file /src/firmware/src/fdir_features.c line 29 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.1 iteration 2 file /src/firmware/src/fdir_features.c line 29 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.1 iteration 3 file /src/firmware/src/fdir_features.c line 29 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.1 iteration 4 file /src/firmware/src/fdir_features.c line 29 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.1 iteration 5 file /src/firmware/src/fdir_features.c line 29 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.1 iteration 6 file /src/firmware/src/fdir_features.c line 29 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.1 iteration 7 file /src/firmware/src/fdir_features.c line 29 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.1 iteration 8 file /src/firmware/src/fdir_features.c line 29 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.1 iteration 9 file /src/firmware/src/fdir_features.c line 29 function fdir_features_init thread 0
+Unwinding loop fdir_features_init.1 iteration 10 file /src/firmware/src/fdir_features.c line 29 function fdir_features_init thread 0
+Unwinding loop inv.0 iteration 1 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 2 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 3 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 4 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 5 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 6 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 7 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 8 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 9 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 10 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 11 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 12 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 13 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 14 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 15 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 16 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 17 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 18 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 19 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 20 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 21 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 22 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 23 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 24 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 25 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 26 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 27 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 28 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 29 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 30 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 31 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 32 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 33 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 34 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 35 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 36 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 37 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 38 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 39 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 40 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 41 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 42 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 43 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 44 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 45 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 46 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 47 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 48 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 49 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 50 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 51 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 52 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 53 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 54 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 55 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 56 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 57 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 58 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 59 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 60 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.1 iteration 1 file /src/verify/cbmc/harness_features.c line 36 function inv thread 0
+Unwinding loop inv.1 iteration 2 file /src/verify/cbmc/harness_features.c line 36 function inv thread 0
+Unwinding loop inv.1 iteration 3 file /src/verify/cbmc/harness_features.c line 36 function inv thread 0
+Unwinding loop inv.1 iteration 4 file /src/verify/cbmc/harness_features.c line 36 function inv thread 0
+Unwinding loop inv.1 iteration 5 file /src/verify/cbmc/harness_features.c line 36 function inv thread 0
+Unwinding loop inv.1 iteration 6 file /src/verify/cbmc/harness_features.c line 36 function inv thread 0
+Unwinding loop inv.1 iteration 7 file /src/verify/cbmc/harness_features.c line 36 function inv thread 0
+Unwinding loop inv.1 iteration 8 file /src/verify/cbmc/harness_features.c line 36 function inv thread 0
+Unwinding loop inv.1 iteration 9 file /src/verify/cbmc/harness_features.c line 36 function inv thread 0
+Unwinding loop inv.1 iteration 10 file /src/verify/cbmc/harness_features.c line 36 function inv thread 0
+Unwinding loop main.0 iteration 1 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 2 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 3 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 4 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 5 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 6 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 7 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 8 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 9 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 10 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 11 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 12 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 13 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 14 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 15 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 16 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 17 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 18 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 19 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 20 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 21 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 22 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 23 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 24 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 25 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 26 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 27 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 28 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 29 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 30 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 31 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 32 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 33 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 34 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 35 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 36 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 37 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 38 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 39 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 40 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 41 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 42 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 43 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 44 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 45 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 46 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 47 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 48 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 49 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 50 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 51 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 52 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 53 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 54 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 55 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 56 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 57 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 58 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 59 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.0 iteration 60 file /src/verify/cbmc/harness_features.c line 51 function main thread 0
+Unwinding loop main.1 iteration 1 file /src/verify/cbmc/harness_features.c line 54 function main thread 0
+Unwinding loop main.1 iteration 2 file /src/verify/cbmc/harness_features.c line 54 function main thread 0
+Unwinding loop main.1 iteration 3 file /src/verify/cbmc/harness_features.c line 54 function main thread 0
+Unwinding loop main.1 iteration 4 file /src/verify/cbmc/harness_features.c line 54 function main thread 0
+Unwinding loop main.1 iteration 5 file /src/verify/cbmc/harness_features.c line 54 function main thread 0
+Unwinding loop main.1 iteration 6 file /src/verify/cbmc/harness_features.c line 54 function main thread 0
+Unwinding loop main.1 iteration 7 file /src/verify/cbmc/harness_features.c line 54 function main thread 0
+Unwinding loop main.1 iteration 8 file /src/verify/cbmc/harness_features.c line 54 function main thread 0
+Unwinding loop main.1 iteration 9 file /src/verify/cbmc/harness_features.c line 54 function main thread 0
+Unwinding loop main.1 iteration 10 file /src/verify/cbmc/harness_features.c line 54 function main thread 0
+Unwinding loop inv.0 iteration 1 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 2 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 3 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 4 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 5 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 6 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 7 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 8 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 9 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 10 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 11 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 12 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 13 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 14 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 15 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 16 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 17 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 18 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 19 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 20 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 21 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 22 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 23 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 24 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 25 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 26 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 27 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 28 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 29 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 30 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 31 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 32 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 33 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 34 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 35 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 36 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 37 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 38 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 39 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 40 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 41 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 42 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 43 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 44 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 45 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 46 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 47 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 48 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 49 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 50 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 51 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 52 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 53 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 54 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 55 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 56 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 57 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 58 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 59 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 60 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.1 iteration 1 file /src/verify/cbmc/harness_features.c line 36 function inv thread 0
+Unwinding loop inv.1 iteration 2 file /src/verify/cbmc/harness_features.c line 36 function inv thread 0
+Unwinding loop inv.1 iteration 3 file /src/verify/cbmc/harness_features.c line 36 function inv thread 0
+Unwinding loop inv.1 iteration 4 file /src/verify/cbmc/harness_features.c line 36 function inv thread 0
+Unwinding loop inv.1 iteration 5 file /src/verify/cbmc/harness_features.c line 36 function inv thread 0
+Unwinding loop inv.1 iteration 6 file /src/verify/cbmc/harness_features.c line 36 function inv thread 0
+Unwinding loop inv.1 iteration 7 file /src/verify/cbmc/harness_features.c line 36 function inv thread 0
+Unwinding loop inv.1 iteration 8 file /src/verify/cbmc/harness_features.c line 36 function inv thread 0
+Unwinding loop inv.1 iteration 9 file /src/verify/cbmc/harness_features.c line 36 function inv thread 0
+Unwinding loop inv.1 iteration 10 file /src/verify/cbmc/harness_features.c line 36 function inv thread 0
+Unwinding loop inv.0 iteration 1 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 2 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 3 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 4 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 5 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 6 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 7 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 8 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 9 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 10 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 11 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 12 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 13 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 14 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 15 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 16 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 17 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 18 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 19 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 20 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 21 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 22 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 23 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 24 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 25 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 26 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 27 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 28 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 29 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 30 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 31 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 32 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 33 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 34 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 35 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 36 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 37 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 38 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 39 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 40 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 41 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 42 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 43 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 44 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 45 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 46 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 47 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 48 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 49 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 50 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 51 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 52 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 53 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 54 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 55 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 56 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 57 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 58 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 59 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.0 iteration 60 file /src/verify/cbmc/harness_features.c line 33 function inv thread 0
+Unwinding loop inv.1 iteration 1 file /src/verify/cbmc/harness_features.c line 36 function inv thread 0
+Unwinding loop inv.1 iteration 2 file /src/verify/cbmc/harness_features.c line 36 function inv thread 0
+Unwinding loop inv.1 iteration 3 file /src/verify/cbmc/harness_features.c line 36 function inv thread 0
+Unwinding loop inv.1 iteration 4 file /src/verify/cbmc/harness_features.c line 36 function inv thread 0
+Unwinding loop inv.1 iteration 5 file /src/verify/cbmc/harness_features.c line 36 function inv thread 0
+Unwinding loop inv.1 iteration 6 file /src/verify/cbmc/harness_features.c line 36 function inv thread 0
+Unwinding loop inv.1 iteration 7 file /src/verify/cbmc/harness_features.c line 36 function inv thread 0
+Unwinding loop inv.1 iteration 8 file /src/verify/cbmc/harness_features.c line 36 function inv thread 0
+Unwinding loop inv.1 iteration 9 file /src/verify/cbmc/harness_features.c line 36 function inv thread 0
+Unwinding loop inv.1 iteration 10 file /src/verify/cbmc/harness_features.c line 36 function inv thread 0
+Runtime Symex: 1.45703s
+size of program expression: 2155 steps
+simple slicing removed 11 assignments
+Generated 4434 VCC(s), 25 remaining after simplification
+Runtime Postprocess Equation: 0.000709431s
+Passing problem to propositional reduction
+converting SSA
+Runtime Convert SSA: 0.0766033s
+Running propositional reduction
+Post-processing
+Runtime Post-process: 6.533e-06s
+Solving with MiniSAT 2.2.1 with simplifier
+61482 variables, 193419 clauses
+SAT checker: instance is UNSATISFIABLE
+Runtime Solver: 1.20272s
+Runtime decision procedure: 1.28302s
+
+** Results:
+/src/firmware/src/fdir_features.c function fdir_features_init
+[fdir_features_init.overflow.1] line 26 arithmetic overflow on unsigned + in k + 1u: SUCCESS
+[fdir_features_init.array_bounds.1] line 27 array.v_ring dynamic object upper bound in f->v_ring[(signed long int)k]: SUCCESS
+[fdir_features_init.pointer_dereference.1] line 27 dereference failure: pointer NULL in f->v_ring: SUCCESS
+[fdir_features_init.pointer_dereference.2] line 27 dereference failure: pointer invalid in f->v_ring: SUCCESS
+[fdir_features_init.pointer_dereference.3] line 27 dereference failure: deallocated dynamic object in f->v_ring: SUCCESS
+[fdir_features_init.pointer_dereference.4] line 27 dereference failure: dead object in f->v_ring: SUCCESS
+[fdir_features_init.pointer_dereference.5] line 27 dereference failure: pointer outside object bounds in f->v_ring: SUCCESS
+[fdir_features_init.pointer_dereference.6] line 27 dereference failure: invalid integer address in f->v_ring: SUCCESS
+[fdir_features_init.overflow.2] line 29 arithmetic overflow on unsigned + in k + 1u: SUCCESS
+[fdir_features_init.array_bounds.2] line 30 array.soc_ring dynamic object upper bound in f->soc_ring[(signed long int)k]: SUCCESS
+[fdir_features_init.pointer_dereference.7] line 30 dereference failure: pointer NULL in f->soc_ring: SUCCESS
+[fdir_features_init.pointer_dereference.8] line 30 dereference failure: pointer invalid in f->soc_ring: SUCCESS
+[fdir_features_init.pointer_dereference.9] line 30 dereference failure: deallocated dynamic object in f->soc_ring: SUCCESS
+[fdir_features_init.pointer_dereference.10] line 30 dereference failure: dead object in f->soc_ring: SUCCESS
+[fdir_features_init.pointer_dereference.11] line 30 dereference failure: pointer outside object bounds in f->soc_ring: SUCCESS
+[fdir_features_init.pointer_dereference.12] line 30 dereference failure: invalid integer address in f->soc_ring: SUCCESS
+[fdir_features_init.pointer_dereference.13] line 32 dereference failure: pointer NULL in f->v_idx: SUCCESS
+[fdir_features_init.pointer_dereference.14] line 32 dereference failure: pointer invalid in f->v_idx: SUCCESS
+[fdir_features_init.pointer_dereference.15] line 32 dereference failure: deallocated dynamic object in f->v_idx: SUCCESS
+[fdir_features_init.pointer_dereference.16] line 32 dereference failure: dead object in f->v_idx: SUCCESS
+[fdir_features_init.pointer_dereference.17] line 32 dereference failure: pointer outside object bounds in f->v_idx: SUCCESS
+[fdir_features_init.pointer_dereference.18] line 32 dereference failure: invalid integer address in f->v_idx: SUCCESS
+[fdir_features_init.pointer_dereference.19] line 33 dereference failure: pointer NULL in f->v_cnt: SUCCESS
+[fdir_features_init.pointer_dereference.20] line 33 dereference failure: pointer invalid in f->v_cnt: SUCCESS
+[fdir_features_init.pointer_dereference.21] line 33 dereference failure: deallocated dynamic object in f->v_cnt: SUCCESS
+[fdir_features_init.pointer_dereference.22] line 33 dereference failure: dead object in f->v_cnt: SUCCESS
+[fdir_features_init.pointer_dereference.23] line 33 dereference failure: pointer outside object bounds in f->v_cnt: SUCCESS
+[fdir_features_init.pointer_dereference.24] line 33 dereference failure: invalid integer address in f->v_cnt: SUCCESS
+[fdir_features_init.pointer_dereference.25] line 34 dereference failure: pointer NULL in f->soc_idx: SUCCESS
+[fdir_features_init.pointer_dereference.26] line 34 dereference failure: pointer invalid in f->soc_idx: SUCCESS
+[fdir_features_init.pointer_dereference.27] line 34 dereference failure: deallocated dynamic object in f->soc_idx: SUCCESS
+[fdir_features_init.pointer_dereference.28] line 34 dereference failure: dead object in f->soc_idx: SUCCESS
+[fdir_features_init.pointer_dereference.29] line 34 dereference failure: pointer outside object bounds in f->soc_idx: SUCCESS
+[fdir_features_init.pointer_dereference.30] line 34 dereference failure: invalid integer address in f->soc_idx: SUCCESS
+[fdir_features_init.pointer_dereference.31] line 35 dereference failure: pointer NULL in f->soc_cnt: SUCCESS
+[fdir_features_init.pointer_dereference.32] line 35 dereference failure: pointer invalid in f->soc_cnt: SUCCESS
+[fdir_features_init.pointer_dereference.33] line 35 dereference failure: deallocated dynamic object in f->soc_cnt: SUCCESS
+[fdir_features_init.pointer_dereference.34] line 35 dereference failure: dead object in f->soc_cnt: SUCCESS
+[fdir_features_init.pointer_dereference.35] line 35 dereference failure: pointer outside object bounds in f->soc_cnt: SUCCESS
+[fdir_features_init.pointer_dereference.36] line 35 dereference failure: invalid integer address in f->soc_cnt: SUCCESS
+[fdir_features_init.pointer_dereference.37] line 36 dereference failure: pointer NULL in f->tick: SUCCESS
+[fdir_features_init.pointer_dereference.38] line 36 dereference failure: pointer invalid in f->tick: SUCCESS
+[fdir_features_init.pointer_dereference.39] line 36 dereference failure: deallocated dynamic object in f->tick: SUCCESS
+[fdir_features_init.pointer_dereference.40] line 36 dereference failure: dead object in f->tick: SUCCESS
+[fdir_features_init.pointer_dereference.41] line 36 dereference failure: pointer outside object bounds in f->tick: SUCCESS
+[fdir_features_init.pointer_dereference.42] line 36 dereference failure: invalid integer address in f->tick: SUCCESS
+[fdir_features_init.pointer_dereference.43] line 37 dereference failure: pointer NULL in f->v_last: SUCCESS
+[fdir_features_init.pointer_dereference.44] line 37 dereference failure: pointer invalid in f->v_last: SUCCESS
+[fdir_features_init.pointer_dereference.45] line 37 dereference failure: deallocated dynamic object in f->v_last: SUCCESS
+[fdir_features_init.pointer_dereference.46] line 37 dereference failure: dead object in f->v_last: SUCCESS
+[fdir_features_init.pointer_dereference.47] line 37 dereference failure: pointer outside object bounds in f->v_last: SUCCESS
+[fdir_features_init.pointer_dereference.48] line 37 dereference failure: invalid integer address in f->v_last: SUCCESS
+[fdir_features_init.pointer_dereference.49] line 38 dereference failure: pointer NULL in f->soc_last: SUCCESS
+[fdir_features_init.pointer_dereference.50] line 38 dereference failure: pointer invalid in f->soc_last: SUCCESS
+[fdir_features_init.pointer_dereference.51] line 38 dereference failure: deallocated dynamic object in f->soc_last: SUCCESS
+[fdir_features_init.pointer_dereference.52] line 38 dereference failure: dead object in f->soc_last: SUCCESS
+[fdir_features_init.pointer_dereference.53] line 38 dereference failure: pointer outside object bounds in f->soc_last: SUCCESS
+[fdir_features_init.pointer_dereference.54] line 38 dereference failure: invalid integer address in f->soc_last: SUCCESS
+[fdir_features_init.pointer_dereference.55] line 39 dereference failure: pointer NULL in f->isa_last: SUCCESS
+[fdir_features_init.pointer_dereference.56] line 39 dereference failure: pointer invalid in f->isa_last: SUCCESS
+[fdir_features_init.pointer_dereference.57] line 39 dereference failure: deallocated dynamic object in f->isa_last: SUCCESS
+[fdir_features_init.pointer_dereference.58] line 39 dereference failure: dead object in f->isa_last: SUCCESS
+[fdir_features_init.pointer_dereference.59] line 39 dereference failure: pointer outside object bounds in f->isa_last: SUCCESS
+[fdir_features_init.pointer_dereference.60] line 39 dereference failure: invalid integer address in f->isa_last: SUCCESS
+[fdir_features_init.pointer_dereference.61] line 40 dereference failure: pointer NULL in f->sun_sum: SUCCESS
+[fdir_features_init.pointer_dereference.62] line 40 dereference failure: pointer invalid in f->sun_sum: SUCCESS
+[fdir_features_init.pointer_dereference.63] line 40 dereference failure: deallocated dynamic object in f->sun_sum: SUCCESS
+[fdir_features_init.pointer_dereference.64] line 40 dereference failure: dead object in f->sun_sum: SUCCESS
+[fdir_features_init.pointer_dereference.65] line 40 dereference failure: pointer outside object bounds in f->sun_sum: SUCCESS
+[fdir_features_init.pointer_dereference.66] line 40 dereference failure: invalid integer address in f->sun_sum: SUCCESS
+[fdir_features_init.pointer_dereference.67] line 41 dereference failure: pointer NULL in f->sun_mean: SUCCESS
+[fdir_features_init.pointer_dereference.68] line 41 dereference failure: pointer invalid in f->sun_mean: SUCCESS
+[fdir_features_init.pointer_dereference.69] line 41 dereference failure: deallocated dynamic object in f->sun_mean: SUCCESS
+[fdir_features_init.pointer_dereference.70] line 41 dereference failure: dead object in f->sun_mean: SUCCESS
+[fdir_features_init.pointer_dereference.71] line 41 dereference failure: pointer outside object bounds in f->sun_mean: SUCCESS
+[fdir_features_init.pointer_dereference.72] line 41 dereference failure: invalid integer address in f->sun_mean: SUCCESS
+[fdir_features_init.pointer_dereference.73] line 42 dereference failure: pointer NULL in f->sun_cnt: SUCCESS
+[fdir_features_init.pointer_dereference.74] line 42 dereference failure: pointer invalid in f->sun_cnt: SUCCESS
+[fdir_features_init.pointer_dereference.75] line 42 dereference failure: deallocated dynamic object in f->sun_cnt: SUCCESS
+[fdir_features_init.pointer_dereference.76] line 42 dereference failure: dead object in f->sun_cnt: SUCCESS
+[fdir_features_init.pointer_dereference.77] line 42 dereference failure: pointer outside object bounds in f->sun_cnt: SUCCESS
+[fdir_features_init.pointer_dereference.78] line 42 dereference failure: invalid integer address in f->sun_cnt: SUCCESS
+[fdir_features_init.pointer_dereference.79] line 43 dereference failure: pointer NULL in f->was_sun: SUCCESS
+[fdir_features_init.pointer_dereference.80] line 43 dereference failure: pointer invalid in f->was_sun: SUCCESS
+[fdir_features_init.pointer_dereference.81] line 43 dereference failure: deallocated dynamic object in f->was_sun: SUCCESS
+[fdir_features_init.pointer_dereference.82] line 43 dereference failure: dead object in f->was_sun: SUCCESS
+[fdir_features_init.pointer_dereference.83] line 43 dereference failure: pointer outside object bounds in f->was_sun: SUCCESS
+[fdir_features_init.pointer_dereference.84] line 43 dereference failure: invalid integer address in f->was_sun: SUCCESS
+
+/src/firmware/src/fdir_features.c function fdir_features_step
+[fdir_features_step.pointer_dereference.1] line 53 dereference failure: pointer NULL in f->v_last: SUCCESS
+[fdir_features_step.pointer_dereference.2] line 53 dereference failure: pointer invalid in f->v_last: SUCCESS
+[fdir_features_step.pointer_dereference.3] line 53 dereference failure: deallocated dynamic object in f->v_last: SUCCESS
+[fdir_features_step.pointer_dereference.4] line 53 dereference failure: dead object in f->v_last: SUCCESS
+[fdir_features_step.pointer_dereference.5] line 53 dereference failure: pointer outside object bounds in f->v_last: SUCCESS
+[fdir_features_step.pointer_dereference.6] line 53 dereference failure: invalid integer address in f->v_last: SUCCESS
+[fdir_features_step.pointer_dereference.7] line 54 dereference failure: pointer NULL in f->soc_last: SUCCESS
+[fdir_features_step.pointer_dereference.8] line 54 dereference failure: pointer invalid in f->soc_last: SUCCESS
+[fdir_features_step.pointer_dereference.9] line 54 dereference failure: deallocated dynamic object in f->soc_last: SUCCESS
+[fdir_features_step.pointer_dereference.10] line 54 dereference failure: dead object in f->soc_last: SUCCESS
+[fdir_features_step.pointer_dereference.11] line 54 dereference failure: pointer outside object bounds in f->soc_last: SUCCESS
+[fdir_features_step.pointer_dereference.12] line 54 dereference failure: invalid integer address in f->soc_last: SUCCESS
+[fdir_features_step.pointer_dereference.13] line 55 dereference failure: pointer NULL in f->isa_last: SUCCESS
+[fdir_features_step.pointer_dereference.14] line 55 dereference failure: pointer invalid in f->isa_last: SUCCESS
+[fdir_features_step.pointer_dereference.15] line 55 dereference failure: deallocated dynamic object in f->isa_last: SUCCESS
+[fdir_features_step.pointer_dereference.16] line 55 dereference failure: dead object in f->isa_last: SUCCESS
+[fdir_features_step.pointer_dereference.17] line 55 dereference failure: pointer outside object bounds in f->isa_last: SUCCESS
+[fdir_features_step.pointer_dereference.18] line 55 dereference failure: invalid integer address in f->isa_last: SUCCESS
+[fdir_features_step.pointer_dereference.19] line 56 dereference failure: pointer NULL in f->v_last: SUCCESS
+[fdir_features_step.pointer_dereference.20] line 56 dereference failure: pointer invalid in f->v_last: SUCCESS
+[fdir_features_step.pointer_dereference.21] line 56 dereference failure: deallocated dynamic object in f->v_last: SUCCESS
+[fdir_features_step.pointer_dereference.22] line 56 dereference failure: dead object in f->v_last: SUCCESS
+[fdir_features_step.pointer_dereference.23] line 56 dereference failure: pointer outside object bounds in f->v_last: SUCCESS
+[fdir_features_step.pointer_dereference.24] line 56 dereference failure: invalid integer address in f->v_last: SUCCESS
+[fdir_features_step.pointer_dereference.25] line 57 dereference failure: pointer NULL in f->soc_last: SUCCESS
+[fdir_features_step.pointer_dereference.26] line 57 dereference failure: pointer invalid in f->soc_last: SUCCESS
+[fdir_features_step.pointer_dereference.27] line 57 dereference failure: deallocated dynamic object in f->soc_last: SUCCESS
+[fdir_features_step.pointer_dereference.28] line 57 dereference failure: dead object in f->soc_last: SUCCESS
+[fdir_features_step.pointer_dereference.29] line 57 dereference failure: pointer outside object bounds in f->soc_last: SUCCESS
+[fdir_features_step.pointer_dereference.30] line 57 dereference failure: invalid integer address in f->soc_last: SUCCESS
+[fdir_features_step.pointer_dereference.31] line 58 dereference failure: pointer NULL in f->isa_last: SUCCESS
+[fdir_features_step.pointer_dereference.32] line 58 dereference failure: pointer invalid in f->isa_last: SUCCESS
+[fdir_features_step.pointer_dereference.33] line 58 dereference failure: deallocated dynamic object in f->isa_last: SUCCESS
+[fdir_features_step.pointer_dereference.34] line 58 dereference failure: dead object in f->isa_last: SUCCESS
+[fdir_features_step.pointer_dereference.35] line 58 dereference failure: pointer outside object bounds in f->isa_last: SUCCESS
+[fdir_features_step.pointer_dereference.36] line 58 dereference failure: invalid integer address in f->isa_last: SUCCESS
+[fdir_features_step.pointer_dereference.37] line 61 dereference failure: pointer NULL in f->v_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.38] line 61 dereference failure: pointer invalid in f->v_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.39] line 61 dereference failure: deallocated dynamic object in f->v_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.40] line 61 dereference failure: dead object in f->v_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.41] line 61 dereference failure: pointer outside object bounds in f->v_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.42] line 61 dereference failure: invalid integer address in f->v_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.43] line 64 dereference failure: pointer NULL in f->v_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.44] line 64 dereference failure: pointer invalid in f->v_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.45] line 64 dereference failure: deallocated dynamic object in f->v_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.46] line 64 dereference failure: dead object in f->v_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.47] line 64 dereference failure: pointer outside object bounds in f->v_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.48] line 64 dereference failure: invalid integer address in f->v_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.49] line 64 dereference failure: pointer NULL in f->v_idx: SUCCESS
+[fdir_features_step.pointer_dereference.50] line 64 dereference failure: pointer invalid in f->v_idx: SUCCESS
+[fdir_features_step.pointer_dereference.51] line 64 dereference failure: deallocated dynamic object in f->v_idx: SUCCESS
+[fdir_features_step.pointer_dereference.52] line 64 dereference failure: dead object in f->v_idx: SUCCESS
+[fdir_features_step.pointer_dereference.53] line 64 dereference failure: pointer outside object bounds in f->v_idx: SUCCESS
+[fdir_features_step.pointer_dereference.54] line 64 dereference failure: invalid integer address in f->v_idx: SUCCESS
+[fdir_features_step.NaN.1] line 65 NaN on - in vs - f->v_ring[(signed long int)oldest]: SUCCESS
+[fdir_features_step.array_bounds.1] line 65 array.v_ring dynamic object upper bound in f->v_ring[(signed long int)oldest]: SUCCESS
+[fdir_features_step.overflow.1] line 65 arithmetic overflow on floating-point subtraction in vs - f->v_ring[(signed long int)oldest]: SUCCESS
+[fdir_features_step.pointer_dereference.55] line 65 dereference failure: pointer NULL in f->v_ring: SUCCESS
+[fdir_features_step.pointer_dereference.56] line 65 dereference failure: pointer invalid in f->v_ring: SUCCESS
+[fdir_features_step.pointer_dereference.57] line 65 dereference failure: deallocated dynamic object in f->v_ring: SUCCESS
+[fdir_features_step.pointer_dereference.58] line 65 dereference failure: dead object in f->v_ring: SUCCESS
+[fdir_features_step.pointer_dereference.59] line 65 dereference failure: pointer outside object bounds in f->v_ring: SUCCESS
+[fdir_features_step.pointer_dereference.60] line 65 dereference failure: invalid integer address in f->v_ring: SUCCESS
+[fdir_features_step.array_bounds.2] line 67 array.v_ring dynamic object upper bound in f->v_ring[(signed long int)f->v_idx]: SUCCESS
+[fdir_features_step.pointer_dereference.61] line 67 dereference failure: pointer NULL in f->v_ring: SUCCESS
+[fdir_features_step.pointer_dereference.62] line 67 dereference failure: pointer invalid in f->v_ring: SUCCESS
+[fdir_features_step.pointer_dereference.63] line 67 dereference failure: deallocated dynamic object in f->v_ring: SUCCESS
+[fdir_features_step.pointer_dereference.64] line 67 dereference failure: dead object in f->v_ring: SUCCESS
+[fdir_features_step.pointer_dereference.65] line 67 dereference failure: pointer outside object bounds in f->v_ring: SUCCESS
+[fdir_features_step.pointer_dereference.66] line 67 dereference failure: invalid integer address in f->v_ring: SUCCESS
+[fdir_features_step.pointer_dereference.67] line 67 dereference failure: pointer NULL in f->v_idx: SUCCESS
+[fdir_features_step.pointer_dereference.68] line 67 dereference failure: pointer invalid in f->v_idx: SUCCESS
+[fdir_features_step.pointer_dereference.69] line 67 dereference failure: deallocated dynamic object in f->v_idx: SUCCESS
+[fdir_features_step.pointer_dereference.70] line 67 dereference failure: dead object in f->v_idx: SUCCESS
+[fdir_features_step.pointer_dereference.71] line 67 dereference failure: pointer outside object bounds in f->v_idx: SUCCESS
+[fdir_features_step.pointer_dereference.72] line 67 dereference failure: invalid integer address in f->v_idx: SUCCESS
+[fdir_features_step.overflow.2] line 68 arithmetic overflow on unsigned + in f->v_idx + 1u: SUCCESS
+[fdir_features_step.pointer_dereference.73] line 68 dereference failure: pointer NULL in f->v_idx: SUCCESS
+[fdir_features_step.pointer_dereference.74] line 68 dereference failure: pointer invalid in f->v_idx: SUCCESS
+[fdir_features_step.pointer_dereference.75] line 68 dereference failure: deallocated dynamic object in f->v_idx: SUCCESS
+[fdir_features_step.pointer_dereference.76] line 68 dereference failure: dead object in f->v_idx: SUCCESS
+[fdir_features_step.pointer_dereference.77] line 68 dereference failure: pointer outside object bounds in f->v_idx: SUCCESS
+[fdir_features_step.pointer_dereference.78] line 68 dereference failure: invalid integer address in f->v_idx: SUCCESS
+[fdir_features_step.pointer_dereference.79] line 69 dereference failure: pointer NULL in f->v_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.80] line 69 dereference failure: pointer invalid in f->v_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.81] line 69 dereference failure: deallocated dynamic object in f->v_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.82] line 69 dereference failure: dead object in f->v_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.83] line 69 dereference failure: pointer outside object bounds in f->v_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.84] line 69 dereference failure: invalid integer address in f->v_cnt: SUCCESS
+[fdir_features_step.overflow.3] line 70 arithmetic overflow on unsigned + in f->v_cnt + 1u: SUCCESS
+[fdir_features_step.pointer_dereference.85] line 75 dereference failure: pointer NULL in f->was_sun: SUCCESS
+[fdir_features_step.pointer_dereference.86] line 75 dereference failure: pointer invalid in f->was_sun: SUCCESS
+[fdir_features_step.pointer_dereference.87] line 75 dereference failure: deallocated dynamic object in f->was_sun: SUCCESS
+[fdir_features_step.pointer_dereference.88] line 75 dereference failure: dead object in f->was_sun: SUCCESS
+[fdir_features_step.pointer_dereference.89] line 75 dereference failure: pointer outside object bounds in f->was_sun: SUCCESS
+[fdir_features_step.pointer_dereference.90] line 75 dereference failure: invalid integer address in f->was_sun: SUCCESS
+[fdir_features_step.pointer_dereference.91] line 76 dereference failure: pointer NULL in f->sun_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.92] line 76 dereference failure: pointer invalid in f->sun_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.93] line 76 dereference failure: deallocated dynamic object in f->sun_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.94] line 76 dereference failure: dead object in f->sun_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.95] line 76 dereference failure: pointer outside object bounds in f->sun_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.96] line 76 dereference failure: invalid integer address in f->sun_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.97] line 78 dereference failure: pointer NULL in f->sun_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.98] line 78 dereference failure: pointer invalid in f->sun_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.99] line 78 dereference failure: deallocated dynamic object in f->sun_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.100] line 78 dereference failure: dead object in f->sun_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.101] line 78 dereference failure: pointer outside object bounds in f->sun_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.102] line 78 dereference failure: invalid integer address in f->sun_cnt: SUCCESS
+[fdir_features_step.overflow.4] line 79 arithmetic overflow on unsigned + in f->sun_cnt + 1u: SUCCESS
+[fdir_features_step.pointer_dereference.103] line 79 dereference failure: pointer NULL in f->sun_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.104] line 79 dereference failure: pointer invalid in f->sun_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.105] line 79 dereference failure: deallocated dynamic object in f->sun_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.106] line 79 dereference failure: dead object in f->sun_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.107] line 79 dereference failure: pointer outside object bounds in f->sun_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.108] line 79 dereference failure: invalid integer address in f->sun_cnt: SUCCESS
+[fdir_features_step.NaN.2] line 80 NaN on - in ia - f->sun_mean: SUCCESS
+[fdir_features_step.NaN.3] line 80 NaN on / in (ia - f->sun_mean) / (float)f->sun_cnt: SUCCESS
+[fdir_features_step.NaN.4] line 80 NaN on + in f->sun_mean + (ia - f->sun_mean) / (float)f->sun_cnt: SUCCESS
+[fdir_features_step.division-by-zero.1] line 80 division by zero in (ia - f->sun_mean) / (float)f->sun_cnt: SUCCESS
+[fdir_features_step.overflow.5] line 80 arithmetic overflow on floating-point subtraction in ia - f->sun_mean: SUCCESS
+[fdir_features_step.overflow.6] line 80 arithmetic overflow on floating-point division in (ia - f->sun_mean) / (float)f->sun_cnt: SUCCESS
+[fdir_features_step.overflow.7] line 80 arithmetic overflow on floating-point addition in f->sun_mean + (ia - f->sun_mean) / (float)f->sun_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.109] line 80 dereference failure: pointer NULL in f->sun_mean: SUCCESS
+[fdir_features_step.pointer_dereference.110] line 80 dereference failure: pointer invalid in f->sun_mean: SUCCESS
+[fdir_features_step.pointer_dereference.111] line 80 dereference failure: deallocated dynamic object in f->sun_mean: SUCCESS
+[fdir_features_step.pointer_dereference.112] line 80 dereference failure: dead object in f->sun_mean: SUCCESS
+[fdir_features_step.pointer_dereference.113] line 80 dereference failure: pointer outside object bounds in f->sun_mean: SUCCESS
+[fdir_features_step.pointer_dereference.114] line 80 dereference failure: invalid integer address in f->sun_mean: SUCCESS
+[fdir_features_step.pointer_dereference.115] line 80 dereference failure: pointer NULL in f->sun_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.116] line 80 dereference failure: pointer invalid in f->sun_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.117] line 80 dereference failure: deallocated dynamic object in f->sun_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.118] line 80 dereference failure: dead object in f->sun_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.119] line 80 dereference failure: pointer outside object bounds in f->sun_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.120] line 80 dereference failure: invalid integer address in f->sun_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.121] line 80 dereference failure: pointer NULL in f->sun_mean: SUCCESS
+[fdir_features_step.pointer_dereference.122] line 80 dereference failure: pointer invalid in f->sun_mean: SUCCESS
+[fdir_features_step.pointer_dereference.123] line 80 dereference failure: deallocated dynamic object in f->sun_mean: SUCCESS
+[fdir_features_step.pointer_dereference.124] line 80 dereference failure: dead object in f->sun_mean: SUCCESS
+[fdir_features_step.pointer_dereference.125] line 80 dereference failure: pointer outside object bounds in f->sun_mean: SUCCESS
+[fdir_features_step.pointer_dereference.126] line 80 dereference failure: invalid integer address in f->sun_mean: SUCCESS
+[fdir_features_step.pointer_dereference.127] line 82 dereference failure: pointer NULL in f->was_sun: SUCCESS
+[fdir_features_step.pointer_dereference.128] line 82 dereference failure: pointer invalid in f->was_sun: SUCCESS
+[fdir_features_step.pointer_dereference.129] line 82 dereference failure: deallocated dynamic object in f->was_sun: SUCCESS
+[fdir_features_step.pointer_dereference.130] line 82 dereference failure: dead object in f->was_sun: SUCCESS
+[fdir_features_step.pointer_dereference.131] line 82 dereference failure: pointer outside object bounds in f->was_sun: SUCCESS
+[fdir_features_step.pointer_dereference.132] line 82 dereference failure: invalid integer address in f->was_sun: SUCCESS
+[fdir_features_step.pointer_dereference.133] line 85 dereference failure: pointer NULL in f->soc_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.134] line 85 dereference failure: pointer invalid in f->soc_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.135] line 85 dereference failure: deallocated dynamic object in f->soc_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.136] line 85 dereference failure: dead object in f->soc_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.137] line 85 dereference failure: pointer outside object bounds in f->soc_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.138] line 85 dereference failure: invalid integer address in f->soc_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.139] line 88 dereference failure: pointer NULL in f->soc_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.140] line 88 dereference failure: pointer invalid in f->soc_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.141] line 88 dereference failure: deallocated dynamic object in f->soc_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.142] line 88 dereference failure: dead object in f->soc_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.143] line 88 dereference failure: pointer outside object bounds in f->soc_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.144] line 88 dereference failure: invalid integer address in f->soc_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.145] line 88 dereference failure: pointer NULL in f->soc_idx: SUCCESS
+[fdir_features_step.pointer_dereference.146] line 88 dereference failure: pointer invalid in f->soc_idx: SUCCESS
+[fdir_features_step.pointer_dereference.147] line 88 dereference failure: deallocated dynamic object in f->soc_idx: SUCCESS
+[fdir_features_step.pointer_dereference.148] line 88 dereference failure: dead object in f->soc_idx: SUCCESS
+[fdir_features_step.pointer_dereference.149] line 88 dereference failure: pointer outside object bounds in f->soc_idx: SUCCESS
+[fdir_features_step.pointer_dereference.150] line 88 dereference failure: invalid integer address in f->soc_idx: SUCCESS
+[fdir_features_step.NaN.5] line 89 NaN on - in ss - f->soc_ring[(signed long int)oldest]: SUCCESS
+[fdir_features_step.array_bounds.3] line 89 array.soc_ring dynamic object upper bound in f->soc_ring[(signed long int)oldest]: SUCCESS
+[fdir_features_step.overflow.8] line 89 arithmetic overflow on floating-point subtraction in ss - f->soc_ring[(signed long int)oldest]: SUCCESS
+[fdir_features_step.pointer_dereference.151] line 89 dereference failure: pointer NULL in f->soc_ring: SUCCESS
+[fdir_features_step.pointer_dereference.152] line 89 dereference failure: pointer invalid in f->soc_ring: SUCCESS
+[fdir_features_step.pointer_dereference.153] line 89 dereference failure: deallocated dynamic object in f->soc_ring: SUCCESS
+[fdir_features_step.pointer_dereference.154] line 89 dereference failure: dead object in f->soc_ring: SUCCESS
+[fdir_features_step.pointer_dereference.155] line 89 dereference failure: pointer outside object bounds in f->soc_ring: SUCCESS
+[fdir_features_step.pointer_dereference.156] line 89 dereference failure: invalid integer address in f->soc_ring: SUCCESS
+[fdir_features_step.pointer_dereference.157] line 91 dereference failure: pointer NULL in f->tick: SUCCESS
+[fdir_features_step.pointer_dereference.158] line 91 dereference failure: pointer invalid in f->tick: SUCCESS
+[fdir_features_step.pointer_dereference.159] line 91 dereference failure: deallocated dynamic object in f->tick: SUCCESS
+[fdir_features_step.pointer_dereference.160] line 91 dereference failure: dead object in f->tick: SUCCESS
+[fdir_features_step.pointer_dereference.161] line 91 dereference failure: pointer outside object bounds in f->tick: SUCCESS
+[fdir_features_step.pointer_dereference.162] line 91 dereference failure: invalid integer address in f->tick: SUCCESS
+[fdir_features_step.array_bounds.4] line 92 array.soc_ring dynamic object upper bound in f->soc_ring[(signed long int)f->soc_idx]: SUCCESS
+[fdir_features_step.pointer_dereference.163] line 92 dereference failure: pointer NULL in f->soc_ring: SUCCESS
+[fdir_features_step.pointer_dereference.164] line 92 dereference failure: pointer invalid in f->soc_ring: SUCCESS
+[fdir_features_step.pointer_dereference.165] line 92 dereference failure: deallocated dynamic object in f->soc_ring: SUCCESS
+[fdir_features_step.pointer_dereference.166] line 92 dereference failure: dead object in f->soc_ring: SUCCESS
+[fdir_features_step.pointer_dereference.167] line 92 dereference failure: pointer outside object bounds in f->soc_ring: SUCCESS
+[fdir_features_step.pointer_dereference.168] line 92 dereference failure: invalid integer address in f->soc_ring: SUCCESS
+[fdir_features_step.pointer_dereference.169] line 92 dereference failure: pointer NULL in f->soc_idx: SUCCESS
+[fdir_features_step.pointer_dereference.170] line 92 dereference failure: pointer invalid in f->soc_idx: SUCCESS
+[fdir_features_step.pointer_dereference.171] line 92 dereference failure: deallocated dynamic object in f->soc_idx: SUCCESS
+[fdir_features_step.pointer_dereference.172] line 92 dereference failure: dead object in f->soc_idx: SUCCESS
+[fdir_features_step.pointer_dereference.173] line 92 dereference failure: pointer outside object bounds in f->soc_idx: SUCCESS
+[fdir_features_step.pointer_dereference.174] line 92 dereference failure: invalid integer address in f->soc_idx: SUCCESS
+[fdir_features_step.overflow.9] line 93 arithmetic overflow on unsigned + in f->soc_idx + 1u: SUCCESS
+[fdir_features_step.pointer_dereference.175] line 93 dereference failure: pointer NULL in f->soc_idx: SUCCESS
+[fdir_features_step.pointer_dereference.176] line 93 dereference failure: pointer invalid in f->soc_idx: SUCCESS
+[fdir_features_step.pointer_dereference.177] line 93 dereference failure: deallocated dynamic object in f->soc_idx: SUCCESS
+[fdir_features_step.pointer_dereference.178] line 93 dereference failure: dead object in f->soc_idx: SUCCESS
+[fdir_features_step.pointer_dereference.179] line 93 dereference failure: pointer outside object bounds in f->soc_idx: SUCCESS
+[fdir_features_step.pointer_dereference.180] line 93 dereference failure: invalid integer address in f->soc_idx: SUCCESS
+[fdir_features_step.pointer_dereference.181] line 94 dereference failure: pointer NULL in f->soc_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.182] line 94 dereference failure: pointer invalid in f->soc_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.183] line 94 dereference failure: deallocated dynamic object in f->soc_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.184] line 94 dereference failure: dead object in f->soc_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.185] line 94 dereference failure: pointer outside object bounds in f->soc_cnt: SUCCESS
+[fdir_features_step.pointer_dereference.186] line 94 dereference failure: invalid integer address in f->soc_cnt: SUCCESS
+[fdir_features_step.overflow.10] line 95 arithmetic overflow on unsigned + in f->soc_cnt + 1u: SUCCESS
+[fdir_features_step.overflow.11] line 98 arithmetic overflow on unsigned + in f->tick + 1u: SUCCESS
+[fdir_features_step.pointer_dereference.187] line 98 dereference failure: pointer NULL in f->tick: SUCCESS
+[fdir_features_step.pointer_dereference.188] line 98 dereference failure: pointer invalid in f->tick: SUCCESS
+[fdir_features_step.pointer_dereference.189] line 98 dereference failure: deallocated dynamic object in f->tick: SUCCESS
+[fdir_features_step.pointer_dereference.190] line 98 dereference failure: dead object in f->tick: SUCCESS
+[fdir_features_step.pointer_dereference.191] line 98 dereference failure: pointer outside object bounds in f->tick: SUCCESS
+[fdir_features_step.pointer_dereference.192] line 98 dereference failure: invalid integer address in f->tick: SUCCESS
+[fdir_features_step.pointer_dereference.193] line 100 dereference failure: pointer NULL in out[(signed long int)0]: SUCCESS
+[fdir_features_step.pointer_dereference.194] line 100 dereference failure: pointer invalid in out[(signed long int)0]: SUCCESS
+[fdir_features_step.pointer_dereference.195] line 100 dereference failure: deallocated dynamic object in out[(signed long int)0]: SUCCESS
+[fdir_features_step.pointer_dereference.196] line 100 dereference failure: dead object in out[(signed long int)0]: SUCCESS
+[fdir_features_step.pointer_dereference.197] line 100 dereference failure: pointer outside object bounds in out[(signed long int)0]: SUCCESS
+[fdir_features_step.pointer_dereference.198] line 100 dereference failure: invalid integer address in out[(signed long int)0]: SUCCESS
+[fdir_features_step.pointer_dereference.199] line 101 dereference failure: pointer NULL in out[(signed long int)1]: SUCCESS
+[fdir_features_step.pointer_dereference.200] line 101 dereference failure: pointer invalid in out[(signed long int)1]: SUCCESS
+[fdir_features_step.pointer_dereference.201] line 101 dereference failure: deallocated dynamic object in out[(signed long int)1]: SUCCESS
+[fdir_features_step.pointer_dereference.202] line 101 dereference failure: dead object in out[(signed long int)1]: SUCCESS
+[fdir_features_step.pointer_dereference.203] line 101 dereference failure: pointer outside object bounds in out[(signed long int)1]: SUCCESS
+[fdir_features_step.pointer_dereference.204] line 101 dereference failure: invalid integer address in out[(signed long int)1]: SUCCESS
+[fdir_features_step.pointer_dereference.205] line 101 dereference failure: pointer NULL in f->sun_mean: SUCCESS
+[fdir_features_step.pointer_dereference.206] line 101 dereference failure: pointer invalid in f->sun_mean: SUCCESS
+[fdir_features_step.pointer_dereference.207] line 101 dereference failure: deallocated dynamic object in f->sun_mean: SUCCESS
+[fdir_features_step.pointer_dereference.208] line 101 dereference failure: dead object in f->sun_mean: SUCCESS
+[fdir_features_step.pointer_dereference.209] line 101 dereference failure: pointer outside object bounds in f->sun_mean: SUCCESS
+[fdir_features_step.pointer_dereference.210] line 101 dereference failure: invalid integer address in f->sun_mean: SUCCESS
+[fdir_features_step.pointer_dereference.211] line 102 dereference failure: pointer NULL in out[(signed long int)2]: SUCCESS
+[fdir_features_step.pointer_dereference.212] line 102 dereference failure: pointer invalid in out[(signed long int)2]: SUCCESS
+[fdir_features_step.pointer_dereference.213] line 102 dereference failure: deallocated dynamic object in out[(signed long int)2]: SUCCESS
+[fdir_features_step.pointer_dereference.214] line 102 dereference failure: dead object in out[(signed long int)2]: SUCCESS
+[fdir_features_step.pointer_dereference.215] line 102 dereference failure: pointer outside object bounds in out[(signed long int)2]: SUCCESS
+[fdir_features_step.pointer_dereference.216] line 102 dereference failure: invalid integer address in out[(signed long int)2]: SUCCESS
+
+/src/verify/cbmc/harness_features.c function inv
+[inv.pointer_dereference.1] line 28 dereference failure: pointer NULL in f->v_idx: SUCCESS
+[inv.pointer_dereference.2] line 28 dereference failure: pointer invalid in f->v_idx: SUCCESS
+[inv.pointer_dereference.3] line 28 dereference failure: deallocated dynamic object in f->v_idx: SUCCESS
+[inv.pointer_dereference.4] line 28 dereference failure: dead object in f->v_idx: SUCCESS
+[inv.pointer_dereference.5] line 28 dereference failure: pointer outside object bounds in f->v_idx: SUCCESS
+[inv.pointer_dereference.6] line 28 dereference failure: invalid integer address in f->v_idx: SUCCESS
+[inv.pointer_dereference.7] line 28 dereference failure: pointer NULL in f->v_cnt: SUCCESS
+[inv.pointer_dereference.8] line 28 dereference failure: pointer invalid in f->v_cnt: SUCCESS
+[inv.pointer_dereference.9] line 28 dereference failure: deallocated dynamic object in f->v_cnt: SUCCESS
+[inv.pointer_dereference.10] line 28 dereference failure: dead object in f->v_cnt: SUCCESS
+[inv.pointer_dereference.11] line 28 dereference failure: pointer outside object bounds in f->v_cnt: SUCCESS
+[inv.pointer_dereference.12] line 28 dereference failure: invalid integer address in f->v_cnt: SUCCESS
+[inv.pointer_dereference.13] line 29 dereference failure: pointer NULL in f->soc_idx: SUCCESS
+[inv.pointer_dereference.14] line 29 dereference failure: pointer invalid in f->soc_idx: SUCCESS
+[inv.pointer_dereference.15] line 29 dereference failure: deallocated dynamic object in f->soc_idx: SUCCESS
+[inv.pointer_dereference.16] line 29 dereference failure: dead object in f->soc_idx: SUCCESS
+[inv.pointer_dereference.17] line 29 dereference failure: pointer outside object bounds in f->soc_idx: SUCCESS
+[inv.pointer_dereference.18] line 29 dereference failure: invalid integer address in f->soc_idx: SUCCESS
+[inv.pointer_dereference.19] line 29 dereference failure: pointer NULL in f->soc_cnt: SUCCESS
+[inv.pointer_dereference.20] line 29 dereference failure: pointer invalid in f->soc_cnt: SUCCESS
+[inv.pointer_dereference.21] line 29 dereference failure: deallocated dynamic object in f->soc_cnt: SUCCESS
+[inv.pointer_dereference.22] line 29 dereference failure: dead object in f->soc_cnt: SUCCESS
+[inv.pointer_dereference.23] line 29 dereference failure: pointer outside object bounds in f->soc_cnt: SUCCESS
+[inv.pointer_dereference.24] line 29 dereference failure: invalid integer address in f->soc_cnt: SUCCESS
+[inv.pointer_dereference.25] line 30 dereference failure: pointer NULL in f->tick: SUCCESS
+[inv.pointer_dereference.26] line 30 dereference failure: pointer invalid in f->tick: SUCCESS
+[inv.pointer_dereference.27] line 30 dereference failure: deallocated dynamic object in f->tick: SUCCESS
+[inv.pointer_dereference.28] line 30 dereference failure: dead object in f->tick: SUCCESS
+[inv.pointer_dereference.29] line 30 dereference failure: pointer outside object bounds in f->tick: SUCCESS
+[inv.pointer_dereference.30] line 30 dereference failure: invalid integer address in f->tick: SUCCESS
+[inv.pointer_dereference.31] line 30 dereference failure: pointer NULL in f->sun_cnt: SUCCESS
+[inv.pointer_dereference.32] line 30 dereference failure: pointer invalid in f->sun_cnt: SUCCESS
+[inv.pointer_dereference.33] line 30 dereference failure: deallocated dynamic object in f->sun_cnt: SUCCESS
+[inv.pointer_dereference.34] line 30 dereference failure: dead object in f->sun_cnt: SUCCESS
+[inv.pointer_dereference.35] line 30 dereference failure: pointer outside object bounds in f->sun_cnt: SUCCESS
+[inv.pointer_dereference.36] line 30 dereference failure: invalid integer address in f->sun_cnt: SUCCESS
+[inv.pointer_dereference.37] line 31 dereference failure: pointer NULL in f->v_last: SUCCESS
+[inv.pointer_dereference.38] line 31 dereference failure: pointer invalid in f->v_last: SUCCESS
+[inv.pointer_dereference.39] line 31 dereference failure: deallocated dynamic object in f->v_last: SUCCESS
+[inv.pointer_dereference.40] line 31 dereference failure: dead object in f->v_last: SUCCESS
+[inv.pointer_dereference.41] line 31 dereference failure: pointer outside object bounds in f->v_last: SUCCESS
+[inv.pointer_dereference.42] line 31 dereference failure: invalid integer address in f->v_last: SUCCESS
+[inv.pointer_dereference.43] line 31 dereference failure: pointer NULL in f->v_last: SUCCESS
+[inv.pointer_dereference.44] line 31 dereference failure: pointer invalid in f->v_last: SUCCESS
+[inv.pointer_dereference.45] line 31 dereference failure: deallocated dynamic object in f->v_last: SUCCESS
+[inv.pointer_dereference.46] line 31 dereference failure: dead object in f->v_last: SUCCESS
+[inv.pointer_dereference.47] line 31 dereference failure: pointer outside object bounds in f->v_last: SUCCESS
+[inv.pointer_dereference.48] line 31 dereference failure: invalid integer address in f->v_last: SUCCESS
+[inv.pointer_dereference.49] line 31 dereference failure: pointer NULL in f->soc_last: SUCCESS
+[inv.pointer_dereference.50] line 31 dereference failure: pointer invalid in f->soc_last: SUCCESS
+[inv.pointer_dereference.51] line 31 dereference failure: deallocated dynamic object in f->soc_last: SUCCESS
+[inv.pointer_dereference.52] line 31 dereference failure: dead object in f->soc_last: SUCCESS
+[inv.pointer_dereference.53] line 31 dereference failure: pointer outside object bounds in f->soc_last: SUCCESS
+[inv.pointer_dereference.54] line 31 dereference failure: invalid integer address in f->soc_last: SUCCESS
+[inv.pointer_dereference.55] line 31 dereference failure: pointer NULL in f->soc_last: SUCCESS
+[inv.pointer_dereference.56] line 31 dereference failure: pointer invalid in f->soc_last: SUCCESS
+[inv.pointer_dereference.57] line 31 dereference failure: deallocated dynamic object in f->soc_last: SUCCESS
+[inv.pointer_dereference.58] line 31 dereference failure: dead object in f->soc_last: SUCCESS
+[inv.pointer_dereference.59] line 31 dereference failure: pointer outside object bounds in f->soc_last: SUCCESS
+[inv.pointer_dereference.60] line 31 dereference failure: invalid integer address in f->soc_last: SUCCESS
+[inv.pointer_dereference.61] line 31 dereference failure: pointer NULL in f->isa_last: SUCCESS
+[inv.pointer_dereference.62] line 31 dereference failure: pointer invalid in f->isa_last: SUCCESS
+[inv.pointer_dereference.63] line 31 dereference failure: deallocated dynamic object in f->isa_last: SUCCESS
+[inv.pointer_dereference.64] line 31 dereference failure: dead object in f->isa_last: SUCCESS
+[inv.pointer_dereference.65] line 31 dereference failure: pointer outside object bounds in f->isa_last: SUCCESS
+[inv.pointer_dereference.66] line 31 dereference failure: invalid integer address in f->isa_last: SUCCESS
+[inv.pointer_dereference.67] line 31 dereference failure: pointer NULL in f->isa_last: SUCCESS
+[inv.pointer_dereference.68] line 31 dereference failure: pointer invalid in f->isa_last: SUCCESS
+[inv.pointer_dereference.69] line 31 dereference failure: deallocated dynamic object in f->isa_last: SUCCESS
+[inv.pointer_dereference.70] line 31 dereference failure: dead object in f->isa_last: SUCCESS
+[inv.pointer_dereference.71] line 31 dereference failure: pointer outside object bounds in f->isa_last: SUCCESS
+[inv.pointer_dereference.72] line 31 dereference failure: invalid integer address in f->isa_last: SUCCESS
+[inv.pointer_dereference.73] line 32 dereference failure: pointer NULL in f->sun_mean: SUCCESS
+[inv.pointer_dereference.74] line 32 dereference failure: pointer invalid in f->sun_mean: SUCCESS
+[inv.pointer_dereference.75] line 32 dereference failure: deallocated dynamic object in f->sun_mean: SUCCESS
+[inv.pointer_dereference.76] line 32 dereference failure: dead object in f->sun_mean: SUCCESS
+[inv.pointer_dereference.77] line 32 dereference failure: pointer outside object bounds in f->sun_mean: SUCCESS
+[inv.pointer_dereference.78] line 32 dereference failure: invalid integer address in f->sun_mean: SUCCESS
+[inv.pointer_dereference.79] line 32 dereference failure: pointer NULL in f->sun_mean: SUCCESS
+[inv.pointer_dereference.80] line 32 dereference failure: pointer invalid in f->sun_mean: SUCCESS
+[inv.pointer_dereference.81] line 32 dereference failure: deallocated dynamic object in f->sun_mean: SUCCESS
+[inv.pointer_dereference.82] line 32 dereference failure: dead object in f->sun_mean: SUCCESS
+[inv.pointer_dereference.83] line 32 dereference failure: pointer outside object bounds in f->sun_mean: SUCCESS
+[inv.pointer_dereference.84] line 32 dereference failure: invalid integer address in f->sun_mean: SUCCESS
+[inv.pointer_dereference.85] line 32 dereference failure: pointer NULL in f->was_sun: SUCCESS
+[inv.pointer_dereference.86] line 32 dereference failure: pointer invalid in f->was_sun: SUCCESS
+[inv.pointer_dereference.87] line 32 dereference failure: deallocated dynamic object in f->was_sun: SUCCESS
+[inv.pointer_dereference.88] line 32 dereference failure: dead object in f->was_sun: SUCCESS
+[inv.pointer_dereference.89] line 32 dereference failure: pointer outside object bounds in f->was_sun: SUCCESS
+[inv.pointer_dereference.90] line 32 dereference failure: invalid integer address in f->was_sun: SUCCESS
+[inv.overflow.1] line 33 arithmetic overflow on unsigned + in k + 1u: SUCCESS
+[inv.array_bounds.1] line 34 array.v_ring dynamic object upper bound in f->v_ring[(signed long int)k]: SUCCESS
+[inv.array_bounds.2] line 34 array.v_ring dynamic object upper bound in f->v_ring[(signed long int)k]: SUCCESS
+[inv.pointer_dereference.91] line 34 dereference failure: pointer NULL in f->v_ring: SUCCESS
+[inv.pointer_dereference.92] line 34 dereference failure: pointer invalid in f->v_ring: SUCCESS
+[inv.pointer_dereference.93] line 34 dereference failure: deallocated dynamic object in f->v_ring: SUCCESS
+[inv.pointer_dereference.94] line 34 dereference failure: dead object in f->v_ring: SUCCESS
+[inv.pointer_dereference.95] line 34 dereference failure: pointer outside object bounds in f->v_ring: SUCCESS
+[inv.pointer_dereference.96] line 34 dereference failure: invalid integer address in f->v_ring: SUCCESS
+[inv.pointer_dereference.97] line 34 dereference failure: pointer NULL in f->v_ring: SUCCESS
+[inv.pointer_dereference.98] line 34 dereference failure: pointer invalid in f->v_ring: SUCCESS
+[inv.pointer_dereference.99] line 34 dereference failure: deallocated dynamic object in f->v_ring: SUCCESS
+[inv.pointer_dereference.100] line 34 dereference failure: dead object in f->v_ring: SUCCESS
+[inv.pointer_dereference.101] line 34 dereference failure: pointer outside object bounds in f->v_ring: SUCCESS
+[inv.pointer_dereference.102] line 34 dereference failure: invalid integer address in f->v_ring: SUCCESS
+[inv.overflow.2] line 36 arithmetic overflow on unsigned + in k + 1u: SUCCESS
+[inv.array_bounds.3] line 37 array.soc_ring dynamic object upper bound in f->soc_ring[(signed long int)k]: SUCCESS
+[inv.array_bounds.4] line 37 array.soc_ring dynamic object upper bound in f->soc_ring[(signed long int)k]: SUCCESS
+[inv.pointer_dereference.103] line 37 dereference failure: pointer NULL in f->soc_ring: SUCCESS
+[inv.pointer_dereference.104] line 37 dereference failure: pointer invalid in f->soc_ring: SUCCESS
+[inv.pointer_dereference.105] line 37 dereference failure: deallocated dynamic object in f->soc_ring: SUCCESS
+[inv.pointer_dereference.106] line 37 dereference failure: dead object in f->soc_ring: SUCCESS
+[inv.pointer_dereference.107] line 37 dereference failure: pointer outside object bounds in f->soc_ring: SUCCESS
+[inv.pointer_dereference.108] line 37 dereference failure: invalid integer address in f->soc_ring: SUCCESS
+[inv.pointer_dereference.109] line 37 dereference failure: pointer NULL in f->soc_ring: SUCCESS
+[inv.pointer_dereference.110] line 37 dereference failure: pointer invalid in f->soc_ring: SUCCESS
+[inv.pointer_dereference.111] line 37 dereference failure: deallocated dynamic object in f->soc_ring: SUCCESS
+[inv.pointer_dereference.112] line 37 dereference failure: dead object in f->soc_ring: SUCCESS
+[inv.pointer_dereference.113] line 37 dereference failure: pointer outside object bounds in f->soc_ring: SUCCESS
+[inv.pointer_dereference.114] line 37 dereference failure: invalid integer address in f->soc_ring: SUCCESS
+
+/src/verify/cbmc/harness_features.c function main
+[main.assertion.1] line 49 H3 init establishes the invariant: SUCCESS
+[main.overflow.1] line 51 arithmetic overflow on unsigned + in k + 1u: SUCCESS
+[main.array_bounds.1] line 52 array 'f'.v_ring upper bound in f.v_ring[(signed long int)k]: SUCCESS
+[main.overflow.2] line 54 arithmetic overflow on unsigned + in k + 1u: SUCCESS
+[main.array_bounds.2] line 55 array 'f'.soc_ring upper bound in f.soc_ring[(signed long int)k]: SUCCESS
+[main.assertion.2] line 73 H2 invariant holds after the step: SUCCESS
+[main.assertion.3] line 74 H4a dv60 finite, |dv| <= 4 V: SUCCESS
+[main.assertion.4] line 75 H4b i_sa_sun finite in [0, 2]: SUCCESS
+[main.assertion.5] line 76 H4c dsoc600 finite, |dsoc| <= 1.5: SUCCESS
+
+** 0 of 454 failed (1 iterations)
+VERIFICATION SUCCESSFUL

@@ -1,0 +1,314 @@
+CBMC version 5.95.1 (cbmc-5.95.1) 64-bit x86_64 linux
+Parsing /src/verify/cbmc/harness_sgo.c
+Parsing /src/firmware/src/fdir_sgo_v3.c
+Converting
+Type-checking fdir_sgo_v3
+Type-checking harness_sgo
+Generating GOTO Program
+Adding CPROVER library (x86_64)
+Removal of function pointers and virtual functions
+Generic Property Instrumentation
+Running with 8 object bits, 56 offset bits (default)
+Starting Bounded Model Checking
+Unwinding loop fdir_temp_vote3.0 iteration 1 file /src/firmware/src/fdir_sgo_v3.c line 58 function fdir_temp_vote3 thread 0
+Unwinding loop fdir_temp_vote3.0 iteration 2 file /src/firmware/src/fdir_sgo_v3.c line 58 function fdir_temp_vote3 thread 0
+Unwinding loop fdir_temp_vote3.0 iteration 3 file /src/firmware/src/fdir_sgo_v3.c line 58 function fdir_temp_vote3 thread 0
+Unwinding loop main.0 iteration 1 file /src/verify/cbmc/harness_sgo.c line 179 function main thread 0
+Unwinding loop main.0 iteration 2 file /src/verify/cbmc/harness_sgo.c line 179 function main thread 0
+Unwinding loop main.0 iteration 3 file /src/verify/cbmc/harness_sgo.c line 179 function main thread 0
+Unwinding loop main.1 iteration 1 file /src/verify/cbmc/harness_sgo.c line 183 function main thread 0
+Unwinding loop main.1 iteration 2 file /src/verify/cbmc/harness_sgo.c line 183 function main thread 0
+Unwinding loop main.2 iteration 1 file /src/verify/cbmc/harness_sgo.c line 182 function main thread 0
+Unwinding loop main.1 iteration 1 file /src/verify/cbmc/harness_sgo.c line 183 function main thread 0
+Unwinding loop main.2 iteration 2 file /src/verify/cbmc/harness_sgo.c line 182 function main thread 0
+Unwinding loop main.2 iteration 3 file /src/verify/cbmc/harness_sgo.c line 182 function main thread 0
+Runtime Symex: 0.0309011s
+size of program expression: 716 steps
+simple slicing removed 13 assignments
+Generated 366 VCC(s), 42 remaining after simplification
+Runtime Postprocess Equation: 7.2121e-05s
+Passing problem to propositional reduction
+converting SSA
+Runtime Convert SSA: 0.019632s
+Running propositional reduction
+Post-processing
+Runtime Post-process: 7.565e-06s
+Solving with MiniSAT 2.2.1 with simplifier
+17147 variables, 46487 clauses
+SAT checker: instance is UNSATISFIABLE
+Runtime Solver: 0.845029s
+Runtime decision procedure: 0.867768s
+
+** Results:
+/src/firmware/src/fdir_sgo_v3.c function apply_safe_default
+[apply_safe_default.pointer_dereference.1] line 103 dereference failure: pointer NULL in o->solar_reconfig_action: SUCCESS
+[apply_safe_default.pointer_dereference.2] line 103 dereference failure: pointer invalid in o->solar_reconfig_action: SUCCESS
+[apply_safe_default.pointer_dereference.3] line 103 dereference failure: deallocated dynamic object in o->solar_reconfig_action: SUCCESS
+[apply_safe_default.pointer_dereference.4] line 103 dereference failure: dead object in o->solar_reconfig_action: SUCCESS
+[apply_safe_default.pointer_dereference.5] line 103 dereference failure: pointer outside object bounds in o->solar_reconfig_action: SUCCESS
+[apply_safe_default.pointer_dereference.6] line 103 dereference failure: invalid integer address in o->solar_reconfig_action: SUCCESS
+[apply_safe_default.pointer_dereference.7] line 104 dereference failure: pointer NULL in o->battery_limit_action: SUCCESS
+[apply_safe_default.pointer_dereference.8] line 104 dereference failure: pointer invalid in o->battery_limit_action: SUCCESS
+[apply_safe_default.pointer_dereference.9] line 104 dereference failure: deallocated dynamic object in o->battery_limit_action: SUCCESS
+[apply_safe_default.pointer_dereference.10] line 104 dereference failure: dead object in o->battery_limit_action: SUCCESS
+[apply_safe_default.pointer_dereference.11] line 104 dereference failure: pointer outside object bounds in o->battery_limit_action: SUCCESS
+[apply_safe_default.pointer_dereference.12] line 104 dereference failure: invalid integer address in o->battery_limit_action: SUCCESS
+[apply_safe_default.pointer_dereference.13] line 105 dereference failure: pointer NULL in o->load_shed_action: SUCCESS
+[apply_safe_default.pointer_dereference.14] line 105 dereference failure: pointer invalid in o->load_shed_action: SUCCESS
+[apply_safe_default.pointer_dereference.15] line 105 dereference failure: deallocated dynamic object in o->load_shed_action: SUCCESS
+[apply_safe_default.pointer_dereference.16] line 105 dereference failure: dead object in o->load_shed_action: SUCCESS
+[apply_safe_default.pointer_dereference.17] line 105 dereference failure: pointer outside object bounds in o->load_shed_action: SUCCESS
+[apply_safe_default.pointer_dereference.18] line 105 dereference failure: invalid integer address in o->load_shed_action: SUCCESS
+
+/src/firmware/src/fdir_sgo_v3.c function fdir_temp_vote3
+[fdir_temp_vote3.overflow.2] line 58 arithmetic overflow on unsigned + in k + 1u: SUCCESS
+[fdir_temp_vote3.pointer_dereference.1] line 59 dereference failure: pointer NULL in t[(signed long int)k]: SUCCESS
+[fdir_temp_vote3.pointer_dereference.2] line 59 dereference failure: pointer invalid in t[(signed long int)k]: SUCCESS
+[fdir_temp_vote3.pointer_dereference.3] line 59 dereference failure: deallocated dynamic object in t[(signed long int)k]: SUCCESS
+[fdir_temp_vote3.pointer_dereference.4] line 59 dereference failure: dead object in t[(signed long int)k]: SUCCESS
+[fdir_temp_vote3.pointer_dereference.5] line 59 dereference failure: pointer outside object bounds in t[(signed long int)k]: SUCCESS
+[fdir_temp_vote3.pointer_dereference.6] line 59 dereference failure: invalid integer address in t[(signed long int)k]: SUCCESS
+[fdir_temp_vote3.array_bounds.1] line 60 array 'v' upper bound in v[(signed long int)tmp_post_n]: SUCCESS
+[fdir_temp_vote3.overflow.1] line 60 arithmetic overflow on unsigned + in n + 1u: SUCCESS
+[fdir_temp_vote3.pointer_dereference.7] line 60 dereference failure: pointer NULL in t[(signed long int)k]: SUCCESS
+[fdir_temp_vote3.pointer_dereference.8] line 60 dereference failure: pointer invalid in t[(signed long int)k]: SUCCESS
+[fdir_temp_vote3.pointer_dereference.9] line 60 dereference failure: deallocated dynamic object in t[(signed long int)k]: SUCCESS
+[fdir_temp_vote3.pointer_dereference.10] line 60 dereference failure: dead object in t[(signed long int)k]: SUCCESS
+[fdir_temp_vote3.pointer_dereference.11] line 60 dereference failure: pointer outside object bounds in t[(signed long int)k]: SUCCESS
+[fdir_temp_vote3.pointer_dereference.12] line 60 dereference failure: invalid integer address in t[(signed long int)k]: SUCCESS
+[fdir_temp_vote3.pointer_dereference.13] line 68 dereference failure: pointer NULL in *t_hi: SUCCESS
+[fdir_temp_vote3.pointer_dereference.14] line 68 dereference failure: pointer invalid in *t_hi: SUCCESS
+[fdir_temp_vote3.pointer_dereference.15] line 68 dereference failure: deallocated dynamic object in *t_hi: SUCCESS
+[fdir_temp_vote3.pointer_dereference.16] line 68 dereference failure: dead object in *t_hi: SUCCESS
+[fdir_temp_vote3.pointer_dereference.17] line 68 dereference failure: pointer outside object bounds in *t_hi: SUCCESS
+[fdir_temp_vote3.pointer_dereference.18] line 68 dereference failure: invalid integer address in *t_hi: SUCCESS
+[fdir_temp_vote3.pointer_dereference.19] line 69 dereference failure: pointer NULL in *t_lo: SUCCESS
+[fdir_temp_vote3.pointer_dereference.20] line 69 dereference failure: pointer invalid in *t_lo: SUCCESS
+[fdir_temp_vote3.pointer_dereference.21] line 69 dereference failure: deallocated dynamic object in *t_lo: SUCCESS
+[fdir_temp_vote3.pointer_dereference.22] line 69 dereference failure: dead object in *t_lo: SUCCESS
+[fdir_temp_vote3.pointer_dereference.23] line 69 dereference failure: pointer outside object bounds in *t_lo: SUCCESS
+[fdir_temp_vote3.pointer_dereference.24] line 69 dereference failure: invalid integer address in *t_lo: SUCCESS
+[fdir_temp_vote3.NaN.1] line 70 NaN on - in b - a: SUCCESS
+[fdir_temp_vote3.NaN.2] line 70 NaN on - in c - b: SUCCESS
+[fdir_temp_vote3.overflow.3] line 70 arithmetic overflow on floating-point subtraction in b - a: SUCCESS
+[fdir_temp_vote3.overflow.4] line 70 arithmetic overflow on floating-point subtraction in c - b: SUCCESS
+[fdir_temp_vote3.pointer_dereference.25] line 72 dereference failure: pointer NULL in *t_hi: SUCCESS
+[fdir_temp_vote3.pointer_dereference.26] line 72 dereference failure: pointer invalid in *t_hi: SUCCESS
+[fdir_temp_vote3.pointer_dereference.27] line 72 dereference failure: deallocated dynamic object in *t_hi: SUCCESS
+[fdir_temp_vote3.pointer_dereference.28] line 72 dereference failure: dead object in *t_hi: SUCCESS
+[fdir_temp_vote3.pointer_dereference.29] line 72 dereference failure: pointer outside object bounds in *t_hi: SUCCESS
+[fdir_temp_vote3.pointer_dereference.30] line 72 dereference failure: invalid integer address in *t_hi: SUCCESS
+[fdir_temp_vote3.pointer_dereference.31] line 73 dereference failure: pointer NULL in *t_lo: SUCCESS
+[fdir_temp_vote3.pointer_dereference.32] line 73 dereference failure: pointer invalid in *t_lo: SUCCESS
+[fdir_temp_vote3.pointer_dereference.33] line 73 dereference failure: deallocated dynamic object in *t_lo: SUCCESS
+[fdir_temp_vote3.pointer_dereference.34] line 73 dereference failure: dead object in *t_lo: SUCCESS
+[fdir_temp_vote3.pointer_dereference.35] line 73 dereference failure: pointer outside object bounds in *t_lo: SUCCESS
+[fdir_temp_vote3.pointer_dereference.36] line 73 dereference failure: invalid integer address in *t_lo: SUCCESS
+[fdir_temp_vote3.pointer_dereference.37] line 76 dereference failure: pointer NULL in *t_hi: SUCCESS
+[fdir_temp_vote3.pointer_dereference.38] line 76 dereference failure: pointer invalid in *t_hi: SUCCESS
+[fdir_temp_vote3.pointer_dereference.39] line 76 dereference failure: deallocated dynamic object in *t_hi: SUCCESS
+[fdir_temp_vote3.pointer_dereference.40] line 76 dereference failure: dead object in *t_hi: SUCCESS
+[fdir_temp_vote3.pointer_dereference.41] line 76 dereference failure: pointer outside object bounds in *t_hi: SUCCESS
+[fdir_temp_vote3.pointer_dereference.42] line 76 dereference failure: invalid integer address in *t_hi: SUCCESS
+[fdir_temp_vote3.pointer_dereference.43] line 77 dereference failure: pointer NULL in *t_lo: SUCCESS
+[fdir_temp_vote3.pointer_dereference.44] line 77 dereference failure: pointer invalid in *t_lo: SUCCESS
+[fdir_temp_vote3.pointer_dereference.45] line 77 dereference failure: deallocated dynamic object in *t_lo: SUCCESS
+[fdir_temp_vote3.pointer_dereference.46] line 77 dereference failure: dead object in *t_lo: SUCCESS
+[fdir_temp_vote3.pointer_dereference.47] line 77 dereference failure: pointer outside object bounds in *t_lo: SUCCESS
+[fdir_temp_vote3.pointer_dereference.48] line 77 dereference failure: invalid integer address in *t_lo: SUCCESS
+[fdir_temp_vote3.pointer_dereference.49] line 80 dereference failure: pointer NULL in *t_lo: SUCCESS
+[fdir_temp_vote3.pointer_dereference.50] line 80 dereference failure: pointer invalid in *t_lo: SUCCESS
+[fdir_temp_vote3.pointer_dereference.51] line 80 dereference failure: deallocated dynamic object in *t_lo: SUCCESS
+[fdir_temp_vote3.pointer_dereference.52] line 80 dereference failure: dead object in *t_lo: SUCCESS
+[fdir_temp_vote3.pointer_dereference.53] line 80 dereference failure: pointer outside object bounds in *t_lo: SUCCESS
+[fdir_temp_vote3.pointer_dereference.54] line 80 dereference failure: invalid integer address in *t_lo: SUCCESS
+
+/src/firmware/src/fdir_sgo_v3.c function process_fdir_with_sgo
+[process_fdir_with_sgo.pointer_dereference.1] line 112 dereference failure: pointer NULL in telemetry->system_temperature: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.2] line 112 dereference failure: pointer invalid in telemetry->system_temperature: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.3] line 112 dereference failure: deallocated dynamic object in telemetry->system_temperature: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.4] line 112 dereference failure: dead object in telemetry->system_temperature: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.5] line 112 dereference failure: pointer outside object bounds in telemetry->system_temperature: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.6] line 112 dereference failure: invalid integer address in telemetry->system_temperature: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.7] line 122 dereference failure: pointer NULL in telemetry->solar_voltage: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.8] line 122 dereference failure: pointer invalid in telemetry->solar_voltage: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.9] line 122 dereference failure: deallocated dynamic object in telemetry->solar_voltage: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.10] line 122 dereference failure: dead object in telemetry->solar_voltage: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.11] line 122 dereference failure: pointer outside object bounds in telemetry->solar_voltage: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.12] line 122 dereference failure: invalid integer address in telemetry->solar_voltage: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.13] line 122 dereference failure: pointer NULL in telemetry->battery_current: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.14] line 122 dereference failure: pointer invalid in telemetry->battery_current: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.15] line 122 dereference failure: deallocated dynamic object in telemetry->battery_current: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.16] line 122 dereference failure: dead object in telemetry->battery_current: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.17] line 122 dereference failure: pointer outside object bounds in telemetry->battery_current: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.18] line 122 dereference failure: invalid integer address in telemetry->battery_current: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.19] line 123 dereference failure: pointer NULL in telemetry->system_temperature: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.20] line 123 dereference failure: pointer invalid in telemetry->system_temperature: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.21] line 123 dereference failure: deallocated dynamic object in telemetry->system_temperature: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.22] line 123 dereference failure: dead object in telemetry->system_temperature: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.23] line 123 dereference failure: pointer outside object bounds in telemetry->system_temperature: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.24] line 123 dereference failure: invalid integer address in telemetry->system_temperature: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.25] line 123 dereference failure: pointer NULL in telemetry->battery_soc: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.26] line 123 dereference failure: pointer invalid in telemetry->battery_soc: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.27] line 123 dereference failure: deallocated dynamic object in telemetry->battery_soc: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.28] line 123 dereference failure: dead object in telemetry->battery_soc: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.29] line 123 dereference failure: pointer outside object bounds in telemetry->battery_soc: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.30] line 123 dereference failure: invalid integer address in telemetry->battery_soc: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.31] line 137 dereference failure: pointer NULL in telemetry->battery_soc: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.32] line 137 dereference failure: pointer invalid in telemetry->battery_soc: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.33] line 137 dereference failure: deallocated dynamic object in telemetry->battery_soc: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.34] line 137 dereference failure: dead object in telemetry->battery_soc: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.35] line 137 dereference failure: pointer outside object bounds in telemetry->battery_soc: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.36] line 137 dereference failure: invalid integer address in telemetry->battery_soc: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.37] line 138 dereference failure: pointer NULL in telemetry->solar_voltage: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.38] line 138 dereference failure: pointer invalid in telemetry->solar_voltage: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.39] line 138 dereference failure: deallocated dynamic object in telemetry->solar_voltage: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.40] line 138 dereference failure: dead object in telemetry->solar_voltage: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.41] line 138 dereference failure: pointer outside object bounds in telemetry->solar_voltage: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.42] line 138 dereference failure: invalid integer address in telemetry->solar_voltage: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.43] line 141 dereference failure: pointer NULL in telemetry->solar_voltage: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.44] line 141 dereference failure: pointer invalid in telemetry->solar_voltage: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.45] line 141 dereference failure: deallocated dynamic object in telemetry->solar_voltage: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.46] line 141 dereference failure: dead object in telemetry->solar_voltage: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.47] line 141 dereference failure: pointer outside object bounds in telemetry->solar_voltage: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.48] line 141 dereference failure: invalid integer address in telemetry->solar_voltage: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.49] line 144 dereference failure: pointer NULL in telemetry->battery_current: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.50] line 144 dereference failure: pointer invalid in telemetry->battery_current: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.51] line 144 dereference failure: deallocated dynamic object in telemetry->battery_current: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.52] line 144 dereference failure: dead object in telemetry->battery_current: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.53] line 144 dereference failure: pointer outside object bounds in telemetry->battery_current: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.54] line 144 dereference failure: invalid integer address in telemetry->battery_current: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.55] line 147 dereference failure: pointer NULL in telemetry->system_temperature: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.56] line 147 dereference failure: pointer invalid in telemetry->system_temperature: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.57] line 147 dereference failure: deallocated dynamic object in telemetry->system_temperature: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.58] line 147 dereference failure: dead object in telemetry->system_temperature: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.59] line 147 dereference failure: pointer outside object bounds in telemetry->system_temperature: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.60] line 147 dereference failure: invalid integer address in telemetry->system_temperature: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.61] line 180 dereference failure: pointer NULL in telemetry->solar_voltage: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.62] line 180 dereference failure: pointer invalid in telemetry->solar_voltage: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.63] line 180 dereference failure: deallocated dynamic object in telemetry->solar_voltage: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.64] line 180 dereference failure: dead object in telemetry->solar_voltage: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.65] line 180 dereference failure: pointer outside object bounds in telemetry->solar_voltage: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.66] line 180 dereference failure: invalid integer address in telemetry->solar_voltage: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.67] line 191 dereference failure: pointer NULL in telemetry->system_temperature: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.68] line 191 dereference failure: pointer invalid in telemetry->system_temperature: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.69] line 191 dereference failure: deallocated dynamic object in telemetry->system_temperature: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.70] line 191 dereference failure: dead object in telemetry->system_temperature: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.71] line 191 dereference failure: pointer outside object bounds in telemetry->system_temperature: SUCCESS
+[process_fdir_with_sgo.pointer_dereference.72] line 191 dereference failure: invalid integer address in telemetry->system_temperature: SUCCESS
+
+/src/firmware/src/fdir_sgo_v3.c function telemetry_plausible
+[telemetry_plausible.pointer_dereference.1] line 87 dereference failure: pointer NULL in t->solar_voltage: SUCCESS
+[telemetry_plausible.pointer_dereference.2] line 87 dereference failure: pointer invalid in t->solar_voltage: SUCCESS
+[telemetry_plausible.pointer_dereference.3] line 87 dereference failure: deallocated dynamic object in t->solar_voltage: SUCCESS
+[telemetry_plausible.pointer_dereference.4] line 87 dereference failure: dead object in t->solar_voltage: SUCCESS
+[telemetry_plausible.pointer_dereference.5] line 87 dereference failure: pointer outside object bounds in t->solar_voltage: SUCCESS
+[telemetry_plausible.pointer_dereference.6] line 87 dereference failure: invalid integer address in t->solar_voltage: SUCCESS
+[telemetry_plausible.pointer_dereference.7] line 88 dereference failure: pointer NULL in t->battery_current: SUCCESS
+[telemetry_plausible.pointer_dereference.8] line 88 dereference failure: pointer invalid in t->battery_current: SUCCESS
+[telemetry_plausible.pointer_dereference.9] line 88 dereference failure: deallocated dynamic object in t->battery_current: SUCCESS
+[telemetry_plausible.pointer_dereference.10] line 88 dereference failure: dead object in t->battery_current: SUCCESS
+[telemetry_plausible.pointer_dereference.11] line 88 dereference failure: pointer outside object bounds in t->battery_current: SUCCESS
+[telemetry_plausible.pointer_dereference.12] line 88 dereference failure: invalid integer address in t->battery_current: SUCCESS
+[telemetry_plausible.pointer_dereference.13] line 89 dereference failure: pointer NULL in t->system_temperature: SUCCESS
+[telemetry_plausible.pointer_dereference.14] line 89 dereference failure: pointer invalid in t->system_temperature: SUCCESS
+[telemetry_plausible.pointer_dereference.15] line 89 dereference failure: deallocated dynamic object in t->system_temperature: SUCCESS
+[telemetry_plausible.pointer_dereference.16] line 89 dereference failure: dead object in t->system_temperature: SUCCESS
+[telemetry_plausible.pointer_dereference.17] line 89 dereference failure: pointer outside object bounds in t->system_temperature: SUCCESS
+[telemetry_plausible.pointer_dereference.18] line 89 dereference failure: invalid integer address in t->system_temperature: SUCCESS
+[telemetry_plausible.pointer_dereference.19] line 90 dereference failure: pointer NULL in t->battery_soc: SUCCESS
+[telemetry_plausible.pointer_dereference.20] line 90 dereference failure: pointer invalid in t->battery_soc: SUCCESS
+[telemetry_plausible.pointer_dereference.21] line 90 dereference failure: deallocated dynamic object in t->battery_soc: SUCCESS
+[telemetry_plausible.pointer_dereference.22] line 90 dereference failure: dead object in t->battery_soc: SUCCESS
+[telemetry_plausible.pointer_dereference.23] line 90 dereference failure: pointer outside object bounds in t->battery_soc: SUCCESS
+[telemetry_plausible.pointer_dereference.24] line 90 dereference failure: invalid integer address in t->battery_soc: SUCCESS
+
+/src/firmware/src/fdir_sgo_v3.c function tree_output_valid
+[tree_output_valid.pointer_dereference.1] line 95 dereference failure: pointer NULL in r->solar_reconfig_action: SUCCESS
+[tree_output_valid.pointer_dereference.2] line 95 dereference failure: pointer invalid in r->solar_reconfig_action: SUCCESS
+[tree_output_valid.pointer_dereference.3] line 95 dereference failure: deallocated dynamic object in r->solar_reconfig_action: SUCCESS
+[tree_output_valid.pointer_dereference.4] line 95 dereference failure: dead object in r->solar_reconfig_action: SUCCESS
+[tree_output_valid.pointer_dereference.5] line 95 dereference failure: pointer outside object bounds in r->solar_reconfig_action: SUCCESS
+[tree_output_valid.pointer_dereference.6] line 95 dereference failure: invalid integer address in r->solar_reconfig_action: SUCCESS
+[tree_output_valid.pointer_dereference.7] line 96 dereference failure: pointer NULL in r->battery_limit_action: SUCCESS
+[tree_output_valid.pointer_dereference.8] line 96 dereference failure: pointer invalid in r->battery_limit_action: SUCCESS
+[tree_output_valid.pointer_dereference.9] line 96 dereference failure: deallocated dynamic object in r->battery_limit_action: SUCCESS
+[tree_output_valid.pointer_dereference.10] line 96 dereference failure: dead object in r->battery_limit_action: SUCCESS
+[tree_output_valid.pointer_dereference.11] line 96 dereference failure: pointer outside object bounds in r->battery_limit_action: SUCCESS
+[tree_output_valid.pointer_dereference.12] line 96 dereference failure: invalid integer address in r->battery_limit_action: SUCCESS
+[tree_output_valid.pointer_dereference.13] line 97 dereference failure: pointer NULL in r->load_shed_action: SUCCESS
+[tree_output_valid.pointer_dereference.14] line 97 dereference failure: pointer invalid in r->load_shed_action: SUCCESS
+[tree_output_valid.pointer_dereference.15] line 97 dereference failure: deallocated dynamic object in r->load_shed_action: SUCCESS
+[tree_output_valid.pointer_dereference.16] line 97 dereference failure: dead object in r->load_shed_action: SUCCESS
+[tree_output_valid.pointer_dereference.17] line 97 dereference failure: pointer outside object bounds in r->load_shed_action: SUCCESS
+[tree_output_valid.pointer_dereference.18] line 97 dereference failure: invalid integer address in r->load_shed_action: SUCCESS
+[tree_output_valid.pointer_dereference.19] line 98 dereference failure: pointer NULL in r->fault_flags: SUCCESS
+[tree_output_valid.pointer_dereference.20] line 98 dereference failure: pointer invalid in r->fault_flags: SUCCESS
+[tree_output_valid.pointer_dereference.21] line 98 dereference failure: deallocated dynamic object in r->fault_flags: SUCCESS
+[tree_output_valid.pointer_dereference.22] line 98 dereference failure: dead object in r->fault_flags: SUCCESS
+[tree_output_valid.pointer_dereference.23] line 98 dereference failure: pointer outside object bounds in r->fault_flags: SUCCESS
+[tree_output_valid.pointer_dereference.24] line 98 dereference failure: invalid integer address in r->fault_flags: SUCCESS
+
+/src/verify/cbmc/harness_sgo.c function main
+[main.assertion.1] line 104 P1a solar action in 0..3: SUCCESS
+[main.assertion.2] line 105 P1b battery action in 0..3: SUCCESS
+[main.assertion.3] line 106 P1c load action in 0..3: SUCCESS
+[main.assertion.4] line 110 P2 fault mask bits 0..6 only: SUCCESS
+[main.assertion.5] line 121 P9a implausible -> bit 4: SUCCESS
+[main.assertion.6] line 122 P9b implausible -> safe default (0,1,1): SUCCESS
+[main.assertion.7] line 130 P3a DD -> L=3: SUCCESS
+[main.assertion.8] line 131 P3b DD -> B>=1 (charge path kept): SUCCESS
+[main.assertion.9] line 132 P3c DD flagged: SUCCESS
+[main.assertion.10] line 136 P4 UV -> L>=1: SUCCESS
+[main.assertion.11] line 140 P5a OC -> B>=2: SUCCESS
+[main.assertion.12] line 141 P5b OC -> L>=1: SUCCESS
+[main.assertion.13] line 145 P6a OT -> S=2: SUCCESS
+[main.assertion.14] line 146 P6b OT -> L>=2: SUCCESS
+[main.assertion.15] line 153 P10a OV -> S=2: SUCCESS
+[main.assertion.16] line 154 P10b OV -> B>=2: SUCCESS
+[main.assertion.17] line 155 P10c OV flagged (bit 5): SUCCESS
+[main.assertion.18] line 159 P11d latch stays 0 or 1: SUCCESS
+[main.assertion.19] line 164 P11a outside window -> latch set: SUCCESS
+[main.assertion.20] line 165 P11a outside window -> B>=2: SUCCESS
+[main.assertion.21] line 166 P11a outside window flagged (bit 6): SUCCESS
+[main.assertion.22] line 169 P11b hysteresis band -> latch held: SUCCESS
+[main.assertion.23] line 170 P11b latch held -> B>=2: SUCCESS
+[main.assertion.24] line 173 P11c inside release band -> latch cleared: SUCCESS
+[main.overflow.2] line 179 arithmetic overflow on signed + in i + 1: SUCCESS
+[main.array_bounds.1] line 180 array 'tb' lower bound in tb[(signed long int)i]: SUCCESS
+[main.array_bounds.2] line 180 array 'tb' upper bound in tb[(signed long int)i]: SUCCESS
+[main.array_bounds.3] line 180 array 'tb' lower bound in tb[(signed long int)i]: SUCCESS
+[main.array_bounds.4] line 180 array 'tb' upper bound in tb[(signed long int)i]: SUCCESS
+[main.overflow.1] line 180 arithmetic overflow on signed + in nv + (signed int)(tb[(signed long int)i] >= -60.0f && tb[(signed long int)i] <= 150.0f): SUCCESS
+[main.overflow.5] line 182 arithmetic overflow on signed + in i + 1: SUCCESS
+[main.overflow.3] line 183 arithmetic overflow on signed + in i + 1: SUCCESS
+[main.overflow.4] line 183 arithmetic overflow on signed + in j + 1: SUCCESS
+[main.array_bounds.5] line 184 array 'tb' lower bound in tb[(signed long int)i]: SUCCESS
+[main.array_bounds.6] line 184 array 'tb' upper bound in tb[(signed long int)i]: SUCCESS
+[main.array_bounds.7] line 184 array 'tb' lower bound in tb[(signed long int)i]: SUCCESS
+[main.array_bounds.8] line 184 array 'tb' upper bound in tb[(signed long int)i]: SUCCESS
+[main.array_bounds.9] line 185 array 'tb' lower bound in tb[(signed long int)j]: SUCCESS
+[main.array_bounds.10] line 185 array 'tb' upper bound in tb[(signed long int)j]: SUCCESS
+[main.array_bounds.11] line 185 array 'tb' lower bound in tb[(signed long int)j]: SUCCESS
+[main.array_bounds.12] line 185 array 'tb' upper bound in tb[(signed long int)j]: SUCCESS
+[main.array_bounds.13] line 186 array 'tb' lower bound in tb[(signed long int)i]: SUCCESS
+[main.array_bounds.14] line 186 array 'tb' upper bound in tb[(signed long int)i]: SUCCESS
+[main.array_bounds.15] line 186 array 'tb' lower bound in tb[(signed long int)j]: SUCCESS
+[main.array_bounds.16] line 186 array 'tb' upper bound in tb[(signed long int)j]: SUCCESS
+[main.array_bounds.17] line 186 array 'tb' lower bound in tb[(signed long int)i]: SUCCESS
+[main.array_bounds.18] line 186 array 'tb' upper bound in tb[(signed long int)i]: SUCCESS
+[main.array_bounds.19] line 186 array 'tb' lower bound in tb[(signed long int)j]: SUCCESS
+[main.array_bounds.20] line 186 array 'tb' upper bound in tb[(signed long int)j]: SUCCESS
+[main.array_bounds.21] line 187 array 'tb' lower bound in tb[(signed long int)j]: SUCCESS
+[main.array_bounds.22] line 187 array 'tb' upper bound in tb[(signed long int)j]: SUCCESS
+[main.array_bounds.23] line 187 array 'tb' lower bound in tb[(signed long int)i]: SUCCESS
+[main.array_bounds.24] line 187 array 'tb' upper bound in tb[(signed long int)i]: SUCCESS
+[main.assertion.25] line 188 P11e vote bounded by any two valid sensors (one-fault tolerant): SUCCESS
+[main.assertion.26] line 193 P11f fewer than 2 valid sensors -> bit 4: SUCCESS
+[main.assertion.27] line 194 P11f fewer than 2 valid sensors -> safe default: SUCCESS
+[main.assertion.28] line 198 P11g three valid sensors -> single median value: SUCCESS
+[main.assertion.29] line 205 P7 non-finite input is flagged: SUCCESS
+[main.assertion.30] line 210 P8 SoC outside plausible band is flagged: SUCCESS
+
+** 0 of 258 failed (1 iterations)
+VERIFICATION SUCCESSFUL

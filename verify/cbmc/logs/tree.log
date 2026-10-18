@@ -16,78 +16,71 @@ Unwinding loop main.0 iteration 3 file /src/verify/cbmc/harness_tree.c line 21 f
 Unwinding loop main.0 iteration 4 file /src/verify/cbmc/harness_tree.c line 21 function main thread 0
 Unwinding loop main.0 iteration 5 file /src/verify/cbmc/harness_tree.c line 21 function main thread 0
 Unwinding loop main.0 iteration 6 file /src/verify/cbmc/harness_tree.c line 21 function main thread 0
-Unwinding loop fdir_tree_eval.0 iteration 1 file /src/firmware/src/fdir_tree.c line 3380 function fdir_tree_eval thread 0
-Unwinding loop fdir_tree_eval.0 iteration 2 file /src/firmware/src/fdir_tree.c line 3380 function fdir_tree_eval thread 0
-Unwinding loop fdir_tree_eval.0 iteration 3 file /src/firmware/src/fdir_tree.c line 3380 function fdir_tree_eval thread 0
-Unwinding loop fdir_tree_eval.0 iteration 4 file /src/firmware/src/fdir_tree.c line 3380 function fdir_tree_eval thread 0
-Unwinding loop fdir_tree_eval.0 iteration 5 file /src/firmware/src/fdir_tree.c line 3380 function fdir_tree_eval thread 0
-Unwinding loop fdir_tree_eval.0 iteration 6 file /src/firmware/src/fdir_tree.c line 3380 function fdir_tree_eval thread 0
-Unwinding loop fdir_tree_eval.0 iteration 7 file /src/firmware/src/fdir_tree.c line 3380 function fdir_tree_eval thread 0
-Unwinding loop fdir_tree_eval.0 iteration 8 file /src/firmware/src/fdir_tree.c line 3380 function fdir_tree_eval thread 0
-Unwinding loop fdir_tree_eval.0 iteration 9 file /src/firmware/src/fdir_tree.c line 3380 function fdir_tree_eval thread 0
-Unwinding loop fdir_tree_eval.0 iteration 10 file /src/firmware/src/fdir_tree.c line 3380 function fdir_tree_eval thread 0
-Unwinding loop fdir_tree_eval.0 iteration 11 file /src/firmware/src/fdir_tree.c line 3380 function fdir_tree_eval thread 0
-Unwinding loop fdir_tree_eval.0 iteration 12 file /src/firmware/src/fdir_tree.c line 3380 function fdir_tree_eval thread 0
-Runtime Symex: 3.07136s
-size of program expression: 309 steps
+Unwinding loop main.0 iteration 7 file /src/verify/cbmc/harness_tree.c line 21 function main thread 0
+Unwinding loop main.0 iteration 8 file /src/verify/cbmc/harness_tree.c line 21 function main thread 0
+Unwinding loop main.0 iteration 9 file /src/verify/cbmc/harness_tree.c line 21 function main thread 0
+Unwinding loop fdir_tree_eval.0 iteration 1 file /src/firmware/src/fdir_tree.c line 4070 function fdir_tree_eval thread 0
+Unwinding loop fdir_tree_eval.0 iteration 2 file /src/firmware/src/fdir_tree.c line 4070 function fdir_tree_eval thread 0
+Unwinding loop fdir_tree_eval.0 iteration 3 file /src/firmware/src/fdir_tree.c line 4070 function fdir_tree_eval thread 0
+Unwinding loop fdir_tree_eval.0 iteration 4 file /src/firmware/src/fdir_tree.c line 4070 function fdir_tree_eval thread 0
+Unwinding loop fdir_tree_eval.0 iteration 5 file /src/firmware/src/fdir_tree.c line 4070 function fdir_tree_eval thread 0
+Unwinding loop fdir_tree_eval.0 iteration 6 file /src/firmware/src/fdir_tree.c line 4070 function fdir_tree_eval thread 0
+Unwinding loop fdir_tree_eval.0 iteration 7 file /src/firmware/src/fdir_tree.c line 4070 function fdir_tree_eval thread 0
+Unwinding loop fdir_tree_eval.0 iteration 8 file /src/firmware/src/fdir_tree.c line 4070 function fdir_tree_eval thread 0
+Unwinding loop fdir_tree_eval.0 iteration 9 file /src/firmware/src/fdir_tree.c line 4070 function fdir_tree_eval thread 0
+Unwinding loop fdir_tree_eval.0 iteration 10 file /src/firmware/src/fdir_tree.c line 4070 function fdir_tree_eval thread 0
+Unwinding loop fdir_tree_eval.0 iteration 11 file /src/firmware/src/fdir_tree.c line 4070 function fdir_tree_eval thread 0
+Unwinding loop fdir_tree_eval.0 iteration 12 file /src/firmware/src/fdir_tree.c line 4070 function fdir_tree_eval thread 0
+Unwinding loop fdir_tree_eval.0 iteration 13 file /src/firmware/src/fdir_tree.c line 4070 function fdir_tree_eval thread 0
+Runtime Symex: 1.46344s
+size of program expression: 610 steps
 simple slicing removed 9 assignments
-Generated 251 VCC(s), 130 remaining after simplification
-Runtime Postprocess Equation: 0.000152211s
+Generated 203 VCC(s), 75 remaining after simplification
+Runtime Postprocess Equation: 0.000153329s
 Passing problem to propositional reduction
 converting SSA
-Runtime Convert SSA: 2.87467s
+Runtime Convert SSA: 4.62167s
 Running propositional reduction
 Post-processing
-Runtime Post-process: 1.2303e-05s
+Runtime Post-process: 8.086e-06s
 Solving with MiniSAT 2.2.1 with simplifier
-385216 variables, 3664472 clauses
+546236 variables, 4814144 clauses
 SAT checker: instance is UNSATISFIABLE
-Runtime Solver: 346.619s
-Runtime decision procedure: 349.498s
+Runtime Solver: 580.304s
+Runtime decision procedure: 584.929s
 
 ** Results:
 /src/firmware/src/fdir_tree.c function fdir_tree_eval
-[fdir_tree_eval.array_bounds.1] line 3380 array 'left' lower bound in left[(signed long int)node]: SUCCESS
-[fdir_tree_eval.array_bounds.2] line 3380 array 'left' upper bound in left[(signed long int)node]: SUCCESS
-[fdir_tree_eval.overflow.1] line 3380 arithmetic overflow on signed + in d + 1: SUCCESS
-[fdir_tree_eval.array_bounds.3] line 3382 array 'feat' lower bound in feat[(signed long int)node]: SUCCESS
-[fdir_tree_eval.array_bounds.4] line 3382 array 'feat' upper bound in feat[(signed long int)node]: SUCCESS
-[fdir_tree_eval.array_bounds.5] line 3382 array 'thr' lower bound in thr[(signed long int)node]: SUCCESS
-[fdir_tree_eval.array_bounds.6] line 3382 array 'thr' upper bound in thr[(signed long int)node]: SUCCESS
-[fdir_tree_eval.array_bounds.7] line 3382 array 'left' lower bound in left[(signed long int)node]: SUCCESS
-[fdir_tree_eval.array_bounds.8] line 3382 array 'left' upper bound in left[(signed long int)node]: SUCCESS
-[fdir_tree_eval.array_bounds.9] line 3382 array 'right' lower bound in right[(signed long int)node]: SUCCESS
-[fdir_tree_eval.array_bounds.10] line 3382 array 'right' upper bound in right[(signed long int)node]: SUCCESS
-[fdir_tree_eval.pointer_dereference.1] line 3382 dereference failure: pointer NULL in in[(signed long int)feat[(signed long int)node]]: SUCCESS
-[fdir_tree_eval.pointer_dereference.2] line 3382 dereference failure: pointer invalid in in[(signed long int)feat[(signed long int)node]]: SUCCESS
-[fdir_tree_eval.pointer_dereference.3] line 3382 dereference failure: deallocated dynamic object in in[(signed long int)feat[(signed long int)node]]: SUCCESS
-[fdir_tree_eval.pointer_dereference.4] line 3382 dereference failure: dead object in in[(signed long int)feat[(signed long int)node]]: SUCCESS
-[fdir_tree_eval.pointer_dereference.5] line 3382 dereference failure: pointer outside object bounds in in[(signed long int)feat[(signed long int)node]]: SUCCESS
-[fdir_tree_eval.pointer_dereference.6] line 3382 dereference failure: invalid integer address in in[(signed long int)feat[(signed long int)node]]: SUCCESS
-[fdir_tree_eval.array_bounds.11] line 3384 array 'leaf' lower bound in leaf[(signed long int)node]: SUCCESS
-[fdir_tree_eval.array_bounds.12] line 3384 array 'leaf' upper bound in leaf[(signed long int)node]: SUCCESS
-[fdir_tree_eval.pointer_dereference.7] line 3384 dereference failure: pointer NULL in out[(signed long int)0]: SUCCESS
-[fdir_tree_eval.pointer_dereference.8] line 3384 dereference failure: pointer invalid in out[(signed long int)0]: SUCCESS
-[fdir_tree_eval.pointer_dereference.9] line 3384 dereference failure: deallocated dynamic object in out[(signed long int)0]: SUCCESS
-[fdir_tree_eval.pointer_dereference.10] line 3384 dereference failure: dead object in out[(signed long int)0]: SUCCESS
-[fdir_tree_eval.pointer_dereference.11] line 3384 dereference failure: pointer outside object bounds in out[(signed long int)0]: SUCCESS
-[fdir_tree_eval.pointer_dereference.12] line 3384 dereference failure: invalid integer address in out[(signed long int)0]: SUCCESS
-[fdir_tree_eval.array_bounds.13] line 3385 array 'leaf' lower bound in leaf[(signed long int)node]: SUCCESS
-[fdir_tree_eval.array_bounds.14] line 3385 array 'leaf' upper bound in leaf[(signed long int)node]: SUCCESS
-[fdir_tree_eval.pointer_dereference.13] line 3385 dereference failure: pointer NULL in out[(signed long int)1]: SUCCESS
-[fdir_tree_eval.pointer_dereference.14] line 3385 dereference failure: pointer invalid in out[(signed long int)1]: SUCCESS
-[fdir_tree_eval.pointer_dereference.15] line 3385 dereference failure: deallocated dynamic object in out[(signed long int)1]: SUCCESS
-[fdir_tree_eval.pointer_dereference.16] line 3385 dereference failure: dead object in out[(signed long int)1]: SUCCESS
-[fdir_tree_eval.pointer_dereference.17] line 3385 dereference failure: pointer outside object bounds in out[(signed long int)1]: SUCCESS
-[fdir_tree_eval.pointer_dereference.18] line 3385 dereference failure: invalid integer address in out[(signed long int)1]: SUCCESS
-[fdir_tree_eval.array_bounds.15] line 3386 array 'leaf' lower bound in leaf[(signed long int)node]: SUCCESS
-[fdir_tree_eval.array_bounds.16] line 3386 array 'leaf' upper bound in leaf[(signed long int)node]: SUCCESS
-[fdir_tree_eval.pointer_dereference.19] line 3386 dereference failure: pointer NULL in out[(signed long int)2]: SUCCESS
-[fdir_tree_eval.pointer_dereference.20] line 3386 dereference failure: pointer invalid in out[(signed long int)2]: SUCCESS
-[fdir_tree_eval.pointer_dereference.21] line 3386 dereference failure: deallocated dynamic object in out[(signed long int)2]: SUCCESS
-[fdir_tree_eval.pointer_dereference.22] line 3386 dereference failure: dead object in out[(signed long int)2]: SUCCESS
-[fdir_tree_eval.pointer_dereference.23] line 3386 dereference failure: pointer outside object bounds in out[(signed long int)2]: SUCCESS
-[fdir_tree_eval.pointer_dereference.24] line 3386 dereference failure: invalid integer address in out[(signed long int)2]: SUCCESS
+[fdir_tree_eval.overflow.1] line 4070 arithmetic overflow on signed + in d + 1: SUCCESS
+[fdir_tree_eval.array_bounds.1] line 4076 array 'left_rom' upper bound in left_rom[(signed long int)node]: SUCCESS
+[fdir_tree_eval.array_bounds.2] line 4078 array 'leaf_rom' upper bound in leaf_rom[(signed long int)node]: SUCCESS
+[fdir_tree_eval.array_bounds.3] line 4082 array 'feat_rom' upper bound in feat_rom[(signed long int)node]: SUCCESS
+[fdir_tree_eval.array_bounds.4] line 4086 array 'right_rom' upper bound in right_rom[(signed long int)node]: SUCCESS
+[fdir_tree_eval.array_bounds.5] line 4088 array 'thr_rom' upper bound in thr_rom[(signed long int)node]: SUCCESS
+[fdir_tree_eval.pointer_dereference.1] line 4088 dereference failure: pointer NULL in in[(signed long int)f]: SUCCESS
+[fdir_tree_eval.pointer_dereference.2] line 4088 dereference failure: pointer invalid in in[(signed long int)f]: SUCCESS
+[fdir_tree_eval.pointer_dereference.3] line 4088 dereference failure: deallocated dynamic object in in[(signed long int)f]: SUCCESS
+[fdir_tree_eval.pointer_dereference.4] line 4088 dereference failure: dead object in in[(signed long int)f]: SUCCESS
+[fdir_tree_eval.pointer_dereference.5] line 4088 dereference failure: pointer outside object bounds in in[(signed long int)f]: SUCCESS
+[fdir_tree_eval.pointer_dereference.6] line 4088 dereference failure: invalid integer address in in[(signed long int)f]: SUCCESS
+[fdir_tree_eval.pointer_dereference.7] line 4093 dereference failure: pointer NULL in out[(signed long int)0]: SUCCESS
+[fdir_tree_eval.pointer_dereference.8] line 4093 dereference failure: pointer invalid in out[(signed long int)0]: SUCCESS
+[fdir_tree_eval.pointer_dereference.9] line 4093 dereference failure: deallocated dynamic object in out[(signed long int)0]: SUCCESS
+[fdir_tree_eval.pointer_dereference.10] line 4093 dereference failure: dead object in out[(signed long int)0]: SUCCESS
+[fdir_tree_eval.pointer_dereference.11] line 4093 dereference failure: pointer outside object bounds in out[(signed long int)0]: SUCCESS
+[fdir_tree_eval.pointer_dereference.12] line 4093 dereference failure: invalid integer address in out[(signed long int)0]: SUCCESS
+[fdir_tree_eval.pointer_dereference.13] line 4094 dereference failure: pointer NULL in out[(signed long int)1]: SUCCESS
+[fdir_tree_eval.pointer_dereference.14] line 4094 dereference failure: pointer invalid in out[(signed long int)1]: SUCCESS
+[fdir_tree_eval.pointer_dereference.15] line 4094 dereference failure: deallocated dynamic object in out[(signed long int)1]: SUCCESS
+[fdir_tree_eval.pointer_dereference.16] line 4094 dereference failure: dead object in out[(signed long int)1]: SUCCESS
+[fdir_tree_eval.pointer_dereference.17] line 4094 dereference failure: pointer outside object bounds in out[(signed long int)1]: SUCCESS
+[fdir_tree_eval.pointer_dereference.18] line 4094 dereference failure: invalid integer address in out[(signed long int)1]: SUCCESS
+[fdir_tree_eval.pointer_dereference.19] line 4095 dereference failure: pointer NULL in out[(signed long int)2]: SUCCESS
+[fdir_tree_eval.pointer_dereference.20] line 4095 dereference failure: pointer invalid in out[(signed long int)2]: SUCCESS
+[fdir_tree_eval.pointer_dereference.21] line 4095 dereference failure: deallocated dynamic object in out[(signed long int)2]: SUCCESS
+[fdir_tree_eval.pointer_dereference.22] line 4095 dereference failure: dead object in out[(signed long int)2]: SUCCESS
+[fdir_tree_eval.pointer_dereference.23] line 4095 dereference failure: pointer outside object bounds in out[(signed long int)2]: SUCCESS
+[fdir_tree_eval.pointer_dereference.24] line 4095 dereference failure: invalid integer address in out[(signed long int)2]: SUCCESS
 
 /src/verify/cbmc/harness_tree.c function main
 [main.overflow.1] line 21 arithmetic overflow on signed + in k + 1: SUCCESS
@@ -97,5 +90,5 @@ Runtime decision procedure: 349.498s
 [main.assertion.2] line 26 T1b B in 0..3: SUCCESS
 [main.assertion.3] line 27 T1c L in 0..3: SUCCESS
 
-** 0 of 47 failed (1 iterations)
+** 0 of 36 failed (1 iterations)
 VERIFICATION SUCCESSFUL

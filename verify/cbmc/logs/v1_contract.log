@@ -10,29 +10,29 @@ Removal of function pointers and virtual functions
 Generic Property Instrumentation
 Running with 8 object bits, 56 offset bits (default)
 Starting Bounded Model Checking
-Runtime Symex: 0.0118949s
+Runtime Symex: 0.00878241s
 size of program expression: 198 steps
 simple slicing removed 7 assignments
 Generated 68 VCC(s), 14 remaining after simplification
-Runtime Postprocess Equation: 6.6401e-05s
+Runtime Postprocess Equation: 3.5118e-05s
 Passing problem to propositional reduction
 converting SSA
-Runtime Convert SSA: 0.00381261s
+Runtime Convert SSA: 0.00324141s
 Running propositional reduction
 Post-processing
-Runtime Post-process: 1.2123e-05s
+Runtime Post-process: 8.607e-06s
 Solving with MiniSAT 2.2.1 with simplifier
 2419 variables, 4319 clauses
 SAT checker: instance is SATISFIABLE
-Runtime Solver: 0.00739378s
-Runtime decision procedure: 0.0149641s
+Runtime Solver: 0.00808079s
+Runtime decision procedure: 0.014405s
 Building error trace
 Running propositional reduction
 Solving with MiniSAT 2.2.1 with simplifier
 2419 variables, 2725 clauses
 SAT checker: instance is UNSATISFIABLE
-Runtime Solver: 0.00141596s
-Runtime decision procedure: 0.00274416s
+Runtime Solver: 0.000990408s
+Runtime decision procedure: 0.00195969s
 
 ** Results:
 /src/firmware/src/fdir_sgo.c function process_fdir_with_sgo
@@ -92,77 +92,77 @@ Runtime decision procedure: 0.00274416s
 [process_fdir_with_sgo.pointer_dereference.54] line 37 dereference failure: invalid integer address in telemetry->system_temperature: SUCCESS
 
 /src/verify/cbmc/harness_sgo.c function main
-[main.assertion.1] line 82 P1a solar action in 0..3: SUCCESS
-[main.assertion.2] line 83 P1b battery action in 0..3: SUCCESS
-[main.assertion.3] line 84 P1c load action in 0..3: SUCCESS
-[main.assertion.4] line 87 P2 fault mask bits 0..4 only: SUCCESS
-[main.assertion.5] line 103 P3a DD -> L=3: SUCCESS
-[main.assertion.6] line 104 P3b DD -> B>=1 (charge path kept): SUCCESS
-[main.assertion.7] line 105 P3c DD flagged: SUCCESS
-[main.assertion.8] line 109 P4 UV -> L>=1: SUCCESS
-[main.assertion.9] line 113 P5a OC -> B>=2: SUCCESS
-[main.assertion.10] line 114 P5b OC -> L>=1: SUCCESS
-[main.assertion.11] line 118 P6a OT -> S=2: SUCCESS
-[main.assertion.12] line 119 P6b OT -> L>=2: SUCCESS
-[main.assertion.13] line 125 P7 non-finite input is flagged: FAILURE
-[main.assertion.14] line 130 P8 SoC outside plausible band is flagged: FAILURE
+[main.assertion.1] line 104 P1a solar action in 0..3: SUCCESS
+[main.assertion.2] line 105 P1b battery action in 0..3: SUCCESS
+[main.assertion.3] line 106 P1c load action in 0..3: SUCCESS
+[main.assertion.4] line 113 P2 fault mask bits 0..4 only: SUCCESS
+[main.assertion.5] line 130 P3a DD -> L=3: SUCCESS
+[main.assertion.6] line 131 P3b DD -> B>=1 (charge path kept): SUCCESS
+[main.assertion.7] line 132 P3c DD flagged: SUCCESS
+[main.assertion.8] line 136 P4 UV -> L>=1: SUCCESS
+[main.assertion.9] line 140 P5a OC -> B>=2: SUCCESS
+[main.assertion.10] line 141 P5b OC -> L>=1: SUCCESS
+[main.assertion.11] line 145 P6a OT -> S=2: SUCCESS
+[main.assertion.12] line 146 P6b OT -> L>=2: SUCCESS
+[main.assertion.13] line 205 P7 non-finite input is flagged: FAILURE
+[main.assertion.14] line 210 P8 SoC outside plausible band is flagged: FAILURE
 
 Trace for main.assertion.13:
 
-State 11 file /src/verify/cbmc/harness_sgo.c function main line 68 thread 0
+State 11 file /src/verify/cbmc/harness_sgo.c function main line 72 thread 0
 ----------------------------------------------------
   t={ .solar_voltage=0.0f, .battery_current=0.0f, .system_temperature=0.0f,
     .battery_soc=0.0f } ({ 00000000 00000000 00000000 00000000, 00000000 00000000 00000000 00000000, 00000000 00000000 00000000 00000000, 00000000 00000000 00000000 00000000 })
 
-State 13 file /src/verify/cbmc/harness_sgo.c function main line 69 thread 0
+State 13 file /src/verify/cbmc/harness_sgo.c function main line 73 thread 0
 ----------------------------------------------------
   return_value_nondet_float=+INFINITY (01111111 10000000 00000000 00000000)
 
-State 14 file /src/verify/cbmc/harness_sgo.c function main line 69 thread 0
+State 14 file /src/verify/cbmc/harness_sgo.c function main line 73 thread 0
 ----------------------------------------------------
   t.solar_voltage=+INFINITY (01111111 10000000 00000000 00000000)
 
-State 16 file /src/verify/cbmc/harness_sgo.c function main line 70 thread 0
+State 16 file /src/verify/cbmc/harness_sgo.c function main line 74 thread 0
 ----------------------------------------------------
   return_value_nondet_float$0=+NAN (01111111 11000000 00000000 00000000)
 
-State 17 file /src/verify/cbmc/harness_sgo.c function main line 70 thread 0
+State 17 file /src/verify/cbmc/harness_sgo.c function main line 74 thread 0
 ----------------------------------------------------
   t.battery_current=+NAN (01111111 11000000 00000000 00000000)
 
-State 19 file /src/verify/cbmc/harness_sgo.c function main line 71 thread 0
+State 19 file /src/verify/cbmc/harness_sgo.c function main line 75 thread 0
 ----------------------------------------------------
   return_value_nondet_float$1=32.0f (01000010 00000000 00000000 00000000)
 
-State 20 file /src/verify/cbmc/harness_sgo.c function main line 71 thread 0
+State 20 file /src/verify/cbmc/harness_sgo.c function main line 75 thread 0
 ----------------------------------------------------
   t.system_temperature=32.0f (01000010 00000000 00000000 00000000)
 
-State 22 file /src/verify/cbmc/harness_sgo.c function main line 72 thread 0
+State 22 file /src/verify/cbmc/harness_sgo.c function main line 76 thread 0
 ----------------------------------------------------
   return_value_nondet_float$2=1.844674e+19f (01011111 10000000 00000000 00000000)
 
-State 23 file /src/verify/cbmc/harness_sgo.c function main line 72 thread 0
+State 23 file /src/verify/cbmc/harness_sgo.c function main line 76 thread 0
 ----------------------------------------------------
   t.battery_soc=1.844674e+19f (01011111 10000000 00000000 00000000)
 
-State 25 file /src/verify/cbmc/harness_sgo.c function main line 74 thread 0
+State 25 file /src/verify/cbmc/harness_sgo.c function main line 96 thread 0
 ----------------------------------------------------
   V=+INFINITY (01111111 10000000 00000000 00000000)
 
-State 27 file /src/verify/cbmc/harness_sgo.c function main line 74 thread 0
+State 27 file /src/verify/cbmc/harness_sgo.c function main line 96 thread 0
 ----------------------------------------------------
   I=+NAN (01111111 11000000 00000000 00000000)
 
-State 29 file /src/verify/cbmc/harness_sgo.c function main line 75 thread 0
+State 29 file /src/verify/cbmc/harness_sgo.c function main line 97 thread 0
 ----------------------------------------------------
   T=32.0f (01000010 00000000 00000000 00000000)
 
-State 31 file /src/verify/cbmc/harness_sgo.c function main line 75 thread 0
+State 31 file /src/verify/cbmc/harness_sgo.c function main line 97 thread 0
 ----------------------------------------------------
   S=1.844674e+19f (01011111 10000000 00000000 00000000)
 
-State 36 file /src/verify/cbmc/harness_sgo.c function main line 77 thread 0
+State 36 file /src/verify/cbmc/harness_sgo.c function main line 99 thread 0
 ----------------------------------------------------
   telemetry=&t!0@1 (00000010 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
 
@@ -170,72 +170,72 @@ State 41 function process_fdir_with_sgo thread 0
 ----------------------------------------------------
   t=&t!0@1 (00000010 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
 
-State 42 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 52 thread 0
+State 42 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 56 thread 0
 ----------------------------------------------------
   r={ .fault_flags=0, .solar_reconfig_action=0, .battery_limit_action=0,
     .load_shed_action=0 } ({ 00000000, 00000000, 00000000, 00000000 })
 
-State 44 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 53 thread 0
+State 44 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 57 thread 0
 ----------------------------------------------------
   return_value_nondet_uint8=0 (00000000)
 
-State 45 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 53 thread 0
+State 45 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 57 thread 0
 ----------------------------------------------------
   r.fault_flags=0 (00000000)
 
-State 47 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 54 thread 0
+State 47 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 58 thread 0
 ----------------------------------------------------
   return_value_nondet_uint8$0=3 (00000011)
 
-State 48 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 54 thread 0
+State 48 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 58 thread 0
 ----------------------------------------------------
   r.solar_reconfig_action=3 (00000011)
 
-State 50 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 55 thread 0
+State 50 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 59 thread 0
 ----------------------------------------------------
   return_value_nondet_uint8$1=1 (00000001)
 
-State 51 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 55 thread 0
+State 51 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 59 thread 0
 ----------------------------------------------------
   r.battery_limit_action=1 (00000001)
 
-State 53 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 56 thread 0
+State 53 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 60 thread 0
 ----------------------------------------------------
   return_value_nondet_uint8$2=0 (00000000)
 
-State 54 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 56 thread 0
+State 54 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 60 thread 0
 ----------------------------------------------------
   r.load_shed_action=0 (00000000)
 
 Assumption:
-  file /src/verify/cbmc/harness_sgo.c line 58 function execute_onboard_fdir
+  file /src/verify/cbmc/harness_sgo.c line 62 function execute_onboard_fdir
   (unsigned int)r.solar_reconfig_action <= 3u
 
 Assumption:
-  file /src/verify/cbmc/harness_sgo.c line 59 function execute_onboard_fdir
+  file /src/verify/cbmc/harness_sgo.c line 63 function execute_onboard_fdir
   (unsigned int)r.battery_limit_action <= 3u
 
 Assumption:
-  file /src/verify/cbmc/harness_sgo.c line 60 function execute_onboard_fdir
+  file /src/verify/cbmc/harness_sgo.c line 64 function execute_onboard_fdir
   (unsigned int)r.load_shed_action <= 3u
 
 Assumption:
-  file /src/verify/cbmc/harness_sgo.c line 61 function execute_onboard_fdir
+  file /src/verify/cbmc/harness_sgo.c line 65 function execute_onboard_fdir
   ((unsigned int)r.fault_flags & ~0x1Fu) == 0u
 
-State 59 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 63 thread 0
+State 59 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 67 thread 0
 ----------------------------------------------------
   goto_symex$$return_value$$execute_onboard_fdir.fault_flags=0 (00000000)
 
-State 60 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 63 thread 0
+State 60 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 67 thread 0
 ----------------------------------------------------
   goto_symex$$return_value$$execute_onboard_fdir.solar_reconfig_action=3 (00000011)
 
-State 61 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 63 thread 0
+State 61 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 67 thread 0
 ----------------------------------------------------
   goto_symex$$return_value$$execute_onboard_fdir.battery_limit_action=1 (00000001)
 
-State 62 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 63 thread 0
+State 62 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 67 thread 0
 ----------------------------------------------------
   goto_symex$$return_value$$execute_onboard_fdir.load_shed_action=0 (00000000)
 
@@ -287,48 +287,48 @@ State 84 file /src/firmware/src/fdir_sgo.c function process_fdir_with_sgo line 7
 ----------------------------------------------------
   goto_symex$$return_value$$process_fdir_with_sgo.load_shed_action=0 (00000000)
 
-State 86 file /src/verify/cbmc/harness_sgo.c function main line 77 thread 0
+State 86 file /src/verify/cbmc/harness_sgo.c function main line 99 thread 0
 ----------------------------------------------------
   return_value_process_fdir_with_sgo.fault_flags=0 (00000000)
 
-State 87 file /src/verify/cbmc/harness_sgo.c function main line 77 thread 0
+State 87 file /src/verify/cbmc/harness_sgo.c function main line 99 thread 0
 ----------------------------------------------------
   return_value_process_fdir_with_sgo.solar_reconfig_action=3 (00000011)
 
-State 88 file /src/verify/cbmc/harness_sgo.c function main line 77 thread 0
+State 88 file /src/verify/cbmc/harness_sgo.c function main line 99 thread 0
 ----------------------------------------------------
   return_value_process_fdir_with_sgo.battery_limit_action=1 (00000001)
 
-State 89 file /src/verify/cbmc/harness_sgo.c function main line 77 thread 0
+State 89 file /src/verify/cbmc/harness_sgo.c function main line 99 thread 0
 ----------------------------------------------------
   return_value_process_fdir_with_sgo.load_shed_action=0 (00000000)
 
-State 90 file /src/verify/cbmc/harness_sgo.c function main line 77 thread 0
+State 90 file /src/verify/cbmc/harness_sgo.c function main line 99 thread 0
 ----------------------------------------------------
   o.fault_flags=0 (00000000)
 
-State 91 file /src/verify/cbmc/harness_sgo.c function main line 77 thread 0
+State 91 file /src/verify/cbmc/harness_sgo.c function main line 99 thread 0
 ----------------------------------------------------
   o.solar_reconfig_action=3 (00000011)
 
-State 92 file /src/verify/cbmc/harness_sgo.c function main line 77 thread 0
+State 92 file /src/verify/cbmc/harness_sgo.c function main line 99 thread 0
 ----------------------------------------------------
   o.battery_limit_action=1 (00000001)
 
-State 93 file /src/verify/cbmc/harness_sgo.c function main line 77 thread 0
+State 93 file /src/verify/cbmc/harness_sgo.c function main line 99 thread 0
 ----------------------------------------------------
   o.load_shed_action=0 (00000000)
 
-State 95 file /src/verify/cbmc/harness_sgo.c function main line 79 thread 0
+State 95 file /src/verify/cbmc/harness_sgo.c function main line 101 thread 0
 ----------------------------------------------------
   dropout=0 (00000000 00000000 00000000 00000000)
 
-State 101 file /src/verify/cbmc/harness_sgo.c function main line 89 thread 0
+State 101 file /src/verify/cbmc/harness_sgo.c function main line 116 thread 0
 ----------------------------------------------------
   plausible=1 (00000000 00000000 00000000 00000001)
 
 Violated property:
-  file /src/verify/cbmc/harness_sgo.c function main line 125 thread 0
+  file /src/verify/cbmc/harness_sgo.c function main line 205 thread 0
   P7 non-finite input is flagged
   (unsigned int)o.fault_flags != 0u
 
@@ -336,60 +336,60 @@ Violated property:
 
 Trace for main.assertion.14:
 
-State 11 file /src/verify/cbmc/harness_sgo.c function main line 68 thread 0
+State 11 file /src/verify/cbmc/harness_sgo.c function main line 72 thread 0
 ----------------------------------------------------
   t={ .solar_voltage=0.0f, .battery_current=0.0f, .system_temperature=0.0f,
     .battery_soc=0.0f } ({ 00000000 00000000 00000000 00000000, 00000000 00000000 00000000 00000000, 00000000 00000000 00000000 00000000, 00000000 00000000 00000000 00000000 })
 
-State 13 file /src/verify/cbmc/harness_sgo.c function main line 69 thread 0
+State 13 file /src/verify/cbmc/harness_sgo.c function main line 73 thread 0
 ----------------------------------------------------
   return_value_nondet_float=+INFINITY (01111111 10000000 00000000 00000000)
 
-State 14 file /src/verify/cbmc/harness_sgo.c function main line 69 thread 0
+State 14 file /src/verify/cbmc/harness_sgo.c function main line 73 thread 0
 ----------------------------------------------------
   t.solar_voltage=+INFINITY (01111111 10000000 00000000 00000000)
 
-State 16 file /src/verify/cbmc/harness_sgo.c function main line 70 thread 0
+State 16 file /src/verify/cbmc/harness_sgo.c function main line 74 thread 0
 ----------------------------------------------------
   return_value_nondet_float$0=+NAN (01111111 11000000 00000000 00000000)
 
-State 17 file /src/verify/cbmc/harness_sgo.c function main line 70 thread 0
+State 17 file /src/verify/cbmc/harness_sgo.c function main line 74 thread 0
 ----------------------------------------------------
   t.battery_current=+NAN (01111111 11000000 00000000 00000000)
 
-State 19 file /src/verify/cbmc/harness_sgo.c function main line 71 thread 0
+State 19 file /src/verify/cbmc/harness_sgo.c function main line 75 thread 0
 ----------------------------------------------------
   return_value_nondet_float$1=32.0f (01000010 00000000 00000000 00000000)
 
-State 20 file /src/verify/cbmc/harness_sgo.c function main line 71 thread 0
+State 20 file /src/verify/cbmc/harness_sgo.c function main line 75 thread 0
 ----------------------------------------------------
   t.system_temperature=32.0f (01000010 00000000 00000000 00000000)
 
-State 22 file /src/verify/cbmc/harness_sgo.c function main line 72 thread 0
+State 22 file /src/verify/cbmc/harness_sgo.c function main line 76 thread 0
 ----------------------------------------------------
   return_value_nondet_float$2=1.844674e+19f (01011111 10000000 00000000 00000000)
 
-State 23 file /src/verify/cbmc/harness_sgo.c function main line 72 thread 0
+State 23 file /src/verify/cbmc/harness_sgo.c function main line 76 thread 0
 ----------------------------------------------------
   t.battery_soc=1.844674e+19f (01011111 10000000 00000000 00000000)
 
-State 25 file /src/verify/cbmc/harness_sgo.c function main line 74 thread 0
+State 25 file /src/verify/cbmc/harness_sgo.c function main line 96 thread 0
 ----------------------------------------------------
   V=+INFINITY (01111111 10000000 00000000 00000000)
 
-State 27 file /src/verify/cbmc/harness_sgo.c function main line 74 thread 0
+State 27 file /src/verify/cbmc/harness_sgo.c function main line 96 thread 0
 ----------------------------------------------------
   I=+NAN (01111111 11000000 00000000 00000000)
 
-State 29 file /src/verify/cbmc/harness_sgo.c function main line 75 thread 0
+State 29 file /src/verify/cbmc/harness_sgo.c function main line 97 thread 0
 ----------------------------------------------------
   T=32.0f (01000010 00000000 00000000 00000000)
 
-State 31 file /src/verify/cbmc/harness_sgo.c function main line 75 thread 0
+State 31 file /src/verify/cbmc/harness_sgo.c function main line 97 thread 0
 ----------------------------------------------------
   S=1.844674e+19f (01011111 10000000 00000000 00000000)
 
-State 36 file /src/verify/cbmc/harness_sgo.c function main line 77 thread 0
+State 36 file /src/verify/cbmc/harness_sgo.c function main line 99 thread 0
 ----------------------------------------------------
   telemetry=&t!0@1 (00000010 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
 
@@ -397,72 +397,72 @@ State 41 function process_fdir_with_sgo thread 0
 ----------------------------------------------------
   t=&t!0@1 (00000010 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
 
-State 42 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 52 thread 0
+State 42 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 56 thread 0
 ----------------------------------------------------
   r={ .fault_flags=0, .solar_reconfig_action=0, .battery_limit_action=0,
     .load_shed_action=0 } ({ 00000000, 00000000, 00000000, 00000000 })
 
-State 44 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 53 thread 0
+State 44 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 57 thread 0
 ----------------------------------------------------
   return_value_nondet_uint8=0 (00000000)
 
-State 45 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 53 thread 0
+State 45 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 57 thread 0
 ----------------------------------------------------
   r.fault_flags=0 (00000000)
 
-State 47 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 54 thread 0
+State 47 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 58 thread 0
 ----------------------------------------------------
   return_value_nondet_uint8$0=3 (00000011)
 
-State 48 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 54 thread 0
+State 48 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 58 thread 0
 ----------------------------------------------------
   r.solar_reconfig_action=3 (00000011)
 
-State 50 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 55 thread 0
+State 50 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 59 thread 0
 ----------------------------------------------------
   return_value_nondet_uint8$1=1 (00000001)
 
-State 51 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 55 thread 0
+State 51 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 59 thread 0
 ----------------------------------------------------
   r.battery_limit_action=1 (00000001)
 
-State 53 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 56 thread 0
+State 53 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 60 thread 0
 ----------------------------------------------------
   return_value_nondet_uint8$2=0 (00000000)
 
-State 54 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 56 thread 0
+State 54 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 60 thread 0
 ----------------------------------------------------
   r.load_shed_action=0 (00000000)
 
 Assumption:
-  file /src/verify/cbmc/harness_sgo.c line 58 function execute_onboard_fdir
+  file /src/verify/cbmc/harness_sgo.c line 62 function execute_onboard_fdir
   (unsigned int)r.solar_reconfig_action <= 3u
 
 Assumption:
-  file /src/verify/cbmc/harness_sgo.c line 59 function execute_onboard_fdir
+  file /src/verify/cbmc/harness_sgo.c line 63 function execute_onboard_fdir
   (unsigned int)r.battery_limit_action <= 3u
 
 Assumption:
-  file /src/verify/cbmc/harness_sgo.c line 60 function execute_onboard_fdir
+  file /src/verify/cbmc/harness_sgo.c line 64 function execute_onboard_fdir
   (unsigned int)r.load_shed_action <= 3u
 
 Assumption:
-  file /src/verify/cbmc/harness_sgo.c line 61 function execute_onboard_fdir
+  file /src/verify/cbmc/harness_sgo.c line 65 function execute_onboard_fdir
   ((unsigned int)r.fault_flags & ~0x1Fu) == 0u
 
-State 59 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 63 thread 0
+State 59 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 67 thread 0
 ----------------------------------------------------
   goto_symex$$return_value$$execute_onboard_fdir.fault_flags=0 (00000000)
 
-State 60 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 63 thread 0
+State 60 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 67 thread 0
 ----------------------------------------------------
   goto_symex$$return_value$$execute_onboard_fdir.solar_reconfig_action=3 (00000011)
 
-State 61 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 63 thread 0
+State 61 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 67 thread 0
 ----------------------------------------------------
   goto_symex$$return_value$$execute_onboard_fdir.battery_limit_action=1 (00000001)
 
-State 62 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 63 thread 0
+State 62 file /src/verify/cbmc/harness_sgo.c function execute_onboard_fdir line 67 thread 0
 ----------------------------------------------------
   goto_symex$$return_value$$execute_onboard_fdir.load_shed_action=0 (00000000)
 
@@ -514,54 +514,54 @@ State 84 file /src/firmware/src/fdir_sgo.c function process_fdir_with_sgo line 7
 ----------------------------------------------------
   goto_symex$$return_value$$process_fdir_with_sgo.load_shed_action=0 (00000000)
 
-State 86 file /src/verify/cbmc/harness_sgo.c function main line 77 thread 0
+State 86 file /src/verify/cbmc/harness_sgo.c function main line 99 thread 0
 ----------------------------------------------------
   return_value_process_fdir_with_sgo.fault_flags=0 (00000000)
 
-State 87 file /src/verify/cbmc/harness_sgo.c function main line 77 thread 0
+State 87 file /src/verify/cbmc/harness_sgo.c function main line 99 thread 0
 ----------------------------------------------------
   return_value_process_fdir_with_sgo.solar_reconfig_action=3 (00000011)
 
-State 88 file /src/verify/cbmc/harness_sgo.c function main line 77 thread 0
+State 88 file /src/verify/cbmc/harness_sgo.c function main line 99 thread 0
 ----------------------------------------------------
   return_value_process_fdir_with_sgo.battery_limit_action=1 (00000001)
 
-State 89 file /src/verify/cbmc/harness_sgo.c function main line 77 thread 0
+State 89 file /src/verify/cbmc/harness_sgo.c function main line 99 thread 0
 ----------------------------------------------------
   return_value_process_fdir_with_sgo.load_shed_action=0 (00000000)
 
-State 90 file /src/verify/cbmc/harness_sgo.c function main line 77 thread 0
+State 90 file /src/verify/cbmc/harness_sgo.c function main line 99 thread 0
 ----------------------------------------------------
   o.fault_flags=0 (00000000)
 
-State 91 file /src/verify/cbmc/harness_sgo.c function main line 77 thread 0
+State 91 file /src/verify/cbmc/harness_sgo.c function main line 99 thread 0
 ----------------------------------------------------
   o.solar_reconfig_action=3 (00000011)
 
-State 92 file /src/verify/cbmc/harness_sgo.c function main line 77 thread 0
+State 92 file /src/verify/cbmc/harness_sgo.c function main line 99 thread 0
 ----------------------------------------------------
   o.battery_limit_action=1 (00000001)
 
-State 93 file /src/verify/cbmc/harness_sgo.c function main line 77 thread 0
+State 93 file /src/verify/cbmc/harness_sgo.c function main line 99 thread 0
 ----------------------------------------------------
   o.load_shed_action=0 (00000000)
 
-State 95 file /src/verify/cbmc/harness_sgo.c function main line 79 thread 0
+State 95 file /src/verify/cbmc/harness_sgo.c function main line 101 thread 0
 ----------------------------------------------------
   dropout=0 (00000000 00000000 00000000 00000000)
 
-State 101 file /src/verify/cbmc/harness_sgo.c function main line 89 thread 0
+State 101 file /src/verify/cbmc/harness_sgo.c function main line 116 thread 0
 ----------------------------------------------------
   plausible=1 (00000000 00000000 00000000 00000001)
 
 Violated property:
-  file /src/verify/cbmc/harness_sgo.c function main line 125 thread 0
+  file /src/verify/cbmc/harness_sgo.c function main line 205 thread 0
   P7 non-finite input is flagged
   (unsigned int)o.fault_flags != 0u
 
 
 Violated property:
-  file /src/verify/cbmc/harness_sgo.c function main line 130 thread 0
+  file /src/verify/cbmc/harness_sgo.c function main line 210 thread 0
   P8 SoC outside plausible band is flagged
   (unsigned int)o.fault_flags != 0u
 
