@@ -21,7 +21,7 @@ coverage-vs-false-action curve, N-of-M ablation · 4 metric fixes · 5 fault inj
 1. **Done**: SGO v3 (`fdir_sgo_v3.c/.h`, bit 5, `FDIR_VCELL_OV_MAX`), CBMC P10 proved, DUT flashed,
    BCR-short PIL rerun (`results/hil_cases.json` keys `C2_sgo_v3_bcr_short`, `C1_sgo_v3`),
    `results/residual_risk_sgo_v3.json` (6-input tree + v3). Old v2 results in `results/tree6/`.
-2. **In progress**: features (`fdir_features.c`, `sim/features.py`) proved (0/454) and bit-exact
+2. **Training done 18 Oct 08:33** (10 defenders, 10 DAgger; gate CI 0.42 pp, deploy seed 6 — see results/dagger_summary.json). Next: features (`fdir_features.c`, `sim/features.py`) proved (0/454) and bit-exact
    (`results/features_bitexact.json`). 10 defenders done (`results/defender/`); DAgger seeds 0-5 done,
    6-9 were running via `train/pipeline9b.sh` (copy in repo) (resumable: rerun it, it skips finished seeds;
    ends with `train/summarise.py`). Then:

@@ -1,0 +1,86 @@
+{
+  "modes": {
+    "sw_dagger": {
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "fidelity_closed_loop_pp": {
+        "mean": 93.1673663854599,
+        "half_width": 0.420423970542311,
+        "n": 10
+      },
+      "fidelity_uniform_pp": {
+        "mean": 66.32846057415009,
+        "half_width": 2.289085998889097,
+        "n": 10
+      },
+      "sev_weighted_disagreement": {
+        "mean": 0.06779172606766223,
+        "half_width": 0.004137233768312325,
+        "n": 10
+      },
+      "hazard_rate": {
+        "mean": 0.1072845458984375,
+        "half_width": 0.0005327877546262619,
+        "n": 10
+      },
+      "leaves": {
+        "mean": 3043.1,
+        "half_width": 178.53994098362094,
+        "n": 10
+      },
+      "adversary_failures_found": 219321,
+      "fuzzing_failures_found": 42250,
+      "adversary_failure_clusters": {
+        "mean": 884.8,
+        "half_width": 238.24661970755506,
+        "n": 10
+      },
+      "fuzzing_failure_clusters": {
+        "mean": 869.4,
+        "half_width": 249.29209142370175,
+        "n": 10
+      },
+      "clusters_only_adversary": {
+        "mean": 288.5,
+        "half_width": 104.51952213860991,
+        "n": 10
+      },
+      "clusters_only_fuzzing": {
+        "mean": 273.1,
+        "half_width": 119.87462305485535,
+        "n": 10
+      }
+    }
+  },
+  "deploy": {
+    "mode": "sw_dagger",
+    "seed": 6,
+    "rule": "lowest closed-loop severity-weighted disagreement (held-out env seeds)",
+    "selected": {
+      "fidelity_closed_loop": 0.9415401220321655,
+      "sev_weighted_disagreement": 0.05866309814155102,
+      "hazard_rate": 0.107696533203125,
+      "round": 2,
+      "n_data": 3000000,
+      "depth": 12,
+      "leaves": 3175,
+      "fidelity_uniform": 0.6305639743804932
+    }
+  },
+  "gate": {
+    "metric": "95 % CI half-width of closed-loop fidelity, sw_dagger, over seeds [pp]",
+    "threshold": 1.5,
+    "value": 0.420423970542311,
+    "pass": true
+  }
+}
