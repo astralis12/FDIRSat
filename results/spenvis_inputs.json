@@ -1,0 +1,47 @@
+{
+  "rows": [
+    {
+      "orbit": "xjtu",
+      "period_min": 95.0,
+      "eclipse_min_sim": 35.0,
+      "altitude_km": 518.6,
+      "inclination_deg": 97.47,
+      "ltan": "12:00",
+      "start_date": "2027-01-01",
+      "eccentricity": 0.0,
+      "eclipse_min_beta0": 35.7,
+      "note": "period and eclipse ASSUMED in sim/env_v2.py; altitude/inclination derived"
+    },
+    {
+      "orbit": "o2_sso_1030",
+      "period_min": 95.6,
+      "eclipse_min_sim": 35.5,
+      "altitude_km": 547.6,
+      "inclination_deg": 97.58,
+      "ltan": "10:30",
+      "start_date": "2027-01-01",
+      "eccentricity": 0.0,
+      "eclipse_min_beta0": 35.6,
+      "note": "period and eclipse ASSUMED in sim/env_v2.py; altitude/inclination derived"
+    },
+    {
+      "orbit": "o3_dawn_dusk",
+      "period_min": 96.7,
+      "eclipse_min_sim": 8.0,
+      "altitude_km": 600.6,
+      "inclination_deg": 97.79,
+      "ltan": "06:00",
+      "start_date": "2027-01-01",
+      "eccentricity": 0.0,
+      "eclipse_min_beta0": 35.5,
+      "note": "period and eclipse ASSUMED in sim/env_v2.py; altitude/inclination derived"
+    }
+  ],
+  "spenvis_models": "trapped AP-8/AE-8 (or AP-9) solar max/min per start date, CREME96 GCR + solar particles, 100 mil Al shielding, STM32F411 SRAM cross-section (PENDING)",
+  "start_date_source": "ASSUMED",
+  "constants": {
+    "mu": 398600.4418,
+    "re": 6378.137,
+    "j2": 0.00108262668
+  }
+}

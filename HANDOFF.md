@@ -37,9 +37,11 @@ coverage-vs-false-action curve, N-of-M ablation · 4 metric fixes · 5 fault inj
    Then full `run_cbmc.sh` (~90 min: SGO v1-v3, features, tree, tree_any, EKF) — must exit 0.
    The any-tables tree proof passed A1/A4 before the CRC rotate fix (ISS-046).
 6. `config/fmeca_rates.json`, `python eval/residual_risk_band.py` (needs compare_methods.json and
-   fault_injection.json), `python eval/threshold_table.py` (done). PENDING owner: cell model/datasheet,
-   ECSS-E-ST-20C clauses, MIL-HDBK-217F λ values, SPENVIS SEU rate (ISS-048). JSC 20793 §4.4.3a
-   requires per-cell voltage monitoring → cell taps mandatory (ISS-047).
+   fault_injection.json), `python eval/threshold_table.py` (done). 18 Oct: owner supplied the cell (Sony US18650VTC6 Rev 0.1) and the ECSS clause mapping; both are traced
+   in `results/threshold_table.json`. `python eval/spenvis_inputs.py` writes the SPENVIS orbit inputs. ISS-049:
+   bench cell 3.0 Ah vs firmware 2.0 Ah, and the 4.2 +/- 0.05 V charge tolerance sits on the 4.20 V invariant —
+   owner decision. PENDING owner: MIL-HDBK-217F per-part values, SPENVIS SEU rate, VTC6 charge temperature and
+   max continuous current. JSC 20793 §4.4.3a requires per-cell voltage monitoring → cell taps mandatory (ISS-047).
 
 ## Finish
 - Add ISSUES entries for: overnight standby crash and pipeline race (data files read while written),

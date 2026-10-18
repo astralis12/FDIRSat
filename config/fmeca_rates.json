@@ -24,7 +24,7 @@
   },
   "layer3_environment": {
     "_method": "lambda = r_bit x sensitive bits x P(SDC | upset); P(SDC | upset) from results/fault_injection.json (rule-of-three upper bound when no SDC is seen)",
-    "r_bit_per_bit_day": {"value": 1e-7, "source": "PENDING: SPENVIS (CREME96) SEU rate for the STM32F411 SRAM in each orbit; 1e-7 /bit/day is an ASSUMED order of magnitude for unhardened commercial SRAM in LEO"},
+    "r_bit_per_bit_day": {"value": 1e-7, "source": "PENDING: SPENVIS (CREME96) SEU rate for the STM32F411 SRAM in each orbit (inputs: results/spenvis_inputs.json); 1e-7 /bit/day is an ASSUMED order of magnitude for unhardened commercial SRAM in LEO"},
     "modes": {
       "A1": {"name": "tree table upset", "bits": 428472, "region": "tree_tables", "note": "53 559 B RAM tables (flight: 1 copy)"},
       "A3": {"name": "EKF / history state upset", "bits": 3008, "region": ["ekf_state", "features"], "note": "48 B EKF + 328 B history (flight: 1 instance)"},

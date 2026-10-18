@@ -1,9 +1,30 @@
 {
   "cell_limits": {
+    "model": "Sony US18650VTC6",
     "v_max": 4.2,
+    "v_charge_tol": 0.05,
     "v_min": 2.5,
-    "q_ah": 2.0,
-    "src": "plan doc, Reference spacecraft (XJTU-type 18650 NCM, 4.2/2.5 V); PENDING cell datasheet"
+    "v_min_rating": 2.0,
+    "q_ah": 3.0,
+    "q_nominal_ah": 3.13,
+    "v_nominal": 3.6,
+    "i_charge_std_a": 3.0,
+    "i_discharge_tested_a": 20.0,
+    "i_cycle_rated_a": 15.0,
+    "t_discharge_char_c": [
+      -20.0,
+      60.0
+    ],
+    "t_charge_c": null,
+    "src": "Sony US18650VTC6 Technical Information Rev 0.1: charge 4.2 +/- 0.05 V CC/CV 3.0 A; rated 3000 mAh (0.2 C to 2.0 V); 2.5 V cut-off at 1 C and 10 A; discharge curves -20..60 degC; cycle life at 7.5 A and 15 A (charged to 4.15 V); load curves to 20 A",
+    "firmware_q_ah": 2.0
+  },
+  "ecss": {
+    "system_fdir": "ECSS-Q-ST-30 Annex F (referenced by 6.4.2.10a): FDIR analysis at system level",
+    "eps": "ECSS-E-ST-20-20C clause 1: single-point-failure-free power system, one failure loses at most one LCL/RLCL/HLCL line",
+    "hierarchy": "ECSS-E-ST-70-11C section 5: FDIR levels, failures isolated at the lower level; deterministic end configuration",
+    "thermal": "ECSS-E-ST-70-11C 5.9.6 (thermal control)",
+    "aocs": "ECSS-E-ST-60-30C 5.1 (functional and FDIR requirements)"
   },
   "n_series": 8.0,
   "n_parallel": 4.0,
@@ -13,9 +34,9 @@
       "symbol": "FDIR_VCELL_CRITICAL_MIN",
       "value": 3.0,
       "unit": "V/cell",
-      "source": "plan doc, Reference spacecraft (XJTU-type 18650 NCM, 4.2/2.5 V); PENDING cell datasheet; JSC 20793 Rev C 4.4.3a (detect and control under-voltage of any cell)",
+      "source": "Sony US18650VTC6 Technical Information Rev 0.1: charge 4.2 +/- 0.05 V CC/CV 3.0 A; rated 3000 mAh (0.2 C to 2.0 V); 2.5 V cut-off at 1 C and 10 A; discharge curves -20..60 degC; cycle life at 7.5 A and 15 A (charged to 4.15 V); load curves to 20 A; JSC 20793 Rev C 4.4.3a (detect and control under-voltage of any cell)",
       "margin": 0.5,
-      "margin_vs": "cell cut-off 2.5 V",
+      "margin_vs": "VTC6 discharge cut-off 2.5 V (rating uses 2.0 V)",
       "cbmc": "P3a-c (SGO v2/v3)"
     },
     {
@@ -23,7 +44,7 @@
       "symbol": "FDIR_VCELL_NOMINAL_MIN",
       "value": 3.6,
       "unit": "V/cell",
-      "source": "derived: 3.6 V/cell = original 10.8 V / 3S nominal minimum (fdir_config.h header); ECSS-E-ST-20C clause PENDING",
+      "source": "derived: 3.6 V/cell = original 10.8 V / 3S nominal minimum (fdir_config.h header) = VTC6 nominal voltage 3.6 V (Sony US18650VTC6 Technical Information Rev 0.1); ECSS-E-ST-20-20C clause 1: single-point-failure-free power system, one failure loses at most one LCL/RLCL/HLCL line",
       "margin": 0.6000000000000001,
       "margin_vs": "deep-discharge threshold",
       "cbmc": "P4"
@@ -33,9 +54,10 @@
       "symbol": "FDIR_VCELL_OV_MAX",
       "value": 4.2,
       "unit": "V/cell",
-      "source": "ADR-0018; plan doc, Reference spacecraft (XJTU-type 18650 NCM, 4.2/2.5 V); PENDING cell datasheet; JSC 20793 Rev C 5.1.2.1 a, e, i (overcharge failure tolerance, no uncontrolled charging); 4.4.3a requires per-cell monitoring (taps)",
+      "source": "ADR-0018; Sony US18650VTC6 Technical Information Rev 0.1: charge 4.2 +/- 0.05 V CC/CV 3.0 A; rated 3000 mAh (0.2 C to 2.0 V); 2.5 V cut-off at 1 C and 10 A; discharge curves -20..60 degC; cycle life at 7.5 A and 15 A (charged to 4.15 V); load curves to 20 A; JSC 20793 Rev C 5.1.2.1 a, e, i (overcharge failure tolerance, no uncontrolled charging); 4.4.3a requires per-cell monitoring (taps)",
       "margin": 0.0,
-      "margin_vs": "cell charge cut-off 4.2 V (average; one cell may be higher)",
+      "margin_vs": "VTC6 charge voltage 4.2 V; the charger tolerance is +/-0.05 V, so a charger at the upper tolerance (4.25 V) trips the invariant at end of charge (ISS-049)",
+      "margin_vs_charger_hi": -0.04999999999999982,
       "cbmc": "P10a-c (SGO v3)"
     },
     {
@@ -43,12 +65,13 @@
       "symbol": "FDIR_C_RATE_MAX",
       "value": 1.5,
       "unit": "C",
-      "source": "fdir_config.h (1.5 C); JSC 20793 Rev C 4.4.3b (battery-level current monitoring); cell max continuous discharge PENDING datasheet",
-      "margin": null,
-      "margin_vs": "cell max continuous current (PENDING)",
+      "source": "fdir_config.h (1.5 C); JSC 20793 Rev C 4.4.3b (battery-level current monitoring); Sony US18650VTC6 Technical Information Rev 0.1 cycle-life rating at 15 A",
+      "margin": 10.5,
+      "margin_vs": "VTC6 15 A cycle-life discharge current, per cell (A)",
       "cbmc": "P5a-b",
-      "pack_value": 12.0,
-      "pack_unit": "A (8S4P)"
+      "pack_value": 18.0,
+      "pack_unit": "A (8S4P VTC6)",
+      "pack_value_firmware": 12.0
     },
     {
       "threshold": "Over-temperature, battery",
@@ -56,8 +79,8 @@
       "value": 60.0,
       "unit": "degC",
       "source": "fdir_sgo.h v1 (ECSS_TBAT_CRITICAL_MAX, cell qualification envelope); JSC 20793 Rev C 4.4.3c (temperature monitoring); bench rule 45 degC (CLAUDE.md)",
-      "margin": null,
-      "margin_vs": "cell max charge / discharge temperature (PENDING datasheet)",
+      "margin": 0.0,
+      "margin_vs": "top of the VTC6 characterised discharge range 60 degC (charge range not in Rev 0.1)",
       "cbmc": "P6a-b"
     },
     {
@@ -79,8 +102,8 @@
       ],
       "unit": "V/cell",
       "source": "ADR-0017 (physically impossible readings)",
-      "margin": 0.2999999999999998,
-      "margin_vs": "cell max 4.2 V",
+      "margin": 0.25,
+      "margin_vs": "VTC6 charge voltage at upper tolerance 4.25 V",
       "cbmc": "P7, P9a-b"
     },
     {
@@ -144,9 +167,9 @@
     }
   ],
   "pending": [
-    "cell model and datasheet clauses (owner)",
-    "ECSS-E-ST-20C clause numbers",
-    "MIL-HDBK-217F lambda_g / pi_Q values",
-    "SPENVIS SEU rate per orbit"
+    "VTC6 charge temperature range and max continuous discharge (full product specification; Rev 0.1 has neither)",
+    "MIL-HDBK-217F part list with C1, C2, pi_T, pi_E (SF), pi_Q, pi_L per part (sections 5, 6, 9-15)",
+    "SPENVIS SEU rate per orbit (inputs in results/spenvis_inputs.json)",
+    "ECSS clause text check (mapping is owner-supplied)"
   ]
 }
