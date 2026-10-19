@@ -57,7 +57,7 @@ uint16_t fdir_state_crc(const FdirGuardedState *s)
     uint16_t c = 0xFFFFU;
     c = fdir_crc16((const uint8_t *)&s->ekf, (uint32_t)sizeof s->ekf, c);
     c = fdir_crc16((const uint8_t *)&s->feat, (uint32_t)sizeof s->feat, c);
-    c = fdir_crc16(&s->latch, 1U, c);
+    c = fdir_crc16((const uint8_t *)&s->sgo, (uint32_t)sizeof s->sgo, c);
     return c;
 }
 
@@ -81,7 +81,7 @@ void fdir_state_init(FdirGuardedState *s, float soc0)
     memset(s, 0, sizeof *s);        /* defined padding bytes, so the CRC is reproducible */
     soc_ekf_init(&s->ekf, (ekf_real_t)soc0);
     fdir_features_init(&s->feat);
-    s->latch = 0U;
+    memset(&s->sgo, 0, sizeof s->sgo);
     fdir_state_seal(s);
 }
 
@@ -93,7 +93,8 @@ int fdir_state_check(FdirGuardedState *s, float v_cell)
     memset(s, 0, sizeof *s);
     soc_ekf_init(&s->ekf, (ekf_real_t)fdir_soc_from_voltage(v_cell));
     fdir_features_init(&s->feat);
-    s->latch = 1U;                  /* inhibit charging until the SGO sees the window again */
+    s->sgo.charge_inhibit = 1U;     /* inhibit charging until the SGO sees the window again */
+    s->sgo.chg_on = 1U;             /* and until the charge current is known to be in band  */
     fdir_state_seal(s);
     return 1;
 }

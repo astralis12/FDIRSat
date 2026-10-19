@@ -11,6 +11,12 @@
  * Latched with hysteresis: released only inside [_REL_MIN, _REL_MAX]. The low
  * check uses the lowest credible reading of the median-of-3 vote
  * (fdir_temp_vote3), the high checks the highest. Applied after invariant 5.
+ *
+ * v3.2 adds invariant 7 (ISS-059, ADR-0024, approved 19 Oct 2026): cell current above its
+ * temperature-band continuous limit (fdir_config_{ref,bench}.h, docs/cell_limits_trace.md),
+ * with a measurement margin, a temperature margin for band selection, persistence and
+ * hysteresis. Charge over limit -> B>=2; discharge over limit -> L>=2; flag bit 7.
+ * Invariants 5-7 only raise actions (P14, monotone composition).
  * Everything below this paragraph, up to invariant 5, is unchanged from v2.
  *
  * (v2 header follows)
@@ -40,7 +46,102 @@
 #define SAFE_B  ACT_SHED_SECONDARY
 #define SAFE_L  ACT_SHED_SECONDARY
 
-uint8_t fdir_sgo_v3_charge_inhibit = 0U;
+FdirSgoState fdir_sgo_v3_state;
+#ifdef FDIR_PROOF_HOOKS
+FDIRResult fdir_sgo_v3_base;
+#endif
+
+static const float k_chg_e[FDIR_CHG_BAND_N + 1] = FDIR_CHG_BAND_EDGES;
+static const float k_chg_c[FDIR_CHG_BAND_N] = FDIR_CHG_BAND_C;
+static const float k_dis_e[FDIR_DIS_BAND_N > 1 ? FDIR_DIS_BAND_N - 1 : 1] = FDIR_DIS_BAND_EDGES;
+static const float k_dis_c[FDIR_DIS_BAND_N] = FDIR_DIS_BAND_C;
+
+static float fmin2(float x, float y) { return (y < x) ? y : x; }
+
+/* charge limit at one temperature: band k = [e[k], e[k+1]) (last band closed), else 0 */
+static float chg_band_at(float t)
+{
+    unsigned k;
+    for (k = 0U; k < (unsigned)FDIR_CHG_BAND_N; k++) {
+        const int last = (k + 1U == (unsigned)FDIR_CHG_BAND_N);
+        if (t >= k_chg_e[k] && (t < k_chg_e[k + 1U] || (last && t <= k_chg_e[k + 1U]))) {
+            return k_chg_c[k];
+        }
+    }
+    return 0.0f;                       /* outside every charge band (also NaN) */
+}
+
+/* discharge limit at one temperature: band 0 below e[0], band k in [e[k-1], e[k]), last above */
+static float dis_band_at(float t)
+{
+    unsigned k = 0U;
+    while (k + 1U < (unsigned)FDIR_DIS_BAND_N && t >= k_dis_e[k]) {
+        k++;
+    }
+    return k_dis_c[k];                 /* NaN -> band 0 (coldest; lowest limit for the M50) */
+}
+
+float fdir_ilim_charge_c(float a, float b)
+{
+    float m;
+    unsigned k;
+    if (!(a <= b)) {
+        return 0.0f;                   /* NaN or inverted interval: no charge allowed */
+    }
+    m = fmin2(chg_band_at(a), chg_band_at(b));
+    for (k = 0U; k <= (unsigned)FDIR_CHG_BAND_N; k++) {
+        if (k_chg_e[k] > a && k_chg_e[k] <= b) {
+            m = fmin2(m, chg_band_at(k_chg_e[k]));
+        }
+    }
+    return m;
+}
+
+float fdir_ilim_discharge_c(float a, float b)
+{
+    float m;
+    unsigned k;
+    if (!(a <= b)) {
+        return k_dis_c[0];
+    }
+    m = fmin2(dis_band_at(a), dis_band_at(b));
+    for (k = 0U; k + 1U < (unsigned)FDIR_DIS_BAND_N; k++) {
+        if (k_dis_e[k] > a && k_dis_e[k] <= b) {
+            m = fmin2(m, dis_band_at(k_dis_e[k]));
+        }
+    }
+    return m;
+}
+
+/* persistence + hysteresis latch of invariant 7 */
+static void ilim_update(uint8_t *on, uint8_t *cnt, uint8_t *rel, int over, int below)
+{
+    if (over) {
+        if (*cnt < FDIR_ILIM_PERSIST) {
+            (*cnt)++;
+        }
+    } else {
+        *cnt = 0U;
+    }
+    if (*cnt >= FDIR_ILIM_PERSIST) {
+        *on = 1U;
+        *rel = 0U;
+    } else if (*on != 0U) {
+        if (below) {
+            if (*rel < FDIR_ILIM_RELEASE) {
+                (*rel)++;
+            }
+        } else {
+            *rel = 0U;
+        }
+        if (*rel >= FDIR_ILIM_RELEASE) {
+            *on = 0U;
+            *rel = 0U;
+        }
+    } else {
+        *rel = 0U;
+    }
+}
 static uint8_t g_tlo_armed = 0U;   /* 1: g_tlo holds the vote for the next SGO call */
 static float g_tlo;
 
@@ -176,10 +277,15 @@ FDIRResult process_fdir_with_sgo(HealthTelemetry *telemetry)
             output.load_shed_action = ACT_SHED_PRIMARY;
         }
     }
+#ifdef FDIR_PROOF_HOOKS
+    fdir_sgo_v3_base = output;
+#endif
     /* INVARIANT 5 (v3): cell overvoltage, pack average */
     if (telemetry->solar_voltage > FDIR_VBAT_OV_MAX) {
         output.fault_flags |= FAULT_BIT_OVERVOLTAGE;
-        output.solar_reconfig_action = ACT_ISOLATE_ARRAYS;
+        if (output.solar_reconfig_action < ACT_ISOLATE_ARRAYS) {   /* raise-only (P14; was a set) */
+            output.solar_reconfig_action = ACT_ISOLATE_ARRAYS;
+        }
         if (output.battery_limit_action < ACT_ISOLATE_ARRAYS) {
             output.battery_limit_action = ACT_ISOLATE_ARRAYS;
         }
@@ -200,6 +306,32 @@ FDIRResult process_fdir_with_sgo(HealthTelemetry *telemetry)
             output.fault_flags |= FAULT_BIT_CHARGE_TEMP;
             if (output.battery_limit_action < ACT_ISOLATE_ARRAYS) {
                 output.battery_limit_action = ACT_ISOLATE_ARRAYS;
+            }
+        }
+    }
+    /* INVARIANT 7 (v3.2, ISS-059): temperature-band cell current limits. The band is the
+     * lowest over [t_lo - m, t_hi + m]; thresholds in pack amps with the measurement margin. */
+    {
+        const float q = FDIR_CELL_CAPACITY_AH * (float)FDIR_N_PARALLEL;
+        const float a = t_lo - FDIR_ILIM_T_MARGIN;
+        const float b = telemetry->system_temperature + FDIR_ILIM_T_MARGIN;
+        const float thr_c = ((1.0f - FDIR_ILIM_MEAS_MARGIN) * fdir_ilim_charge_c(a, b)) * q;
+        const float thr_d = ((1.0f - FDIR_ILIM_MEAS_MARGIN) * fdir_ilim_discharge_c(a, b)) * q;
+        const float i = telemetry->battery_current;          /* discharge > 0 */
+        ilim_update(&fdir_sgo_v3_state.chg_on, &fdir_sgo_v3_state.chg_cnt, &fdir_sgo_v3_state.chg_rel,
+                    -i > thr_c, -i < FDIR_ILIM_REL_FRAC * thr_c);
+        ilim_update(&fdir_sgo_v3_state.dis_on, &fdir_sgo_v3_state.dis_cnt, &fdir_sgo_v3_state.dis_rel,
+                    i > thr_d, i < FDIR_ILIM_REL_FRAC * thr_d);
+        if (fdir_sgo_v3_state.chg_on != 0U) {
+            output.fault_flags |= FAULT_BIT_CURRENT_LIMIT;
+            if (output.battery_limit_action < ACT_ISOLATE_ARRAYS) {
+                output.battery_limit_action = ACT_ISOLATE_ARRAYS;
+            }
+        }
+        if (fdir_sgo_v3_state.dis_on != 0U) {
+            output.fault_flags |= FAULT_BIT_CURRENT_LIMIT;
+            if (output.load_shed_action < ACT_SHED_PRIMARY) {
+                output.load_shed_action = ACT_SHED_PRIMARY;
             }
         }
     }

@@ -47,7 +47,7 @@ OCD = Path.home() / ".platformio" / "packages" / "tool-openocd"
 N_SLOTS, W, K = 7, 10, 40
 FAULTS = [0, 5, 10, 1, 7, 12, 4]                    # workload: one stream per slot
 EKF_SIZE, FEAT_SIZE = 48, 328
-GS_SIZE, GS_FEAT, GS_GUARD = 380, 48, 376     # FdirGuardedState: ekf @0, feat @48, latch + crc @376 (ISS-057)
+GS_SIZE, GS_FEAT, GS_GUARD = 388, 48, 376     # FdirGuardedState: ekf @0, feat @48, sgo state (7 B) + crc @376 (ISS-057, v3.2)
 
 
 def symbols() -> dict:
@@ -188,7 +188,7 @@ def main() -> None:
     for n in big:
         s0, sz = sym[n]
         covered[s0 - sdata:s0 - sdata + sz] = True
-    glob = np.concatenate([sdata + np.flatnonzero(~covered), per(GS_GUARD, GS_SIZE)])   # + latch / CRC / padding
+    glob = np.concatenate([sdata + np.flatnonzero(~covered), per(GS_GUARD, GS_SIZE)])   # + SGO state / CRC / padding
     regions = {
         "tree_tables": np.concatenate([np.arange(s, s + z) for s, z in tables]),
         "ekf_state": per(0, GS_FEAT),

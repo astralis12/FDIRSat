@@ -33,4 +33,15 @@
 #define FDIR_TBAT_CHARGE_REL_MIN 2.0f   /* release (hysteresis), owner 18 Oct     */
 #define FDIR_TBAT_CHARGE_REL_MAX 42.0f
 
+/* Temperature-band continuous current limits [C], SGO v3.2 invariant 7 (ISS-059,
+ * docs/cell_limits_trace.md M5/M6). Charge: band k covers [EDGE[k], EDGE[k+1]) (last band
+ * closed); outside all bands the limit is 0. Discharge: band 0 below EDGE[0], band k in
+ * [EDGE[k-1], EDGE[k]), last band at or above the last edge. */
+#define FDIR_CHG_BAND_N          2
+#define FDIR_CHG_BAND_EDGES      { 0.0f, 25.0f, 45.0f }      /* M50 spec 4.2.7 */
+#define FDIR_CHG_BAND_C          { 0.3f, 0.7f }
+#define FDIR_DIS_BAND_N          3
+#define FDIR_DIS_BAND_EDGES      { 10.0f, 25.0f }            /* M50 spec 4.2.9 */
+#define FDIR_DIS_BAND_C          { 0.5f, 3.0f, 1.5f }
+
 #endif /* FDIR_CONFIG_REF_H */

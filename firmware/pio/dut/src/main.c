@@ -49,7 +49,7 @@
 #include "fdir_config.h"
 #include "fdir_state_guard.h"
 
-#define FW_VERSION "fdir-dut 0.8 tree9 sgo3.1 guard multi7 " FDIR_CONFIG_NAME
+#define FW_VERSION "fdir-dut 0.9 tree9 sgo3.2 guard multi7 " FDIR_CONFIG_NAME
 #define MULTI 7
 #ifndef UART_BAUD
 #define UART_BAUD 460800U
@@ -93,9 +93,9 @@ static void full_step(FdirGuardedState *g, const uint8_t *in, uint8_t *out)
     x[4] = f[6];
     x[5] = f[7];
     fdir_features_step(&g->feat, x[0], x[3], x[4], &x[6]);
-    fdir_sgo_v3_charge_inhibit = g->latch;
+    fdir_sgo_v3_state = g->sgo;
     r = fdir_onboard_step(x);
-    g->latch = fdir_sgo_v3_charge_inhibit;
+    g->sgo = fdir_sgo_v3_state;
     fdir_state_seal(g);
     cycles = DWT->CYCCNT - t0;
     if (fdir_tree_last_status != 0) {
@@ -364,9 +364,9 @@ int main(void)
             memcpy(x, in, 36);
             memcpy(tb, &in[36], 12);
             t0 = DWT->CYCCNT;
-            fdir_sgo_v3_charge_inhibit = xstate.latch;
+            fdir_sgo_v3_state = xstate.sgo;
             r = fdir_onboard_step3(x, tb);
-            xstate.latch = fdir_sgo_v3_charge_inhibit;
+            xstate.sgo = fdir_sgo_v3_state;
             fdir_state_seal(&xstate);
             cycles = DWT->CYCCNT - t0;
             out[0] = r.solar_reconfig_action;

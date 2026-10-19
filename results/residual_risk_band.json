@@ -5,11 +5,11 @@
     "xjtu": {
       "t_orb_h": 1.5833333333333333,
       "seu_per_bit_day": 3.5030800821355235e-07,
-      "residual_risk_nominal": 0.00014136451910568877,
+      "residual_risk_nominal": 0.00013287384855163026,
       "residual_risk_band": {
-        "p5": 4.810584690504692e-05,
-        "p50": 0.0001731332394630907,
-        "p95": 0.0009604843764219668
+        "p5": 3.895929094882108e-05,
+        "p50": 0.00015334432136853552,
+        "p95": 0.0009430157977980671
       },
       "not_mitigable_band": {
         "p5": 4.074435228758474e-06,
@@ -17,33 +17,33 @@
         "p95": 0.0001126025197621484
       },
       "kendall_tau_vs_nominal": {
-        "median": 0.8315789473684211,
-        "p5": 0.7473684210526316
+        "median": 0.8210526315789474,
+        "p5": 0.7263157894736842
       },
       "nominal_top3": [
         "A1",
-        "A3",
-        "5"
+        "5",
+        "A5"
       ],
-      "top3_unchanged_share": 0.16965,
+      "top3_unchanged_share": 0.15065,
       "per_mode": {
         "1": {
           "p_nominal": 7.469863684272937e-07,
           "coverage": 0.37109375,
           "not_mitigable": 0.0,
           "contribution_nominal": 9.395687915374554e-07,
-          "rank_nominal": 6,
+          "rank_nominal": 5,
           "rank_p5": 3,
-          "rank_p95": 12
+          "rank_p95": 11
         },
         "2": {
           "p_nominal": 7.469863684272937e-07,
           "coverage": 0.37109375,
           "not_mitigable": 0.0,
           "contribution_nominal": 9.395687915374554e-07,
-          "rank_nominal": 7,
+          "rank_nominal": 6,
           "rank_p5": 3,
-          "rank_p95": 12
+          "rank_p95": 11
         },
         "3": {
           "p_nominal": 7.469863684272937e-07,
@@ -59,8 +59,8 @@
           "coverage": 0.806640625,
           "not_mitigable": 0.0,
           "contribution_nominal": 6.499655566319634e-07,
-          "rank_nominal": 10,
-          "rank_p5": 4,
+          "rank_nominal": 9,
+          "rank_p5": 3,
           "rank_p95": 12
         },
         "5": {
@@ -68,9 +68,9 @@
           "coverage": 0.09468822181224823,
           "not_mitigable": 0.154296875,
           "contribution_nominal": 3.4314679888306255e-06,
-          "rank_nominal": 3,
+          "rank_nominal": 2,
           "rank_p5": 2,
-          "rank_p95": 10
+          "rank_p95": 9
         },
         "6": {
           "p_nominal": 1.1204793434194116e-06,
@@ -86,9 +86,9 @@
           "coverage": 0.67578125,
           "not_mitigable": 0.0,
           "contribution_nominal": 2.9062384125470853e-06,
-          "rank_nominal": 5,
+          "rank_nominal": 4,
           "rank_p5": 2,
-          "rank_p95": 10
+          "rank_p95": 9
         },
         "8": {
           "p_nominal": 4.481909841036469e-06,
@@ -123,7 +123,7 @@
           "not_mitigable": 0.0,
           "contribution_nominal": 2.3963383295332215e-07,
           "rank_nominal": 12,
-          "rank_p5": 6,
+          "rank_p5": 5,
           "rank_p95": 12
         },
         "12": {
@@ -131,7 +131,7 @@
           "coverage": 0.734375,
           "not_mitigable": 0.0,
           "contribution_nominal": 7.440682097854812e-07,
-          "rank_nominal": 8,
+          "rank_nominal": 7,
           "rank_p5": 3,
           "rank_p95": 12
         },
@@ -141,7 +141,7 @@
           "not_mitigable": 0.0,
           "contribution_nominal": 4.048606435597471e-07,
           "rank_nominal": 11,
-          "rank_p5": 5,
+          "rank_p5": 4,
           "rank_p95": 12
         },
         "14": {
@@ -149,7 +149,7 @@
           "coverage": 0.73828125,
           "not_mitigable": 0.0,
           "contribution_nominal": 7.331260302298123e-07,
-          "rank_nominal": 9,
+          "rank_nominal": 8,
           "rank_p5": 3,
           "rank_p95": 12
         },
@@ -191,32 +191,32 @@
         },
         "A3": {
           "p_nominal": 6.95142618460931e-05,
-          "coverage": 0.9571428571428572,
+          "coverage": 0.9978571428571429,
           "not_mitigable": 0.0,
-          "contribution_nominal": 8.937547951640534e-06,
-          "rank_nominal": 2,
-          "rank_p5": 1,
-          "rank_p95": 7
+          "contribution_nominal": 4.4687739758202087e-07,
+          "rank_nominal": 10,
+          "rank_p5": 4,
+          "rank_p95": 12
         },
         "A5": {
           "p_nominal": 0.00021296458881570057,
           "coverage": 0.995,
           "not_mitigable": 0.0,
           "contribution_nominal": 3.1944688322355117e-06,
-          "rank_nominal": 4,
+          "rank_nominal": 3,
           "rank_p5": 2,
-          "rank_p95": 10
+          "rank_p95": 9
         }
       }
     },
     "o2_sso_1030": {
       "t_orb_h": 1.5933333333333333,
       "seu_per_bit_day": 3.5173169062286105e-07,
-      "residual_risk_nominal": 0.00014281852290309679,
+      "residual_risk_nominal": 0.0001342395053979306,
       "residual_risk_band": {
-        "p5": 4.9464015242857154e-05,
-        "p50": 0.00017317526641899184,
-        "p95": 0.0009721665555288493
+        "p5": 3.9888949763932236e-05,
+        "p50": 0.0001519685801748867,
+        "p95": 0.0009538621738615448
       },
       "not_mitigable_band": {
         "p5": 4.041564009382975e-06,
@@ -224,33 +224,33 @@
         "p95": 0.00011395322001527295
       },
       "kendall_tau_vs_nominal": {
-        "median": 0.8315789473684211,
-        "p5": 0.7368421052631579
+        "median": 0.8105263157894737,
+        "p5": 0.7157894736842105
       },
       "nominal_top3": [
         "A1",
-        "A3",
-        "5"
+        "5",
+        "A5"
       ],
-      "top3_unchanged_share": 0.1745,
+      "top3_unchanged_share": 0.14825,
       "per_mode": {
         "1": {
           "p_nominal": 7.517041753501985e-07,
           "coverage": 0.37109375,
           "not_mitigable": 0.0,
           "contribution_nominal": 9.455029080576716e-07,
-          "rank_nominal": 7,
+          "rank_nominal": 6,
           "rank_p5": 3,
-          "rank_p95": 12
+          "rank_p95": 11
         },
         "2": {
           "p_nominal": 7.517041753501985e-07,
           "coverage": 0.365234375,
           "not_mitigable": 0.0,
           "contribution_nominal": 9.543119413625567e-07,
-          "rank_nominal": 6,
+          "rank_nominal": 5,
           "rank_p5": 3,
-          "rank_p95": 12
+          "rank_p95": 11
         },
         "3": {
           "p_nominal": 7.517041753501985e-07,
@@ -266,8 +266,8 @@
           "coverage": 0.802734375,
           "not_mitigable": 0.0,
           "contribution_nominal": 6.672841474186873e-07,
-          "rank_nominal": 10,
-          "rank_p5": 4,
+          "rank_nominal": 9,
+          "rank_p5": 3,
           "rank_p95": 12
         },
         "5": {
@@ -275,9 +275,9 @@
           "coverage": 0.09490741044282913,
           "not_mitigable": 0.15625,
           "contribution_nominal": 3.444331363243506e-06,
-          "rank_nominal": 3,
+          "rank_nominal": 2,
           "rank_p5": 2,
-          "rank_p95": 10
+          "rank_p95": 9
         },
         "6": {
           "p_nominal": 1.1275560510837224e-06,
@@ -293,9 +293,9 @@
           "coverage": 0.673828125,
           "not_mitigable": 0.0,
           "contribution_nominal": 2.9422115946399485e-06,
-          "rank_nominal": 5,
+          "rank_nominal": 4,
           "rank_p5": 2,
-          "rank_p95": 10
+          "rank_p95": 9
         },
         "8": {
           "p_nominal": 4.510216576214532e-06,
@@ -330,7 +330,7 @@
           "not_mitigable": 0.0,
           "contribution_nominal": 2.5105747277192475e-07,
           "rank_nominal": 12,
-          "rank_p5": 6,
+          "rank_p5": 5,
           "rank_p95": 12
         },
         "12": {
@@ -338,7 +338,7 @@
           "coverage": 0.736328125,
           "not_mitigable": 0.0,
           "contribution_nominal": 7.432619406663038e-07,
-          "rank_nominal": 8,
+          "rank_nominal": 7,
           "rank_p5": 3,
           "rank_p95": 12
         },
@@ -348,7 +348,7 @@
           "not_mitigable": 0.0,
           "contribution_nominal": 4.019120123602976e-07,
           "rank_nominal": 11,
-          "rank_p5": 5,
+          "rank_p5": 4,
           "rank_p95": 12
         },
         "14": {
@@ -356,7 +356,7 @@
           "coverage": 0.73828125,
           "not_mitigable": 0.0,
           "contribution_nominal": 7.377562966613682e-07,
-          "rank_nominal": 9,
+          "rank_nominal": 8,
           "rank_p5": 3,
           "rank_p95": 12
         },
@@ -398,32 +398,32 @@
         },
         "A3": {
           "p_nominal": 7.023757021773491e-05,
-          "coverage": 0.9571428571428572,
+          "coverage": 0.9978571428571429,
           "not_mitigable": 0.0,
-          "contribution_nominal": 9.030544742280194e-06,
-          "rank_nominal": 2,
-          "rank_p5": 1,
-          "rank_p95": 7
+          "contribution_nominal": 4.515272371140039e-07,
+          "rank_nominal": 10,
+          "rank_p5": 4,
+          "rank_p95": 12
         },
         "A5": {
           "p_nominal": 0.00021518036297474286,
           "coverage": 0.995,
           "not_mitigable": 0.0,
           "contribution_nominal": 3.2277054446211457e-06,
-          "rank_nominal": 4,
+          "rank_nominal": 3,
           "rank_p5": 2,
-          "rank_p95": 10
+          "rank_p95": 9
         }
       }
     },
     "o3_dawn_dusk": {
       "t_orb_h": 1.6116666666666666,
       "seu_per_bit_day": 1.5486105407255305e-06,
-      "residual_risk_nominal": 0.0005868025952410671,
+      "residual_risk_nominal": 0.0005486007645896854,
       "residual_risk_band": {
-        "p5": 0.00014237769833428163,
-        "p50": 0.000670059047731516,
-        "p95": 0.0037065327802269293
+        "p5": 0.00010803869032660057,
+        "p50": 0.0005666013416321383,
+        "p95": 0.0036213158889598484
       },
       "not_mitigable_band": {
         "p5": 3.5546938191064565e-06,
@@ -431,15 +431,15 @@
         "p95": 0.00011148075512416808
       },
       "kendall_tau_vs_nominal": {
-        "median": 0.8947368421052632,
-        "p5": 0.8315789473684211
+        "median": 0.8736842105263158,
+        "p5": 0.7999999999999999
       },
       "nominal_top3": [
         "A1",
-        "A3",
-        "A5"
+        "A5",
+        "5"
       ],
-      "top3_unchanged_share": 0.5462,
+      "top3_unchanged_share": 0.317,
       "per_mode": {
         "1": {
           "p_nominal": 7.603534878386498e-07,
@@ -482,7 +482,7 @@
           "coverage": 0.0,
           "not_mitigable": 0.068359375,
           "contribution_nominal": 4.250256383974728e-06,
-          "rank_nominal": 4,
+          "rank_nominal": 3,
           "rank_p5": 2,
           "rank_p95": 8
         },
@@ -501,7 +501,7 @@
           "not_mitigable": 0.0,
           "contribution_nominal": 1.9602826096523293e-06,
           "rank_nominal": 5,
-          "rank_p5": 3,
+          "rank_p5": 2,
           "rank_p95": 10
         },
         "8": {
@@ -537,7 +537,7 @@
           "not_mitigable": 0.0,
           "contribution_nominal": 2.3389782366793274e-07,
           "rank_nominal": 11,
-          "rank_p5": 6,
+          "rank_p5": 5,
           "rank_p95": 11
         },
         "12": {
@@ -546,7 +546,7 @@
           "not_mitigable": 0.0,
           "contribution_nominal": 6.404342433067797e-07,
           "rank_nominal": 6,
-          "rank_p5": 4,
+          "rank_p5": 3,
           "rank_p95": 11
         },
         "13": {
@@ -555,7 +555,7 @@
           "not_mitigable": 0.0,
           "contribution_nominal": 4.622264538648932e-07,
           "rank_nominal": 10,
-          "rank_p5": 5,
+          "rank_p5": 4,
           "rank_p95": 11
         },
         "14": {
@@ -601,25 +601,25 @@
           "contribution_nominal": 0.000522961960920767,
           "rank_nominal": 1,
           "rank_p5": 1,
-          "rank_p95": 2
+          "rank_p95": 1
         },
         "A3": {
           "p_nominal": 0.0003127635258007855,
-          "coverage": 0.9571428571428572,
+          "coverage": 0.9978571428571429,
           "not_mitigable": 0.0,
-          "contribution_nominal": 4.021245331724381e-05,
-          "rank_nominal": 2,
-          "rank_p5": 1,
-          "rank_p95": 4
+          "contribution_nominal": 2.0106226658621646e-06,
+          "rank_nominal": 4,
+          "rank_p5": 2,
+          "rank_p95": 9
         },
         "A5": {
           "p_nominal": 0.0009579449689296471,
           "coverage": 0.995,
           "not_mitigable": 0.0,
           "contribution_nominal": 1.4369174533944718e-05,
-          "rank_nominal": 3,
+          "rank_nominal": 2,
           "rank_p5": 2,
-          "rank_p95": 6
+          "rank_p95": 5
         }
       }
     }
@@ -738,7 +738,7 @@
       "A3": {
         "lambda_per_h": 4.3905270362765223e-05,
         "layer": 3,
-        "p_sdc_per_upset": 0.04285714285714286,
+        "p_sdc_per_upset": 0.002142857142857143,
         "severity": 2
       },
       "A5": {
@@ -860,7 +860,7 @@
       "A3": {
         "lambda_per_h": 4.408370522473192e-05,
         "layer": 3,
-        "p_sdc_per_upset": 0.04285714285714286,
+        "p_sdc_per_upset": 0.002142857142857143,
         "severity": 2
       },
       "A5": {
@@ -982,7 +982,7 @@
       "A3": {
         "lambda_per_h": 0.0001940925211042665,
         "layer": 3,
-        "p_sdc_per_upset": 0.04285714285714286,
+        "p_sdc_per_upset": 0.002142857142857143,
         "severity": 2
       },
       "A5": {

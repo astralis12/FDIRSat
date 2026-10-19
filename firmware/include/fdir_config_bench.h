@@ -36,4 +36,13 @@
 #define FDIR_TBAT_CHARGE_REL_MIN 2.0f
 #define FDIR_TBAT_CHARGE_REL_MAX 42.0f
 
+/* Temperature-band current limits [C], SGO v3.2 invariant 7 (docs/cell_limits_trace.md V5/V6):
+ * VTC6 standard charge 3.0 A = 1C in 0..45 degC; 15 A = 5C continuous without cut-off. */
+#define FDIR_CHG_BAND_N          1
+#define FDIR_CHG_BAND_EDGES      { 0.0f, 45.0f }
+#define FDIR_CHG_BAND_C          { 1.0f }
+#define FDIR_DIS_BAND_N          1
+#define FDIR_DIS_BAND_EDGES      { 1000.0f }                 /* unused: one band */
+#define FDIR_DIS_BAND_C          { 5.0f }
+
 #endif /* FDIR_CONFIG_BENCH_H */

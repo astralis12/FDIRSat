@@ -40,6 +40,12 @@
 /* Temperature thresholds [degC] — carried over from fdir_sgo.h. TRACE IN M2 */
 /* FDIR_TBAT_CRITICAL_MAX is per configuration (cell discharge limit) */
 #define FDIR_TBAT_SENSOR_DISAGREE 5.0f  /* one of 3 sensors this far from the median -> bit 4 */
+/* SGO v3.2 invariant 7 (ISS-059): margins, persistence, hysteresis (docs/cell_limits_trace.md) */
+#define FDIR_ILIM_MEAS_MARGIN    0.05f  /* threshold = (1 - margin) x band limit        */
+#define FDIR_ILIM_T_MARGIN       1.0f   /* band chosen over [t_lo - m, t_hi + m] (min)   */
+#define FDIR_ILIM_PERSIST        5U     /* consecutive samples over threshold -> act    */
+#define FDIR_ILIM_RELEASE        60U    /* consecutive samples below REL_FRAC x thr     */
+#define FDIR_ILIM_REL_FRAC       0.8f
 #define FDIR_TBAT_VOTE_INVALID   1000.0f  /* vote result with < 2 valid sensors (implausible) */
 #define FDIR_TBAT_PLAUSIBLE_MIN  (-60.0f)
 #define FDIR_TBAT_PLAUSIBLE_MAX  150.0f

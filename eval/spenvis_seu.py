@@ -3,7 +3,8 @@
 Reads the saved SPENVIS 'Long-term Single Event Upset Rates' pages (spenvis_nuopl.html) in
 data/spenvis/html. SPENVIS reports total mission upsets per bit; the runs are 1 year long
 (data/spenvis/run*/inputs.yaml), so rate = total / 365.25 per bit per day.
-Run 0 (GEO, 100 mil Al, solar minimum) checks the device inputs against ST's published 65 nm
+Run 0b (GEO, 2.5 mm Al, solar minimum, D_mid L0 = 0.5) checks; run 0 (L0 = 1.0) is kept as an
+L0 sensitivity point (ISS-051). The check the device inputs against ST's published 65 nm
 SRAM rates (Roche 2009): pass if D_mid is within a factor of 3 of the reference.
 """
 from __future__ import annotations
@@ -16,7 +17,8 @@ ROOT = Path(__file__).resolve().parents[1]
 HTML = ROOT / "data" / "spenvis" / "html"
 DAYS = 365.25
 RUNS = {  # file tag -> (run id, orbit key in sim/env_v2.py, shielding mm Al)
-    "GEO": ("run0_geo_check", "geo", 2.54),
+    "GEO_L0_0p5": ("run0b_geo_check_L0_0p5", "geo", 2.5),   # D_mid L0 = 0.5 as the inputs file (ISS-051)
+    "GEO": ("run0_geo_check", "geo", 2.54),                    # D_mid L0 = 1.0: free L0 sensitivity point
     "XJTU": ("run1_xjtu", "xjtu", 2.0),
     "sso_1030": ("run2_o2_sso_1030", "o2_sso_1030", 2.0),
     "dawn_dusk": ("run3_o3_dawn_dusk", "o3_dawn_dusk", 2.0),
@@ -56,7 +58,11 @@ def main() -> None:
         r = parse(f)
         r.update({"run_id": rid, "orbit": orbit, "shielding_mm_al": mm, "file": str(f.relative_to(ROOT)).replace("\\", "/")})
         out["runs"][rid] = r
-    g = out["runs"]["run0_geo_check"]["devices"]["D_mid"]
+    g = out["runs"]["run0b_geo_check_L0_0p5"]["devices"]["D_mid"]
+    g1 = out["runs"]["run0_geo_check"]["devices"]["D_mid"]
+    out["l0_sensitivity_geo_D_mid"] = {"L0_0.5_total_per_bit_day": g["total_per_bit_day"], "L0_1.0_total_per_bit_day": g1["total_per_bit_day"],
+                                       "ratio_0.5_over_1.0": g["total_per_bit_day"] / g1["total_per_bit_day"],
+                                       "note": "orbit runs 1-5 still have D_mid at L0 = 1.0 (rerun pending); D_high (main) used L0 = 0.5 throughout"}
     ratio = {"direct": g["direct_per_bit_day"] / GEO_REF["direct"], "proton": g["proton_per_bit_day"] / GEO_REF["proton"]}
     out["geo_check"] = {"reference": GEO_REF, "D_mid_over_reference": ratio,
                         "pass": all(1 / 3 <= x <= 3 for x in ratio.values()), "criterion": "within a factor of 3"}

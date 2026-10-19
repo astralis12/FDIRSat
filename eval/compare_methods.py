@@ -31,7 +31,7 @@ ROOT = Path(__file__).resolve().parents[1]
 for p in ("sim", "train"):
     sys.path.insert(0, str(ROOT / p))
 from env_v2 import EPSEnv, EnvConfig, N_FAULTS, ORBITS  # noqa: E402
-from fdir_torch import GpuTree, sgo_v2, V_CRIT, V_NOM, C_CRIT, T_CRIT, SOC_CRIT_PCT  # noqa: E402
+from fdir_torch import GpuTree, SgoState, sgo_v2, V_CRIT, V_NOM, C_CRIT, T_CRIT, SOC_CRIT_PCT  # noqa: E402
 from graph_rollout import GraphStep  # noqa: E402
 from train_defender import W_SEV  # noqa: E402
 
@@ -58,11 +58,13 @@ def m1_table(v, c, t, soc):
 def make_policy(kind: str, env, trees: dict):
     n = env.cfg.n_env
     dev = env.dev
+    env.sgo_st = SgoState(n, dev)                     # SGO v3.2 state per episode (ADR-0024)
+    st = env.sgo_st
     if kind in ("deployed", "tree6"):
         tree, k = trees[kind]
-        return lambda obs, ex: sgo_v2(tree(obs[:, :k]), obs[:, 0], obs[:, 1], obs[:, 2], obs[:, 3])[0]
+        return lambda obs, ex: sgo_v2(tree(obs[:, :k]), obs[:, 0], obs[:, 1], obs[:, 2], obs[:, 3], state=st)[0]
     if kind == "M6":
-        return lambda obs, ex: sgo_v2(torch.zeros(n, 3, dtype=torch.long, device=dev), obs[:, 0], obs[:, 1], obs[:, 2], obs[:, 3])[0]
+        return lambda obs, ex: sgo_v2(torch.zeros(n, 3, dtype=torch.long, device=dev), obs[:, 0], obs[:, 1], obs[:, 2], obs[:, 3], state=st)[0]
     if kind == "M1":
         return lambda obs, ex: m1_table(obs[:, 0], obs[:, 1], obs[:, 2], obs[:, 3])[0]
     if kind == "M2":
@@ -96,7 +98,7 @@ def make_policy(kind: str, env, trees: dict):
             hist = env.p_hist.scatter(1, env.p_pos[:, None, None].expand(n, 1, 3), raw[:, None, :])
             env.p_hist, env.p_pos = hist, (env.p_pos + 1) % M
             filt = sum(((hist >= lvl).sum(1) >= N).long() for lvl in (1, 2, 3))   # highest level seen N of M times
-            return sgo_v2(filt, obs[:, 0], obs[:, 1], obs[:, 2], obs[:, 3])[0]
+            return sgo_v2(filt, obs[:, 0], obs[:, 1], obs[:, 2], obs[:, 3], state=st)[0]
         return nofm
     if kind == "expert":
         return lambda obs, ex: ex
@@ -112,6 +114,7 @@ def closed_loop(kind, cfg: EnvConfig, per_fault: int, trees: dict):
     steps = int(cfg.episode_orbits * env.orbit.period_s / cfg.dt)
     z = torch.zeros(cfg.n_env, device=env.dev)
     env.a_haz = z.bool()
+    env.a_oe = torch.zeros(cfg.n_env, device=env.dev)
     env.a_need = torch.zeros(cfg.n_env, 3, dtype=torch.bool, device=env.dev)
     env.a_resp = env.a_need.clone()
     env.a_nom_act, env.a_nom, env.a_act, env.a_act_ok = z.clone(), z.clone(), z.clone(), z.clone()
@@ -124,6 +127,7 @@ def closed_loop(kind, cfg: EnvConfig, per_fault: int, trees: dict):
         within = after & (e.t <= e.t_onset + RESPONSE_S)
         acting = (act > 0).any(1)
         e.a_haz = e.a_haz | torch.stack(list(e.hazards().values()), 1).any(1)
+        e.a_oe = e.a_oe + info["out_of_envelope"].float()
         e.a_need = e.a_need | (after[:, None] & (expert > 0))
         e.a_resp = e.a_resp | (within[:, None] & (act > 0))
         e.a_nom_act = e.a_nom_act + (~after & acting).float()
@@ -135,7 +139,9 @@ def closed_loop(kind, cfg: EnvConfig, per_fault: int, trees: dict):
     step = GraphStep(env, fn) if env.dev == "cuda" else (lambda: fn(env))
     for _ in range(steps):
         step()
-    return {k: getattr(env, k).cpu() for k in ("a_haz", "a_need", "a_resp", "a_nom_act", "a_nom", "a_act", "a_act_ok")}
+    out = {k: getattr(env, k).cpu() for k in ("a_haz", "a_need", "a_resp", "a_nom_act", "a_nom", "a_act", "a_act_ok")}
+    out["oe_time"] = (env.a_oe / steps).cpu()
+    return out
 
 
 def main() -> None:
@@ -180,7 +186,7 @@ def main() -> None:
                        "coverage_mitigable": float(ok[mit].float().mean()) if mit.any() else None,
                        "hazard": float(r["a_haz"][sl].float().mean()),
                        "false_action_rate": float((r["a_nom_act"][sl] / r["a_nom"][sl].clamp_min(1)).mean()),
-                       "severity": sev[str(f)]["severity"] or 0}
+                       "severity": sev[str(f)]["severity"] or 0, "out_of_envelope_time": float(r["oe_time"][sl].mean())}
                 rows[f] = row
                 if f > 0 and row["coverage_mitigable"] is not None:
                     cov_m.append(row["coverage_mitigable"])
@@ -191,7 +197,7 @@ def main() -> None:
             out[k] = {"per_fault": rows, "coverage_mitigable_mean": float(np.mean(cov_m)), "false_action_rate_mean": fa,
                       "alarm_precision": float(ok_act / act) if act > 0 else None,
                       "hazard_mean_faults": float(np.mean([rows[f]["hazard"] for f in range(1, N_FAULTS)])),
-                      "residual_risk_relative": rr}
+                      "residual_risk_relative": rr, "out_of_envelope_time_mean": float(r["oe_time"].mean())}
             print(orb, k, {x: (round(y, 4) if isinstance(y, float) else y) for x, y in out[k].items() if x != "per_fault"}, flush=True)
         res["orbits"][orb] = out
     Path(a.out).write_text(json.dumps(res, indent=2))

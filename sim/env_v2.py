@@ -55,6 +55,44 @@ V_CELL_MAX, V_CELL_CUTOFF = 4.2, 2.5
 # SGO thresholds per cell / per unit (fdir_config.h: 3.0 V, 3.6 V, 1.5 C, 60 C, 5 %)
 TH_V_CRIT, TH_V_NOM, TH_C_CRIT, TH_T_CRIT, TH_SOC_CRIT = 3.0, 3.6, 1.5, 55.0, 0.05   # T: LG M50 discharge max (ADR-0023; was 60)
 
+# LG M50 datasheet envelope (docs/cell_limits_trace.md; plant truth, no measurement margin)
+M50_CHG_BANDS = ((0.0, 25.0, 0.3), (25.0, 45.0, 0.7))          # spec 4.2.7, C; 0 outside
+M50_DIS_EDGES, M50_DIS_C = (10.0, 25.0), (0.5, 3.0, 1.5)        # spec 4.2.9, C
+M50_T_DIS = (-20.0, 55.0)                                       # spec 2.7
+M50_V = (2.50, 4.20)                                            # spec 2.5 / 2.6
+
+
+def m50_charge_limit(t: torch.Tensor) -> torch.Tensor:
+    lim = torch.zeros_like(t)
+    for k, (lo, hi, c) in enumerate(M50_CHG_BANDS):
+        last = k == len(M50_CHG_BANDS) - 1
+        lim = torch.where((t >= lo) & ((t < hi) | (last & (t <= hi))), torch.full_like(t, c), lim)
+    return lim
+
+
+# Nested envelopes (ADR-0024): charger setpoint < SGO invariant 7 threshold < datasheet limit.
+# The SGO trips at 0.95 x the lowest band within +-1 degC; the charger derates to 0.90 x the
+# lowest band within +-2 degC, so a working charger never trips the SGO.
+CHARGER_DERATE_FRAC, CHARGER_DERATE_T = 0.90, 2.0
+
+
+def m50_charger_setpoint(t: torch.Tensor) -> torch.Tensor:
+    lo, hi = t - CHARGER_DERATE_T, t + CHARGER_DERATE_T
+    m = torch.minimum(m50_charge_limit(lo), m50_charge_limit(hi))
+    for e in (0.0, 25.0, 45.0):
+        m = torch.where((lo < e) & (hi >= e), torch.minimum(m, m50_charge_limit(torch.full_like(t, e))), m)
+    return CHARGER_DERATE_FRAC * m
+
+
+def m50_discharge_limit(t: torch.Tensor) -> torch.Tensor:
+    lim = torch.full_like(t, M50_DIS_C[0])
+    go = torch.ones_like(t, dtype=torch.bool)
+    for k, e in enumerate(M50_DIS_EDGES):
+        go = go & (t >= e)
+        lim = torch.where(go, torch.full_like(t, M50_DIS_C[k + 1]), lim)
+    return lim
+
+
 
 @dataclass
 class Orbit:
@@ -84,6 +122,9 @@ class EnvConfig:
     task_duty: float = 0.25
     charge_cc_c: float = 0.5            # BCR constant-current limit
     trickle_c: float = 0.02
+    # v3.2 (ADR-0024): the BCR derates its CC limit to the M50 charge band (spec 4.2.7) and does
+    # not charge outside 0..45 degC. bool, or a (n_env,) bool tensor (PIL C6: derating lost)
+    charge_derate: object = True
     # thermal (ASSUMED): heat capacity, thermal resistance, ambient sun/eclipse
     c_th_j_per_k: float = 8 * 70.0
     r_th_k_per_w: float = 1.5
@@ -344,6 +385,10 @@ class EPSEnv:
         surplus = (i_sa - i_load).clamp_min(0)
         i_cv = ((V_CELL_MAX - (ocv_now - self.v1 - self.v2)) / (r0 * rdeg * self.q_cell)).min(1).values.clamp_min(0)
         i_chg = torch.minimum(torch.minimum(surplus, torch.full_like(surplus, c.charge_cc_c)), i_cv)
+        if isinstance(c.charge_derate, torch.Tensor):                                    # datasheet derating
+            i_chg = torch.where(c.charge_derate, torch.minimum(i_chg, m50_charger_setpoint(self.temp)), i_chg)
+        elif c.charge_derate:
+            i_chg = torch.minimum(i_chg, m50_charger_setpoint(self.temp))
         i_chg = torch.where(fe(4), torch.zeros_like(i_chg), i_chg)                          # BCR open
         i_chg = torch.where(fe(5), torch.minimum(surplus, torch.full_like(surplus, 0.9)), i_chg)  # short: no CV
         i_chg = torch.where(fe(6), (0.55 + 0.3 * (1 - mag)) * i_chg, i_chg)               # power loss
@@ -381,6 +426,14 @@ class EPSEnv:
         u_bus = torch.where(bus_open, torch.zeros_like(u_bus), u_bus)
         self.obs, self.info = self._observe(i_bat, i_sa, u_bus, v_cell_true)
         self.info.update({"i_load": i_load, "unpowered": unpowered, "sunlit": sunlit})
+        # out of the M50 datasheet envelope this step (metric, ADR-0024): current above the
+        # temperature-band limit, temperature outside the discharge or charge window, cell V
+        chg, dis = i_bat < -0.01, i_bat > 0.01
+        self.info["out_of_envelope"] = ((chg & (-i_bat > m50_charge_limit(self.temp) + 1e-4))
+                                        | (dis & (i_bat > m50_discharge_limit(self.temp) + 1e-4))
+                                        | (self.temp < M50_T_DIS[0]) | (self.temp > M50_T_DIS[1])
+                                        | (v_cell_true.max(1).values > M50_V[1] + 0.005)
+                                        | (v_cell_true.min(1).values < M50_V[0]))
         expert = self.expert_action()
         self.i_prev = i_bat
         self.t = self.t + dt

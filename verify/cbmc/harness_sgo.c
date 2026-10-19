@@ -76,10 +76,15 @@ int main(void)
     t.battery_soc        = nondet_float();
 
 #ifdef SGO_V3
-    /* Invariant 6 state: any latch value before the call (0 or 1, its only values) */
-    const uint8_t latch0 = nondet_uint8();
-    __CPROVER_assume(latch0 <= 1u);
-    fdir_sgo_v3_charge_inhibit = latch0;
+    /* SGO v3 state before the call: any valid value (latches 0/1, counters in range) */
+    FdirSgoState st0;
+    st0.charge_inhibit = nondet_uint8(); st0.chg_on = nondet_uint8(); st0.dis_on = nondet_uint8();
+    st0.chg_cnt = nondet_uint8(); st0.chg_rel = nondet_uint8(); st0.dis_cnt = nondet_uint8(); st0.dis_rel = nondet_uint8();
+    __CPROVER_assume(st0.charge_inhibit <= 1u && st0.chg_on <= 1u && st0.dis_on <= 1u);
+    __CPROVER_assume(st0.chg_cnt <= FDIR_ILIM_PERSIST && st0.dis_cnt <= FDIR_ILIM_PERSIST);
+    __CPROVER_assume(st0.chg_rel <= FDIR_ILIM_RELEASE && st0.dis_rel <= FDIR_ILIM_RELEASE);
+    fdir_sgo_v3_state = st0;
+    const uint8_t latch0 = st0.charge_inhibit;
     /* Either the glue's median-of-3 vote supplies T (= t_hi) and t_lo, or a single
      * sensor is used (t_lo = T), as in fdir_onboard_step3 / fdir_onboard_step. */
     float tb[3], th = 0.0f, tl;
@@ -106,8 +111,8 @@ int main(void)
     __CPROVER_assert(o.load_shed_action      <= 3u, "P1c load action in 0..3");
 
 #ifdef SGO_V3
-    /* P2 (v3): fault mask uses only defined bits 0..6 */
-    __CPROVER_assert((o.fault_flags & ~0x7Fu) == 0u, "P2 fault mask bits 0..6 only");
+    /* P2 (v3.2): all 8 flag bits are defined (bit 7 = current limit) */
+    __CPROVER_assert((o.fault_flags & ~0xFFu) == 0u, "P2 fault mask bits 0..7 only");
 #else
     /* P2: fault mask uses only defined bits 0..4 */
     __CPROVER_assert((o.fault_flags & ~0x1Fu) == 0u, "P2 fault mask bits 0..4 only");
@@ -150,7 +155,7 @@ int main(void)
 #ifdef SGO_V3
     /* P10 (v3): cell overvoltage (pack average) -> arrays isolated, charge limited, flagged */
     if (!dropout && plausible && V > FDIR_VBAT_OV_MAX) {
-        __CPROVER_assert(o.solar_reconfig_action == ACT_ISOLATE_ARRAYS, "P10a OV -> S=2");
+        __CPROVER_assert(o.solar_reconfig_action >= ACT_ISOLATE_ARRAYS, "P10a OV -> S>=2 (arrays isolated)");
         __CPROVER_assert(o.battery_limit_action >= ACT_ISOLATE_ARRAYS, "P10b OV -> B>=2");
         __CPROVER_assert(o.fault_flags & (1U << 5), "P10c OV flagged (bit 5)");
     }
@@ -198,6 +203,78 @@ int main(void)
             __CPROVER_assert(th == tl, "P11g three valid sensors -> single median value");
         }
     }
+
+    /* P12 / P13 (v3.2, ISS-059): temperature-band current limits with persistence and hysteresis */
+    {
+        const FdirSgoState st1 = fdir_sgo_v3_state;
+        __CPROVER_assert(st1.chg_on <= 1u && st1.dis_on <= 1u, "P12c/P13c latches stay 0 or 1");
+        __CPROVER_assert(st1.chg_cnt <= FDIR_ILIM_PERSIST && st1.dis_cnt <= FDIR_ILIM_PERSIST, "P12c/P13c persistence counters bounded");
+        __CPROVER_assert(st1.chg_rel <= FDIR_ILIM_RELEASE && st1.dis_rel <= FDIR_ILIM_RELEASE, "P12c/P13c release counters bounded");
+        if (!dropout && plausible) {
+            const float q = FDIR_CELL_CAPACITY_AH * (float)FDIR_N_PARALLEL;
+            const float a = tl - FDIR_ILIM_T_MARGIN, b = T + FDIR_ILIM_T_MARGIN;
+            const float thr_c = ((1.0f - FDIR_ILIM_MEAS_MARGIN) * fdir_ilim_charge_c(a, b)) * q;
+            const float thr_d = ((1.0f - FDIR_ILIM_MEAS_MARGIN) * fdir_ilim_discharge_c(a, b)) * q;
+            if (st0.chg_cnt + 1u >= FDIR_ILIM_PERSIST && -I > thr_c) {
+                __CPROVER_assert(st1.chg_on == 1u && o.battery_limit_action >= ACT_ISOLATE_ARRAYS && (o.fault_flags & (1U << 7)),
+                                 "P12a persistent charge over the band limit -> B>=2, bit 7");
+            }
+            if (st0.chg_on == 1u && st0.chg_rel + 1u < FDIR_ILIM_RELEASE) {
+                __CPROVER_assert(st1.chg_on == 1u && o.battery_limit_action >= ACT_ISOLATE_ARRAYS, "P12b charge limit held until the release time");
+            }
+            if (st0.chg_on == 0u && st0.chg_cnt + 1u < FDIR_ILIM_PERSIST) {
+                __CPROVER_assert(st1.chg_on == 0u, "P12e no charge limit without persistence");
+            }
+            if (st0.dis_cnt + 1u >= FDIR_ILIM_PERSIST && I > thr_d) {
+                __CPROVER_assert(st1.dis_on == 1u && o.load_shed_action >= ACT_SHED_PRIMARY && (o.fault_flags & (1U << 7)),
+                                 "P13a persistent discharge over the band limit -> L>=2, bit 7");
+            }
+            if (st0.dis_on == 1u && st0.dis_rel + 1u < FDIR_ILIM_RELEASE) {
+                __CPROVER_assert(st1.dis_on == 1u && o.load_shed_action >= ACT_SHED_PRIMARY, "P13b discharge limit held until the release time");
+            }
+            if (st0.dis_on == 0u && st0.dis_cnt + 1u < FDIR_ILIM_PERSIST) {
+                __CPROVER_assert(st1.dis_on == 0u, "P13e no discharge limit without persistence");
+            }
+        }
+    }
+    /* P12d / P13d: the band limit is never above the datasheet table at any temperature of the
+     * margin interval (independent point-wise reading of the same config table) */
+    {
+        static const float ce[FDIR_CHG_BAND_N + 1] = FDIR_CHG_BAND_EDGES;
+        static const float cc[FDIR_CHG_BAND_N] = FDIR_CHG_BAND_C;
+        static const float de[FDIR_DIS_BAND_N > 1 ? FDIR_DIS_BAND_N - 1 : 1] = FDIR_DIS_BAND_EDGES;
+        static const float dc[FDIR_DIS_BAND_N] = FDIR_DIS_BAND_C;
+        const float a = nondet_float(), b = nondet_float(), x = nondet_float();
+        __CPROVER_assume(a >= -100.0f && b <= 200.0f && a <= x && x <= b);
+        float ref_c = 0.0f, ref_d = dc[0];
+        int k;
+        for (k = 0; k < FDIR_CHG_BAND_N; k++) {
+            if (x >= ce[k] && (x < ce[k + 1] || (k == FDIR_CHG_BAND_N - 1 && x <= ce[k + 1]))) { ref_c = cc[k]; }
+        }
+        for (k = 0; k + 1 < FDIR_DIS_BAND_N; k++) {
+            if (x >= de[k]) { ref_d = dc[k + 1]; }
+        }
+        __CPROVER_assert(fdir_ilim_charge_c(a, b) <= ref_c, "P12d charge band limit <= datasheet at every temperature in the interval");
+        __CPROVER_assert(fdir_ilim_discharge_c(a, b) <= ref_d, "P13d discharge band limit <= datasheet at every temperature in the interval");
+    }
+#ifdef FDIR_PROOF_HOOKS
+    /* P14 monotone composition: invariants 5-7 only raise actions, and the result is the
+     * component-wise maximum of the output after invariants 1-4 and each later requirement */
+    if (!dropout && plausible) {
+        const FDIRResult bs = fdir_sgo_v3_base;
+        const FdirSgoState st1 = fdir_sgo_v3_state;
+        const int ov = V > FDIR_VBAT_OV_MAX;
+        const unsigned rs = ov ? 2u : 0u;
+        const unsigned rb = (ov || st1.charge_inhibit || st1.chg_on) ? 2u : 0u;
+        const unsigned rl = st1.dis_on ? 2u : 0u;
+        __CPROVER_assert(o.solar_reconfig_action >= bs.solar_reconfig_action && o.battery_limit_action >= bs.battery_limit_action &&
+                         o.load_shed_action >= bs.load_shed_action, "P14a invariants 5-7 never lower an action");
+        __CPROVER_assert(o.solar_reconfig_action == (bs.solar_reconfig_action > rs ? bs.solar_reconfig_action : rs) &&
+                         o.battery_limit_action == (bs.battery_limit_action > rb ? bs.battery_limit_action : rb) &&
+                         o.load_shed_action == (bs.load_shed_action > rl ? bs.load_shed_action : rl),
+                         "P14b result = component-wise max of base and invariant 5-7 requirements");
+    }
+#endif
 #endif
 
     /* P7: a non-finite sensor reading must never pass silently */

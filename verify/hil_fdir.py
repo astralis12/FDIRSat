@@ -27,7 +27,7 @@ for p in ("sim", "train", "codegen", "verify"):
     sys.path.insert(0, str(ROOT / p))
 from hil_ekf import Dut  # noqa: E402
 from dagger_adversary import BOX, THRESH  # noqa: E402
-from fdir_torch import temp_vote3, sgo_v2  # noqa: E402
+from fdir_torch import SgoState, temp_vote3, sgo_v2  # noqa: E402
 from features import Features  # noqa: E402
 
 TOL_SOC = 1e-4
@@ -112,8 +112,8 @@ def main() -> None:
     xt = torch.from_numpy(xin)
     tree_out = torch.from_numpy(clf.predict(xin).astype(np.int64))
     # SGO v3 is stateful (charge-temperature latch, ISS-050): replay step by step; 'I' reset it
-    latch = torch.zeros(1, dtype=torch.bool)
-    rows = [sgo_v2(tree_out[k:k + 1], xt[k:k + 1, 0], xt[k:k + 1, 1], xt[k:k + 1, 2], xt[k:k + 1, 3], ct_latch=latch)
+    st = SgoState(1, "cpu")
+    rows = [sgo_v2(tree_out[k:k + 1], xt[k:k + 1, 0], xt[k:k + 1, 1], xt[k:k + 1, 2], xt[k:k + 1, 3], state=st)
             for k in range(len(xt))]
     act = torch.cat([r[0] for r in rows]); flags = torch.cat([r[1] for r in rows])
     act_mis = int(((act.numpy() != out[:, 2:5]).any(1)).sum())
@@ -143,10 +143,10 @@ def main() -> None:
     th, tl, single = temp_vote3(torch.from_numpy(tb))
     xb_ = torch.from_numpy(base.copy()); xb_[:, 2] = th
     tout = torch.from_numpy(clf.predict(xb_.numpy()).astype(np.int64))
-    latch = torch.zeros(1, dtype=torch.bool); ra, rf, rl = [], [], []
+    st = SgoState(1, "cpu"); ra, rf, rl = [], [], []
     for k in range(nv):
-        aa, ff = sgo_v2(tout[k:k + 1], xb_[k:k + 1, 0], xb_[k:k + 1, 1], xb_[k:k + 1, 2], xb_[k:k + 1, 3], ct_latch=latch, t_lo=tl[k:k + 1])
-        ra.append(aa[0].numpy()); rf.append(int(ff[0]) | (16 if bool(single[k]) else 0)); rl.append(int(latch[0]))
+        aa, ff = sgo_v2(tout[k:k + 1], xb_[k:k + 1, 0], xb_[k:k + 1, 1], xb_[k:k + 1, 2], xb_[k:k + 1, 3], state=st, t_lo=tl[k:k + 1])
+        ra.append(aa[0].numpy()); rf.append(int(ff[0]) | (16 if bool(single[k]) else 0)); rl.append(int(st.ct[0]))
     v_act = int((np.asarray(ra) != vo[:, :3]).any(1).sum()); v_flag = int((np.asarray(rf) != vo[:, 3]).sum())
     v_lat = int((np.asarray(rl) != vlat).sum())
     bad = np.flatnonzero((np.asarray(ra) != vo[:, :3]).any(1) | (np.asarray(rf) != vo[:, 3]))

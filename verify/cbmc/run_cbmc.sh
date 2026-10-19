@@ -35,8 +35,8 @@ for VER in v1 v2 v3 v3bench; do
     DEFS=()
     [[ "$MODE" == contract ]] && DEFS+=(-DTREE_CONTRACT)
     [[ "$VER"  == v2 ]]       && DEFS+=(-DSGO_V2)
-    [[ "$VER"  == v3 ]]       && DEFS+=(-DSGO_V3)
-    [[ "$VER"  == v3bench ]]  && DEFS+=(-DSGO_V3 -DFDIR_CONFIG_BENCH)
+    [[ "$VER"  == v3 ]]       && DEFS+=(-DSGO_V3 -DFDIR_PROOF_HOOKS)
+    [[ "$VER"  == v3bench ]]  && DEFS+=(-DSGO_V3 -DFDIR_PROOF_HOOKS -DFDIR_CONFIG_BENCH)
     TAG="${VER}_${MODE}"
     cbmc "$H" "${SRC[$VER]}" -I "$INC" "${DEFS[@]}" "${COMMON[@]}" \
          > "$LOG/$TAG.log" 2>&1 || true

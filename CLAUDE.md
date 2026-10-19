@@ -18,8 +18,10 @@ real 8S1P pack, and quantified as residual risk per orbit. NASA SBIR fit: INSITU
 - Two build configs, one code base (ADR-0020): `fdir_config_ref.h` (sim, residual risk; unchanged) and
   `fdir_config_bench.h` (`-DFDIR_CONFIG_BENCH`, `pio run -e bench`). Same source, tree and proofs;
   `run_cbmc.sh` proves SGO v3 for both, record both hashes. Per-cell V and T thresholds are shared
-- SGO v3 = ADR-0018 (overvoltage, bit 5) + ADR-0020 (charge window 0..45 °C, release 2/42 °C, bit 6,
-  median-of-3 battery temperature). The SGO is stateful (one latch byte)
+- SGO v3.2 = ADR-0018 (overvoltage, bit 5) + ADR-0020 (charge window 0..45 °C, release 2/42 °C, bit 6,
+  median-of-3 temperature) + ADR-0024 (temperature-band current limits, bit 7; margins 5 % / ±1 °C,
+  persistence 5 s, release 60 s). Stateful (`FdirSgoState`, 7 B, inside the CRC guard ADR-0021).
+  Nested envelopes: charger setpoint < SGO threshold < datasheet limit (docs/cell_limits_trace.md)
 - Per-unit inputs (V per cell, C-rate, T, SoC, I_SA per-unit, U_bus per-unit); tree size is not a constraint
 - Defender: supervised CE with FMECA severity weights. Adversary: stress tester (not robustness training)
 - Distillation: closed-loop severity-weighted DAgger, behaviour cloning kept as ablation
@@ -75,10 +77,10 @@ real 8S1P pack, and quantified as residual risk per orbit. NASA SBIR fit: INSITU
   docs/owner_inputs_2026-10-18.md).
 
 ## Current next step
-Read `HANDOFF.md` first (status per item and commands). As of 18 Oct 2026: SGO v3.1 (ADR-0018 + ADR-0020),
-9-input tree (seed 6) flashed and bit-exact on the DUT, ref/bench configs. Next: compare_methods,
-residual_risk (tree9 + v3), fault-injection campaign and timing sweep on the final firmware, residual-risk band,
-report rebuild. Hardware: INA226 0.01 Ω shunt, 3× DS18B20, load, then measure Q and run C1–C5 as true HIL.
+Read `HANDOFF.md` first. As of 19 Oct 2026: SGO v3.2 code, CBMC P12-P14 (quick runs pass, both configs) and
+the on-target twin check are done; the retrain, full re-proof, PIL, fault injection and evaluation run with
+`bash train/pipeline_v32.sh` (RUNBOOK §6). Old coverage/risk results are superseded (`results/SUPERSEDED.md`).
+Hardware: INA226 0.01 Ω shunt, 3× DS18B20, load, then measure Q and run C1–C6 as true HIL.
 Environment: `.venv` (Python 3.11, torch cu130, RTX 3080); toolchain Docker image `fdir-toolchain:24.04`;
 DUT = Black Pill STM32F411CEU6 on ST-Link + COM5 (USART1 PA9/PA10, 460800 baud).
-Any change to firmware C, `fdir_config*.h` or generated tables/tree → `run_cbmc.sh` (~90 min) + bit-exact tests.
+Any change to firmware C, `fdir_config*.h` or generated tables/tree → `run_cbmc.sh` (~2-3 h) + bit-exact tests.

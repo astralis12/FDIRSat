@@ -109,3 +109,43 @@ python sim/ekf_sigma_cv.py           # ISS-025: EKF noise/sigma by leave-one-see
 6. Run cases C1 → C2 → C3, ≥ 5 repeats each: `python hil/run_case.py --case all --repeat 5` **[ready as processor-in-the-loop]**:
    the plant runs on the laptop, the DUT closes the loop (results/hil_cases.json). With the pack and DAQ the same cases become HIL.
 7. Report: `python report/build_report.py` → `report/fdirsat_results.html` (every number read from results/).
+
+## 6. SGO v3.2 batch (ADR-0024) **[ready to run]**
+
+Code, proofs (quick runs) and pipeline are in place; nothing below has been run on the final tree yet.
+Run it in one go (about 12-16 h; keep the laptop awake, on power, DUT on COM5 + ST-Link):
+
+```bash
+bash train/pipeline_v32.sh                    # all steps S0..S14, resumable
+bash train/pipeline_v32.sh --from S7          # resume from a step
+bash train/pipeline_v32.sh --only "S9 S10"    # run selected steps
+cat results/pipeline_v32/status.txt           # progress and gates
+```
+
+| Step | What | Time | Output | Gate / what to check | If it fails |
+|---|---|---|---|---|---|
+| S0 | Archive v3.1 results + checkpoints | 1 s | `results/superseded/v3.1/`, `results/SUPERSEDED.md` | files moved | – |
+| S1 | Training data, derated plant | ~25 min | `data/defender_v32/` | fault share ≈ 0.9 in the log | check `sim/env_v2.py` smoke |
+| S2 | 10 defenders | ~2 h | `results/defender/s*.json` | all converge | rerun the seed (step is resumable) |
+| S3 | 10 sw-DAgger seeds, SGO v3.2 in the loop | ~6-7 h | `results/dagger/sw_dagger_s*.json` | – | rerun the seed |
+| S4 | Ablations: plain DAgger, BC, 3 seeds each | ~4 h | `results/dagger/{dagger,bc}_s*.json` | – | rerun the seed |
+| S5 | Summaries, deploy seed | 1 min | `results/{defender,dagger}_summary.json` | **fidelity CI ≤ 1.5 pp** | more seeds, or report the wider CI |
+| S6 | Tree → C, bit-exact | 5 min | `firmware/src/fdir_tree.c`, `results/tree_bitexact.json` | **0 mismatches** | ISS entry; do not hand-edit the C |
+| S7 | Full CBMC re-proof (ref + bench) | 2-3 h | `verify/cbmc/logs/*`, `hashes.txt` | **exit 0** (v1 fails by design) | file the counterexample as an ISS, fix, rerun S7 |
+| S8 | Flash + on-target check | 10 min | `results/hil_fdir.json` | **0 mismatches** (tree, chain, vote + invariant 7) | the C and torch twins differ: compare `mismatch_examples` |
+| S9 | PIL C1, C2, C3, C5, C6 | ~1.5 h | `results/hil_cases.json` (`*_v32`) | PIL = SIL agreement 1.0; C6a: flag 0x80 and `oe_time` ≈ 0 after the trip; C6b: no 0x80 | inspect the row; ISS |
+| S10 | 3000 + 400 SEU injections | ~2.3 h | `results/fault_injection.json` | **0 SDC in 3000** | new SDC region → mitigation ADR |
+| S11-S12 | Timing sweep, restore ref build | 10 min | `results/timing_sweep.json` | step time at 16 / 100 MHz | – |
+| S13 | Evaluation: methods, residual risk, ESA-ADB, band, thresholds, SEU | ~1.5 h | `results/compare_methods.json`, `residual_risk.json`, `residual_risk_band.json`, `esa_adb_metrics.json`, `threshold_table.json` | see below | – |
+| S14 | Report | 1 min | `report/fdirsat_results.html` | rewrite the `analysis()` prose first | – |
+
+What to do with the outputs (S13), in this order:
+1. `compare_methods.json`: deployed vs tree6 / M1 / M2 / M6 / N-of-M / expert / none per orbit. New field
+   `out_of_envelope_time_mean`. Expect deployed and expert near 0 (derated charger), `none` higher. If
+   `false_action_rate_mean` rises against v3.1 (0.050 on o2_sso_1030, superseded file), check bit 0x80 share:
+   invariant 7 must not act with a working charger (ISS-060).
+2. `residual_risk.json` (sgo v3.2): coverage per FMECA mode, `out_of_envelope_time_*`. Compare with the
+   superseded `results/superseded/v3.1/residual_risk.json` only to describe the change, never as a result.
+3. `residual_risk_band.json`: per-orbit band with SPENVIS D_high; check `kendall_tau_vs_nominal` and the top-3.
+4. Update `docs/ISSUES.md` (ISS-059/060/061 close-out with the numbers), `HANDOFF.md`, CLAUDE.md "Current
+   next step", the plan doc section in CLAUDE.md, then commit and push.

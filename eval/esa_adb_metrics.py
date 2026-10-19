@@ -32,7 +32,7 @@ for p in ("sim", "train"):
 import xjtu_sps as X  # noqa: E402
 from env_v2 import BatchedEKF, Tables  # noqa: E402
 from features import Features  # noqa: E402
-from fdir_torch import GpuTree, sgo_v2  # noqa: E402
+from fdir_torch import GpuTree, SgoState, sgo_v2  # noqa: E402
 
 MERGE_S = 60
 T_FIXED = 25.0
@@ -137,7 +137,13 @@ def main() -> None:
         x = np.stack([pu["v_cell"].values, pu["c_rate"].values, t_in, soc, pu["i_sa_pu"].values, pu["u_bus_pu"].values], 1)
         x = np.concatenate([x, history(x, ad["segment"].values)], 1)
         xt = torch.from_numpy(x.astype(np.float32)).to(dev)
-        act, flags = sgo_v2(tree(xt), xt[:, 0], xt[:, 1], xt[:, 2], xt[:, 3])
+        ta = tree(xt)                                     # SGO v3.2 is stateful: replay in time order
+        st = SgoState(1, dev)
+        acts, fls = [], []
+        for k in range(len(xt)):
+            a_k, f_k = sgo_v2(ta[k:k + 1], xt[k:k + 1, 0], xt[k:k + 1, 1], xt[k:k + 1, 2], xt[k:k + 1, 3], state=st)
+            acts.append(a_k); fls.append(f_k)
+        act, flags = torch.cat(acts), torch.cat(fls)
         alarm = ((act > 0).any(1) | (flags > 0)).cpu().numpy()
         res["variants"][name] = score(alarm, ad)
         print(name, {k: v for k, v in res["variants"][name].items() if k != "recall_per_fault_class"})

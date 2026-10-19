@@ -2,6 +2,51 @@
   "_source": "SPENVIS 4.6 long-term SEU (spenvis_nuopl.html), saved by the owner 18 Oct 2026; 1-year missions from 2027-01-01",
   "mission_days": 365.25,
   "runs": {
+    "run0b_geo_check_L0_0p5": {
+      "spenvis_version": "4.6.14.3582",
+      "run_time": "18-Oct-2026 18:10:16",
+      "models": [
+        "AP-8 MIN",
+        "ESP-PSYCHIC total fluence",
+        "ISO 15390"
+      ],
+      "shielding": "0.25 cm",
+      "L0_echo": [
+        1.0,
+        0.5,
+        0.5
+      ],
+      "devices": {
+        "D_low": {
+          "direct_per_bit_mission": 6.3867e-06,
+          "proton_per_bit_mission": 1.2828e-06,
+          "total_per_bit_mission": 7.6696e-06,
+          "direct_per_bit_day": 1.748583162217659e-08,
+          "proton_per_bit_day": 3.5121149897330596e-09,
+          "total_per_bit_day": 2.0998220396988366e-08
+        },
+        "D_mid": {
+          "direct_per_bit_mission": 7.1207e-05,
+          "proton_per_bit_mission": 3.8485e-06,
+          "total_per_bit_mission": 7.5055e-05,
+          "direct_per_bit_day": 1.9495414099931554e-07,
+          "proton_per_bit_day": 1.053661875427789e-08,
+          "total_per_bit_day": 2.054893908281999e-07
+        },
+        "D_high": {
+          "direct_per_bit_mission": 0.00040442,
+          "proton_per_bit_mission": 1.2828e-05,
+          "total_per_bit_mission": 0.00041725,
+          "direct_per_bit_day": 1.1072416153319643e-06,
+          "proton_per_bit_day": 3.5121149897330596e-08,
+          "total_per_bit_day": 1.1423682409308691e-06
+        }
+      },
+      "run_id": "run0b_geo_check_L0_0p5",
+      "orbit": "geo",
+      "shielding_mm_al": 2.5,
+      "file": "data/spenvis/html/Long-term Single Event Upset Rates (GEO_L0_0p5).html"
+    },
     "run0_geo_check": {
       "spenvis_version": "4.6.14.3582",
       "run_time": "18-Oct-2026 07:12:18",
@@ -273,6 +318,12 @@
       "file": "data/spenvis/html/Long-term Single Event Upset Rates (4mm).html"
     }
   },
+  "l0_sensitivity_geo_D_mid": {
+    "L0_0.5_total_per_bit_day": 2.054893908281999e-07,
+    "L0_1.0_total_per_bit_day": 1.4184804928131418e-07,
+    "ratio_0.5_over_1.0": 1.4486585601235284,
+    "note": "orbit runs 1-5 still have D_mid at L0 = 1.0 (rerun pending); D_high (main) used L0 = 0.5 throughout"
+  },
   "geo_check": {
     "reference": {
       "direct": 1.66e-07,
@@ -280,7 +331,7 @@
       "source": "Roche, P. (2009) SEE and TID Radiation Test Results on ST Circuits in 65nm CMOS Technologies, ESTEC 18799/04/NL/AG"
     },
     "D_mid_over_reference": {
-      "direct": 0.7910244674797753,
+      "direct": 1.174422536140455,
       "proton": 0.4115866700889801
     },
     "pass": true,

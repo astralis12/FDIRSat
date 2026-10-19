@@ -14,14 +14,15 @@
 #include <stdint.h>
 #include "soc_ekf.h"
 #include "fdir_features.h"
+#include "fdir_sgo_v3.h"
 
 #define FDIR_GUARD_ST_REPAIRED   0x20U   /* status bit: state CRC mismatch, state rebuilt */
 
 typedef struct {
     SocEkf       ekf;
     FdirFeatures feat;
-    uint8_t      latch;      /* SGO v3 charge-temperature latch of this spacecraft */
-    uint16_t     crc;        /* CRC-16/CCITT-FALSE over ekf, feat and latch      */
+    FdirSgoState sgo;        /* SGO v3 latches and counters of this spacecraft (7 B) */
+    uint16_t     crc;        /* CRC-16/CCITT-FALSE over ekf, feat and sgo         */
 } FdirGuardedState;
 
 /* CRC-16/CCITT-FALSE (poly 0x1021, init 0xFFFF) over n bytes. */

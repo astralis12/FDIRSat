@@ -91,7 +91,7 @@ int main(void)
 
     /* G2 */
     __CPROVER_assert(fdir_state_check(&s, v) == 0, "G2 sealed state passes the check");
-    __CPROVER_assert(s.ekf.x[0] == soc0 && s.latch == 0U, "G2 check leaves a good state unchanged");
+    __CPROVER_assert(s.ekf.x[0] == soc0 && s.sgo.charge_inhibit == 0U && s.sgo.chg_on == 0U, "G2 check leaves a good state unchanged");
 
     /* G4 */
     const uint16_t bad = nondet_uint16();
@@ -99,7 +99,7 @@ int main(void)
     s.crc = bad;
     __CPROVER_assert(fdir_state_check(&s, v) == 1, "G4 CRC mismatch -> repair");
     __CPROVER_assert(s.ekf.x[0] >= 0.0f && s.ekf.x[0] <= 1.0f, "G4 rebuilt SoC in [0, 1]");
-    __CPROVER_assert(s.latch == 1U, "G4 rebuilt latch inhibits charging");
+    __CPROVER_assert(s.sgo.charge_inhibit == 1U && s.sgo.chg_on == 1U && s.sgo.dis_on == 0U, "G4 rebuilt SGO state inhibits charging");
     __CPROVER_assert(fdir_state_crc(&s) == s.crc, "G4 rebuilt state is sealed");
     __CPROVER_assert(fdir_state_check(&s, v) == 0, "G4 rebuilt state passes the next check");
 #endif

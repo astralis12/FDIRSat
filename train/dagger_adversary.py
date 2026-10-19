@@ -43,7 +43,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "sim"))
 sys.path.insert(0, str(ROOT / "train"))
 from env_v2 import EPSEnv, EnvConfig, N_FAULTS  # noqa: E402
-from fdir_torch import GpuTree, sgo_v2  # noqa: E402
+from fdir_torch import GpuTree, SgoState, sgo_v2  # noqa: E402
 from train_defender import W_SEV, Defender  # noqa: E402
 from graph_rollout import GraphStep  # noqa: E402
 
@@ -103,6 +103,7 @@ def rollout(policy_tree, oracle, beta: float, cfg: EnvConfig, every: int, scen: 
     z = torch.zeros(cfg.n_env, device=env.dev)
     # accumulators live on the env so the graph step advances them in place
     env.acc_hazard = z.bool()
+    env.sgo_st = SgoState(cfg.n_env, env.dev)          # SGO v3.2 state (ADR-0024)
     env.acc_dis, env.acc_wdis, env.acc_w, env.acc_severe = z.clone(), z.clone(), z.clone(), z.clone()
 
     def fn(e):
@@ -110,7 +111,7 @@ def rollout(policy_tree, oracle, beta: float, cfg: EnvConfig, every: int, scen: 
         with torch.no_grad():
             a_or = oracle.act(obs)
         a_tr = policy_tree(obs) if policy_tree is not None else a_or
-        a_dep, _ = sgo_v2(a_tr, obs[:, 0], obs[:, 1], obs[:, 2], obs[:, 3])
+        a_dep, _ = sgo_v2(a_tr, obs[:, 0], obs[:, 1], obs[:, 2], obs[:, 3], state=e.sgo_st)
         use_or = torch.rand(cfg.n_env, generator=g, device=e.dev) < beta
         act = torch.where(use_or[:, None], a_or, a_dep)
         _, _, info = e.step(act)
